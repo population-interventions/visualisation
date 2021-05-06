@@ -1,0 +1,261 @@
+---
+pagination:
+  data: collections.post
+  size: 1
+  alias: post
+permalink: /{{ post.data.slug }}/
+---
+
+{% extends 'base.njk' %}
+
+{% block title %}
+	{{ post.data.title }} | Population Interventions Unit
+{% endblock %}
+
+{% block head %}
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"></script>
+
+	<meta charset="utf-8">
+	<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+	{% if post.data.d3 %}
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+	{% endif %}
+
+	{# <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script> #}
+
+	<script type="text/javascript">
+		function loadCSS(path) { 
+			let file = document.createElement("link");
+			file.setAttribute("rel", "stylesheet");
+			file.setAttribute("type", "text/css");
+			file.setAttribute("href", path);
+			document.head.appendChild(file);
+		}
+
+		var graphs = [];
+	</script>					
+	
+	{% if post.data.hidden %}
+		<meta name="robots" content="noindex">
+		<meta name="googlebot" content="noindex">
+	{% endif %}    
+
+{% endblock %}
+
+{% block breadcrumb %}
+	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+		<a href="/" title="{{ post.data.section }}" itemprop="item">
+			<span itemprop="name">{{ post.data.section }}</span>
+		</a>
+		<meta content="2" itemprop="position" />
+	</li>
+	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+		<a href="/{{ post.data.slug }}" title="{{ post.data.title }}" itemprop="item">
+			<span itemprop="name">{{ post.data.title }}</span>
+		</a>
+		<meta content="3" itemprop="position" />
+	</li>
+{% endblock %}
+
+{% block content %}
+
+	{% if post.data.draft %}
+		<div class="flash flash--warning flash--center">
+			<p>
+				<strong>This page is a draft.</strong> All content is provisional.
+			</p>
+		</div>
+	{% endif %}
+
+	<div class="jumpnav"></div>
+	{# In-page navigation - will only be activated if h2's have IDs #}
+
+	{{ post | get_skip_to_links | safe }}
+
+	<h1 class="aligned-title">{{ post.data.title }}</h1>
+
+	{% if post.data.description %}
+		<section class="lead left">
+			<p>{{ post.data.description | safe }}</p>
+		</section>
+	{% endif %}
+
+
+	{{ post.templateContent | markdown | safe }}
+
+
+	<section class="endmatter">
+		{% if post.data.contributors or post.data.contributorDetails %}
+			<h4>Contributors</h4>
+		{% endif %}
+
+		{% if post.data.contributors %}
+			<p>{{ post.data.contributors | contributor_links | safe }}</p>
+		{% endif %}
+
+		{% if post.data.contributorDetails %}
+			<p>{{ post.data.contributorDetails | markdown | safe }}</p>
+		{% endif %}
+
+		<h4>Contact Details</h4>
+		<p>Please direct media or other enquiries about this research to the <a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions">Population Interventions Unit</a> at the following address.</p>
+		<dl class="PI-contact">
+			<dt>Email</dt>
+			<dd><a href="mailto:population-interventions@unimelb.edu.au">population-interventions@unimelb.edu.au</a></dd>
+		</dl>
+	</section>
+
+	<script type="text/javascript">
+
+		var views = {},
+			tooltipHandlers = {},
+			choices = {};
+
+		function slugify(text) {
+			return text.toString().toLowerCase()
+				.replace(/\s+/g, '-')           // Replace spaces with -
+				.replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+				.replace(/\-\-+/g, '-')         // Replace multiple - with single -
+				.replace(/^-+/, '')             // Trim - from start of text
+				.replace(/-+$/, '');            // Trim - from end of text
+		}
+
+		function render(key, spec) {
+			
+			// Blank out if 'coming soon'.
+			if (spec.uom.hasOwnProperty('coming-soon') & spec.uom['coming-soon']) {
+				spec.data.push({
+					name: "shades",
+					values: [ { "label": "Coming Soon" } ]
+				})
+
+				spec.marks = [
+					{
+						type: "rect",
+						from: { data: "shades" },
+						encode: {
+							enter: {
+								x: { signal: "range('x')[0]" },
+								x2: { signal: "range('x')[1]" },
+								y: { signal: "range('y')[0]" },
+								y2: { signal: "range('y')[1]" },
+								strokeWidth: { value: 0 },
+								fill: { value: '#f2f5f9' }
+							}
+						}
+
+					},
+					{
+						type: "text",
+						from: { data: "shades" },
+						encode: {
+							enter: {
+								x: { signal: "(range('x')[0] + range('x')[1]) / 2" },
+								y: { signal: "(range('y')[0] + range('y')[1]) / 2" },
+								text: { signal: "datum.label" },
+								baseline: { value: "middle" },
+								align: { value: "center" },
+								fill: { value: "#012a58" },
+								fontSize: { value: 20 },
+								fontWeight: { value: 'bold' }
+								
+							}
+						}
+					}
+				]
+			}
+
+			// tooltipHandlers[key] = new vegaTooltip.Handler();
+
+			// views[key] = new vega.View(vega.parse(spec), {
+			// 	tooltip: tooltipHandlers[key].call,
+			// 	renderer: 'svg',  			// renderer (canvas or svg)
+			// 	container: `#graph-container-${key}`,  // parent DOM container
+			// 	hover: true       				// enable hover processing
+			// });
+
+			vegaEmbed(
+				`#graph-container-${key}`,
+				spec,
+				opt = {
+					renderer: 'svg',
+					actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false}
+				}
+			).then(function(result) {
+				views[key] = result.view;
+
+				// // If there is a set of SVG definitions, import them into the svg element of the graph.
+				// let defs = document.querySelector(`#svg-definitions-${key} defs`);
+				// if (defs !== null) {
+				// 	document.querySelector(`#graph-container-${key} div.chart-wrapper > svg`)
+				// 		.appendChild(defs);
+				// }
+
+			}).catch(console.error);
+
+			// vegaTooltip.default(views[key]);
+			
+			// Initialise Choices.js on toggles.
+			// if (spec.hasOwnProperty('uom-toggles')) {
+			// 	for (let toggleGroup of spec['uom-toggles']['toggle-groups']) {
+			// 		for (let toggle of toggleGroup.toggles) {
+			// 			if (toggle.type == 'select') {
+
+			// 				let select = document.querySelector(`#select-${key}-${slugify(toggle.name)}`);
+			// 				select.parentNode.classList.remove('styled-select');
+			// 				select.removeAttribute('data-bound-fancyselect');
+			// 				// console.log();
+			// 				choices[`${key}-${slugify(toggle.name)}`] = new Choices(select, {
+			// 					searchEnabled: false
+			// 				});
+
+			// 			}
+			// 		}
+			// 	}
+			// }
+
+			// views[key].logLevel(vega.Warn);
+
+			// return views[key].runAsync();
+			return views[key];
+
+		}
+
+		for (let key of graphs) {
+		
+			fetch('/posts/{{ post.data.slug }}/graph-' + key + '.json')
+				.then(res => res.json())
+				.then(spec => render(key, spec))
+				.catch(err => console.error(err));
+
+		}
+
+		// Reset select fields on page load.
+		$( document ).ready(function() {
+			$('select').each( function() {
+				$(this).val( $(this).find("option[selected]").val() );
+			});
+		});
+
+
+		document.addEventListener("DOMContentLoaded", function() {
+			renderMathInElement(document.body, {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				]
+			});
+		});
+
+	</script>
+
+	{# TODO - make more responsive: https://bl.ocks.org/donghaoren/023b2246569e8f0615017507b473e55e #}
+
+{% endblock %}

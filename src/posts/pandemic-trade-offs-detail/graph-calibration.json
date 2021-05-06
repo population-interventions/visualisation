@@ -1,0 +1,230 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "autosize": { "signal": "windowSize()[0] <= 1400 ? { type: 'pad', contains: 'padding', resize: true } : { type: 'fit', contains: 'padding', resize: true }"},
+  "background": "white",
+  "padding": 0,
+  "title": {
+    "anchor": "start",
+    "offset": 20,
+    "text": "Effective Reproduction Rate",
+    "subtitle": "The effective reproduction rate observed in the simulations."
+  },
+  "style": "cell",
+  "data": [
+    {
+      "name": "source_0",
+      "url": "/posts/pandemic-trade-offs-detail/data-calibration.csv",
+      "format": {"type": "csv", "delimiter": ","},
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["stage", "R0"],
+          "ops": ["q1", "q3", "median", "min", "max"],
+          "fields": ["R", "R", "R", "R", "R"],
+          "as": [
+            "lower_box_R",
+            "upper_box_R",
+            "mid_box_R",
+            "lower_whisker_R",
+            "upper_whisker_R"
+          ]
+        }
+      ]
+    }
+  ],
+  "signals": [
+   {
+      "name": "width",
+      "init": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]",
+      "on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]" }]
+    },
+    {
+      "name": "height",
+      "init": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]",
+      "on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]" }]
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "rule",
+      "style": ["rule", "boxplot-rule"],
+      "aria": false,
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "stroke": {"value": "black"},
+          "x": {"scale": "x", "field": "stage", "band": { "scale": "offset", "signal": "datum.R0" }},
+          "y": {"scale": "y", "field": "lower_whisker_R"},
+          "y2": {"scale": "y", "field": "lower_box_R"}
+        }
+      }
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "rule",
+      "style": ["rule", "boxplot-rule"],
+      "aria": false,
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "stroke": {"value": "black"},
+          "x": {"scale": "x", "field": "stage", "band": { "scale": "offset", "signal": "datum.R0" }},
+          "y": {"scale": "y", "field": "upper_box_R"},
+          "y2": {"scale": "y", "field": "upper_whisker_R"}
+        }
+      }
+    },
+    {
+      "name": "layer_2_marks",
+      "type": "rect",
+      "style": ["bar", "boxplot-box"],
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "ariaRoleDescription": {"value": "box"},
+          "fill": {"scale": "color", "field": "R0"},
+          "description": {
+            "signal": "\"R: \" + (format(datum[\"lower_box_R\"], \"\")) + \"; upper_box_R: \" + (format(datum[\"upper_box_R\"], \"\")) + \"; stage: \" + (isValid(datum[\"stage\"]) ? datum[\"stage\"] : \"\"+datum[\"stage\"]) + \"; R0: \" + (isValid(datum[\"R0\"]) ? datum[\"R0\"] : \"\"+datum[\"R0\"]) + \"; Max of R: \" + (format(datum[\"upper_whisker_R\"], \"\")) + \"; Q3 of R: \" + (format(datum[\"upper_box_R\"], \"\")) + \"; Median of R: \" + (format(datum[\"mid_box_R\"], \"\")) + \"; Q1 of R: \" + (format(datum[\"lower_box_R\"], \"\")) + \"; Min of R: \" + (format(datum[\"lower_whisker_R\"], \"\"))"
+          },
+          "xc": {"scale": "x", "field": "stage", "band": { "scale": "offset", "signal": "datum.R0" }},
+          "width": {"signal": "bandwidth('x')*0.15"},
+          "y": {"scale": "y", "field": "lower_box_R"},
+          "y2": {"scale": "y", "field": "upper_box_R"}
+        }
+      }
+    },
+    {
+      "name": "layer_3_marks",
+      "type": "rect",
+      "style": ["tick", "boxplot-median"],
+      "aria": false,
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "opacity": {"value": 0.7},
+          "fill": {"value": "white"},
+          "xc": {"scale": "x", "field": "stage", "band": { "scale": "offset", "signal": "datum.R0" }},
+          "yc": {"scale": "y", "field": "mid_box_R"},
+          "width": {"signal": "bandwidth('x')*0.15"},
+          "height": {"value": 1}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "domain": ["None", "1", "1b", "2", "3", "4"],
+      "range": "width",
+      "paddingInner": 0,
+      "paddingOuter": 0
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": [0, 5.5],
+      "range": "height",
+      "zero": true
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": ["2.5", "3.125", "3.75"],
+      "range": {"scheme": "tableau10"}
+    },
+    {
+      "name": "offset",
+      "type": "ordinal",
+      "domain": ["2.5", "3.125", "3.75"],
+      "range": [0.7, 0.5, 0.3]
+    }
+  ],
+  "axes": [
+    {
+      "scale": "y",
+      "orient": "left",
+      "gridScale": "x",
+      "grid": true,
+      "tickCount": {"signal": "ceil(height/40)"},
+      "domain": false,
+      "labels": false,
+      "aria": false,
+      "maxExtent": 0,
+      "minExtent": 0,
+      "ticks": false,
+      "zindex": 0
+    },
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "title": "Stage",
+      "labelAngle": 0,
+      "titleY": 50,
+      "labelBaseline": "top",
+      "zindex": 0
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "title": "Effective Reproduction Rate",
+      "titleX": -50,
+      "labelOverlap": true,
+      "tickCount": {"signal": "ceil(height/40)"},
+      "zindex": 0
+    }
+  ],
+  "legends": [
+    {
+      "title": ["Unmitigated", "Reproduction", "Rate"],
+      "fill": "color",
+      "symbolType": "square"
+    }
+  ],
+  "config": {
+    "mark": {"tooltip": null},
+    "axis": {
+      "labelFont": "Source Sans Pro, sans-serif",
+      "titleFont": "Source Sans Pro, sans-serif",
+      "titleFontSize": 20,
+      "titleColor": "#012a58",
+      "titleFontWeight": 400
+    },
+    "legend": {
+      "labelFont": "Source Sans Pro, sans-serif",
+      "titleFont": "Source Sans Pro, sans-serif",
+      "labelFontSize": 18,
+      "labelColor": "#000000",
+      "titlePadding": 15,
+      "titleFontSize": 20,
+      "titleColor": "#012a58",
+      "symbolSize": 360,
+      "labelSeparation": 10,
+      "labelOffset": 10,
+      "offset": 20,
+      "titleFontWeight": 400,
+      "layout": {"margin": 60}
+    },
+    "style": {
+      "group-title": {
+        "font": "Source Sans Pro, sans-serif",
+        "fontSize": 28,
+        "fontWeight": 700,
+        "dx": 70,
+        "fill": "#012a58"
+      },
+      "group-subtitle": {"dx": 70}
+    },
+    "title": {
+      "subtitleColor": "#000000",
+      "subtitleFont": "Source Sans Pro, sans-serif",
+      "subtitleFontSize": "20",
+      "subtitleFontWeight": "400",
+      "subtitlePadding": 10
+    }
+  },
+  "uom": {}
+}

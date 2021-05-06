@@ -1,0 +1,205 @@
+{
+	"$schema": "https://vega.github.io/schema/vega/v5.json",
+	"autosize": { "signal": "windowSize()[0] <= 1400 ? { type: 'pad', contains: 'padding', resize: true } : { type: 'fit', contains: 'padding', resize: true }"},
+	"background": "#ffffff",
+	"padding": 0,
+	"config": {
+		"axis": {
+			"labelFont": "Source Sans Pro, sans-serif",
+			"titleFont": "Source Sans Pro, sans-serif",
+			"titleFontSize": 20,
+			"titleColor": "#012a58",
+			"titleFontWeight": 400
+		},
+		"legend": {
+			"labelFont": "Source Sans Pro, sans-serif",
+			"titleFont": "Source Sans Pro, sans-serif",
+			"labelFontSize": 18,
+			"labelColor": "#000000",
+			"titlePadding": 15,
+			"titleFontSize": 20,
+			"titleColor": "#012a58",
+			"symbolSize": 360,
+			"labelSeparation": 10,
+			"labelOffset": 10,
+			"offset": 20,
+			"titleFontWeight": 400,
+			"layout": {
+				"margin": 60
+			}
+		},
+		"title": {
+			"font": "Source Sans Pro, sans-serif",
+			"subtitleFont": "Source Sans Pro, sans-serif",
+			"anchor": "start",
+			"color": "#012a58",
+			"fontSize": 28,
+			"fontWeight": 700,
+			"subtitleColor": "#000000",
+			"subtitleFontSize": "20",
+			"subtitleFontWeight": "400",
+			"subtitlePadding": 10,
+			"offset": 20,
+			"dx": 70
+		}
+	},
+
+	"title": {
+		"text": "Vaccination Progress",
+		"subtitle": "Expected % of population vaccinated, by week and vaccine uptake."
+	},
+	"description": "New cases from ABM.",
+
+	"data": [
+		{
+			"name": "main",
+			"values": [
+				{ "day": 0,   "vu": "60%", "pc": 0},
+				{ "day": 0,   "vu": "75%", "pc": 0},
+				{ "day": 0,   "vu": "90%", "pc": 0},
+				{ "day": 91,  "vu": "60%", "pc": 15.912},
+				{ "day": 91,  "vu": "75%", "pc": 19.89},
+				{ "day": 91,  "vu": "90%", "pc": 23.868},
+				{ "day": 182, "vu": "60%", "pc": 31.248},
+				{ "day": 182, "vu": "75%", "pc": 39.06},
+				{ "day": 182, "vu": "90%", "pc": 46.872},
+				{ "day": 273, "vu": "60%", "pc": 46.752},
+				{ "day": 273, "vu": "75%", "pc": 58.44},
+				{ "day": 273, "vu": "90%", "pc": 70.128},
+				{ "day": 364, "vu": "60%", "pc": 60},
+				{ "day": 364, "vu": "75%", "pc": 75},
+				{ "day": 364, "vu": "90%", "pc": 90}
+			]
+		},
+		{
+			"name": "vaccine-phases",
+			"values": [
+				{ "phase": "1a, 1b", "startDay": 0 },
+				{ "phase": "2a", "startDay": 91 },
+				{ "phase": "2b", "startDay": 182 },
+				{ "phase": "3", "startDay": 273 }
+			]
+		}
+	],
+
+	"signals": [
+		{
+			"name": "width",
+			"init": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]",
+			"on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]" }]
+		},
+		{
+			"name": "height",
+			"init": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]",
+			"on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]" }]
+		}
+	],
+
+	"scales": [
+		{
+			"name": "x",
+			"type": "linear",
+			"range": "width",
+			"domain": [0, 52]
+		},
+		{
+			"name": "y",
+			"type": "linear",
+			"range": "height",
+			"domain": [0, 100]
+		},
+		{
+			"name": "colour",
+			"type": "ordinal",
+			"range": {"scheme": "tableau10"},
+			"domain": ["60%","75%","90%"]
+		}
+	],
+
+	"legends": [
+		{
+			"direction": "vertical",
+			"fill": "colour",
+			"title": ["Vaccine", "Uptake"]
+		}
+	],
+
+	"axes": [
+		{
+			"orient": "bottom",
+			"scale": "x",
+			"title": "Weeks since start of simulation",
+			"titleY": 50,
+			"zindex": 100
+		},
+		{
+			"orient": "left",
+			"scale": "y",
+			"title": "Expected % of population vaccinated",
+			"titleX": -50,
+			"zindex": 0,
+			"grid": true
+		}
+	],
+
+	"marks": [
+		{
+			"type": "rule",
+			"from": { "data": "vaccine-phases" },
+			"encode": {
+				"enter": {
+					"x": {"scale": "x", "signal": "datum.startDay / 7"},
+					"x2": {"scale": "x", "signal": "datum.startDay / 7"},
+					"y": {"scale": "y", "value": 0},
+					"y2": {"signal": "range('y')[1]"},
+					"strokeOpacity": {"signal": "datum.startDay > 0 ? 1 : 0"},
+					"strokeWidth": {"value": 1},
+					"stroke": {"value": "#000"}
+				}
+			}
+		},
+		{
+			"type": "text",
+			"from": { "data": "vaccine-phases" },
+			"encode": {
+				"enter": {
+					"x": {"scale": "x", "signal": "datum.startDay / 7"},
+					"y": {"signal": "range('y')[1]"},
+					"text": {"signal": "'Phase ' + datum.phase"},
+					"baseline": {"value": "top"},
+					"dx": {"value": 7.5},
+					"dy": {"value": 7.5},
+					"fill": {"value": "#012a58"},
+					"cursor": {"value": "pointer"}
+				}
+			}
+		},
+		{
+			"type": "group",
+			"from": {
+				"facet": {
+					"name": "series",
+					"data": "main",
+					"groupby": ["vu"]
+				}
+			},
+			"marks": [
+				{
+					"type": "line",
+					"from": {"data": "series"},
+					"zindex": 1,
+					"encode": {
+						"enter": {
+							"x": {"scale": "x", "signal": "datum.day / 7"},
+							"y": {"scale": "y", "field": "pc"},
+							"stroke": {"scale": "colour", "field": "vu"},
+							"strokeWidth": {"value": 2}
+						}
+					}
+				}
+			]
+		}
+	],
+
+	"uom": {}
+}

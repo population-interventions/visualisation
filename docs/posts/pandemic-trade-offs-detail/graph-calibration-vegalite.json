@@ -1,0 +1,112 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+	"width": "container",
+	"height": "container",
+	"padding": 0,
+  
+	"config": {
+		"axis": {
+			"labelFont": "Source Sans Pro, sans-serif",
+			"titleFont": "Source Sans Pro, sans-serif",
+			"titleFontSize": 20,
+			"titleColor": "#012a58",
+			"titleFontWeight": 400
+		},
+		"legend": {
+			"labelFont": "Source Sans Pro, sans-serif",
+			"titleFont": "Source Sans Pro, sans-serif",
+			"labelFontSize": 18,
+			"labelColor": "#000000",
+			"titlePadding": 15,
+			"titleFontSize": 20,
+			"titleColor": "#012a58",
+			"symbolSize": 360,
+			"labelSeparation": 10,
+			"labelOffset": 10,
+			"offset": 20,
+			"titleFontWeight": 400,
+			"layout": {
+				"margin": 60
+			}
+		},
+		"title": {
+			"font": "Source Sans Pro, sans-serif",
+			"subtitleFont": "Source Sans Pro, sans-serif",
+			"anchor": "start",
+			"color": "#012a58",
+			"fontSize": 28,
+			"fontWeight": 700,
+			"subtitleColor": "#000000",
+			"subtitleFontSize": "20",
+			"subtitleFontWeight": "400",
+			"subtitlePadding": 10,
+			"offset": 20,
+			"dx": 70
+		},
+		"mark": {
+			"tooltip": null
+		}
+	},
+
+	"title": {
+		"text": "Effective Reproduction Rate",
+		"subtitle": "The effective reproduction rate observed in the simulations."
+	},
+
+	"data": {
+		"url": "/posts/pandemic-trade-offs-detail/data-calibration.csv"
+	},
+
+	"mark": {
+		"type": "boxplot",
+		"extent": "min-max",
+		"size": 20,
+		"xOffset": -120
+	},
+
+	"encoding": {
+		"x": {
+			"field": "stage",
+			"scale": {
+				"type": "band",
+				"range": "width",
+				"domain": ["None", "1", "1b", "2", "3", "4"]
+			},
+			"axis": {
+				"orient": "bottom",
+				"title": "Stage",
+				"titleY": 50,
+				"labelAngle": 0
+			}
+		},
+		"y": {
+			"field": "R",
+			"type": "quantitative",
+			"scale": {
+				"type": "linear",
+				"domain": [0, 5.5],
+				"range": "height"
+
+			},
+			"axis": {
+				"orient": "left",
+				"title": "Effective Reproduction Rate",
+				"titleX": -50
+			}
+		},
+		"color": {
+			"field": "R0",
+			"scale": {
+				"type": "ordinal",
+				"domain": ["2.5", "3.125", "3.75"],
+				"scheme": "tableau10"
+			},
+			"legend": {
+				"title": ["Unmitigated", "Reproduction", "Rate"]
+			}
+		},
+		"tooltip": null
+	},
+
+"uom": {}
+}

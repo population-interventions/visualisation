@@ -1,0 +1,75 @@
+{% extends 'base.njk' %}
+
+{% block content %}
+
+	<br /><br />
+
+	<p>Data visualisations by the <a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions" target="_blank" rel="noopener noreferrer">Population Interventions Unit</a> at the University of Melbourne, which is led by epidemiologist <a href="https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely" target="_blank" rel="noopener noreferrer">Professor Tony Blakely</a>.</p>
+
+	<br /><br />
+
+	<div class="filtered-listing-wrapper hide">
+		<form class="filtered-listing-select">
+			<fieldset class="left">
+				<legend>Filter by type</legend>
+				<div class="filtered-listing-tag">
+					<input checked="checked" class="checkbox" data-tag="all" id="c0" name="f[degree_type]" type="checkbox" /><label for="c0"><span>All</span></label>
+				</div>
+				{% for type in collections.post | removeHiddenPostsAndPages | groupByType %}
+					<div class="filtered-listing-tag">
+						<input class="checkbox" data-color="{{ type.colour }}" data-tag="type-{{ type.name | slug }}" id="c{{ type.index }}" name="f[course_type]" type="checkbox" /><label for="c{{ type.index }}"><span>{{ type.name }}</span></label>
+					</div>
+				{% endfor %}
+			</fieldset>
+			<fieldset class="right">
+				<label for="f-select2">Filter by section</label>
+				<div>
+					<select class="clear" id="f-select2" name="f[select2]">
+						<option value="-1">All sections</option>
+						{% for section in collections.post | removeHiddenPostsAndPages | groupBySection %}
+							<option value="section-{{ section.name | slug }}">{{ section.name }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+
+
+	{% for section in collections.post | addExternalLinks | removeHiddenPostsAndPages | groupBySection %}
+	
+		<hr class="spacer" />
+		
+		<div class="filtered-listing-section clearfix" data-section="section-{{ section.name | slug }}">
+			<div class="aside">
+				<h2>{{ section.name }}</h2>
+			</div>
+			<div class="bside">
+				<ul class="filtered-listing-grid">
+					{% for post in section.posts %}
+						{% if post.data.slug %}
+							<li class="filtered-listing-item" data-tag="type-{{ post.data.type | slug }}">
+								<a href="/{{ post.data.slug }}">
+									<strong>{{ post.data.title }}</strong>
+									<span class="date">{{ post.data.date_updated | readable_date | safe }}</span>
+									{# {{ post.data.description }} #}
+								</a>
+							</li>
+						{% else %}
+							<li class="filtered-listing-item" data-tag="type-{{ post.data.type | slug }}">
+								<a href="{{ post.data.url }}" target="_blank" rel="noopener noreferrer">
+									<strong>{{ post.data.title }}</strong>
+									<span class="date">{{ post.data.date_updated | readable_date | safe }}</span>
+									{# {{ post.data.description }} #}
+								</a>
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+	{% endfor %}
+
+{% endblock %}

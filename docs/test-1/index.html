@@ -1,0 +1,321 @@
+ <!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+	
+	<title>
+        
+	Test Post 1 | Population Interventions Unit
+
+    </title>
+	
+	<link rel="stylesheet" href="https://dds-gen3.web.unimelb.edu.au/v8.1.6/uom.css">
+	<script src="https://dds-gen3.web.unimelb.edu.au/v8.1.6/uom.js"></script>
+
+	<script
+		src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+		crossorigin="anonymous"></script>
+
+	<!-- Styling -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7QD9R9ZDF"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-T7QD9R9ZDF');
+	</script>
+	
+
+	
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"></script>
+
+	<meta charset="utf-8">
+	<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+	
+
+	
+
+	<script type="text/javascript">
+		function loadCSS(path) { 
+			let file = document.createElement("link");
+			file.setAttribute("rel", "stylesheet");
+			file.setAttribute("type", "text/css");
+			file.setAttribute("href", path);
+			document.head.appendChild(file);
+		}
+
+		var graphs = [];
+	</script>					
+	
+	
+		<meta name="robots" content="noindex">
+		<meta name="googlebot" content="noindex">
+	    
+
+
+
+</head>
+
+<body>
+
+	<div class="uomcontent">
+		<div class="page-inner">
+
+			<ol class="page-local-history" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+				<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<a href="/" title="Population Interventions Unit" itemprop="item">
+						<span itemprop="name">Population Interventions Unit</span>
+					</a>
+					<meta content="1" itemprop="position" />
+				</li>
+				
+	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+		<a href="/" title="Coronavirus" itemprop="item">
+			<span itemprop="name">Coronavirus</span>
+		</a>
+		<meta content="2" itemprop="position" />
+	</li>
+	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+		<a href="/test-1" title="Test Post 1" itemprop="item">
+			<span itemprop="name">Test Post 1</span>
+		</a>
+		<meta content="3" itemprop="position" />
+	</li>
+
+			</ol>
+
+
+			<div role="main">
+
+				<div class="headerless"></div>
+
+				
+
+	
+
+	<div class="jumpnav"></div>
+	
+
+	
+
+	<h1 class="aligned-title">Test Post 1</h1>
+
+	
+		<section class="lead left">
+			<p>This is a description for a test post.</p>
+		</section>
+	
+
+
+	<p>Post content will go here.</p>
+
+
+
+	<section class="endmatter">
+		
+
+		
+
+		
+
+		<h4>Contact Details</h4>
+		<p>Please direct media or other enquiries about this research to the <a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions">Population Interventions Unit</a> at the following address.</p>
+		<dl class="PI-contact">
+			<dt>Email</dt>
+			<dd><a href="mailto:population-interventions@unimelb.edu.au">population-interventions@unimelb.edu.au</a></dd>
+		</dl>
+	</section>
+
+	<script type="text/javascript">
+
+		var views = {},
+			tooltipHandlers = {},
+			choices = {};
+
+		function slugify(text) {
+			return text.toString().toLowerCase()
+				.replace(/\s+/g, '-')           // Replace spaces with -
+				.replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+				.replace(/\-\-+/g, '-')         // Replace multiple - with single -
+				.replace(/^-+/, '')             // Trim - from start of text
+				.replace(/-+$/, '');            // Trim - from end of text
+		}
+
+		function render(key, spec) {
+			
+			// Blank out if 'coming soon'.
+			if (spec.uom.hasOwnProperty('coming-soon') & spec.uom['coming-soon']) {
+				spec.data.push({
+					name: "shades",
+					values: [ { "label": "Coming Soon" } ]
+				})
+
+				spec.marks = [
+					{
+						type: "rect",
+						from: { data: "shades" },
+						encode: {
+							enter: {
+								x: { signal: "range('x')[0]" },
+								x2: { signal: "range('x')[1]" },
+								y: { signal: "range('y')[0]" },
+								y2: { signal: "range('y')[1]" },
+								strokeWidth: { value: 0 },
+								fill: { value: '#f2f5f9' }
+							}
+						}
+
+					},
+					{
+						type: "text",
+						from: { data: "shades" },
+						encode: {
+							enter: {
+								x: { signal: "(range('x')[0] + range('x')[1]) / 2" },
+								y: { signal: "(range('y')[0] + range('y')[1]) / 2" },
+								text: { signal: "datum.label" },
+								baseline: { value: "middle" },
+								align: { value: "center" },
+								fill: { value: "#012a58" },
+								fontSize: { value: 20 },
+								fontWeight: { value: 'bold' }
+								
+							}
+						}
+					}
+				]
+			}
+
+			// tooltipHandlers[key] = new vegaTooltip.Handler();
+
+			// views[key] = new vega.View(vega.parse(spec), {
+			// 	tooltip: tooltipHandlers[key].call,
+			// 	renderer: 'svg',  			// renderer (canvas or svg)
+			// 	container: `#graph-container-${key}`,  // parent DOM container
+			// 	hover: true       				// enable hover processing
+			// });
+
+			vegaEmbed(
+				`#graph-container-${key}`,
+				spec,
+				opt = {
+					renderer: 'svg',
+					actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false}
+				}
+			).then(function(result) {
+				views[key] = result.view;
+
+				// // If there is a set of SVG definitions, import them into the svg element of the graph.
+				// let defs = document.querySelector(`#svg-definitions-${key} defs`);
+				// if (defs !== null) {
+				// 	document.querySelector(`#graph-container-${key} div.chart-wrapper > svg`)
+				// 		.appendChild(defs);
+				// }
+
+			}).catch(console.error);
+
+			// vegaTooltip.default(views[key]);
+			
+			// Initialise Choices.js on toggles.
+			// if (spec.hasOwnProperty('uom-toggles')) {
+			// 	for (let toggleGroup of spec['uom-toggles']['toggle-groups']) {
+			// 		for (let toggle of toggleGroup.toggles) {
+			// 			if (toggle.type == 'select') {
+
+			// 				let select = document.querySelector(`#select-${key}-${slugify(toggle.name)}`);
+			// 				select.parentNode.classList.remove('styled-select');
+			// 				select.removeAttribute('data-bound-fancyselect');
+			// 				// console.log();
+			// 				choices[`${key}-${slugify(toggle.name)}`] = new Choices(select, {
+			// 					searchEnabled: false
+			// 				});
+
+			// 			}
+			// 		}
+			// 	}
+			// }
+
+			// views[key].logLevel(vega.Warn);
+
+			// return views[key].runAsync();
+			return views[key];
+
+		}
+
+		for (let key of graphs) {
+		
+			fetch('/posts/test-1/graph-' + key + '.json')
+				.then(res => res.json())
+				.then(spec => render(key, spec))
+				.catch(err => console.error(err));
+
+		}
+
+		// Reset select fields on page load.
+		$( document ).ready(function() {
+			$('select').each( function() {
+				$(this).val( $(this).find("option[selected]").val() );
+			});
+		});
+
+
+		document.addEventListener("DOMContentLoaded", function() {
+			renderMathInElement(document.body, {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				]
+			});
+		});
+
+	</script>
+
+	
+
+
+			</div>
+
+			<div id="sitemap" role="navigation">
+				<h2>Home</h2>
+				<ul>
+					
+						<li>
+							<a href="/">COVID-19 Pandemic</a>
+							<div class="inner">
+								<ul>
+									
+										<li>
+											<a href="/pandemic-trade-offs">COVID-19 Pandemic Trade-offs</a>
+										</li>
+									
+								</ul>
+							</div>
+						</li>
+					
+					<li>
+						<a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions" target="_blank" rel="noopener noreferrer">About the Population Interventions Unit</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

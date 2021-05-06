@@ -1,0 +1,419 @@
+{
+	"$schema": "https://vega.github.io/schema/vega/v5.json",
+	"autosize": { "signal": "windowSize()[0] <= 1400 ? { type: 'pad', contains: 'padding', resize: true } : { type: 'fit', contains: 'padding', resize: true }"},
+	"background": "#ffffff",
+	"padding": 0,
+	"config": {
+		"axis": {
+			"labelFont": "Source Sans Pro, sans-serif",
+			"titleFont": "Source Sans Pro, sans-serif",
+			"titleFontSize": 20,
+			"titleColor": "#012a58",
+			"titleFontWeight": 400
+		},
+		"legend": {
+			"labelFont": "Source Sans Pro, sans-serif",
+			"titleFont": "Source Sans Pro, sans-serif",
+			"labelFontSize": 18,
+			"labelColor": "#000000",
+			"titlePadding": 15,
+			"titleFontSize": 20,
+			"titleColor": "#012a58",
+			"symbolSize": 360,
+			"labelSeparation": 10,
+			"labelOffset": 10,
+			"offset": 20,
+			"titleFontWeight": 400,
+			"layout": {
+				"margin": 60
+			}
+		},
+		"title": {
+			"font": "Source Sans Pro, sans-serif",
+			"subtitleFont": "Source Sans Pro, sans-serif",
+			"anchor": "start",
+			"color": "#012a58",
+			"fontSize": 28,
+			"fontWeight": 700,
+			"subtitleColor": "#000000",
+			"subtitleFontSize": "20",
+			"subtitleFontWeight": "400",
+			"subtitlePadding": 10,
+			"offset": 20,
+			"dx": 70
+		}
+	},
+
+	"title": {
+		"text": "Simulated COVID-19 infection numbers",
+		"subtitle": "100 runs of the model, coloured by restriction stage."
+	},
+	"description": "New infections from ABM.",
+
+	"data": [
+		{
+			"name": "main",
+			"format": {"type": "csv", "parse": "auto"},
+			"url": { "signal": "DataFileName" },
+			"transform": [
+				{ "type": "extent", "field": "nc", "signal": "Extent" }
+			]
+		},
+		{
+			"name": "vaccine-phases",
+			"values": [
+				{ "phase": "1", "startDay": 0 },
+				{ "phase": "2a", "startDay": 91 },
+				{ "phase": "2b", "startDay": 182 },
+				{ "phase": "3", "startDay": 273 }
+			]
+		}
+	],
+
+	"signals": [
+		{
+			"name": "width",
+			"init": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]",
+			"on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]" }]
+		},
+		{
+			"name": "height",
+			"init": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]",
+			"on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]" }]
+		},
+		{
+			"name": "MaxHeight", "value": 1000,
+			"bind": {
+				"input": "select",
+				"name": "Set maximum height to",
+				"options": ["depend on data", 20, 50, 100, 200, 500, 1000, 2000, 4000, 6500, 12500],
+				"element": "#graph-settings-ABM"
+			}
+		},
+		{
+			"name": "VerticalScale", "value": true,
+			"bind": {
+				"input": "select",
+				"name": "Scale type:",
+				"options": [1, 0.45],
+				"labels": ["Linear", "Non-Linear"],
+				"element": "#graph-settings-ABM"
+			}
+		},
+		{
+			"name": "VerticalScaleBins",
+			"update": "VerticalScale == 0.45 ? [0,1,5,10,25,50,100,250,500,1000,2500,5000] : null"
+		},
+
+
+		{
+			"name": "V1Effectiveness",
+			"update": "75",
+			"on": [
+				{
+					"events": {
+						"source": "#select-ABM-phase-1-vaccine-efficacy",
+						"type": "change"
+					},
+					"update": "toNumber(event.target.value)"
+				}
+			]
+		},
+		{
+			"name": "V2Effectiveness",
+			"update": "75",
+			"on": [
+				{
+					"events": {
+						"source": "#select-ABM-phase-2-and-3-vaccine-efficacy",
+						"type": "change"
+					},
+					"update": "toNumber(event.target.value)"
+				}
+			]
+		},
+		{
+			"name": "VaccineUptake",
+			"update": "75",
+			"on": [
+				{
+					"events": {
+						"source": "#select-ABM-vaccine-uptake",
+						"type": "change"
+					},
+					"update": "toNumber(event.target.value)"
+				}
+			]
+		},
+		{
+			"name": "Strategy",
+			"update": "'LS'",
+			"on": [
+				{
+					"events": {
+						"source": "#select-ABM-strategy",
+						"type": "change"
+					},
+					"update": "event.target.value"
+				}
+			]
+		},
+		{
+			"name": "StrategyRelaxation",
+			"update": "0",
+			"on": [
+				{
+					"events": {
+						"source": "#select-ABM-strategy-relaxation",
+						"type": "change"
+					},
+					"update": "event.target.value"
+				}
+			]
+		},
+		{
+			"name": "R0",
+			"update": "3.125",
+			"on": [
+				{
+					"events": {
+						"source": "#select-ABM-unmitigated-reproduction-rate",
+						"type": "change"
+					},
+					"update": "toNumber(event.target.value)"
+				}
+			]
+		},
+		{
+			"name": "DataFileName",
+			"value": "/posts/pandemic-trade-offs-ABM/data-ABM/LS-0-75-3125-75-75.csv",
+			"update": "'/posts/pandemic-trade-offs-ABM/data-ABM/' + Strategy + '-' + StrategyRelaxation + '-' + VaccineUptake + '-' + replace(toString(R0), '.', '') + '-' + V1Effectiveness + '-' + V2Effectiveness + '.csv'"
+		}
+	],
+
+	"scales": [
+		{
+			"name": "x",
+			"type": "linear",
+			"range": "width",
+			"domain": [0, 52]
+		},
+		{
+			"name": "y",
+			"type": "pow",
+			"range": "height",
+			"domain": { "signal": "MaxHeight === 'depend on data' ? Extent : [0,toNumber(MaxHeight)]" },
+			"exponent": { "signal": "VerticalScale" },
+			"bins": { "signal": "VerticalScaleBins" }
+		},
+		{
+			"name": "colour",
+			"type": "ordinal",
+			"domain": ["1", "1b", "2", "3", "4"],
+			"range": { "scheme": "turbo" },
+			"range": ["#2c7bb6", "#abd9e9", "#ffe669", "#fdae61", "#d7191c"]
+		},
+		{
+			"name": "parameters",
+			"type": "ordinal",
+			"domain": ["Input 1", "Input 2", "Input 3"],
+			"domain": { "signal": "['Vaccine Uptake: ' + VaccineUptake, 'Strategy Relaxation: ' + StrategyRelaxation, 'Strategy: ' + Strategy, 'Vaccine Efficacy (1): ' + V1Effectiveness, 'Vaccine Efficacy (2): ' + V2Effectiveness, 'R_0: ' + R0]"},
+			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
+		}
+	],
+
+	"legends": [
+		{
+			"direction": "vertical",
+			"fill": "colour",
+			"title": "Stages"
+		},
+		{
+			"fill": "parameters",
+			"labelLimit": 200,
+			"title": "Parameters",
+			"titleFontSize": 18,
+			"titlePadding": 10,
+			"symbolSize": 0,
+			"rowPadding": 3,
+			"padding": 15,
+			"fillColor": "#f2f5f9",
+			"cornerRadius": 5,
+			"encode": {
+				"labels": {
+					"enter": {
+						"dx": {"value": -24},
+						"fontSize": {"value": 14},
+						"font": {"value": "monospace"}
+					}
+				}
+			}
+		}
+	],
+
+	"axes": [
+		{
+			"orient": "bottom",
+			"scale": "x",
+			"title": "Weeks since start of simulation",
+			"titleY": 50,
+			"zindex": 100
+		},
+		{
+			"orient": "left",
+			"scale": "y",
+			"title": "New infections each day (7-day average)",
+			"titleX": -50,
+			"zindex": 100
+		}
+	],
+
+	"marks": [
+		{
+			"type": "rule",
+			"from": { "data": "vaccine-phases" },
+			"encode": {
+				"enter": {
+					"x": {"scale": "x", "signal": "datum.startDay / 7"},
+					"x2": {"scale": "x", "signal": "datum.startDay / 7"},
+					"y": {"scale": "y", "value": 0},
+					"y2": {"signal": "range('y')[1]"},
+					"strokeOpacity": {"signal": "datum.startDay > 0 ? .1 : 0"},
+					"strokeWidth": {"value": 1},
+					"stroke": {"value": "#012a58"}
+				}
+			}
+		},
+		{
+			"type": "text",
+			"from": { "data": "vaccine-phases" },
+			"encode": {
+				"enter": {
+					"x": {"scale": "x", "signal": "datum.startDay / 7"},
+					"y": {"signal": "range('y')[1]"},
+					"text": {"signal": "'Phase ' + datum.phase"},
+					"baseline": {"value": "top"},
+					"dx": {"value": 7.5},
+					"fill": {"value": "#012a58"}
+				}
+			}
+		},
+		{
+			"type": "group",
+			"from": {
+				"facet": {
+					"name": "series",
+					"data": "main",
+					"groupby": ["tr", "stg", "id"]
+				}
+			},
+			"marks": [
+				{
+					"type": "line",
+					"from": {"data": "series"},
+					"zindex": 0,
+					"encode": {
+						"enter": {
+							"x": {"scale": "x", "field": "wk"},
+							"y": {"scale": "y", "field": "nc"},
+							"stroke": {"scale": "colour", "field": "stg"},
+							"strokeWidth": {"value": 1},
+							"strokeOpacity": {"value": 0.8},
+							"defined": { "signal": "datum.nc < domain('y')[1]" }
+						},
+						"update": {
+							"y": {"scale": "y", "field": "nc"},
+							"stroke": {"scale": "colour", "field": "stg"},
+							"defined": { "signal": "datum.nc < domain('y')[1]" }
+						}
+					}
+				}
+			]
+		}
+	],
+
+	"uom": {
+		"data-download": {
+			"href": "/posts/pandemic-trade-offs-ABM/data-ABM-full-tidy.zip",
+			"size": "12.8 MB"
+		},
+		"toggle-groups": [
+			{
+				"name": "Government & Public Response",
+				"toggles": [
+					{
+						"name": "Vaccine Uptake",
+						"description": "Percentage of people who accept vaccination when they are offered it.",
+						"detailLink": "/pandemic-trade-offs-detail/#uptake",
+						"type": "select",
+						"options": [
+							{ "value": 60, "label": "60%" },
+							{ "value": 75, "label": "75%", "default": true },
+							{ "value": 90, "label": "90%" }
+						]
+					},
+					{
+						"name": "Strategy Relaxation",
+						"description": "Whether to relax stage triggers as vaccination progresses.",
+						"detailLink": "/pandemic-trade-offs-detail/#strategy-relaxation",
+						"type": "select",
+						"options": [
+							{ "value": 0, "label": "Off", "default": true },
+							{ "value": 1, "label": "On" }
+						]
+					},
+					{
+						"name": "Strategy",
+						"description": "Government strategy for moving between different levels of restrictions.",
+						"detailLink": "/pandemic-trade-offs-detail/#strategies",
+						"type": "select",
+						"options": [
+							{ "value": "LS", "label": "Loose Suppression", "default": true },
+							{ "value": "TS", "label": "Tight Suppression" },
+							{ "value": "ME", "label": "Moderate Elimination" },
+							{ "value": "AE", "label": "Aggressive Elimination" }
+						]
+					}
+				]
+			},
+			{
+				"name": "Infectivity",
+				"toggles": [
+					{
+						"name": "Phase 1 Vaccine Efficacy",
+						"description": "Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.",
+						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
+						"type": "select",
+						"options": [
+							{ "value": 50, "label": "50%" },
+							{ "value": 75, "label": "75%", "default": true },
+							{ "value": 90, "label": "90%" }
+						]
+					},
+					{
+						"name": "Phase 2 & 3 Vaccine Efficacy",
+						"description": "Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.",
+						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
+						"type": "select",
+						"options": [
+							{ "value": 50, "label": "50%" },
+							{ "value": 75, "label": "75%", "default": true },
+							{ "value": 90, "label": "90%" }
+						]
+					},
+					{
+						"name": "Unmitigated Reproduction Rate",
+						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
+						"detailLink": "/pandemic-trade-offs-detail/#reproduction",
+						"type": "select",
+						"options": [
+							{ "value": 2.5 },
+							{ "value": 3.125, "default": true },
+							{ "value": 3.75 }
+						]
+					}
+				]
+			}
+		]
+	}
+}
