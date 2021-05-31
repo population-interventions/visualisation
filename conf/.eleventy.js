@@ -43,8 +43,12 @@ module.exports = function(eleventyConfig) {
 	const fs = require('fs');
 	eleventyConfig.addFilter("get_graph_spec", function(name, slug) {
 
-		let spec = fs.readFileSync(`../src/posts/${slug}/graph-${name}.json`).toString(),
-			uom = JSON.parse(spec)['uom'];
+		let spec = JSON.parse(fs.readFileSync(`../src/posts/${slug}/graph-${name}.json`).toString()),
+			uom = {};
+
+		if (spec.hasOwnProperty('uom')) {
+			uom = spec.uom;
+		}
 
 		return uom;
 

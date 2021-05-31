@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "autosize": { "signal": "windowSize()[0] <= 1400 ? { type: 'pad', contains: 'padding', resize: true } : { type: 'fit', contains: 'padding', resize: true }"},
-  "background": "white",
   "padding": 0,
+  "width": 600,
+  "height": 400,
   "title": {
     "anchor": "start",
     "offset": 20,
@@ -30,18 +30,6 @@
           ]
         }
       ]
-    }
-  ],
-  "signals": [
-   {
-      "name": "width",
-      "init": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]",
-      "on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]" }]
-    },
-    {
-      "name": "height",
-      "init": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]",
-      "on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]" }]
     }
   ],
   "marks": [
@@ -186,28 +174,6 @@
   ],
   "config": {
     "mark": {"tooltip": null},
-    "axis": {
-      "labelFont": "Source Sans Pro, sans-serif",
-      "titleFont": "Source Sans Pro, sans-serif",
-      "titleFontSize": 20,
-      "titleColor": "#012a58",
-      "titleFontWeight": 400
-    },
-    "legend": {
-      "labelFont": "Source Sans Pro, sans-serif",
-      "titleFont": "Source Sans Pro, sans-serif",
-      "labelFontSize": 18,
-      "labelColor": "#000000",
-      "titlePadding": 15,
-      "titleFontSize": 20,
-      "titleColor": "#012a58",
-      "symbolSize": 360,
-      "labelSeparation": 10,
-      "labelOffset": 10,
-      "offset": 20,
-      "titleFontWeight": 400,
-      "layout": {"margin": 60}
-    },
     "style": {
       "group-title": {
         "font": "Source Sans Pro, sans-serif",
@@ -217,14 +183,9 @@
         "fill": "#012a58"
       },
       "group-subtitle": {"dx": 70}
-    },
-    "title": {
-      "subtitleColor": "#000000",
-      "subtitleFont": "Source Sans Pro, sans-serif",
-      "subtitleFontSize": "20",
-      "subtitleFontWeight": "400",
-      "subtitlePadding": 10
     }
   },
-  "uom": {}
+  "uom": {
+    "minWidth": 700
+  }
 }

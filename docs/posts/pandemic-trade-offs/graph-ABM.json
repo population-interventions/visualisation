@@ -1,54 +1,13 @@
 {
 	"$schema": "https://vega.github.io/schema/vega/v5.json",
-	"autosize": { "signal": "windowSize()[0] <= 1400 ? { type: 'pad', contains: 'padding', resize: true } : { type: 'fit', contains: 'padding', resize: true }"},
 	"padding": 0,
-	"background": "#ffffff",
-	"config": {
-		"axis": {
-			"labelFont": "Source Sans Pro, sans-serif",
-			"titleFont": "Source Sans Pro, sans-serif",
-			"titleFontSize": 20,
-			"titleColor": "#012a58",
-			"titleFontWeight": 400
-		},
-		"legend": {
-			"labelFont": "Source Sans Pro, sans-serif",
-			"titleFont": "Source Sans Pro, sans-serif",
-			"labelFontSize": 18,
-			"labelColor": "#000000",
-			"titlePadding": 15,
-			"titleFontSize": 20,
-			"titleColor": "#012a58",
-			"symbolSize": 360,
-			"labelSeparation": 10,
-			"labelOffset": 10,
-			"offset": 20,
-			"titleFontWeight": 400,
-			"layout": {
-				"margin": 60
-			}
-		},
-		"title": {
-			"font": "Source Sans Pro, sans-serif",
-			"subtitleFont": "Source Sans Pro, sans-serif",
-			"anchor": "start",
-			"color": "#012a58",
-			"fontSize": 28,
-			"fontWeight": 700,
-			"subtitleColor": "#000000",
-			"subtitleFontSize": "20",
-			"subtitleFontWeight": "400",
-			"subtitlePadding": 10,
-			"offset": 20,
-			"dx": 70
-		}
-	},
+	"width": 600,
+	"height": 400,
 
 	"title": {
 		"text": "Simulated COVID-19 infection numbers",
 		"subtitle": "Median daily new infections and 90% uncertainty interval, by strategy."
 	},
-	"description": "New infection from ABM.",
 
 	"data": [
 		{
@@ -120,16 +79,6 @@
 	],
 
 	"signals": [
-		{
-			"name": "width",
-			"init": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]",
-			"on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]" }]
-		},
-		{
-			"name": "height",
-			"init": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]",
-			"on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]" }]
-		},
 		{
 			"name": "clicked", "value": null,
 			"on": [
@@ -352,7 +301,7 @@
 			"type": "rule",
 			"from": { "data": "vaccine-phases" },
 			"encode": {
-				"enter": {
+				"update": {
 					"x": {"scale": "x", "signal": "datum.startDay / 7"},
 					"x2": {"scale": "x", "signal": "datum.startDay / 7"},
 					"y": {"scale": "y", "value": 0},
@@ -378,17 +327,13 @@
 					"from": {"data": "series"},
 					"zindex": 0,
 					"encode": {
-						"enter": {
+						"update": {
 							"x": {"scale": "x", "field": "wk"},
 							"y": {"scale": "y", "field": "nq5"},
 							"y2": {"scale": "y", "field": "nq95"},
 							"fill": {"scale": "colour", "field": "str"},
 							"fillOpacity": {"value": 0.2},
 							"strokeWidth": {"value": 0}
-						},
-						"update": {
-							"y": {"scale": "y", "field": "nq5"},
-							"y2": {"scale": "y", "field": "nq95"}
 						}
 					}
 				},
@@ -397,15 +342,11 @@
 					"from": {"data": "series"},
 					"zindex": 1,
 					"encode": {
-						"enter": {
+						"update": {
 							"x": {"scale": "x", "field": "wk"},
 							"y": {"scale": "y", "field": "q50"},
 							"stroke": {"scale": "colour", "field": "str"},
 							"strokeWidth": {"value": 2},
-							"defined": { "signal": "datum.q50 < domain('y')[1]" }
-						},
-						"update": {
-							"y": {"scale": "y", "field": "q50"},
 							"defined": { "signal": "datum.q50 < domain('y')[1]" }
 						}
 					}
@@ -416,17 +357,13 @@
 			"type": "rect",
 			"from": { "data": "mainByWeek" },
 			"encode": {
-				"enter": {
+				"update": {
 					"x": {"scale": "x", "signal": "datum.wk - 0.5"},
 					"x2": {"scale": "x", "signal": "datum.wk + 0.5"},
 					"y": {"scale": "y", "value": 0},
 					"y2": {"signal": "range('y')[1]"},
 					"strokeWidth": {"value": 0},
 					"fill": {"value": "#999999"},
-					"fillOpacity": {"value": 0},
-					"tooltip": { "signal": "{ 'title': 'Week ' + datum.wk, 'Aggressive Elimination': datum['Aggressive Elimination'], 'Moderate Elimination': datum['Moderate Elimination'], 'Tight Suppression': datum['Tight Suppression'], 'Loose Suppression': datum['Loose Suppression']}"}
-				},
-				"update": {
 					"fillOpacity": {"value": 0},
 					"tooltip": { "signal": "{ 'title': 'Week ' + datum.wk, 'Aggressive Elimination': datum['Aggressive Elimination'], 'Moderate Elimination': datum['Moderate Elimination'], 'Tight Suppression': datum['Tight Suppression'], 'Loose Suppression': datum['Loose Suppression']}"}
 				},
@@ -439,7 +376,7 @@
 			"type": "text",
 			"from": { "data": "vaccine-phases" },
 			"encode": {
-				"enter": {
+				"update": {
 					"x": {"scale": "x", "signal": "datum.startDay / 7"},
 					"y": {"signal": "range('y')[1]"},
 					"text": {"signal": "'Phase ' + datum.phase + (datum.phase === '1a, 1b' ? ' (?)' : '')"},
@@ -455,14 +392,12 @@
 			"type": "rule",
 			"from": { "data": "annotations" },
 			"encode": {
-				"enter": {
+				"update": {
 					"x": {"scale": "x", "field": "x"},
 					"y": {"scale": "y", "field": "y"},
 					"x2": {"scale": "x", "field": "x2"},
 					"y2": {"scale": "y", "field": "y2"},
-					"strokeWidth": { "value": 0.5 }
-				},
-				"update": {
+					"strokeWidth": { "value": 0.5 },
 					"strokeWidth": {"signal": "hasChanged > 0 ? 0 : 0.5"}
 				}
 			}
@@ -471,16 +406,14 @@
 			"type": "text",
 			"from": { "data": "annotations" },
 			"encode": {
-				"enter": {
+				"update": {
 					"x": {"scale": "x", "field": "x"},
 					"y": {"scale": "y", "field": "y"},
 					"text": {"signal": "datum.text"},
 					"fillOpacity": {"value": 1},
 					"align": {"signal": "datum.align"},
 					"baseline": {"signal": "datum.baseline"},
-					"dx": {"signal": "datum.align == 'left' ? 5 : -5"}
-				},
-				"update": {
+					"dx": {"signal": "datum.align == 'left' ? 5 : -5"},
 					"fillOpacity": {"signal": "hasChanged > 0 ? 0 : 1"}
 				}
 			}
@@ -488,6 +421,7 @@
 	],
 
 	"uom": {
+		"minWidth": 700,
 		"data-download": {
 			"href": "/posts/pandemic-trade-offs/data-ABM-aggregated-tidy.csv",
 			"size": "1.8 MB"

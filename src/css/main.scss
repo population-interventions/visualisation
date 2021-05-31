@@ -543,13 +543,12 @@ html {
 
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-template-rows: 1fr auto;
+		grid-template-rows: auto;
 
 		.graph-container {
 			width: 100%;
-			height: 100%;
-
-      max-height: calc(85vh - 100px);
+			display: grid;
+			align-items: center;
 
       form.vega-bindings {
         display: none;

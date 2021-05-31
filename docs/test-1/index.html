@@ -47,8 +47,6 @@
 
 	
 
-	
-
 	<script type="text/javascript">
 		function loadCSS(path) { 
 			let file = document.createElement("link");
@@ -142,22 +140,74 @@
 
 	<script type="text/javascript">
 
-		var views = {},
-			tooltipHandlers = {},
-			choices = {};
-
-		function slugify(text) {
-			return text.toString().toLowerCase()
-				.replace(/\s+/g, '-')           // Replace spaces with -
-				.replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-				.replace(/\-\-+/g, '-')         // Replace multiple - with single -
-				.replace(/^-+/, '')             // Trim - from start of text
-				.replace(/-+$/, '');            // Trim - from end of text
-		}
+		var views = {};
 
 		function render(key, spec) {
 			
+			// Add default graph config.
+
+			let defaultConfig = {
+				axis: {
+					labelFont: "Source Sans Pro, sans-serif",
+					titleFont: "Source Sans Pro, sans-serif",
+					titleFontSize: 20,
+					titleColor: "#012a58",
+					titleFontWeight: 400
+				},
+				legend: {
+					labelFont: "Source Sans Pro, sans-serif",
+					titleFont: "Source Sans Pro, sans-serif",
+					labelFontSize: 18,
+					labelColor: "#000000",
+					titlePadding: 15,
+					titleFontSize: 20,
+					titleColor: "#012a58",
+					symbolSize: 360,
+					labelSeparation: 10,
+					labelOffset: 10,
+					offset: 20,
+					titleFontWeight: 400,
+					layout: {
+						margin: 60
+					}
+				},
+				title: {
+					font: "Source Sans Pro, sans-serif",
+					subtitleFont: "Source Sans Pro, sans-serif",
+					anchor: "start",
+					color: "#012a58",
+					fontSize: 28,
+					fontWeight: 700,
+					subtitleColor: "#000000",
+					subtitleFontSize: "20",
+					subtitleFontWeight: "400",
+					subtitlePadding: 10,
+					offset: 20,
+					dx: 70
+				}
+			};
+			if (spec.hasOwnProperty('config')) {
+				spec.config.axis = { ...defaultConfig.axis, ...spec.config.axis };
+				spec.config.legend = { ...defaultConfig.legend, ...spec.config.legend };
+				spec.config.title = { ...defaultConfig.title, ...spec.config.title };
+			} else {
+				spec.config = defaultConfig;
+			}
+
+			// Create uom property if doesn't already exist.
+
+			if (!spec.hasOwnProperty('uom')) {
+				spec.uom = {};
+			}
+
+			// Make background white (if none already specified).
+
+			if (!spec.hasOwnProperty('background')) {
+				spec.background = "#ffffff";
+			}
+
 			// Blank out if 'coming soon'.
+
 			if (spec.uom.hasOwnProperty('coming-soon') & spec.uom['coming-soon']) {
 				spec.data.push({
 					name: "shades",
@@ -200,61 +250,114 @@
 				]
 			}
 
-			// tooltipHandlers[key] = new vegaTooltip.Handler();
+			// Specify renderer if not already specified.
 
-			// views[key] = new vega.View(vega.parse(spec), {
-			// 	tooltip: tooltipHandlers[key].call,
-			// 	renderer: 'svg',  			// renderer (canvas or svg)
-			// 	container: `#graph-container-${key}`,  // parent DOM container
-			// 	hover: true       				// enable hover processing
-			// });
+			if (!spec.uom.hasOwnProperty('renderer')) {
+				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
+			}
 
+			// Define desired aspect ratio.
+
+			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
+				spec.uom.aspectRatio = spec.width / spec.height;
+			} else {
+				spec.uom.aspectRatio = 1.5;
+			}
+			delete spec.width;
+			delete spec.height;
+
+			// Define threshold width between two types of graph scaling.
+				// Above this width, the graph is re-rendered to fit the space available.
+				// (eg. text will stay its specified size)
+				// Below this width, the graph is simply scaled down to fit the space available.
+				// (eg. text will be smaller than the specified size)
+			if (!spec.uom.hasOwnProperty('minWidth')) {
+				spec.uom.minWidth = 800;
+			}
+
+			// Store reference to wrapper element.
+
+			spec.uom.container = document.querySelector(`#graph-container-${key}`);
+
+			// Create the view.
+
+			let width, height;
+			if (window.innerWidth > 1400) {
+				width = 0.78*spec.uom.container.offsetWidth;
+				height = 0.70*spec.uom.container.offsetHeight;
+			} else {
+				width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+				height = width / spec.uom.aspectRatio;
+			}
 			vegaEmbed(
 				`#graph-container-${key}`,
 				spec,
 				opt = {
-					renderer: 'svg',
-					actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false}
+					renderer: spec.uom.renderer,
+					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
+					actions: false,
+					width: width,
+					height: height
 				}
 			).then(function(result) {
+
 				views[key] = result.view;
 
-				// // If there is a set of SVG definitions, import them into the svg element of the graph.
-				// let defs = document.querySelector(`#svg-definitions-${key} defs`);
-				// if (defs !== null) {
-				// 	document.querySelector(`#graph-container-${key} div.chart-wrapper > svg`)
-				// 		.appendChild(defs);
-				// }
+				// Make responsive.
+
+				if (spec.uom.renderer === 'canvas') {
+					
+					spec.uom.resize = () => {
+						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+						views[key]
+							.width(width)
+							.height(width / spec.uom.aspectRatio)
+							.run();
+					};
+					window.addEventListener('resize', spec.uom.resize);
+				
+				} else {
+					
+					function removeWidthHeightAttributes() {
+						// Remove width/height attributes of Vega SVG and let viewBox handle the responsive behaviour.
+						let viewDom = spec.uom.container.firstElementChild;
+						viewDom.removeAttribute('width');
+						viewDom.removeAttribute('height');
+					}
+
+					spec.uom.resize = () => {
+
+						let width, height;
+						if (window.innerWidth > 1400) {
+							width = 0.78*spec.uom.container.offsetWidth;
+							height = 0.70*spec.uom.container.offsetHeight;
+						} else {
+							width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+							height = width / spec.uom.aspectRatio;
+						}
+
+						views[key]
+							.width(width)
+							.height(height)
+							.runAsync()
+							.then(vw => {
+								removeWidthHeightAttributes();
+							});
+						
+					};
+					window.addEventListener('resize', spec.uom.resize);
+
+					removeWidthHeightAttributes();
+					
+				}
 
 			}).catch(console.error);
 
-			// vegaTooltip.default(views[key]);
-			
-			// Initialise Choices.js on toggles.
-			// if (spec.hasOwnProperty('uom-toggles')) {
-			// 	for (let toggleGroup of spec['uom-toggles']['toggle-groups']) {
-			// 		for (let toggle of toggleGroup.toggles) {
-			// 			if (toggle.type == 'select') {
-
-			// 				let select = document.querySelector(`#select-${key}-${slugify(toggle.name)}`);
-			// 				select.parentNode.classList.remove('styled-select');
-			// 				select.removeAttribute('data-bound-fancyselect');
-			// 				// console.log();
-			// 				choices[`${key}-${slugify(toggle.name)}`] = new Choices(select, {
-			// 					searchEnabled: false
-			// 				});
-
-			// 			}
-			// 		}
-			// 	}
-			// }
-
-			// views[key].logLevel(vega.Warn);
-
-			// return views[key].runAsync();
 			return views[key];
 
 		}
+
+		// Render all graphs.
 
 		for (let key of graphs) {
 		
@@ -265,13 +368,15 @@
 
 		}
 
-		// Reset select fields on page load.
+		// Reset select fields on page load (to avoid misleading browser-cached values).
+
 		$( document ).ready(function() {
 			$('select').each( function() {
 				$(this).val( $(this).find("option[selected]").val() );
 			});
 		});
 
+		// Render KaTeX.
 
 		document.addEventListener("DOMContentLoaded", function() {
 			renderMathInElement(document.body, {

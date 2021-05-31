@@ -1,48 +1,8 @@
 {
 	"$schema": "https://vega.github.io/schema/vega/v5.json",
-	"autosize": { "signal": "windowSize()[0] <= 1400 ? { type: 'pad', contains: 'padding', resize: true } : { type: 'fit', contains: 'padding', resize: true }"},
-	"background": "#ffffff",
 	"padding": 0,
-	"config": {
-		"axis": {
-			"labelFont": "Source Sans Pro, sans-serif",
-			"titleFont": "Source Sans Pro, sans-serif",
-			"titleFontSize": 20,
-			"titleColor": "#012a58",
-			"titleFontWeight": 400
-		},
-		"legend": {
-			"labelFont": "Source Sans Pro, sans-serif",
-			"titleFont": "Source Sans Pro, sans-serif",
-			"labelFontSize": 18,
-			"labelColor": "#000000",
-			"titlePadding": 15,
-			"titleFontSize": 20,
-			"titleColor": "#012a58",
-			"symbolSize": 360,
-			"labelSeparation": 10,
-			"labelOffset": 10,
-			"offset": 20,
-			"titleFontWeight": 400,
-			"layout": {
-				"margin": 60
-			}
-		},
-		"title": {
-			"font": "Source Sans Pro, sans-serif",
-			"subtitleFont": "Source Sans Pro, sans-serif",
-			"anchor": "start",
-			"color": "#012a58",
-			"fontSize": 28,
-			"fontWeight": 700,
-			"subtitleColor": "#000000",
-			"subtitleFontSize": "20",
-			"subtitleFontWeight": "400",
-			"subtitlePadding": 10,
-			"offset": 20,
-			"dx": 70
-		}
-	},
+	"width": 600,
+	"height": 400,
 
 	"title": {
 		"text": "Economic impacts",
@@ -59,16 +19,6 @@
 	],
 
 	"signals": [
-		{
-			"name": "width",
-			"init": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]",
-			"on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? max(600, containerSize()[0]) : containerSize()[0]" }]
-		},
-		{
-			"name": "height",
-			"init": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]",
-			"on": [{ "events": "window:resize", "update": "windowSize()[0] <= 1400 ? 400 : containerSize()[1]" }]
-		},
 		{
 			"name": "PfizerTransmissionReduction",
 			"update": "75",
@@ -216,6 +166,7 @@
 	],
 
 	"uom": {
+		"minWidth": 700,
 		"coming-soon": true,
 		"toggle-groups": [
 			{
