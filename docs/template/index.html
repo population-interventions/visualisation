@@ -1,0 +1,511 @@
+ <!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+	
+	<title>
+        
+	Template Post | Population Interventions Unit
+
+    </title>
+	
+	<link rel="stylesheet" href="https://dds-gen3.web.unimelb.edu.au/v8.1.6/uom.css">
+	<script src="https://dds-gen3.web.unimelb.edu.au/v8.1.6/uom.js"></script>
+
+	<script
+		src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+		crossorigin="anonymous"></script>
+
+	<!-- Styling -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7QD9R9ZDF"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-T7QD9R9ZDF');
+	</script>
+	
+
+	
+
+	
+		
+		
+
+		
+
+		
+			<meta charset="utf-8">
+			<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+			<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+			<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+		
+
+	
+
+	<script type="text/javascript">
+		function loadCSS(path) { 
+			let file = document.createElement("link");
+			file.setAttribute("rel", "stylesheet");
+			file.setAttribute("type", "text/css");
+			file.setAttribute("href", path);
+			document.head.appendChild(file);
+		}
+
+		var graphs = [];
+	</script>					
+	
+	
+		<meta name="robots" content="noindex">
+		<meta name="googlebot" content="noindex">
+	    
+
+
+
+</head>
+
+<body>
+
+	<div class="uomcontent">
+		<div class="page-inner">
+
+			<ol class="page-local-history" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+				<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<a href="/" title="Population Interventions Unit" itemprop="item">
+						<span itemprop="name">Population Interventions Unit</span>
+					</a>
+					<meta content="1" itemprop="position" />
+				</li>
+				
+	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+		<a href="/" title="Example" itemprop="item">
+			<span itemprop="name">Example</span>
+		</a>
+		<meta content="2" itemprop="position" />
+	</li>
+	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+		<a href="/template" title="Template Post" itemprop="item">
+			<span itemprop="name">Template Post</span>
+		</a>
+		<meta content="3" itemprop="position" />
+	</li>
+
+			</ol>
+
+
+			<div role="main">
+
+				<div class="headerless"></div>
+
+				
+
+	
+		<div class="flash flash--warning flash--center">
+			<p>
+				<strong>This page is a draft.</strong> All content is provisional.
+			</p>
+		</div>
+	
+
+	<div class="jumpnav"></div>
+	
+
+	
+
+	<h1 class="aligned-title">Template Post</h1>
+
+	
+		<section class="lead left">
+			<p>This page is just a template. Its purpose is to demonstrate the structure of how to create new posts and visualisations.</p>
+		</section>
+	
+
+
+	<p>This is a template post.</p>
+<p>All the text-based content of the post is written in Markdown, like this. Any of the usual features of markdown can be used, including <a href="">links</a>, <strong>bold text</strong>, <em>italicised text</em> and lists:</p>
+<ul>
+<li>List Item 1</li>
+<li>List Item 2</li>
+<li>List Item 3</li>
+</ul>
+<p>If you want to include a graph specified using Vega, you should save the graph specification in the same folder as this <code>post.md</code> file. The name of the graph specification should be <code>graph-id.json</code>, where <code>id</code> is replaced with a short, readable identifier for that graph. You can then import the graph using the following ‘shortcode’, wherever you want the graph to appear in the post.</p>
+<div class="graph-with-toggles " id="graph-example"><aside>
+				<div class="toggles">
+					<div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Graph Options</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Colour Scheme</div>
+					<div class="description">The colour scheme used by the stacked bars.</div>
+				</div>
+				<div><select name="ColourScheme" id="select-example-ColourScheme" autocomplete=off>
+						<option value="greys" selected>greys</option>
+<option value="viridis" >viridis</option>
+<option value="inferno" >inferno</option>
+					</select></div></div><div class="toggle-box">
+				<div>
+					<div class="name"># Categories</div>
+					<div class="description">The number of categories plotted.</div>
+				</div>
+				<div><select name="nCategories" id="select-example-nCategories" autocomplete=off>
+						<option value="0" >0</option>
+<option value="1" >1</option>
+<option value="2" >2</option>
+<option value="3" >3</option>
+<option value="4" selected>4</option>
+					</select></div></div>
+				</div>
+			</div>
+				</div>
+			</aside>
+			<div id="graph-settings-example" class="graph-settings"></div>
+			<div class="graph">
+				<div id="graph-container-example" class="graph-container"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			graphs.push("example")
+		</script>
+<p>In the above example, the id of our graph is <code>example</code>, so we include “example” in quotes within the shortcode. Other than that, you shouldn’t need to change anything with the shortcode.</p>
+
+
+
+	<section class="endmatter">
+		
+			<h4>Contributors</h4>
+			<p><p>Acknowledgements for the bottom of the post go here.</p>
+</p>
+		
+
+		<h4>Contact Details</h4>
+		<p>Please direct media or other enquiries about this research to the <a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions">Population Interventions Unit</a> at the following address.</p>
+		<dl class="PI-contact">
+			<dt>Email</dt>
+			<dd><a href="mailto:population-interventions@unimelb.edu.au">population-interventions@unimelb.edu.au</a></dd>
+		</dl>
+	</section>
+
+	<script type="text/javascript">
+
+		var views = {};
+
+		function render(key, spec) {
+			
+			// Add default graph config.
+
+			let defaultConfig = {
+				axis: {
+					labelFont: "Source Sans Pro, sans-serif",
+					titleFont: "Source Sans Pro, sans-serif",
+					titleFontSize: 20,
+					titleColor: "#012a58",
+					titleFontWeight: 400
+				},
+				legend: {
+					labelFont: "Source Sans Pro, sans-serif",
+					titleFont: "Source Sans Pro, sans-serif",
+					labelFontSize: 18,
+					labelColor: "#000000",
+					titlePadding: 15,
+					titleFontSize: 20,
+					titleColor: "#012a58",
+					symbolSize: 360,
+					labelSeparation: 10,
+					labelOffset: 10,
+					offset: 20,
+					titleFontWeight: 400,
+					layout: {
+						margin: 60
+					}
+				},
+				title: {
+					font: "Source Sans Pro, sans-serif",
+					subtitleFont: "Source Sans Pro, sans-serif",
+					anchor: "start",
+					color: "#012a58",
+					fontSize: 28,
+					fontWeight: 700,
+					subtitleColor: "#000000",
+					subtitleFontSize: "20",
+					subtitleFontWeight: "400",
+					subtitlePadding: 10,
+					offset: 20,
+					dx: 70
+				}
+			};
+			if (spec.hasOwnProperty('config')) {
+				spec.config.axis = { ...defaultConfig.axis, ...spec.config.axis };
+				spec.config.legend = { ...defaultConfig.legend, ...spec.config.legend };
+				spec.config.title = { ...defaultConfig.title, ...spec.config.title };
+			} else {
+				spec.config = defaultConfig;
+			}
+
+			// Create uom property if doesn't already exist.
+
+			if (!spec.hasOwnProperty('uom')) {
+				spec.uom = {};
+			}
+
+			// Make background white (if none already specified).
+
+			if (!spec.hasOwnProperty('background')) {
+				spec.background = "#ffffff";
+			}
+
+			// Blank out if 'coming soon'.
+
+			if (spec.uom.hasOwnProperty('comingSoon') & spec.uom['comingSoon']) {
+				spec.data.push({
+					name: "shades",
+					values: [ { "label": "Coming Soon" } ]
+				})
+
+				spec.marks = [
+					{
+						type: "rect",
+						from: { data: "shades" },
+						encode: {
+							update: {
+								x: { signal: "range('x')[0]" },
+								x2: { signal: "range('x')[1]" },
+								y: { signal: "range('y')[0]" },
+								y2: { signal: "range('y')[1]" },
+								strokeWidth: { value: 0 },
+								fill: { value: '#f2f5f9' }
+							}
+						}
+
+					},
+					{
+						type: "text",
+						from: { data: "shades" },
+						encode: {
+							update: {
+								x: { signal: "(range('x')[0] + range('x')[1]) / 2" },
+								y: { signal: "(range('y')[0] + range('y')[1]) / 2" },
+								text: { signal: "datum.label" },
+								baseline: { value: "middle" },
+								align: { value: "center" },
+								fill: { value: "#012a58" },
+								fontSize: { value: 20 },
+								fontWeight: { value: 'bold' }
+								
+							}
+						}
+					}
+				]
+			}
+
+			// Specify renderer if not already specified.
+
+			if (!spec.uom.hasOwnProperty('renderer')) {
+				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
+			}
+
+			// Define desired aspect ratio.
+
+			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
+				spec.uom.aspectRatio = spec.width / spec.height;
+			} else {
+				spec.uom.aspectRatio = 1.5;
+			}
+			delete spec.width;
+			delete spec.height;
+
+			// Define threshold width between two types of graph scaling.
+				// Above this width, the graph is re-rendered to fit the space available.
+				// (eg. text will stay its specified size)
+				// Below this width, the graph is simply scaled down to fit the space available.
+				// (eg. text will be smaller than the specified size)
+			if (!spec.uom.hasOwnProperty('minWidth')) {
+				spec.uom.minWidth = 800;
+			}
+
+			// Generate signals for specified toggles.
+
+			if (!spec.hasOwnProperty('signals')) {
+				spec.signals = [];
+			}
+			if (spec.uom.hasOwnProperty('toggleGroups')) {
+				for (let toggleGroup of spec.uom['toggleGroups']) {
+					for (let toggle of toggleGroup.toggles) {
+
+						let updateDefault, updateOnChange;
+						if (typeof(toggle.options[0].value) === "number") {
+							updateDefault = `${toggle.options.filter(d => d.default)[0].value}`;
+							updateOnChange = "toNumber(event.target.value)";
+						} else {
+							updateDefault = `'${toggle.options.filter(d => d.default)[0].value}'`;
+							updateOnChange = "event.target.value";
+						}
+
+						spec.signals.push({
+							name: toggle.signalName,
+							update: updateDefault,
+							on: [{
+								events: {
+									source: `#select-${key}-${toggle.signalName}`,
+									type: "change"
+								},
+								update: updateOnChange
+							}]
+						})
+					}
+				}
+			}
+
+			// Store reference to wrapper element.
+
+			spec.uom.container = document.querySelector(`#graph-container-${key}`);
+
+			// Create the view.
+
+			let width, height;
+			if (window.innerWidth > 1400) {
+				width = 0.78*spec.uom.container.offsetWidth;
+				height = 0.70*spec.uom.container.offsetHeight;
+			} else {
+				width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+				height = width / spec.uom.aspectRatio;
+			}
+			vegaEmbed(
+				`#graph-container-${key}`,
+				spec,
+				opt = {
+					renderer: spec.uom.renderer,
+					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
+					actions: false,
+					width: width,
+					height: height
+				}
+			).then(function(result) {
+
+				views[key] = result.view;
+
+				// Make responsive.
+
+				if (spec.uom.renderer === 'canvas') {
+					
+					spec.uom.resize = () => {
+						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+						views[key]
+							.width(width)
+							.height(width / spec.uom.aspectRatio)
+							.run();
+					};
+					window.addEventListener('resize', spec.uom.resize);
+				
+				} else {
+					
+					function removeWidthHeightAttributes() {
+						// Remove width/height attributes of Vega SVG and let viewBox handle the responsive behaviour.
+						let viewDom = spec.uom.container.firstElementChild;
+						viewDom.removeAttribute('width');
+						viewDom.removeAttribute('height');
+					}
+
+					spec.uom.resize = () => {
+
+						let width, height;
+						if (window.innerWidth > 1400) {
+							width = 0.78*spec.uom.container.offsetWidth;
+							height = 0.70*spec.uom.container.offsetHeight;
+						} else {
+							width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+							height = width / spec.uom.aspectRatio;
+						}
+
+						views[key]
+							.width(width)
+							.height(height)
+							.runAsync()
+							.then(vw => {
+								removeWidthHeightAttributes();
+							});
+						
+					};
+					window.addEventListener('resize', spec.uom.resize);
+
+					removeWidthHeightAttributes();
+					
+				}
+
+			}).catch(console.error);
+
+			return views[key];
+
+		}
+
+		// Render all graphs.
+
+		for (let key of graphs) {
+		
+			fetch('/posts/template/graph-' + key + '.json')
+				.then(res => res.json())
+				.then(spec => render(key, spec))
+				.catch(err => console.error(err));
+
+		}
+
+		// Reset select fields on page load (to avoid misleading browser-cached values).
+
+		$( document ).ready(function() {
+			$('select').each( function() {
+				$(this).val( $(this).find("option[selected]").val() );
+			});
+		});
+
+		// Render KaTeX.
+
+		
+			
+		
+
+	</script>
+
+	
+
+
+			</div>
+
+			<div id="sitemap" role="navigation">
+				<h2>Home</h2>
+				<ul>
+					
+						<li>
+							<a href="/">COVID-19 Pandemic</a>
+							<div class="inner">
+								<ul>
+									
+										<li>
+											<a href="/pandemic-trade-offs">COVID-19 Pandemic Trade-offs</a>
+										</li>
+									
+								</ul>
+							</div>
+						</li>
+					
+					<li>
+						<a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions" target="_blank" rel="noopener noreferrer">About the Population Interventions Unit</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

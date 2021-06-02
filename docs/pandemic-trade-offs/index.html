@@ -36,17 +36,25 @@
 
 	
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"></script>
-
-	<meta charset="utf-8">
-	<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
 	
-		<script src="https://d3js.org/d3.v4.min.js"></script>
+		
+		
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"></script>
+		
+
+		
+			<script src="https://d3js.org/d3.v4.min.js"></script>
+		
+
+		
+			<meta charset="utf-8">
+			<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+			<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+			<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+		
+
 	
 
 	<script type="text/javascript">
@@ -144,7 +152,7 @@
 					<div class="name">Vaccine Uptake</div>
 					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
 				</div>
-				<div><select name="vaccine-uptake" id="select-ABM-vaccine-uptake" autocomplete=off>
+				<div><select name="VaccineUptake" id="select-ABM-VaccineUptake" autocomplete=off>
 						<option value="60" >60%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -153,7 +161,7 @@
 					<div class="name">Strategy Relaxation</div>
 					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
 				</div>
-				<div><select name="strategy-relaxation" id="select-ABM-strategy-relaxation" autocomplete=off>
+				<div><select name="StrategyRelaxation" id="select-ABM-StrategyRelaxation" autocomplete=off>
 						<option value="0" selected>Off</option>
 <option value="1" >On</option>
 					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
@@ -168,7 +176,7 @@
 					<div class="name">Phase 1 Vaccine Efficacy</div>
 					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
 				</div>
-				<div><select name="phase-1-vaccine-efficacy" id="select-ABM-phase-1-vaccine-efficacy" autocomplete=off>
+				<div><select name="Efficacy1" id="select-ABM-Efficacy1" autocomplete=off>
 						<option value="50" >50%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -177,7 +185,7 @@
 					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
 					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
 				</div>
-				<div><select name="phase-2-and-3-vaccine-efficacy" id="select-ABM-phase-2-and-3-vaccine-efficacy" autocomplete=off>
+				<div><select name="Efficacy2" id="select-ABM-Efficacy2" autocomplete=off>
 						<option value="50" >50%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -186,7 +194,7 @@
 					<div class="name">Unmitigated Reproduction Rate</div>
 					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
 				</div>
-				<div><select name="unmitigated-reproduction-rate" id="select-ABM-unmitigated-reproduction-rate" autocomplete=off>
+				<div><select name="R0" id="select-ABM-R0" autocomplete=off>
 						<option value="2.5" >2.5</option>
 <option value="3.125" selected>3.125</option>
 <option value="3.75" >3.75</option>
@@ -262,7 +270,7 @@
 					<div class="name">Vaccine Uptake</div>
 					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
 				</div>
-				<div><select name="vaccine-uptake" id="select-PMSLT-HALY-vaccine-uptake" autocomplete=off>
+				<div><select name="VaccineUptake" id="select-PMSLT-HALY-VaccineUptake" autocomplete=off>
 						<option value="60" >60%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -271,7 +279,7 @@
 					<div class="name">Strategy Relaxation</div>
 					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
 				</div>
-				<div><select name="strategy-relaxation" id="select-PMSLT-HALY-strategy-relaxation" autocomplete=off>
+				<div><select name="StrategyRelaxation" id="select-PMSLT-HALY-StrategyRelaxation" autocomplete=off>
 						<option value="0" selected>Off</option>
 <option value="1" >On</option>
 					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
@@ -286,7 +294,7 @@
 					<div class="name">Phase 1 Vaccine Efficacy</div>
 					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
 				</div>
-				<div><select name="phase-1-vaccine-efficacy" id="select-PMSLT-HALY-phase-1-vaccine-efficacy" autocomplete=off>
+				<div><select name="Efficacy1" id="select-PMSLT-HALY-Efficacy1" autocomplete=off>
 						<option value="50" >50%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -295,7 +303,7 @@
 					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
 					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
 				</div>
-				<div><select name="phase-2-and-3-vaccine-efficacy" id="select-PMSLT-HALY-phase-2-and-3-vaccine-efficacy" autocomplete=off>
+				<div><select name="Efficacy2" id="select-PMSLT-HALY-Efficacy2" autocomplete=off>
 						<option value="50" >50%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -304,7 +312,7 @@
 					<div class="name">Unmitigated Reproduction Rate</div>
 					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
 				</div>
-				<div><select name="unmitigated-reproduction-rate" id="select-PMSLT-HALY-unmitigated-reproduction-rate" autocomplete=off>
+				<div><select name="R0" id="select-PMSLT-HALY-R0" autocomplete=off>
 						<option value="2.5" >2.5</option>
 <option value="3.125" selected>3.125</option>
 <option value="3.75" >3.75</option>
@@ -335,7 +343,7 @@
 					<div class="name">Vaccine Uptake</div>
 					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
 				</div>
-				<div><select name="vaccine-uptake" id="select-economy-vaccine-uptake" autocomplete=off>
+				<div><select name="VaccineUptake" id="select-economy-VaccineUptake" autocomplete=off>
 						<option value="60" >60%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -344,7 +352,7 @@
 					<div class="name">Strategy Relaxation</div>
 					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
 				</div>
-				<div><select name="strategy-relaxation" id="select-economy-strategy-relaxation" autocomplete=off>
+				<div><select name="StrategyRelaxation" id="select-economy-StrategyRelaxation" autocomplete=off>
 						<option value="0" selected>Off</option>
 <option value="1" >On</option>
 					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
@@ -359,7 +367,7 @@
 					<div class="name">Phase 1 Vaccine Efficacy</div>
 					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
 				</div>
-				<div><select name="phase-1-vaccine-efficacy" id="select-economy-phase-1-vaccine-efficacy" autocomplete=off>
+				<div><select name="Efficacy1" id="select-economy-Efficacy1" autocomplete=off>
 						<option value="50" >50%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -368,7 +376,7 @@
 					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
 					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
 				</div>
-				<div><select name="phase-2-and-3-vaccine-efficacy" id="select-economy-phase-2-and-3-vaccine-efficacy" autocomplete=off>
+				<div><select name="Efficacy2" id="select-economy-Efficacy2" autocomplete=off>
 						<option value="50" >50%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -377,7 +385,7 @@
 					<div class="name">Unmitigated Reproduction Rate</div>
 					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
 				</div>
-				<div><select name="unmitigated-reproduction-rate" id="select-economy-unmitigated-reproduction-rate" autocomplete=off>
+				<div><select name="R0" id="select-economy-R0" autocomplete=off>
 						<option value="2.5" >2.5</option>
 <option value="3.125" selected>3.125</option>
 <option value="3.75" >3.75</option>
@@ -409,7 +417,7 @@
 					<div class="name">Vaccine Uptake</div>
 					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
 				</div>
-				<div><select name="vaccine-uptake" id="select-PMSLT-prob-vaccine-uptake" autocomplete=off>
+				<div><select name="VaccineUptake" id="select-PMSLT-prob-VaccineUptake" autocomplete=off>
 						<option value="60" >60%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -418,7 +426,7 @@
 					<div class="name">Strategy Relaxation</div>
 					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
 				</div>
-				<div><select name="strategy-relaxation" id="select-PMSLT-prob-strategy-relaxation" autocomplete=off>
+				<div><select name="StrategyRelaxation" id="select-PMSLT-prob-StrategyRelaxation" autocomplete=off>
 						<option value="0" selected>Off</option>
 <option value="1" >On</option>
 					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
@@ -433,7 +441,7 @@
 					<div class="name">Phase 1 Vaccine Efficacy</div>
 					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
 				</div>
-				<div><select name="phase-1-vaccine-efficacy" id="select-PMSLT-prob-phase-1-vaccine-efficacy" autocomplete=off>
+				<div><select name="Efficacy1" id="select-PMSLT-prob-Efficacy1" autocomplete=off>
 						<option value="50" >50%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -442,7 +450,7 @@
 					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
 					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
 				</div>
-				<div><select name="phase-2-and-3-vaccine-efficacy" id="select-PMSLT-prob-phase-2-and-3-vaccine-efficacy" autocomplete=off>
+				<div><select name="Efficacy2" id="select-PMSLT-prob-Efficacy2" autocomplete=off>
 						<option value="50" >50%</option>
 <option value="75" selected>75%</option>
 <option value="90" >90%</option>
@@ -451,7 +459,7 @@
 					<div class="name">Unmitigated Reproduction Rate</div>
 					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
 				</div>
-				<div><select name="unmitigated-reproduction-rate" id="select-PMSLT-prob-unmitigated-reproduction-rate" autocomplete=off>
+				<div><select name="R0" id="select-PMSLT-prob-R0" autocomplete=off>
 						<option value="2.5" >2.5</option>
 <option value="3.125" selected>3.125</option>
 <option value="3.75" >3.75</option>
@@ -476,11 +484,6 @@
 	<section class="endmatter">
 		
 			<h4>Contributors</h4>
-		
-
-		
-
-		
 			<p><ul>
 <li>The data visualisations and interface for this tool were developed by <a href="https://lukethorburn.com/cv/">Luke Thorburn</a>.</li>
 <li>The modelling was led by Dr <a href="https://findanexpert.unimelb.edu.au/profile/884197-tim-wilson">Tim Wilson</a>, assisted by Haifeng Zhao and Sachith Seneviratne. The original agent-based model was built by Dr <a href="https://findanexpert.unimelb.edu.au/profile/769805-jason-thompson">Jason Thompson</a>, assisted by Profs Rod McClure, <a href="https://findanexpert.unimelb.edu.au/profile/653385-mark-stevenson">Mark Stevenson</a> and <a href="https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely">Tony Blakely</a>.  The integrated epidemiological and economic model (proportional multistate lifetable) is a collaboration between the University of Melbourne and the Institute of Health Metrics and Evaluation (University of Washington), with key contributions from: Prof Abie Flaxman and Mr James Collins (IHME); Drs <a href="https://findanexpert.unimelb.edu.au/profile/10215-rob-moss">Rob Moss</a>, <a href="https://findanexpert.unimelb.edu.au/profile/432264-nic-geard">Nic Geard</a>, <a href="https://findanexpert.unimelb.edu.au/profile/721168-patrick-andersen">Patrick Andersen</a> and <a href="https://findanexpert.unimelb.edu.au/profile/884197-tim-wilson">Tim Wilson</a> (University of Melbourne), assisted by all members of the Population Interventions Unit (Drs <a href="https://findanexpert.unimelb.edu.au/profile/242956-driss-ait-ouakrim">Driss Ait Ouakrim</a> and <a href="https://findanexpert.unimelb.edu.au/profile/686318-laxman-bablani">Laxman Bablani</a>, and Profs <a href="https://findanexpert.unimelb.edu.au/profile/26106-vijaya-sundararajan">Vijaya Sundararajan</a> and <a href="https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely">Tony Blakely</a>).</li>
@@ -570,7 +573,7 @@
 
 			// Blank out if 'coming soon'.
 
-			if (spec.uom.hasOwnProperty('coming-soon') & spec.uom['coming-soon']) {
+			if (spec.uom.hasOwnProperty('comingSoon') & spec.uom['comingSoon']) {
 				spec.data.push({
 					name: "shades",
 					values: [ { "label": "Coming Soon" } ]
@@ -581,7 +584,7 @@
 						type: "rect",
 						from: { data: "shades" },
 						encode: {
-							enter: {
+							update: {
 								x: { signal: "range('x')[0]" },
 								x2: { signal: "range('x')[1]" },
 								y: { signal: "range('y')[0]" },
@@ -596,7 +599,7 @@
 						type: "text",
 						from: { data: "shades" },
 						encode: {
-							enter: {
+							update: {
 								x: { signal: "(range('x')[0] + range('x')[1]) / 2" },
 								y: { signal: "(range('y')[0] + range('y')[1]) / 2" },
 								text: { signal: "datum.label" },
@@ -635,6 +638,39 @@
 				// (eg. text will be smaller than the specified size)
 			if (!spec.uom.hasOwnProperty('minWidth')) {
 				spec.uom.minWidth = 800;
+			}
+
+			// Generate signals for specified toggles.
+
+			if (!spec.hasOwnProperty('signals')) {
+				spec.signals = [];
+			}
+			if (spec.uom.hasOwnProperty('toggleGroups')) {
+				for (let toggleGroup of spec.uom['toggleGroups']) {
+					for (let toggle of toggleGroup.toggles) {
+
+						let updateDefault, updateOnChange;
+						if (typeof(toggle.options[0].value) === "number") {
+							updateDefault = `${toggle.options.filter(d => d.default)[0].value}`;
+							updateOnChange = "toNumber(event.target.value)";
+						} else {
+							updateDefault = `'${toggle.options.filter(d => d.default)[0].value}'`;
+							updateOnChange = "event.target.value";
+						}
+
+						spec.signals.push({
+							name: toggle.signalName,
+							update: updateDefault,
+							on: [{
+								events: {
+									source: `#select-${key}-${toggle.signalName}`,
+									type: "change"
+								},
+								update: updateOnChange
+							}]
+						})
+					}
+				}
 			}
 
 			// Store reference to wrapper element.
@@ -740,15 +776,19 @@
 
 		// Render KaTeX.
 
-		document.addEventListener("DOMContentLoaded", function() {
-			renderMathInElement(document.body, {
-				delimiters: [
-					{left: "$$", right: "$$", display: true},
-					{left: "\\(", right: "\\)", display: false},
-					{left: "\\[", right: "\\]", display: true}
-				]
-			});
-		});
+		
+			
+				document.addEventListener("DOMContentLoaded", function() {
+					renderMathInElement(document.body, {
+						delimiters: [
+							{left: "$$", right: "$$", display: true},
+							{left: "\\(", right: "\\)", display: false},
+							{left: "\\[", right: "\\]", display: true}
+						]
+					});
+				});
+			
+		
 
 	</script>
 

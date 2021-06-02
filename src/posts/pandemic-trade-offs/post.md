@@ -9,14 +9,21 @@
 	
 	"title": "COVID-19 Pandemic Trade-offs",
 	"description": "A tool for exploring how COVID-19 policy responses (restrictions, vaccination roll-out, and border opening) impact future SARS-CoV-2 infection rates, health impacts (in health-adjusted life years) and economic impacts (health expenditure, GDP loss). ",
+	
 	"date": "2021-03-11",
 	"date_updated": "2021-03-31",
+	
 	"slug": "pandemic-trade-offs",
-	"katex": true,
+	
+	"dependencies": {
+		"katex": true,
+		"d3": true,
+		"vega": true
+	},
+	
 	"hidden": false,
 	"draft": false,
-	"d3": true,
-
+	
 	"skipToLinks": [
 		{
 			"href": "#graph-ABM",

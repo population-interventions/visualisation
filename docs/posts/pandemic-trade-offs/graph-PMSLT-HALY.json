@@ -40,8 +40,8 @@
 			"url": "/posts/pandemic-trade-offs/data-HALY.csv",
 			"transform": [
 				{ "type": "filter", "expr": "datum.vUptake === VaccineUptake" },
-				{ "type": "filter", "expr": "datum.v1trans === PfizerTransmissionReduction" },
-				{ "type": "filter", "expr": "datum.v2trans === AstraZenecaTransmissionReduction" },
+				{ "type": "filter", "expr": "datum.v1trans === Efficacy1" },
+				{ "type": "filter", "expr": "datum.v2trans === Efficacy2" },
 				{ "type": "filter", "expr": "datum.relax === StrategyRelaxation" },
 				{ "type": "filter", "expr": "datum.R0 === R0" },
 				{ "type": "filter", "expr": "datum.timeHorizon === TimeHorizon" }
@@ -89,6 +89,85 @@
 		}
 	],
 
+	"uom": {
+		"minWidth": 700,
+		"dataDownload": {
+			"href": "/posts/pandemic-trade-offs/data-HALY-tidy.csv",
+			"size": "0.3 MB"
+		},
+		"toggleGroups": [
+			{
+				"name": "Government & Public Response",
+				"toggles": [
+					{
+						"title": "Vaccine Uptake",
+						"description": "Percentage of people who accept vaccination when they are offered it.",
+						"detailLink": "/pandemic-trade-offs-detail/#uptake",
+						"type": "select",
+						"options": [
+							{ "value": 60, "label": "60%" },
+							{ "value": 75, "label": "75%", "default": true },
+							{ "value": 90, "label": "90%" }
+						],
+						"signalName": "VaccineUptake"
+					},
+					{
+						"title": "Strategy Relaxation",
+						"description": "Whether to relax stage triggers as vaccination progresses.",
+						"detailLink": "/pandemic-trade-offs-detail/#strategy-relaxation",
+						"type": "select",
+						"options": [
+							{ "value": 0, "label": "Off", "default": true },
+							{ "value": 1, "label": "On" }
+						],
+						"signalName": "StrategyRelaxation"
+					}
+				]
+			},
+			{
+				"name": "Infectivity",
+				"toggles": [
+					{
+						"title": "Phase 1 Vaccine Efficacy",
+						"description": "Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.",
+						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
+						"type": "select",
+						"options": [
+							{ "value": 50, "label": "50%" },
+							{ "value": 75, "label": "75%", "default": true },
+							{ "value": 90, "label": "90%" }
+						],
+						"signalName": "Efficacy1"
+					},
+					{
+						"title": "Phase 2 & 3 Vaccine Efficacy",
+						"description": "Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.",
+						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
+						"type": "select",
+						"options": [
+							{ "value": 50, "label": "50%" },
+							{ "value": 75, "label": "75%", "default": true },
+							{ "value": 90, "label": "90%" }
+						],
+						"signalName": "Efficacy2"
+					},
+					{
+						"title": "Unmitigated Reproduction Rate",
+						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
+						"detailLink": "/pandemic-trade-offs-detail/#reproduction",
+						"type": "select",
+						"options": [
+							{ "value": 2.5 },
+							{ "value": 3.125, "default": true },
+							{ "value": 3.75 }
+						],
+						"signalName": "R0"
+					}
+				]
+			}
+		]
+	},
+
 	"signals": [
 		{
 			"name": "MaxHeight", "value": "depend on data",
@@ -116,71 +195,6 @@
 					"events": "@typeLegendSymbol:click, @typeLegendLabel:click",
 					"update": "{value: datum.value}",
 					"force":  true
-				}
-			]
-		},
-		{
-			"name": "PfizerTransmissionReduction",
-			"update": "75",
-			"on": [
-				{
-					"events": {
-						"source": "#select-PMSLT-HALY-phase-1-vaccine-efficacy",
-						"type": "change"
-					},
-					"update": "toNumber(event.target.value)"
-				}
-			]
-		},
-		{
-			"name": "AstraZenecaTransmissionReduction",
-			"update": "75",
-			"on": [
-				{
-					"events": {
-						"source": "#select-PMSLT-HALY-phase-2-and-3-vaccine-efficacy",
-						"type": "change"
-					},
-					"update": "toNumber(event.target.value)"
-				}
-			]
-		},
-		{
-			"name": "VaccineUptake",
-			"update": "75",
-			"on": [
-				{
-					"events": {
-						"source": "#select-PMSLT-HALY-vaccine-uptake",
-						"type": "change"
-					},
-					"update": "toNumber(event.target.value)"
-				}
-			]
-		},
-		{
-			"name": "StrategyRelaxation",
-			"update": "0",
-			"on": [
-				{
-					"events": {
-						"source": "#select-PMSLT-HALY-strategy-relaxation",
-						"type": "change"
-					},
-					"update": "toNumber(event.target.value)"
-				}
-			]
-		},
-		{
-			"name": "R0",
-			"update": "3.125",
-			"on": [
-				{
-					"events": {
-						"source": "#select-PMSLT-HALY-unmitigated-reproduction-rate",
-						"type": "change"
-					},
-					"update": "toNumber(event.target.value)"
 				}
 			]
 		},
@@ -229,7 +243,7 @@
 			"name": "parameters",
 			"type": "ordinal",
 			"domain": ["Input 1", "Input 2", "Input 3"],
-			"domain": { "signal": "['Vaccine Uptake: ' + VaccineUptake, 'Strategy Relaxation: ' + StrategyRelaxation, 'Vaccine Efficacy (1): ' + PfizerTransmissionReduction, 'Vaccine Efficacy (2): ' + AstraZenecaTransmissionReduction, 'R_0: ' + R0]"},
+			"domain": { "signal": "['Vaccine Uptake: ' + VaccineUptake, 'Strategy Relaxation: ' + StrategyRelaxation, 'Vaccine Efficacy (1): ' + Efficacy1, 'Vaccine Efficacy (2): ' + Efficacy2, 'R_0: ' + R0]"},
 			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
 		}
 	],
@@ -426,79 +440,5 @@
 				}
 			}
 		}
-	],
-
-	"uom": {
-		"minWidth": 700,
-		"data-download": {
-			"href": "/posts/pandemic-trade-offs/data-HALY-tidy.csv",
-			"size": "0.3 MB"
-		},
-		"toggle-groups": [
-			{
-				"name": "Government & Public Response",
-				"toggles": [
-					{
-						"name": "Vaccine Uptake",
-						"description": "Percentage of people who accept vaccination when they are offered it.",
-						"detailLink": "/pandemic-trade-offs-detail/#uptake",
-						"type": "select",
-						"options": [
-							{ "value": 60, "label": "60%" },
-							{ "value": 75, "label": "75%", "default": true },
-							{ "value": 90, "label": "90%" }
-						]
-					},
-					{
-						"name": "Strategy Relaxation",
-						"description": "Whether to relax stage triggers as vaccination progresses.",
-						"detailLink": "/pandemic-trade-offs-detail/#strategy-relaxation",
-						"type": "select",
-						"options": [
-							{ "value": 0, "label": "Off", "default": true },
-							{ "value": 1, "label": "On" }
-						]
-					}
-				]
-			},
-			{
-				"name": "Infectivity",
-				"toggles": [
-					{
-						"name": "Phase 1 Vaccine Efficacy",
-						"description": "Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.",
-						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
-						"type": "select",
-						"options": [
-							{ "value": 50, "label": "50%" },
-							{ "value": 75, "label": "75%", "default": true },
-							{ "value": 90, "label": "90%" }
-						]
-					},
-					{
-						"name": "Phase 2 & 3 Vaccine Efficacy",
-						"description": "Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.",
-						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
-						"type": "select",
-						"options": [
-							{ "value": 50, "label": "50%" },
-							{ "value": 75, "label": "75%", "default": true },
-							{ "value": 90, "label": "90%" }
-						]
-					},
-					{
-						"name": "Unmitigated Reproduction Rate",
-						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
-						"detailLink": "/pandemic-trade-offs-detail/#reproduction",
-						"type": "select",
-						"options": [
-							{ "value": 2.5 },
-							{ "value": 3.125, "default": true },
-							{ "value": 3.75 }
-						]
-					}
-				]
-			}
-		]
-	}
+	]
 }

@@ -93,8 +93,8 @@ module.exports = function(eleventyConfig) {
 			toggle_specs = [],
 			toggles = ``;
 
-		if (uom.hasOwnProperty('toggle-groups')) {
-			toggle_specs = uom['toggle-groups'];
+		if (uom.hasOwnProperty('toggleGroups')) {
+			toggle_specs = uom['toggleGroups'];
 		}
 
 		for (let toggle_group of toggle_specs) {
@@ -104,7 +104,7 @@ module.exports = function(eleventyConfig) {
 
 				toggle_group_contents += `<div class="toggle-box">
 				<div>
-					<div class="name">${ toggle.name }</div>
+					<div class="name">${ toggle.title }</div>
 					<div class="description">${ toggle.description }</div>
 				</div>
 				<div>`;
@@ -117,9 +117,7 @@ module.exports = function(eleventyConfig) {
 
 				} else if (toggle.type == "select") {
 					
-					let slug = eleventyConfig.getFilter('slug');
-
-					toggle_group_contents += `<select name="${ slug(toggle.name) }" id="select-${name}-${ slug(toggle.name) }" autocomplete=off>
+					toggle_group_contents += `<select name="${ toggle.signalName }" id="select-${name}-${ toggle.signalName }" autocomplete=off>
 						${toggle.options.map(option => `<option value="${option.value}" ${option.default ? 'selected' : ''}>${option.label ? option.label : option.value}</option>`).join('\n')}
 					</select>`
 					// https://joshuajohnson.co.uk/Choices/
@@ -145,8 +143,8 @@ module.exports = function(eleventyConfig) {
 		}
 
 		let downloadLink = '';
-		if (uom.hasOwnProperty('data-download')) {
-			downloadLink = `<a href="${uom['data-download'].href}" class="download-link"><strong>Download data</strong> (${uom['data-download'].size})</a>`
+		if (uom.hasOwnProperty('dataDownload')) {
+			downloadLink = `<a href="${uom['dataDownload'].href}" class="download-link"><strong>Download data</strong> (${uom['dataDownload'].size})</a>`
 		}
 
 		let html = `<div class="graph-with-toggles ${toggle_specs.length == 0 ? 'no-toggles' : ''}" id="graph-` + name + `">`;
@@ -168,27 +166,6 @@ module.exports = function(eleventyConfig) {
 			graphs.push("${name}")
 		</script>
 		`;
-	});
-	
-	// Add filter to generate contributor links.
-	eleventyConfig.addFilter("contributor_links", function(contributors) {
-		let html = ``;
-
-		contributors.forEach(function(d,i) {
-			let name = d.name.replace(' ', '&nbsp;');
-
-			if (i > 0) {
-				html += `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;&emsp;`;
-			}
-
-			if (d.hasOwnProperty('link')) {
-				html += `<a href="${d.link}" target="_blank" rel="noopener noreferrer">${name}</a>`;
-			} else {
-				html += `${name}`
-			}
-		})
-
-		return html;
 	});
 
 
