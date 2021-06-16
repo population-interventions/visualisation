@@ -3,6 +3,7 @@
 	"padding": 0,
 	"width": 600,
 	"height": 400,
+	"autosize": "fit",
 
 	"title": {
 		"text": "Health outcomes by strategy",
@@ -90,7 +91,10 @@
 	],
 
 	"uom": {
-		"minWidth": 700,
+		"minWidth": 900,
+		"figPosition": "outset-3",
+		"increaseMargin": 2,
+		
 		"dataDownload": {
 			"href": "/posts/pandemic-trade-offs/data-HALY-tidy.csv",
 			"size": "0.3 MB"

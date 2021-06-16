@@ -79,7 +79,9 @@
 	],
 
 	"uom": {
-		"minWidth": 700,
+		"minWidth": 900,
+		"figPosition": "outset-3",
+		"increaseMargin": 2,
 		"dataDownload": {
 			"href": "/posts/pandemic-trade-offs/data-ABM-aggregated-tidy.csv",
 			"size": "1.8 MB"

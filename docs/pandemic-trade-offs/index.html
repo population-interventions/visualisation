@@ -140,9 +140,9 @@
 <p>A basic measure of whether a COVID-19 policy response is successful is the extent to which it keeps the number of new infections manageable.</p>
 <p>To model this, we ran 100 simulations of how the SARS-CoV-2 virus might spread through a population of 6 million people, for each of 648 different scenarios. The graph below shows the median daily infections across the 100 simulations of each scenario, along with a 90% uncertainty interval (the 5<sup>th</sup> and 95<sup>th</sup> percentiles).</p>
 <p>Use the options to the left of (or below) the graph to explore how different scenarios affect the spread of the virus.</p>
-<div class="graph-with-toggles " id="graph-ABM"><aside>
-				<div class="toggles">
-					<div class="toggle-group">
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-ABM" class="graph-settings"></div>
+				<div id="graph-container-ABM" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -200,17 +200,10 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div>
-				</div><a href="/posts/pandemic-trade-offs/data-ABM-aggregated-tidy.csv" class="download-link"><strong>Download data</strong> (1.8 MB)</a>
-			</aside>
-			<div id="graph-settings-ABM" class="graph-settings"></div>
-			<div class="graph">
-				<div id="graph-container-ABM" class="graph-container"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			graphs.push("ABM")
-		</script>
+			</div></div><a href="/posts/pandemic-trade-offs/data-ABM-aggregated-tidy.csv" class="download-link"><strong>Download data</strong> (1.8 MB)</a></aside></div>
+			<script type="text/javascript">
+				graphs.push("ABM")
+			</script>
 <p>In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day, but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage.</p>
 <p><a href="/pandemic-trade-offs-ABM/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a></p>
 <p><a href="/pandemic-trade-offs-ABM/" class="img-link"><img src="/posts/pandemic-trade-offs/preview-full-ABM.jpg" width="600" /></a></p>
@@ -258,9 +251,9 @@
 		</pattern>
 	</defs>
 </svg>
-<div class="graph-with-toggles " id="graph-PMSLT-HALY"><aside>
-				<div class="toggles">
-					<div class="toggle-group">
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-PMSLT-HALY" class="graph-settings"></div>
+				<div id="graph-container-PMSLT-HALY" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -318,22 +311,15 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div>
-				</div><a href="/posts/pandemic-trade-offs/data-HALY-tidy.csv" class="download-link"><strong>Download data</strong> (0.3 MB)</a>
-			</aside>
-			<div id="graph-settings-PMSLT-HALY" class="graph-settings"></div>
-			<div class="graph">
-				<div id="graph-container-PMSLT-HALY" class="graph-container"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			graphs.push("PMSLT-HALY")
-		</script>
+			</div></div><a href="/posts/pandemic-trade-offs/data-HALY-tidy.csv" class="download-link"><strong>Download data</strong> (0.3 MB)</a></aside></div>
+			<script type="text/javascript">
+				graphs.push("PMSLT-HALY")
+			</script>
 <h3>Economic impacts</h3>
 <p>Below (coming soon) are the estimated health expenditure consequences of SARS-CoV-2 cases in the health system, and changes in health expenditure for the other diseases impacted by stage 3 and 4 lockdowns.  Also shown will be the GDP impacts, estimated using Treasury estimates of the GDP consequences of stages of lockdown multiplied by the percentage of time spent in each stage for each modelled scenario.</p>
-<div class="graph-with-toggles " id="graph-economy"><aside>
-				<div class="toggles">
-					<div class="toggle-group">
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-economy" class="graph-settings"></div>
+				<div id="graph-container-economy" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -391,23 +377,16 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div>
-				</div>
-			</aside>
-			<div id="graph-settings-economy" class="graph-settings"></div>
-			<div class="graph">
-				<div id="graph-container-economy" class="graph-container"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			graphs.push("economy")
-		</script>
+			</div></div></aside></div>
+			<script type="text/javascript">
+				graphs.push("economy")
+			</script>
 <h2>Which policy is optimal?</h2>
 <p>Below (coming soon) will be an analysis of which of the four policy responses (aggressive elimination, moderate elimination, tight or loose suppression) is optimal using a cost effectiveness approach called ‘net monetary benefit’.  This approach is from either a health-system only perspective—which assumes healthcare expenditure is the only relevant financial cost—or a partial societal perspective, which includes GDP losses.  The graph will show the probability that each policy response is ‘optimal’ (i.e. has the highest net monetary benefit – or with COVID-19 the least net monetary loss) for varying ‘willingness to pay’ for a HALY.</p>
 <p>From a health system perspective, if we were deciding whether a new drug was cost-effective, our threshold is as a rule of thumb about $60,000 per HALY (i.e. roughly a country’s GDP per capita per HALY).  From a partial societal perspective, there are not really such rules of thumb – although often revealed willingness to pay per HALY is higher (hence we include up to $500,000 on the x-axis).  For this type of analysis, the standard (that we follow) is a lifetime perspective (i.e. all changes in HALYs and health expenditure (and additionally GDP for the partial societal perspective) for the remainder of the population’s lifespan), each discounted at 3% per year.</p>
-<div class="graph-with-toggles " id="graph-PMSLT-prob"><aside>
-				<div class="toggles">
-					<div class="toggle-group">
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-PMSLT-prob" class="graph-settings"></div>
+				<div id="graph-container-PMSLT-prob" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -465,17 +444,10 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div>
-				</div>
-			</aside>
-			<div id="graph-settings-PMSLT-prob" class="graph-settings"></div>
-			<div class="graph">
-				<div id="graph-container-PMSLT-prob" class="graph-container"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			graphs.push("PMSLT-prob")
-		</script>
+			</div></div></aside></div>
+			<script type="text/javascript">
+				graphs.push("PMSLT-prob")
+			</script>
 <p>To learn more about this modelling, please see the Model Details page.</p>
 <p><a href="/pandemic-trade-offs-detail/" class="button-small with-arrow">View model details</a></p>
 
@@ -621,6 +593,12 @@
 				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
 			}
 
+			// Set correct autosize mode.
+
+			if (!spec.hasOwnProperty("autosize")) {
+				spec.autosize = "fit";
+			}
+
 			// Define desired aspect ratio.
 
 			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
@@ -679,14 +657,7 @@
 
 			// Create the view.
 
-			let width, height;
-			if (window.innerWidth > 1400) {
-				width = 0.78*spec.uom.container.offsetWidth;
-				height = 0.70*spec.uom.container.offsetHeight;
-			} else {
-				width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-				height = width / spec.uom.aspectRatio;
-			}
+			let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 			vegaEmbed(
 				`#graph-container-${key}`,
 				spec,
@@ -695,7 +666,7 @@
 					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
 					actions: false,
 					width: width,
-					height: height
+					height: width / spec.uom.aspectRatio
 				}
 			).then(function(result) {
 
@@ -725,18 +696,10 @@
 
 					spec.uom.resize = () => {
 
-						let width, height;
-						if (window.innerWidth > 1400) {
-							width = 0.78*spec.uom.container.offsetWidth;
-							height = 0.70*spec.uom.container.offsetHeight;
-						} else {
-							width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-							height = width / spec.uom.aspectRatio;
-						}
-
+						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 						views[key]
 							.width(width)
-							.height(height)
+							.height(width / spec.uom.aspectRatio)
 							.runAsync()
 							.then(vw => {
 								removeWidthHeightAttributes();

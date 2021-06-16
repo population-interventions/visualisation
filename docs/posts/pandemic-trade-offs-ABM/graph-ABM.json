@@ -30,7 +30,9 @@
 	],
 
 	"uom": {
-		"minWidth": 700,
+		"minWidth": 900,
+		"figPosition": "outset-3",
+		"increaseMargin": 2,
 		"dataDownload": {
 			"href": "/posts/pandemic-trade-offs-ABM/data-ABM-full-tidy.zip",
 			"size": "12.8 MB"

@@ -130,9 +130,9 @@
 
 
 	<p>In the following graph, each line on the plot corresponds to one run of the model—one possible path that infection numbers could take under the selected scenario and policy response. The lines are coloured by the Stage of restrictions that are in place at any given time.</p>
-<div class="graph-with-toggles " id="graph-ABM"><aside>
-				<div class="toggles">
-					<div class="toggle-group">
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-ABM" class="graph-settings"></div>
+				<div id="graph-container-ABM" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -200,17 +200,10 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div>
-				</div><a href="/posts/pandemic-trade-offs-ABM/data-ABM-full-tidy.zip" class="download-link"><strong>Download data</strong> (12.8 MB)</a>
-			</aside>
-			<div id="graph-settings-ABM" class="graph-settings"></div>
-			<div class="graph">
-				<div id="graph-container-ABM" class="graph-container"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			graphs.push("ABM")
-		</script>
+			</div></div><a href="/posts/pandemic-trade-offs-ABM/data-ABM-full-tidy.zip" class="download-link"><strong>Download data</strong> (12.8 MB)</a></aside></div>
+			<script type="text/javascript">
+				graphs.push("ABM")
+			</script>
 <p>To learn more about this modelling, please see the Model Details page.</p>
 <p><a href="/pandemic-trade-offs-detail/" class="button-small with-arrow">View model details</a></p>
 
@@ -356,6 +349,12 @@
 				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
 			}
 
+			// Set correct autosize mode.
+
+			if (!spec.hasOwnProperty("autosize")) {
+				spec.autosize = "fit";
+			}
+
 			// Define desired aspect ratio.
 
 			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
@@ -414,14 +413,7 @@
 
 			// Create the view.
 
-			let width, height;
-			if (window.innerWidth > 1400) {
-				width = 0.78*spec.uom.container.offsetWidth;
-				height = 0.70*spec.uom.container.offsetHeight;
-			} else {
-				width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-				height = width / spec.uom.aspectRatio;
-			}
+			let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 			vegaEmbed(
 				`#graph-container-${key}`,
 				spec,
@@ -430,7 +422,7 @@
 					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
 					actions: false,
 					width: width,
-					height: height
+					height: width / spec.uom.aspectRatio
 				}
 			).then(function(result) {
 
@@ -460,18 +452,10 @@
 
 					spec.uom.resize = () => {
 
-						let width, height;
-						if (window.innerWidth > 1400) {
-							width = 0.78*spec.uom.container.offsetWidth;
-							height = 0.70*spec.uom.container.offsetHeight;
-						} else {
-							width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-							height = width / spec.uom.aspectRatio;
-						}
-
+						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 						views[key]
 							.width(width)
-							.height(height)
+							.height(width / spec.uom.aspectRatio)
 							.runAsync()
 							.then(vw => {
 								removeWidthHeightAttributes();

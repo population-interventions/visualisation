@@ -137,9 +137,9 @@
 <li>List Item 3</li>
 </ul>
 <p>If you want to include a graph specified using Vega, you should save the graph specification in the same folder as this <code>post.md</code> file. The name of the graph specification should be <code>graph-id.json</code>, where <code>id</code> is replaced with a short, readable identifier for that graph. You can then import the graph using the following ‘shortcode’, wherever you want the graph to appear in the post.</p>
-<div class="graph-with-toggles " id="graph-example"><aside>
-				<div class="toggles">
-					<div class="toggle-group">
+<div class="fig outset-3 more-margin-1">
+				<div id="graph-settings-example" class="graph-settings"></div>
+				<div id="graph-container-example" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Graph Options</div>
 				</div>
@@ -166,17 +166,10 @@
 <option value="4" selected>4</option>
 					</select></div></div>
 				</div>
-			</div>
-				</div>
-			</aside>
-			<div id="graph-settings-example" class="graph-settings"></div>
-			<div class="graph">
-				<div id="graph-container-example" class="graph-container"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			graphs.push("example")
-		</script>
+			</div></div></aside></div>
+			<script type="text/javascript">
+				graphs.push("example")
+			</script>
 <p>In the above example, the id of our graph is <code>example</code>, so we include “example” in quotes within the shortcode. Other than that, you shouldn’t need to change anything with the shortcode.</p>
 
 
@@ -314,6 +307,12 @@
 				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
 			}
 
+			// Set correct autosize mode.
+
+			if (!spec.hasOwnProperty("autosize")) {
+				spec.autosize = "fit";
+			}
+
 			// Define desired aspect ratio.
 
 			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
@@ -372,14 +371,7 @@
 
 			// Create the view.
 
-			let width, height;
-			if (window.innerWidth > 1400) {
-				width = 0.78*spec.uom.container.offsetWidth;
-				height = 0.70*spec.uom.container.offsetHeight;
-			} else {
-				width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-				height = width / spec.uom.aspectRatio;
-			}
+			let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 			vegaEmbed(
 				`#graph-container-${key}`,
 				spec,
@@ -388,7 +380,7 @@
 					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
 					actions: false,
 					width: width,
-					height: height
+					height: width / spec.uom.aspectRatio
 				}
 			).then(function(result) {
 
@@ -418,18 +410,10 @@
 
 					spec.uom.resize = () => {
 
-						let width, height;
-						if (window.innerWidth > 1400) {
-							width = 0.78*spec.uom.container.offsetWidth;
-							height = 0.70*spec.uom.container.offsetHeight;
-						} else {
-							width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-							height = width / spec.uom.aspectRatio;
-						}
-
+						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 						views[key]
 							.width(width)
-							.height(height)
+							.height(width / spec.uom.aspectRatio)
 							.runAsync()
 							.then(vw => {
 								removeWidthHeightAttributes();

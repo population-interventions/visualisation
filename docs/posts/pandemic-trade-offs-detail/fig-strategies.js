@@ -137,7 +137,7 @@ for (let strategy of Object.keys(strategies)) {
 // SETUP ======================================================================== //
 // ============================================================================== //
 
-var width = document.querySelector("#fig-strategies").clientWidth,
+var width = document.querySelector("#fig-container-strategies").offsetWidth,
 	height = 300,
 	m = [20, 120, 40, 120],
 	w = width - m[1] - m[3],
@@ -1151,15 +1151,11 @@ function updateStrategy(button) {
 // // ########################################################################## //
 // // ########################################################################## //
 
-// page.update = function() {
-// 	update[page.params.graphType]();
-// }
 
-// // ########################################################################## //
-// // ########################################################################## //
-// // ########################################################################## //
+// Dispatch initial resize event.
 
-
-
-
-// console.log(svg)
+document.addEventListener("DOMContentLoaded", function() {
+	var resizeEvent = window.document.createEvent('UIEvents'); 
+	resizeEvent.initUIEvent('resize', true, false, window, 0); 
+	window.dispatchEvent(resizeEvent);
+});

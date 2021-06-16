@@ -145,26 +145,29 @@ module.exports = function(eleventyConfig) {
 		if (uom.hasOwnProperty('dataDownload')) {
 			downloadLink = `<a href="${uom['dataDownload'].href}" class="download-link"><strong>Download data</strong> (${uom['dataDownload'].size})</a>`
 		}
-
-		let html = `<div class="graph-with-toggles ${toggle_specs.length == 0 ? 'no-toggles' : ''}" id="graph-` + name + `">`;
+		
 		if (toggle_specs.length > 0) {
-			html = html + `<aside>
-				<div class="toggles">
-					${toggles}
-				</div>${downloadLink}
-			</aside>`;
+			toggles = `<div class="toggles">${toggles}</div>`;
 		}
 
-		return html + `
-			<div id="graph-settings-${name}" class="graph-settings"></div>
-			<div class="graph">
-				<div id="graph-container-${name}" class="graph-container"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			graphs.push("${name}")
-		</script>
+		let aside = ``;
+		if (downloadLink != '' | toggles != '') {
+			aside = `<aside>${toggles}${downloadLink}</aside>`;
+		}
+
+		let figPosition = uom.hasOwnProperty("figPosition") ? uom.figPosition : 'inset',
+			increaseMargin = uom.hasOwnProperty("increaseMargin") ? uom.increaseMargin : 1;
+
+		let html = `<div class="fig ${figPosition} more-margin-${increaseMargin}">
+				<div id="graph-settings-${name}" class="graph-settings"></div>
+				<div id="graph-container-${name}" class="graph-container"></div>${aside}</div>
+			<script type="text/javascript">
+				graphs.push("${name}")
+			</script>
 		`;
+
+		return html;
+
 	});
 
 

@@ -140,19 +140,19 @@ html {
   max-width: calc(100% - 2.1rem);
 }
 .fig.inset {
-  width: 600px;
+  width: 700px;
 }
 .fig.outset-1 {
-  width: calc(600px + 5.6rem);
+  width: calc(700px + 5.6rem);
 }
 .fig.outset-2 {
-  width: calc(600px + 11.2rem);
+  width: calc(700px + 11.2rem);
 }
 .fig.outset-3 {
-  width: calc(600px + 22.4rem);
+  width: calc(700px + 22.4rem);
 }
 .fig.outset-4 {
-  width: calc(600px + 44.8rem);
+  width: calc(700px + 44.8rem);
 }
 .fig.full-width {
   width: 100%;
@@ -165,21 +165,21 @@ html {
   clear: both;
   float: right;
   margin-left: 1.4rem;
-  margin-right: calc((100% - 600px) / 2);
+  margin-right: calc((100% - 700px) / 2);
   width: 200px;
 }
 .fig.side-2 {
   clear: both;
   float: right;
   margin-left: 1.4rem;
-  margin-right: calc((100% - 600px) / 2 - 100px);
+  margin-right: calc((100% - 700px) / 2 - 100px);
   width: 300px;
 }
 .fig.side-3 {
   clear: both;
   float: right;
   margin-left: 1.4rem;
-  margin-right: calc((100% - 600px) / 2 - 200px);
+  margin-right: calc((100% - 700px) / 2 - 200px);
   width: 400px;
 }
 .fig.more-margin-1 {
@@ -198,92 +198,85 @@ html {
   width: 100%;
   max-width: 100%;
 }
+.fig .vega-embed {
+  width: 100%;
+}
 .fig svg, .fig svg:not(:root) {
   width: 100%;
   overflow: visible;
 }
-
-.graph svg:not(:root) {
-  width: 100%;
-  overflow: visible;
+.fig canvas {
+  max-width: 100%;
 }
-.graph details summary svg:not(:root) {
-  width: 14px;
+.fig .vega-bindings {
+  display: none;
 }
-
-.graph-with-toggles {
-  display: grid;
-  grid-template-rows: [settings-start top-edge] auto [settings-end graph-start] 1fr [graph-end bottom-edge];
-  grid-template-columns: [toggles-start left-edge] 30% [toggles-end graph-start] 1fr [graph-end right-edge];
-  border-top: 1px solid #094183;
-  border-bottom: 1px solid #094183;
-  min-height: 85vh;
-  max-height: 85vh;
-  margin: 1.5rem 0 3rem 0;
+.fig .graph-settings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.4rem;
 }
-.graph-with-toggles.no-toggles {
-  grid-template-columns: [toggles-start left-edge] auto [toggles-end graph-start] 1fr [graph-end right-edge];
-  border-top: 1px solid #f2f5f9;
-  border-bottom: 1px solid #f2f5f9;
-}
-.graph-with-toggles aside {
-  grid-row: top-edge/bottom-edge;
-  grid-column: toggles-start/toggles-end;
-  max-height: calc(85vh - 2px);
-  border-right: 1px solid #094183;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  grid-template-columns: auto;
-}
-.graph-with-toggles aside a.download-link {
-  grid-row: 2/3;
-  padding: 0.7rem 1.4rem;
-  border-top: 1px solid #094183;
-  text-align: right;
+.fig .graph-settings div.vega-bind {
+  padding: 0.7rem;
+  border-right: 5px solid #fff;
+  border-bottom: 5px solid #fff;
   background-color: #f2f5f9;
+}
+.fig .graph-settings div.vega-bind label {
+  display: flex;
+}
+.fig .graph-settings div.vega-bind label span.vega-bind-name {
+  display: block;
+  margin-right: 0.7rem;
   color: #012a58;
-  text-decoration: none;
 }
-.graph-with-toggles aside a.download-link strong {
-  text-decoration: underline;
+.fig .graph-settings div.vega-bind label select {
+  width: auto;
+  font-size: 1rem;
 }
-.graph-with-toggles aside a.download-link:hover strong {
-  text-decoration: none;
+.fig aside {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  border: 1px solid #094183;
+  width: 100%;
+  max-width: 500px;
 }
-.graph-with-toggles aside div.toggles {
-  grid-row: 1/2;
+.fig aside .toggles {
+  max-height: 100vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
-.graph-with-toggles aside div.toggles::-webkit-scrollbar {
+.fig aside .toggles::-webkit-scrollbar {
   width: 5px;
   height: 5px;
   background-color: #f2f5f9;
 }
-.graph-with-toggles aside div.toggles::-webkit-scrollbar-thumb {
+.fig aside .toggles::-webkit-scrollbar-thumb {
   background-color: #094183;
   border-radius: 5px;
 }
-.graph-with-toggles aside div.toggles .toggle-group {
+.fig aside .toggles .toggle-group {
   display: block;
   margin: 0 1.4rem 1.4rem 1.4rem;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-details {
+.fig aside .toggles .toggle-group .group-details {
   background-color: #f2f5f9;
   margin: 0 -1.4rem;
   padding: 0.7rem 1.4rem;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-details .group-name {
+.fig aside .toggles .toggle-group .group-details .group-name {
   font-size: 1.2rem;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-contents {
+.fig aside .toggles .toggle-group .group-contents {
   display: grid;
   grid-template-columns: repeat(2, 0.5fr);
   grid-column-gap: 0.7rem;
   grid-row-gap: 0.7rem;
   padding-top: 0.7rem;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-contents .toggle-box {
+.fig aside .toggles .toggle-group .group-contents .toggle-box {
   border-top: 3px solid #f2f5f9;
   padding-top: 0.7rem;
   display: flex;
@@ -291,22 +284,22 @@ html {
   justify-content: space-between;
   font-size: 0.95rem;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-contents .toggle-box:nth-child(1), .graph-with-toggles aside div.toggles .toggle-group .group-contents .toggle-box:nth-child(2) {
+.fig aside .toggles .toggle-group .group-contents .toggle-box:nth-child(1), .fig aside .toggles .toggle-group .group-contents .toggle-box:nth-child(2) {
   border-top: none;
   padding-top: 0;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-contents .toggle-box .name {
+.fig aside .toggles .toggle-group .group-contents .toggle-box .name {
   font-weight: 700;
   line-height: 1.1rem;
   color: #012a58;
   margin-bottom: 2px;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-contents .toggle-box .description {
+.fig aside .toggles .toggle-group .group-contents .toggle-box .description {
   color: #444;
   margin-bottom: 0.7rem;
   line-height: 1.1rem;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-contents .toggle-box .detail-link {
+.fig aside .toggles .toggle-group .group-contents .toggle-box .detail-link {
   display: block;
   margin-top: 0.35rem;
   margin-bottom: 0.7rem;
@@ -316,149 +309,35 @@ html {
   text-align: right;
   text-decoration: none;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-contents .toggle-box .detail-link span {
+.fig aside .toggles .toggle-group .group-contents .toggle-box .detail-link span {
   text-decoration: underline;
   text-decoration-color: #ccc;
 }
-.graph-with-toggles aside div.toggles .toggle-group .group-contents .toggle-box .detail-link:hover span {
+.fig aside .toggles .toggle-group .group-contents .toggle-box .detail-link:hover span {
   text-decoration: underline;
   text-decoration-color: #444;
 }
-.graph-with-toggles div.graph-settings {
-  grid-row: settings-start/settings-end;
-  grid-column: graph-start/graph-end;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.graph-with-toggles div.graph-settings div.vega-bind {
-  padding: 0.7rem;
-  border-right: 5px solid #fff;
-  border-bottom: 5px solid #fff;
+.fig aside a.download-link {
+  padding: 0.7rem 1.4rem;
+  border-top: 1px solid #094183;
+  text-align: right;
   background-color: #f2f5f9;
-}
-.graph-with-toggles div.graph-settings div.vega-bind label {
-  display: flex;
-}
-.graph-with-toggles div.graph-settings div.vega-bind label span.vega-bind-name {
-  display: block;
-  margin-right: 0.7rem;
   color: #012a58;
+  text-decoration: none;
 }
-.graph-with-toggles div.graph-settings div.vega-bind label select {
-  width: auto;
-  font-size: 1rem;
+.fig aside a.download-link strong {
+  text-decoration: underline;
 }
-.graph-with-toggles div.graph {
-  grid-row: graph-start/graph-end;
-  grid-column: graph-start/graph-end;
-  max-height: 85vh;
-  padding: 50px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-}
-.graph-with-toggles div.graph .graph-container {
-  width: 100%;
-  display: grid;
-  align-items: center;
-}
-.graph-with-toggles div.graph .graph-container form.vega-bindings {
-  display: none;
+.fig aside a.download-link:hover strong {
+  text-decoration: none;
 }
 
-@media (max-width: 1400px) {
-  .graph-with-toggles {
-    grid-template-rows: [settings-start top-edge] auto [settings-end graph-start] auto [graph-end toggles-start] auto [toggles-end bottom-edge];
-    grid-template-columns: [toggles-start graph-start left-edge] 1fr [toggles-end graph-end right-edge];
-    max-height: none;
-    min-height: 0;
-  }
-  .graph-with-toggles aside {
-    grid-row: toggles-start/toggles-end;
-    grid-column: toggles-start/toggles-end;
-    max-height: none;
-    border-top: 1px solid #094183;
-    border-right: none;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
-  }
-  .graph-with-toggles aside div.toggles {
-    grid-row: 1/2;
-    overflow-y: hidden;
-    scroll-behavior: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .graph-with-toggles aside div.toggles .toggle-group {
-    margin: 0;
-  }
-  .graph-with-toggles aside div.toggles .toggle-group .group-details {
-    margin: 0;
-    padding: 0.7rem;
-  }
-  .graph-with-toggles aside div.toggles .toggle-group .group-contents {
-    grid-template-columns: calc(20vw - 3px);
-    grid-auto-columns: calc(20vw - 3px);
-    grid-auto-flow: column;
-    grid-column-gap: 0;
-  }
-  .graph-with-toggles aside div.toggles .toggle-group .group-contents .toggle-box {
-    box-sizing: border-box;
-    border-top: 0;
-    padding: 0 0.7rem 0.7rem 0.7rem;
-  }
-  .graph-with-toggles div.graph {
-    max-height: none;
-  }
-  .graph-with-toggles div.graph .graph-container {
-    justify-self: center;
-    align-self: center;
-    height: auto;
-    max-height: none;
-  }
-}
-@media (max-width: 1000px) {
-  .graph-with-toggles div.graph {
-    padding: 50px;
-  }
-  .graph-with-toggles div.graph .graph-container {
-    max-height: none;
-  }
-}
-@media (max-width: 800px) {
-  .graph-with-toggles aside div.toggles .toggle-group .group-contents {
-    grid-template-columns: repeat(3, calc((100vw/3) - 5px));
-    grid-auto-flow: row;
-  }
-}
 @media (max-width: 700px) {
-  .graph-with-toggles div.graph {
-    padding: 20px;
-  }
-  .graph-with-toggles div.graph .graph-container {
-    max-height: none;
-  }
-
   .uomcontent [role=main] ul.jump-navigation.skip-to li {
     max-width: 100%;
     width: 150px;
     margin: 0 1rem 1rem 0;
     display: grid;
-  }
-}
-@media (max-width: 600px) {
-  .graph-with-toggles aside div.toggles .toggle-group .group-contents {
-    grid-template-columns: repeat(2, calc(50vw - 10px));
-    grid-auto-flow: row;
-  }
-}
-@media (max-width: 400px) {
-  .graph-with-toggles aside div.toggles .toggle-group .group-contents {
-    grid-template-columns: repeat(1, calc(100vw - 1rem));
-    grid-auto-flow: row;
   }
 }
 .uomcontent [data-icon].smaller {

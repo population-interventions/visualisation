@@ -3,6 +3,7 @@
 	"padding": 0,
 	"width": 600,
 	"height": 400,
+	"autosize": "fit",
 
 	"title": {
 		"text": "Which strategy is optimal?",
@@ -27,7 +28,10 @@
 
 	"uom": {
 		"comingSoon": true,
-		"minWidth": 700,
+		"minWidth": 900,
+		"figPosition": "outset-3",
+		"increaseMargin": 2,
+		
 		"toggleGroups": [
 			{
 				"name": "Government & Public Response",

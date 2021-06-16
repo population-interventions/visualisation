@@ -228,6 +228,12 @@ permalink: /{{ post.data.slug }}/
 				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
 			}
 
+			// Set correct autosize mode.
+
+			if (!spec.hasOwnProperty("autosize")) {
+				spec.autosize = "fit";
+			}
+
 			// Define desired aspect ratio.
 
 			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
@@ -286,14 +292,7 @@ permalink: /{{ post.data.slug }}/
 
 			// Create the view.
 
-			let width, height;
-			if (window.innerWidth > 1400) {
-				width = 0.78*spec.uom.container.offsetWidth;
-				height = 0.70*spec.uom.container.offsetHeight;
-			} else {
-				width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-				height = width / spec.uom.aspectRatio;
-			}
+			let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 			vegaEmbed(
 				`#graph-container-${key}`,
 				spec,
@@ -302,7 +301,7 @@ permalink: /{{ post.data.slug }}/
 					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
 					actions: false,
 					width: width,
-					height: height
+					height: width / spec.uom.aspectRatio
 				}
 			).then(function(result) {
 
@@ -332,18 +331,10 @@ permalink: /{{ post.data.slug }}/
 
 					spec.uom.resize = () => {
 
-						let width, height;
-						if (window.innerWidth > 1400) {
-							width = 0.78*spec.uom.container.offsetWidth;
-							height = 0.70*spec.uom.container.offsetHeight;
-						} else {
-							width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-							height = width / spec.uom.aspectRatio;
-						}
-
+						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 						views[key]
 							.width(width)
-							.height(height)
+							.height(width / spec.uom.aspectRatio)
 							.runAsync()
 							.then(vw => {
 								removeWidthHeightAttributes();

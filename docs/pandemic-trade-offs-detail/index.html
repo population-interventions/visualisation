@@ -267,7 +267,7 @@
 <h2 id="strategies">Strategies</h2>
 <p>A <em>strategy</em> is a set of rules for determining when to move between different stages. Our model considers four strategies: aggressive elimination, moderate elimination, tight suppression and loose suppression.</p>
 <p>Mouse-over the following graphic to explore the rules associated with each strategy. (It works best on a desktop or laptop screen.)</p>
-<div class="fig outset-4 more-margin-2">
+<div class="fig outset-4 more-margin-2" id="fig-container-strategies">
 	<div class="graph-title">Strategies</div>
 	<div class="graph-subtitle">Choose a strategy, then hover over the graph to explore the rules for when to tighten or ease restrictions.</div>
 	<nav class="strategies">
@@ -381,15 +381,12 @@
 <h3 id="uptake">Vaccine Uptake</h3>
 <p>Everyone in a vaccination phase is offered a vaccine on one of the days of the phase. Each person either accepts or rejects the vaccine when offered, as determined by Vaccine Uptake parameter. This ensures a steady rate of vaccination throughout the phase, and that everyone who wants vaccination in each phase is vaccinated by the end of it.</p>
 <p>The graph below shows the expected percentage of the population who are vaccinated at each point in the vaccine rollout, for three different possible vaccine acceptance rates.</p>
-<div class="graph-with-toggles no-toggles" id="graph-uptake">
-			<div id="graph-settings-uptake" class="graph-settings"></div>
-			<div class="graph">
-				<div id="graph-container-uptake" class="graph-container"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			graphs.push("uptake")
-		</script>
+<div class="fig outset-2 more-margin-1">
+				<div id="graph-settings-uptake" class="graph-settings"></div>
+				<div id="graph-container-uptake" class="graph-container"></div></div>
+			<script type="text/javascript">
+				graphs.push("uptake")
+			</script>
 <h3 id="lag">Vaccine Lag time</h3>
 <p>The vaccine only takes effect three weeks after vaccination. We do not model the effect of (say) just one dose of vaccine, but assume the everyone who is vaccinated receives two doses.</p>
 <hr>
@@ -415,15 +412,12 @@
 </ul>
 <p>We therefore re-calibrated the model (by ‘tuning’ the global transmissibility parameter that—essentially—sets how infective each person is during a contact with another person. We first set this global transmissibility parameter to a level that achieved an \(R_0\) of 2.5, 3.125 and 3.75 for the three different scenarios of baseline infectiousness of SARS-CoV-2 (i.e. the wild type variant with \(R_0\) of 2.5, increasing to 3.75 for variants of concern).  Then we ensured that for the \(R_0 = 2.5\) scenario that Stage 4 restrictions achieved the daily percentage reduction in infections observed in Victoria coming out of its second wave (with stage 4 restrictions) of 7 to 8% per day.  Next, we ensured that in the \(R_0\) of 2.5 scenario, Stage 3 achieved an effective reproductive rate of less than 1.0 and Stage 2 of greater than 1.0 – each approximately equi-distant below and above an effective reproductive rate of 1.0.</p>
 <p>Below is a graph of the effective reproductive rate by Stage of restrictions, in the absence of vaccination, for the three \(R_0\) scenarios of 2.5, 3.125 and 3.75.</p>
-<div class="graph-with-toggles no-toggles" id="graph-calibration">
-			<div id="graph-settings-calibration" class="graph-settings"></div>
-			<div class="graph">
-				<div id="graph-container-calibration" class="graph-container"></div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			graphs.push("calibration")
-		</script>
+<div class="fig outset-2 more-margin-1">
+				<div id="graph-settings-calibration" class="graph-settings"></div>
+				<div id="graph-container-calibration" class="graph-container"></div></div>
+			<script type="text/javascript">
+				graphs.push("calibration")
+			</script>
 <h2>Assumptions and Limitations</h2>
 <h3>Agent-based model</h3>
 <p>Simulating the impact of COVID-19 policy responses is challenging.  Our ABM has been extensively investigated by ourselves and others for errors, conceptual rigour, parameterization and such like – and therefore we believe has face validity.  It has also successfully predicted that elimination is achievable, and predicted well the exit of Victoria from its second wave, i.e. to the extent possible, it is calibrated.</p>
@@ -574,6 +568,12 @@
 				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
 			}
 
+			// Set correct autosize mode.
+
+			if (!spec.hasOwnProperty("autosize")) {
+				spec.autosize = "fit";
+			}
+
 			// Define desired aspect ratio.
 
 			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
@@ -632,14 +632,7 @@
 
 			// Create the view.
 
-			let width, height;
-			if (window.innerWidth > 1400) {
-				width = 0.78*spec.uom.container.offsetWidth;
-				height = 0.70*spec.uom.container.offsetHeight;
-			} else {
-				width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-				height = width / spec.uom.aspectRatio;
-			}
+			let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 			vegaEmbed(
 				`#graph-container-${key}`,
 				spec,
@@ -648,7 +641,7 @@
 					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
 					actions: false,
 					width: width,
-					height: height
+					height: width / spec.uom.aspectRatio
 				}
 			).then(function(result) {
 
@@ -678,18 +671,10 @@
 
 					spec.uom.resize = () => {
 
-						let width, height;
-						if (window.innerWidth > 1400) {
-							width = 0.78*spec.uom.container.offsetWidth;
-							height = 0.70*spec.uom.container.offsetHeight;
-						} else {
-							width = 0.78*Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-							height = width / spec.uom.aspectRatio;
-						}
-
+						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
 						views[key]
 							.width(width)
-							.height(height)
+							.height(width / spec.uom.aspectRatio)
 							.runAsync()
 							.then(vw => {
 								removeWidthHeightAttributes();

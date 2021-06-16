@@ -186,6 +186,7 @@
     }
   },
   "uom": {
-    "minWidth": 700
+    "minWidth": 700,
+    "figPosition": "outset-2"
   }
 }
