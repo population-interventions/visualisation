@@ -83,7 +83,6 @@ module.exports = function(eleventyConfig) {
 
 	})
 
-
 	// Add shortcode to generate Vega dashboard-style graphs.
 
 	eleventyConfig.addShortcode("import_graph", function(name, slug) {
