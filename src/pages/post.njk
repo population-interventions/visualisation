@@ -34,7 +34,12 @@ permalink: /{{ post.data.slug }}/
 		{% endif %}
 
 	{% endif %}
-
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+		crossorigin="anonymous">
+	</script>
+	
 	<script type="text/javascript">
 		function loadCSS(path) { 
 			let file = document.createElement("link");
@@ -388,6 +393,37 @@ permalink: /{{ post.data.slug }}/
 			{% endif %}
 		{% endif %}
 
+	</script>
+
+	<script>
+
+		// Hanlde toggle close and open events
+
+		$( ".toggle-open" ).click(function(e) {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			if( toggles.length === 1 ) {
+				toggles.toggleClass("collapsed")
+			}	else {
+				var toggles = toggleBtn.siblings( "aside" )
+				toggles.toggleClass("collapsed")
+			}
+			e.stopPropagation();	
+		});
+
+		$(" aside ").click(function(e) {
+			e.stopPropagation()
+		});
+
+		$( ".toggle-close" ).click(function() {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			toggles.toggleClass("collapsed")
+		});
+
+		$(document).click(function() {
+			$("aside").addClass("collapsed");
+		});
 	</script>
 
 	{# TODO - make more responsive: https://bl.ocks.org/donghaoren/023b2246569e8f0615017507b473e55e #}

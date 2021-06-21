@@ -148,11 +148,13 @@ module.exports = function(eleventyConfig) {
 		
 		if (toggle_specs.length > 0) {
 			toggles = `<div class="toggles">${toggles}</div>`;
+			toggleOpen = `<button class="toggle-open" id="toggle-open-${name}"><span>Adjust parameters</span></button>`
+			toggleClose = `<button class="toggle-close" id="toggle-close-${name}"><span>Adjust parameters</span><span>X</span></button>`
 		}
 
 		let aside = ``;
 		if (downloadLink != '' | toggles != '') {
-			aside = `<aside>${toggles}${downloadLink}</aside>`;
+			aside = `<aside class="collapsed">${toggleClose}${toggles}${toggleOpen}${downloadLink}</aside>`;	
 		}
 
 		let figPosition = uom.hasOwnProperty("figPosition") ? uom.figPosition : 'inset',
@@ -160,7 +162,10 @@ module.exports = function(eleventyConfig) {
 
 		let html = `<div class="fig ${figPosition} more-margin-${increaseMargin}">
 				<div id="graph-settings-${name}" class="graph-settings"></div>
-				<div id="graph-container-${name}" class="graph-container"></div>${aside}</div>
+				<div id="graph-container-${name}" class="graph-container"></div>
+				${toggleOpen}
+				${aside}
+				</div>
 			<script type="text/javascript">
 				graphs.push("${name}")
 			</script>

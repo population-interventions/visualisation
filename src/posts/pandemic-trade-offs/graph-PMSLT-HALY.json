@@ -2,7 +2,7 @@
 	"$schema": "https://vega.github.io/schema/vega/v5.json",
 	"padding": 0,
 	"width": 600,
-	"height": 400,
+	"height": 500,
 	"autosize": "fit",
 
 	"title": {
@@ -278,6 +278,7 @@
 		{
 			"fill": "colour",
 			"labelLimit": 200,
+			"orient": "bottom",
 			"title": ["Diseases and", "Conditions"],
 			"encode": {
 				"symbols": {
@@ -307,6 +308,7 @@
 		{
 			"fill": "hashing",
 			"labelLimit": 200,
+			"orient": "bottom",
 			"title": "Type",
 			"encode": {
 				"symbols": {
@@ -336,6 +338,7 @@
 		{
 			"fill": "parameters",
 			"labelLimit": 200,
+			"orient": "bottom",
 			"title": "Parameters",
 			"titleFontSize": 18,
 			"titlePadding": 10,

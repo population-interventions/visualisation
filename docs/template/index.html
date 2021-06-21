@@ -50,7 +50,12 @@
 		
 
 	
-
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+		crossorigin="anonymous">
+	</script>
+	
 	<script type="text/javascript">
 		function loadCSS(path) { 
 			let file = document.createElement("link");
@@ -139,7 +144,9 @@
 <p>If you want to include a graph specified using Vega, you should save the graph specification in the same folder as this <code>post.md</code> file. The name of the graph specification should be <code>graph-id.json</code>, where <code>id</code> is replaced with a short, readable identifier for that graph. You can then import the graph using the following ‘shortcode’, wherever you want the graph to appear in the post.</p>
 <div class="fig outset-3 more-margin-1">
 				<div id="graph-settings-example" class="graph-settings"></div>
-				<div id="graph-container-example" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
+				<div id="graph-container-example" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span></button>
+				<aside class="collapsed"><button class="toggle-close" id="toggle-close-example"><span>Adjust parameters</span><span>X</span></button><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Graph Options</div>
 				</div>
@@ -166,7 +173,8 @@
 <option value="4" selected>4</option>
 					</select></div></div>
 				</div>
-			</div></div></aside></div>
+			</div></div><button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span></button></aside>
+				</div>
 			<script type="text/javascript">
 				graphs.push("example")
 			</script>
@@ -457,6 +465,37 @@
 			
 		
 
+	</script>
+
+	<script>
+
+		// Hanlde toggle close and open events
+
+		$( ".toggle-open" ).click(function(e) {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			if( toggles.length === 1 ) {
+				toggles.toggleClass("collapsed")
+			}	else {
+				var toggles = toggleBtn.siblings( "aside" )
+				toggles.toggleClass("collapsed")
+			}
+			e.stopPropagation();	
+		});
+
+		$(" aside ").click(function(e) {
+			e.stopPropagation()
+		});
+
+		$( ".toggle-close" ).click(function() {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			toggles.toggleClass("collapsed")
+		});
+
+		$(document).click(function() {
+			$("aside").addClass("collapsed");
+		});
 	</script>
 
 	

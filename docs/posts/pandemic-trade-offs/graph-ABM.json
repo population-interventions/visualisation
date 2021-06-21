@@ -2,7 +2,7 @@
 	"$schema": "https://vega.github.io/schema/vega/v5.json",
 	"padding": 0,
 	"width": 600,
-	"height": 400,
+	"height": 500,
 
 	"title": {
 		"text": "Simulated COVID-19 infection numbers",
@@ -247,6 +247,7 @@
 			"fill": "colour",
 			"labelLimit": 200,
 			"title": "Strategies",
+			"orient":"bottom",
 			"encode": {
 				"symbols": {
 					"name": "legendSymbol",
@@ -276,6 +277,7 @@
 			"fill": "parameters",
 			"labelLimit": 200,
 			"title": "Parameters",
+			"orient":"bottom",
 			"titleFontSize": 18,
 			"titlePadding": 10,
 			"symbolSize": 0,

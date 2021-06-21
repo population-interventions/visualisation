@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass --style=compressed ../src/css/main.scss ../src/css/main.css",
+    "watch:eleventy": "eleventy --serve",
+    "watch:sass": "npm run sass -- --watch",
+    "start": "npm-run-all sass --parallel watch:*"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,7 @@
     "markdown-it-anchor": "^6.0.1",
     "markdown-it-attribution": "^0.1.1",
     "markdown-it-deflist": "^2.1.0",
-    "markdown-it-footnote": "^3.0.2"
+    "markdown-it-footnote": "^3.0.2",
+    "npm-run-all": "^4.1.5"
   }
 }

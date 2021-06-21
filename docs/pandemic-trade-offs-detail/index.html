@@ -56,7 +56,12 @@
 		
 
 	
-
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+		crossorigin="anonymous">
+	</script>
+	
 	<script type="text/javascript">
 		function loadCSS(path) { 
 			let file = document.createElement("link");
@@ -383,10 +388,13 @@
 <p>The graph below shows the expected percentage of the population who are vaccinated at each point in the vaccine rollout, for three different possible vaccine acceptance rates.</p>
 <div class="fig outset-2 more-margin-1">
 				<div id="graph-settings-uptake" class="graph-settings"></div>
-				<div id="graph-container-uptake" class="graph-container"></div></div>
-			<script type="text/javascript">
-				graphs.push("uptake")
-			</script>
+				<div id="graph-container-uptake" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span></button>
+<pre><code>			&lt;/div&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			graphs.push(&quot;uptake&quot;)
+		&lt;/script&gt;
+</code></pre>
 <h3 id="lag">Vaccine Lag time</h3>
 <p>The vaccine only takes effect three weeks after vaccination. We do not model the effect of (say) just one dose of vaccine, but assume the everyone who is vaccinated receives two doses.</p>
 <hr>
@@ -414,10 +422,13 @@
 <p>Below is a graph of the effective reproductive rate by Stage of restrictions, in the absence of vaccination, for the three \(R_0\) scenarios of 2.5, 3.125 and 3.75.</p>
 <div class="fig outset-2 more-margin-1">
 				<div id="graph-settings-calibration" class="graph-settings"></div>
-				<div id="graph-container-calibration" class="graph-container"></div></div>
-			<script type="text/javascript">
-				graphs.push("calibration")
-			</script>
+				<div id="graph-container-calibration" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span></button>
+<pre><code>			&lt;/div&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			graphs.push(&quot;calibration&quot;)
+		&lt;/script&gt;
+</code></pre>
 <h2>Assumptions and Limitations</h2>
 <h3>Agent-based model</h3>
 <p>Simulating the impact of COVID-19 policy responses is challenging.  Our ABM has been extensively investigated by ourselves and others for errors, conceptual rigour, parameterization and such like – and therefore we believe has face validity.  It has also successfully predicted that elimination is achievable, and predicted well the exit of Victoria from its second wave, i.e. to the extent possible, it is calibrated.</p>
@@ -728,6 +739,37 @@
 			
 		
 
+	</script>
+
+	<script>
+
+		// Hanlde toggle close and open events
+
+		$( ".toggle-open" ).click(function(e) {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			if( toggles.length === 1 ) {
+				toggles.toggleClass("collapsed")
+			}	else {
+				var toggles = toggleBtn.siblings( "aside" )
+				toggles.toggleClass("collapsed")
+			}
+			e.stopPropagation();	
+		});
+
+		$(" aside ").click(function(e) {
+			e.stopPropagation()
+		});
+
+		$( ".toggle-close" ).click(function() {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			toggles.toggleClass("collapsed")
+		});
+
+		$(document).click(function() {
+			$("aside").addClass("collapsed");
+		});
 	</script>
 
 	

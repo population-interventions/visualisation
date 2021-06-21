@@ -56,7 +56,12 @@
 		
 
 	
-
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+		crossorigin="anonymous">
+	</script>
+	
 	<script type="text/javascript">
 		function loadCSS(path) { 
 			let file = document.createElement("link");
@@ -142,7 +147,9 @@
 <p>Use the options to the left of (or below) the graph to explore how different scenarios affect the spread of the virus.</p>
 <div class="fig outset-3 more-margin-2">
 				<div id="graph-settings-ABM" class="graph-settings"></div>
-				<div id="graph-container-ABM" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
+				<div id="graph-container-ABM" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span></button>
+				<aside class="collapsed"><button class="toggle-close" id="toggle-close-ABM"><span>Adjust parameters</span><span>X</span></button><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -200,7 +207,8 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div></div><a href="/posts/pandemic-trade-offs/data-ABM-aggregated-tidy.csv" class="download-link"><strong>Download data</strong> (1.8 MB)</a></aside></div>
+			</div></div><button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span></button><a href="/posts/pandemic-trade-offs/data-ABM-aggregated-tidy.csv" class="download-link"><strong>Download data</strong> (1.8 MB)</a></aside>
+				</div>
 			<script type="text/javascript">
 				graphs.push("ABM")
 			</script>
@@ -253,7 +261,9 @@
 </svg>
 <div class="fig outset-3 more-margin-2">
 				<div id="graph-settings-PMSLT-HALY" class="graph-settings"></div>
-				<div id="graph-container-PMSLT-HALY" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
+				<div id="graph-container-PMSLT-HALY" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-PMSLT-HALY"><span>Adjust parameters</span></button>
+				<aside class="collapsed"><button class="toggle-close" id="toggle-close-PMSLT-HALY"><span>Adjust parameters</span><span>X</span></button><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -311,7 +321,8 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div></div><a href="/posts/pandemic-trade-offs/data-HALY-tidy.csv" class="download-link"><strong>Download data</strong> (0.3 MB)</a></aside></div>
+			</div></div><button class="toggle-open" id="toggle-open-PMSLT-HALY"><span>Adjust parameters</span></button><a href="/posts/pandemic-trade-offs/data-HALY-tidy.csv" class="download-link"><strong>Download data</strong> (0.3 MB)</a></aside>
+				</div>
 			<script type="text/javascript">
 				graphs.push("PMSLT-HALY")
 			</script>
@@ -319,7 +330,9 @@
 <p>Below (coming soon) are the estimated health expenditure consequences of SARS-CoV-2 cases in the health system, and changes in health expenditure for the other diseases impacted by stage 3 and 4 lockdowns.  Also shown will be the GDP impacts, estimated using Treasury estimates of the GDP consequences of stages of lockdown multiplied by the percentage of time spent in each stage for each modelled scenario.</p>
 <div class="fig outset-3 more-margin-2">
 				<div id="graph-settings-economy" class="graph-settings"></div>
-				<div id="graph-container-economy" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
+				<div id="graph-container-economy" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-economy"><span>Adjust parameters</span></button>
+				<aside class="collapsed"><button class="toggle-close" id="toggle-close-economy"><span>Adjust parameters</span><span>X</span></button><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -377,7 +390,8 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div></div></aside></div>
+			</div></div><button class="toggle-open" id="toggle-open-economy"><span>Adjust parameters</span></button></aside>
+				</div>
 			<script type="text/javascript">
 				graphs.push("economy")
 			</script>
@@ -386,7 +400,9 @@
 <p>From a health system perspective, if we were deciding whether a new drug was cost-effective, our threshold is as a rule of thumb about $60,000 per HALY (i.e. roughly a country’s GDP per capita per HALY).  From a partial societal perspective, there are not really such rules of thumb – although often revealed willingness to pay per HALY is higher (hence we include up to $500,000 on the x-axis).  For this type of analysis, the standard (that we follow) is a lifetime perspective (i.e. all changes in HALYs and health expenditure (and additionally GDP for the partial societal perspective) for the remainder of the population’s lifespan), each discounted at 3% per year.</p>
 <div class="fig outset-3 more-margin-2">
 				<div id="graph-settings-PMSLT-prob" class="graph-settings"></div>
-				<div id="graph-container-PMSLT-prob" class="graph-container"></div><aside><div class="toggles"><div class="toggle-group">
+				<div id="graph-container-PMSLT-prob" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-PMSLT-prob"><span>Adjust parameters</span></button>
+				<aside class="collapsed"><button class="toggle-close" id="toggle-close-PMSLT-prob"><span>Adjust parameters</span><span>X</span></button><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -444,7 +460,8 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div></div></aside></div>
+			</div></div><button class="toggle-open" id="toggle-open-PMSLT-prob"><span>Adjust parameters</span></button></aside>
+				</div>
 			<script type="text/javascript">
 				graphs.push("PMSLT-prob")
 			</script>
@@ -753,6 +770,37 @@
 			
 		
 
+	</script>
+
+	<script>
+
+		// Hanlde toggle close and open events
+
+		$( ".toggle-open" ).click(function(e) {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			if( toggles.length === 1 ) {
+				toggles.toggleClass("collapsed")
+			}	else {
+				var toggles = toggleBtn.siblings( "aside" )
+				toggles.toggleClass("collapsed")
+			}
+			e.stopPropagation();	
+		});
+
+		$(" aside ").click(function(e) {
+			e.stopPropagation()
+		});
+
+		$( ".toggle-close" ).click(function() {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			toggles.toggleClass("collapsed")
+		});
+
+		$(document).click(function() {
+			$("aside").addClass("collapsed");
+		});
 	</script>
 
 	
