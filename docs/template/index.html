@@ -145,8 +145,8 @@
 <div class="fig outset-3 more-margin-1">
 				<div id="graph-settings-example" class="graph-settings"></div>
 				<div id="graph-container-example" class="graph-container"></div>
-				<button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span></button>
-				<aside class="collapsed"><button class="toggle-close" id="toggle-close-example"><span>Adjust parameters</span><span>X</span></button><div class="toggles"><div class="toggle-group">
+				<button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-example"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Graph Options</div>
 				</div>
@@ -173,7 +173,7 @@
 <option value="4" selected>4</option>
 					</select></div></div>
 				</div>
-			</div></div><button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span></button></aside>
+			</div></div><button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span><span class="with-arrow"></span></button></aside>
 				</div>
 			<script type="text/javascript">
 				graphs.push("example")
@@ -493,9 +493,9 @@
 			toggles.toggleClass("collapsed")
 		});
 
-		$(document).click(function() {
-			$("aside").addClass("collapsed");
-		});
+		// $(document).click(function() {
+		// 	$("aside").addClass("collapsed");
+		// });
 	</script>
 
 	

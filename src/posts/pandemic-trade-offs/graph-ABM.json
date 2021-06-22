@@ -236,7 +236,6 @@
 		{
 			"name": "parameters",
 			"type": "ordinal",
-			"domain": ["Input 1", "Input 2", "Input 3"],
 			"domain": { "signal": "['Vaccine Uptake: ' + VaccineUptake, 'Strategy Relaxation: ' + StrategyRelaxation, 'Vaccine Efficacy (1): ' + Efficacy1, 'Vaccine Efficacy (2): ' + Efficacy2, 'R_0: ' + R0]"},
 			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
 		}

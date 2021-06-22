@@ -148,13 +148,13 @@ module.exports = function(eleventyConfig) {
 		
 		if (toggle_specs.length > 0) {
 			toggles = `<div class="toggles">${toggles}</div>`;
-			toggleOpen = `<button class="toggle-open" id="toggle-open-${name}"><span>Adjust parameters</span></button>`
-			toggleClose = `<button class="toggle-close" id="toggle-close-${name}"><span>Adjust parameters</span><span>X</span></button>`
+			toggleOpen = `<button class="toggle-open" id="toggle-open-${name}"><span>Adjust parameters</span><span class="with-arrow"></span></button>`
+			toggleHead = `<div class="toggle-head" id="toggle-head-${name}"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div>`
 		}
 
 		let aside = ``;
 		if (downloadLink != '' | toggles != '') {
-			aside = `<aside class="collapsed">${toggleClose}${toggles}${toggleOpen}${downloadLink}</aside>`;	
+			aside = `<aside class="collapsed">${toggleHead}${toggles}${toggleOpen}${downloadLink}</aside>`;	
 		}
 
 		let figPosition = uom.hasOwnProperty("figPosition") ? uom.figPosition : 'inset',

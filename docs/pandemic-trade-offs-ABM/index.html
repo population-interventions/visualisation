@@ -138,8 +138,8 @@
 <div class="fig outset-3 more-margin-2">
 				<div id="graph-settings-ABM" class="graph-settings"></div>
 				<div id="graph-container-ABM" class="graph-container"></div>
-				<button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span></button>
-				<aside class="collapsed"><button class="toggle-close" id="toggle-close-ABM"><span>Adjust parameters</span><span>X</span></button><div class="toggles"><div class="toggle-group">
+				<button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-ABM"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">Government & Public Response</div>
 				</div>
@@ -207,7 +207,7 @@
 <option value="3.75" >3.75</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div></div><button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span></button><a href="/posts/pandemic-trade-offs-ABM/data-ABM-full-tidy.zip" class="download-link"><strong>Download data</strong> (12.8 MB)</a></aside>
+			</div></div><button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button><a href="/posts/pandemic-trade-offs-ABM/data-ABM-full-tidy.zip" class="download-link"><strong>Download data</strong> (12.8 MB)</a></aside>
 				</div>
 			<script type="text/javascript">
 				graphs.push("ABM")
@@ -545,9 +545,9 @@
 			toggles.toggleClass("collapsed")
 		});
 
-		$(document).click(function() {
-			$("aside").addClass("collapsed");
-		});
+		// $(document).click(function() {
+		// 	$("aside").addClass("collapsed");
+		// });
 	</script>
 
 	

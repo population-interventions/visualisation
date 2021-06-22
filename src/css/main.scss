@@ -389,7 +389,7 @@ html {
 			padding: 0;
 		}
 
-		.toggle-close {
+		.toggle-head {
 			display: none;
 		}
 	}
@@ -404,7 +404,7 @@ html {
 		top:0;
 		left:0;
 		display: grid;
-		grid-template-rows: auto auto auto;
+		grid-template-rows: 60px auto 60px;
 		grid-template-columns: auto auto;
 		grid-template-areas: 
 		"close-toggles open-toggles" 
@@ -422,18 +422,36 @@ html {
 			color: #fff;
 			text-align: left;
 			height: 200px;
-			width: 40px;
+			width: 45px;
+			padding: 0;
 			border-top-right-radius: 10px;
 			border-bottom-right-radius: 10px;
 			align-self: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+
+			.with-arrow {
+				justify-self: center;
+				padding-right: 10px;
+				height:40px;
+				border-top: 1px solid #fff;
+			}
 
 			span {
+				padding: $h 0;
+				width: 100%;
+				box-sizing: border-box;
 				writing-mode: vertical-rl;
 				text-orientation: mixed;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 		}
 
-		.toggle-close {
+		.toggle-head {
 			grid-area: close-toggles;
 			background-color: $c1-dark;
 			border:none;
@@ -444,6 +462,10 @@ html {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+
+			.toggle-close {
+				cursor: pointer;
+			}
 		}
 
 		.toggles {
@@ -581,23 +603,39 @@ html {
 	
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   	.fig {
 		  display:flex;
 		  flex-direction: column;
 
-		& > .toggle-open{
+		& > .toggle-open {
+			margin-top: 50px;
 			display: flex;
 			flex-wrap: wrap;
 			width: 90%;
-			padding: $h;
 			justify-content: center;
 			align-self: center;
-			margin-top: 1.4rem;
+			margin-top: 50px;
+			padding: 0;
 			background-color: $c1-dark;
 			color: #fff;
-			border-radius: 10px;;
 			border: none;
+			display: flex;
+			justify-content: space-between;
+			border-radius: 5px;
+
+			span {
+				height: 100%;
+				padding: $h $p;
+			}
+
+			.with-arrow {
+				transform: rotate(90deg);
+				padding-left: 15px;
+				border-bottom: 1px solid #fff;
+				justify-self: center;
+				align-self: center;
+			}
 		}
 
 		.vega-embed {
@@ -610,6 +648,7 @@ html {
 			z-index: 10;
 			left: 0;
 			height: calc(100vh - 60px);
+			max-width: 100vw;
 			width: 100vw;
 
 			.toggle-open {
