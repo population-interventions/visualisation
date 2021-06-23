@@ -1,4 +1,4 @@
-vu,R0,str,vk,va,wk,q50,q95,q5,bo
+vaccine_uptake,unmitigated_reproduction_rate,strategy,vaccinate_kids,vaccinated_infected_arrivals,week,percentile_50th,percentile_95th,percentile_5th,borders_open
 50% Vaccinated,4.5,ME_ME_LS,0,0.02,0,0.0,0.0,0.0,0
 50% Vaccinated,4.5,ME_ME_LS,0,0.02,1,0.0,0.0,0.0,0
 50% Vaccinated,4.5,ME_ME_LS,0,0.02,2,0.0,1.0,0.0,0
