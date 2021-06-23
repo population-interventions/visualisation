@@ -52,8 +52,10 @@
 				{ "type": "formula", "as": "group", "expr": "'group'" },
 				{ "type": "pivot", "groupby": ["wk"], "field": "group", "value": "lab", "op": "values" },
 				{ "type": "formula", "as": "50% Vaccinated", "expr": "datum.group[0].label" },
-				{ "type": "formula", "as": "70% Vaccinated", "expr": "datum.group[1].label" },
-				{ "type": "formula", "as": "90% Vaccinated", "expr": "datum.group[2].label" }
+				{ "type": "formula", "as": "60% Vaccinated", "expr": "datum.group[1].label" },
+				{ "type": "formula", "as": "70% Vaccinated", "expr": "datum.group[2].label" },
+				{ "type": "formula", "as": "80% Vaccinated", "expr": "datum.group[3].label" },
+				{ "type": "formula", "as": "90% Vaccinated", "expr": "datum.group[4].label" }
 			]
 		},
 		{
@@ -92,8 +94,8 @@
 						"type": "select",
 						"options": [
 							{ "value": "ME_ME_LS", "label": "ME/ME/LS" },
-							{ "value": "ME_ME_ME", "label": "ME/ME/ME", "default": true },
-							{ "value": "ME_ME_TS", "label": "ME/ME/TS" },
+							{ "value": "ME_ME_ME", "label": "ME/ME/ME" },
+							{ "value": "ME_ME_TS", "label": "ME/ME/TS", "default": true },
 							{ "value": "ME_TS_LS", "label": "ME/TS/LS" }
 						],
 						"signalName": "Strategy"
@@ -105,10 +107,10 @@
 						"type": "select",
 						"options": [
 							{ "value": 0.02, "label": "0.02 per day" },
-							{ "value": 0.1, "label": "0.1 per day" },
-							{ "value": 0.5, "label": "0.5 per day", "default": true },
-							{ "value": 2.5, "label": "2.5 per day" },
-							{ "value": 12.5, "label": "12.5 per day" }
+							{ "value": 0.8, "label": "0.8 per day" },
+							{ "value": 0.32, "label": "0.32 per day", "default": true },
+							{ "value": 1.28, "label": "1.28 per day" },
+							{ "value": 5.12, "label": "5.12 per day" }
 						],
 						"signalName": "VaccArrivals"
 					},
@@ -122,21 +124,16 @@
 							{ "value": 1, "label": "Yes", "default": true }
 						],
 						"signalName": "VaccKids"
-					}
-				]
-			},
-			{
-				"name": "Infectivity",
-				"toggles": [
+					},
 					{
-						"title": "Unmitigated Reproduction Rate",
+						"title": "Virus Reproduction Rate (R0)",
 						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
 						"detailLink": "/pandemic-trade-offs-detail/#reproduction",
 						"type": "select",
 						"options": [
-							{ "value": 4.5 },
-							{ "value": 4.833, "default": true },
-							{ "value": 5.166 }
+							{ "value": 4.5, "label": "4.7" },
+							{ "value": 4.833, "label": "5.0", "default": true },
+							{ "value": 5.166, "label": "5.3" }
 						],
 						"signalName": "R0"
 					}
@@ -177,11 +174,11 @@
 			}
 		},
 		{
-			"name": "Domain", "value": [0,105],
+			"name": "Domain", "value": [0,104],
 			"bind": {
 				"input": "select",
 				"name": "Sample subset:",
-				"options": [[0,105], [0,51], [52,105]],
+				"options": [[0,104], [0,51], [52,104]],
 				"labels": ["Full sample", "Before borders open", "After borders open"],
 				"element": "#graph-settings-ABM-v2"
 			}
@@ -228,7 +225,7 @@
 			"name": "colour",
 			"type": "ordinal",
 			"range": {"scheme": "viridis"},
-			"domain": ["50% Vaccinated", "70% Vaccinated", "90% Vaccinated"]
+			"domain": ["50% Vaccinated", "60% Vaccinated", "70% Vaccinated", "80% Vaccinated", "90% Vaccinated"]
 		},
 		{
 			"name": "parameters",
@@ -379,7 +376,7 @@
 					"strokeWidth": {"value": 0},
 					"fill": {"value": "#999999"},
 					"fillOpacity": {"value": 0},
-					"tooltip": { "signal": "{ 'title': 'Week ' + datum.wk, '50% Vaccinated': datum['50% Vaccinated'], '70% Vaccinated': datum['70% Vaccinated'], '90% Vaccinated': datum['90% Vaccinated']}"}
+					"tooltip": { "signal": "{ 'title': 'Week ' + datum.wk, '50% Vaccinated': datum['50% Vaccinated'], '60% Vaccinated': datum['60% Vaccinated'], '70% Vaccinated': datum['70% Vaccinated'], '80% Vaccinated': datum['80% Vaccinated'], '90% Vaccinated': datum['90% Vaccinated']}"}
 				},
 				"hover": {
 					"fillOpacity": {"value": 0.2}
