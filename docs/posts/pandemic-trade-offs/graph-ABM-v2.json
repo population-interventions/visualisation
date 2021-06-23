@@ -181,7 +181,7 @@
 			"bind": {
 				"input": "select",
 				"name": "Sample subset:",
-				"options": [[0,105], [0,52], [52,105]],
+				"options": [[0,105], [0,51], [52,105]],
 				"labels": ["Full sample", "Before borders open", "After borders open"],
 				"element": "#graph-settings-ABM-v2"
 			}
