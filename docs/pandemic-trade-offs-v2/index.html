@@ -155,73 +155,58 @@
 <p>To model this, we ran 100 simulations of how the SARS-CoV-2 virus might spread through a population of 6 million people, for each of 648 different scenarios. The graph below shows the median daily infections across the 100 simulations of each scenario, along with a 90% uncertainty interval (the 5<sup>th</sup> and 95<sup>th</sup> percentiles).</p>
 <p>Use the options to the left of (or below) the graph to explore how different scenarios affect the spread of the virus.</p>
 <div class="fig outset-3 more-margin-2">
-				<div id="graph-settings-ABM" class="graph-settings"></div>
-				<div id="graph-container-ABM" class="graph-container"></div>
-				<button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button>
-				<aside class="collapsed"><div class="toggle-head" id="toggle-head-ABM"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
+				<div id="graph-settings-ABM-v2" class="graph-settings"></div>
+				<div id="graph-container-ABM-v2" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-ABM-v2"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-ABM-v2"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
 				<div class="group-details">
-					<div class="group-name">Government & Public Response</div>
+					<div class="group-name">Toggles</div>
 				</div>
 				<div class="group-contents">
 					<div class="toggle-box">
 				<div>
 					<div class="name">Strategy</div>
-					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
+					<div class="description">Short, medium, and long term strategies employed to mitigate the spread of COVID-19 <br> (< 6 mths / 6-12 mths / 12+ mths)</div>
 				</div>
-				<div><select name="Strategy" id="select-ABM-Strategy" autocomplete=off>
-						<option value="ME_ME_LS" >ME_ME_LS</option>
-<option value="ME_ME_ME" selected>ME_ME_ME</option>
-<option value="ME_ME_TS" >ME_ME_TS</option>
-<option value="ME_TS_LS" >ME_TS_LS</option>
+				<div><select name="Strategy" id="select-ABM-v2-Strategy" autocomplete=off>
+						<option value="ME_ME_ME" >Elimination / Elimination / Elimination</option>
+<option value="ME_ME_TS" selected>Elimination / Elimination / Tight</option>
+<option value="ME_ME_LS" >Elimination / Elimination / Loose</option>
+<option value="ME_TS_LS" >Elimination / Tight / Loose</option>
 					</select><a href="/pandemic-trade-offs-detail/#uptake" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
 				<div>
-					<div class="name">Borders Open</div>
-					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
+					<div class="name">Infected Arrivals per day</div>
+					<div class="description">Average number of vaccinated yet infected people arriving in Australia per day, after borders open</div>
 				</div>
-				<div><select name="BordersOpen" id="select-ABM-BordersOpen" autocomplete=off>
-						<option value="0" selected>No</option>
-<option value="1" >Yes</option>
-					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
-				</div>
-			</div><div class="toggle-group">
-				<div class="group-details">
-					<div class="group-name">Infectivity</div>
-				</div>
-				<div class="group-contents">
-					<div class="toggle-box">
-				<div>
-					<div class="name">Vaccinated Arrivals Per Day</div>
-					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
-				</div>
-				<div><select name="VaccArrivals" id="select-ABM-VaccArrivals" autocomplete=off>
+				<div><select name="VaccArrivals" id="select-ABM-v2-VaccArrivals" autocomplete=off>
 						<option value="0.02" >0.02 per day</option>
-<option value="0.1" >0.1 per day</option>
-<option value="0.5" selected>0.5 per day</option>
-<option value="2.5" >2.5 per day</option>
-<option value="12.5" >12.5 per day</option>
+<option value="0.08" >0.08 per day</option>
+<option value="0.32" selected>0.32 per day</option>
+<option value="1.28" >1.28 per day</option>
+<option value="5.12" >5.12 per day</option>
 					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
 				<div>
-					<div class="name">Vaccinate Kids</div>
-					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
+					<div class="name">Vaccinate Children</div>
+					<div class="description">Whether children are vaccinated alongside adults</div>
 				</div>
-				<div><select name="VaccKids" id="select-ABM-VaccKids" autocomplete=off>
-						<option value="0" selected>No</option>
-<option value="1" >Yes</option>
+				<div><select name="VaccKids" id="select-ABM-v2-VaccKids" autocomplete=off>
+						<option value="0" >No</option>
+<option value="1" selected>Yes</option>
 					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
 				<div>
-					<div class="name">Unmitigated Reproduction Rate</div>
+					<div class="name">Virus Reproduction Rate (R0)</div>
 					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
 				</div>
-				<div><select name="R0" id="select-ABM-R0" autocomplete=off>
-						<option value="4.5" >4.5</option>
-<option value="4.83" selected>4.83</option>
-<option value="5.17" >5.17</option>
+				<div><select name="R0" id="select-ABM-v2-R0" autocomplete=off>
+						<option value="4.5" >4.7</option>
+<option value="4.833" selected>5.0</option>
+<option value="5.166" >5.3</option>
 					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
-			</div></div><button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button><a href="/posts/pandemic-trade-offs/data-ABM-aggregated-tidy.csv" class="download-link"><strong>Download data</strong> (1.8 MB)</a></aside>
+			</div></div><button class="toggle-open" id="toggle-open-ABM-v2"><span>Adjust parameters</span><span class="with-arrow"></span></button><a href="/posts/pandemic-trade-offs/data-ABM-aggregated-tidy-v2.csv" class="download-link"><strong>Download data</strong> (2.0 MB)</a></aside>
 				</div>
 			<script type="text/javascript">
-				graphs.push("ABM")
+				graphs.push("ABM-v2")
 			</script>
 <p>In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day, but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage.</p>
 <p><a href="/pandemic-trade-offs-ABM/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a></p>

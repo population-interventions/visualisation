@@ -80,7 +80,7 @@ To model this, we ran 100 simulations of how the SARS-CoV-2 virus might spread t
 
 Use the options to the left of (or below) the graph to explore how different scenarios affect the spread of the virus.
 
-{% import_graph "ABM", slug %}
+{% import_graph "ABM-v2", slug %}
 
 In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day, but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage.
 
