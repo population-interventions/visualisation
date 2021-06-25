@@ -6,7 +6,9 @@
 
 	"title": {
 		"text": "Simulated COVID-19 infection numbers",
-		"subtitle": "Median daily new infections and 90% uncertainty interval, by strategy."
+		"subtitle": "Median daily new infections and 90% uncertainty interval, by strategy.",
+		"frame":"group",
+		"dx": -10
 	},
 
 	"data": [
@@ -29,7 +31,6 @@
 				{ "type": "filter", "expr": "datum.str === Strategy" },
 				{ "type": "filter", "expr": "datum.va === VaccArrivals" },
 				{ "type": "filter", "expr": "datum.vk === VaccKids" },
-				{ "type": "filter", "expr": "datum.wk  <= Domain[1] && datum.wk >= Domain[0]"},
 				{ "type": "filter", "expr": "datum.R0 === R0" },
 				{ "type": "extent", "field": "q95", "signal": "Extent" },
 				
@@ -310,6 +311,7 @@
 	"marks": [
 		{
 			"type": "rule",
+			"clip": true,
 			"from": { "data": "rules" },
 			"encode": {
 				"update": {
@@ -325,6 +327,7 @@
 		},
 		{
 			"type": "group",
+			"clip": true,
 			"from": {
 				"facet": {
 					"name": "series",
@@ -385,6 +388,7 @@
 		},
 		{
 			"type": "text",
+			"clip": true,
 			"from": { "data": "rules" },
 			"encode": {
 				"update": {
