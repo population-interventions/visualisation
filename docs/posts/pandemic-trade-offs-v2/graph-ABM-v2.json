@@ -26,7 +26,7 @@
 		{
 			"name": "main",
 			"format": {"type": "csv", "parse": "auto"},
-			"url": "/posts/pandemic-trade-offs-v2/data-ABM-v2.csv",
+			"url": "/posts/pandemic-trade-offs-v2/data-ABM-v3.csv",
 			"transform": [
 				{ "type": "filter", "expr": "datum.str === Strategy" },
 				{ "type": "filter", "expr": "datum.va === VaccArrivals" },
