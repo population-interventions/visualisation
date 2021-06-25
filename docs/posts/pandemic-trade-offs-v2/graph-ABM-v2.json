@@ -34,7 +34,7 @@
 				{ "type": "filter", "expr": "datum.R0 === R0" },
 				{ "type": "extent", "field": "q95", "signal": "Extent" },
 				
-				{"type": "formula", "as": "nq95", "expr": "MaxHeight === 'depend on data' ? datum.q95 : clamp(datum.q95, 0, toNumber(MaxHeight))"},
+				{"type": "formula", "as": "nq95", "expr": "MaxHeight === 'depend on data' ? datum.q95*0.95 : clamp(datum.q95, 0, toNumber(MaxHeight))"},
 				{"type": "formula", "as": "nq5", "expr": "MaxHeight === 'depend on data' ? datum.q5 : clamp(datum.q5, 0, toNumber(MaxHeight))"}
 			]
 		},
@@ -94,10 +94,10 @@
 						"detailLink": "/pandemic-trade-offs-detail/#uptake",
 						"type": "select",
 						"options": [
-							{ "value": "ME_ME_ME", "label": "Elimination / Elimination / Elimination" },
 							{ "value": "ME_ME_TS", "label": "Elimination / Elimination / Tight", "default": true },
 							{ "value": "ME_ME_LS", "label": "Elimination / Elimination / Loose" },
-							{ "value": "ME_TS_LS", "label": "Elimination / Tight / Loose" }
+							{ "value": "ME_TS_LS", "label": "Elimination / Tight / Loose" },
+							{ "value": "ME_TS_BS", "label": "Elimination / Tight / Barely Suppress" }
 						],
 						"signalName": "Strategy"
 					},
