@@ -1,0 +1,580 @@
+ <!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+	
+	<title>
+        
+	Full Simulation | Population Interventions Unit
+
+    </title>
+	
+	<link rel="stylesheet" href="https://dds-gen3.web.unimelb.edu.au/v8.1.6/uom.css">
+	<script src="https://dds-gen3.web.unimelb.edu.au/v8.1.6/uom.js"></script>
+
+	<script
+		src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+		crossorigin="anonymous"></script>
+
+	<!-- Styling -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7QD9R9ZDF"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-T7QD9R9ZDF');
+	</script>
+	
+
+	
+
+	
+		
+		
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"></script>
+		
+
+		
+			<script src="https://d3js.org/d3.v4.min.js"></script>
+		
+
+		
+			<meta charset="utf-8">
+			<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+			<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+			<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+		
+
+	
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+		crossorigin="anonymous">
+	</script>
+	
+	<script type="text/javascript">
+		function loadCSS(path) { 
+			let file = document.createElement("link");
+			file.setAttribute("rel", "stylesheet");
+			file.setAttribute("type", "text/css");
+			file.setAttribute("href", path);
+			document.head.appendChild(file);
+		}
+
+		var graphs = [];
+	</script>					
+	
+	
+		<meta name="robots" content="noindex">
+		<meta name="googlebot" content="noindex">
+	    
+
+
+
+</head>
+
+<body>
+
+	<div class="uomcontent">
+		<div class="page-inner">
+
+			<ol class="page-local-history" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+				<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<a href="/" title="Population Interventions Unit" itemprop="item">
+						<span itemprop="name">Population Interventions Unit</span>
+					</a>
+					<meta content="1" itemprop="position" />
+				</li>
+				
+	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+		<a href="/" title="COVID-19 Pandemic" itemprop="item">
+			<span itemprop="name">COVID-19 Pandemic</span>
+		</a>
+		<meta content="2" itemprop="position" />
+	</li>
+	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+		<a href="/pandemic-trade-offs-ABM-v2" title="Full Simulation" itemprop="item">
+			<span itemprop="name">Full Simulation</span>
+		</a>
+		<meta content="3" itemprop="position" />
+	</li>
+
+			</ol>
+
+
+			<div role="main">
+
+				<div class="headerless"></div>
+
+				
+
+	
+		<div class="flash flash--warning flash--center">
+			<p>
+				<strong>This page is a draft.</strong> All content is provisional.
+			</p>
+		</div>
+	
+
+	<div class="jumpnav"></div>
+	
+
+	
+
+	<h1 class="aligned-title">Full Simulation</h1>
+
+	
+		<section class="lead left">
+			<p>This page contains a more detailed version of the Infections plot that is included on the <a href='/pandemic-trade-offs' target='_blank' rel='noopener noreferrer'>COVID-19 Pandemic Trade-offs</a> page.</p>
+		</section>
+	
+
+
+	<p>In the following graph, each line on the plot corresponds to one run of the model—one possible path that infection numbers could take under the selected scenario and policy response. The lines are coloured by the Stage of restrictions that are in place at any given time.</p>
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-ABM" class="graph-settings"></div>
+				<div id="graph-container-ABM" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-ABM"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Government & Public Response</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Vaccine Uptake</div>
+					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
+				</div>
+				<div><select name="VaccineUptake" id="select-ABM-VaccineUptake" autocomplete=off>
+						<option value="50" >50%</option>
+<option value="60" >60%</option>
+<option value="70" selected>70%</option>
+<option value="80" >80%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#uptake" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Strategy</div>
+					<div class="description">Short, medium, and long term strategies employed to mitigate the spread of COVID-19 <br> (< 6 mths / 6-12 mths / 12+ mths)</div>
+				</div>
+				<div><select name="Strategy" id="select-ABM-Strategy" autocomplete=off>
+						<option value="ME_ME_TS" selected>Elimination / Elimination / Tight</option>
+<option value="ME_ME_LS" >Elimination / Elimination / Loose</option>
+<option value="ME_TS_LS" >Elimination / Tight / Loose</option>
+<option value="ME_TS_BS" >Elimination / Tight / Barely Suppress</option>
+					</select><a href="/pandemic-trade-offs-detail/#uptake" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Infected Arrivals per day</div>
+					<div class="description">Average number of vaccinated yet infected people arriving in Australia per day, after borders open</div>
+				</div>
+				<div><select name="VaccArrivals" id="select-ABM-VaccArrivals" autocomplete=off>
+						<option value="0.02" >0.02 per day</option>
+<option value="0.08" >0.08 per day</option>
+<option value="0.32" selected>0.32 per day</option>
+<option value="1.28" >1.28 per day</option>
+<option value="5.12" >5.12 per day</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Vaccinate Children</div>
+					<div class="description">Whether children are vaccinated alongside adults</div>
+				</div>
+				<div><select name="VaccKids" id="select-ABM-VaccKids" autocomplete=off>
+						<option value="No" >No</option>
+<option value="Yes" selected>Yes</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Virus Reproduction Rate (R0)</div>
+					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
+				</div>
+				<div><select name="R0" id="select-ABM-R0" autocomplete=off>
+						<option value="4.5" >4.7</option>
+<option value="4.833" selected>5.0</option>
+<option value="5.166" >5.3</option>
+					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div></div><button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button><a href="/posts/pandemic-trade-offs-ABM-v2/data-ABM-full-tidy.zip" class="download-link"><strong>Download data</strong> (12.8 MB)</a></aside>
+				</div>
+			<script type="text/javascript">
+				graphs.push("ABM")
+			</script>
+<p>To learn more about this modelling, please see the Model Details page.</p>
+<p><a href="/pandemic-trade-offs-detail/" class="button-small with-arrow">View model details</a></p>
+
+
+
+	<section class="endmatter">
+		
+			<h4>Contributors</h4>
+			<p><ul>
+<li>The data visualisations and interface for this tool were developed by <a href="https://lukethorburn.com/cv/">Luke Thorburn</a>.</li>
+<li>The modelling was led by Dr <a href="https://findanexpert.unimelb.edu.au/profile/884197-tim-wilson">Tim Wilson</a>, assisted by Haifeng Zhao and Sachith Seneviratne. The original agent-based model was built by Dr <a href="https://findanexpert.unimelb.edu.au/profile/769805-jason-thompson">Jason Thompson</a>, assisted by Profs Rod McClure, <a href="https://findanexpert.unimelb.edu.au/profile/653385-mark-stevenson">Mark Stevenson</a> and <a href="https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely">Tony Blakely</a>.  The integrated epidemiological and economic model (proportional multistate lifetable) is a collaboration between the University of Melbourne and the Institute of Health Metrics and Evaluation (University of Washington), with key contributions from: Prof Abie Flaxman and Mr James Collins (IHME); Drs <a href="https://findanexpert.unimelb.edu.au/profile/10215-rob-moss">Rob Moss</a>, <a href="https://findanexpert.unimelb.edu.au/profile/432264-nic-geard">Nic Geard</a>, <a href="https://findanexpert.unimelb.edu.au/profile/721168-patrick-andersen">Patrick Andersen</a> and <a href="https://findanexpert.unimelb.edu.au/profile/884197-tim-wilson">Tim Wilson</a> (University of Melbourne), assisted by all members of the Population Interventions Unit (Drs <a href="https://findanexpert.unimelb.edu.au/profile/242956-driss-ait-ouakrim">Driss Ait Ouakrim</a> and <a href="https://findanexpert.unimelb.edu.au/profile/686318-laxman-bablani">Laxman Bablani</a>, and Profs <a href="https://findanexpert.unimelb.edu.au/profile/26106-vijaya-sundararajan">Vijaya Sundararajan</a> and <a href="https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely">Tony Blakely</a>).</li>
+<li>The determination of which diseases and conditions are impacted by COVID-19 restrictions, and with what magnitude, was undertaken by Dr <a href="https://findanexpert.unimelb.edu.au/profile/242956-driss-ait-ouakrim">Driss Ait Ouakrim</a>, Ms Ameera Katar, Mr Patrick Abraham, Dr <a href="https://findanexpert.unimelb.edu.au/profile/531653-natalie-carvalho">Natalie Carvalho</a> and Prof <a href="https://findanexpert.unimelb.edu.au/profile/356800-nathan-grills">Nathan Grills</a>.</li>
+<li>Overall leadership of the body of work was by Prof <a href="https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely">Tony Blakely</a>.</li>
+<li>Web hosting and technical support was provided by Grace Dong and Dr Melissa Makin.</li>
+<li>We acknowledge a generous anonymous philanthropic grant, through Advancement, that enabled this project.</li>
+</ul>
+</p>
+		
+
+		<h4>Contact Details</h4>
+		<p>Please direct media or other enquiries about this research to the <a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions">Population Interventions Unit</a> at the following address.</p>
+		<dl class="PI-contact">
+			<dt>Email</dt>
+			<dd><a href="mailto:population-interventions@unimelb.edu.au">population-interventions@unimelb.edu.au</a></dd>
+		</dl>
+	</section>
+
+	<script type="text/javascript">
+
+		var views = {};
+
+		function render(key, spec) {
+			
+			// Add default graph config.
+
+			let defaultConfig = {
+				axis: {
+					labelFont: "Source Sans Pro, sans-serif",
+					titleFont: "Source Sans Pro, sans-serif",
+					titleFontSize: 20,
+					titleColor: "#012a58",
+					titleFontWeight: 400
+				},
+				legend: {
+					labelFont: "Source Sans Pro, sans-serif",
+					titleFont: "Source Sans Pro, sans-serif",
+					labelFontSize: 18,
+					labelColor: "#000000",
+					titlePadding: 15,
+					titleFontSize: 20,
+					titleColor: "#012a58",
+					symbolSize: 360,
+					labelSeparation: 10,
+					labelOffset: 10,
+					offset: 20,
+					titleFontWeight: 400,
+					layout: {
+						margin: 60
+					}
+				},
+				title: {
+					font: "Source Sans Pro, sans-serif",
+					subtitleFont: "Source Sans Pro, sans-serif",
+					anchor: "start",
+					color: "#012a58",
+					fontSize: 28,
+					fontWeight: 700,
+					subtitleColor: "#000000",
+					subtitleFontSize: "20",
+					subtitleFontWeight: "400",
+					subtitlePadding: 10,
+					offset: 20,
+					dx: 70
+				}
+			};
+			if (spec.hasOwnProperty('config')) {
+				spec.config.axis = { ...defaultConfig.axis, ...spec.config.axis };
+				spec.config.legend = { ...defaultConfig.legend, ...spec.config.legend };
+				spec.config.title = { ...defaultConfig.title, ...spec.config.title };
+			} else {
+				spec.config = defaultConfig;
+			}
+
+			// Create uom property if doesn't already exist.
+
+			if (!spec.hasOwnProperty('uom')) {
+				spec.uom = {};
+			}
+
+			// Make background white (if none already specified).
+
+			if (!spec.hasOwnProperty('background')) {
+				spec.background = "#ffffff";
+			}
+
+			// Blank out if 'coming soon'.
+
+			if (spec.uom.hasOwnProperty('comingSoon') & spec.uom['comingSoon']) {
+				spec.data.push({
+					name: "shades",
+					values: [ { "label": "Coming Soon" } ]
+				})
+
+				spec.marks = [
+					{
+						type: "rect",
+						from: { data: "shades" },
+						encode: {
+							update: {
+								x: { signal: "range('x')[0]" },
+								x2: { signal: "range('x')[1]" },
+								y: { signal: "range('y')[0]" },
+								y2: { signal: "range('y')[1]" },
+								strokeWidth: { value: 0 },
+								fill: { value: '#f2f5f9' }
+							}
+						}
+
+					},
+					{
+						type: "text",
+						from: { data: "shades" },
+						encode: {
+							update: {
+								x: { signal: "(range('x')[0] + range('x')[1]) / 2" },
+								y: { signal: "(range('y')[0] + range('y')[1]) / 2" },
+								text: { signal: "datum.label" },
+								baseline: { value: "middle" },
+								align: { value: "center" },
+								fill: { value: "#012a58" },
+								fontSize: { value: 20 },
+								fontWeight: { value: 'bold' }
+								
+							}
+						}
+					}
+				]
+			}
+
+			// Specify renderer if not already specified.
+
+			if (!spec.uom.hasOwnProperty('renderer')) {
+				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
+			}
+
+			// Set correct autosize mode.
+
+			if (!spec.hasOwnProperty("autosize")) {
+				spec.autosize = "fit";
+			}
+
+			// Define desired aspect ratio.
+
+			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
+				spec.uom.aspectRatio = spec.width / spec.height;
+			} else {
+				spec.uom.aspectRatio = 1.5;
+			}
+			delete spec.width;
+			delete spec.height;
+
+			// Define threshold width between two types of graph scaling.
+				// Above this width, the graph is re-rendered to fit the space available.
+				// (eg. text will stay its specified size)
+				// Below this width, the graph is simply scaled down to fit the space available.
+				// (eg. text will be smaller than the specified size)
+			if (!spec.uom.hasOwnProperty('minWidth')) {
+				spec.uom.minWidth = 800;
+			}
+
+			// Generate signals for specified toggles.
+
+			if (!spec.hasOwnProperty('signals')) {
+				spec.signals = [];
+			}
+			if (spec.uom.hasOwnProperty('toggleGroups')) {
+				for (let toggleGroup of spec.uom['toggleGroups']) {
+					for (let toggle of toggleGroup.toggles) {
+
+						let updateDefault, updateOnChange;
+						if (typeof(toggle.options[0].value) === "number") {
+							updateDefault = `${toggle.options.filter(d => d.default)[0].value}`;
+							updateOnChange = "toNumber(event.target.value)";
+						} else {
+							updateDefault = `'${toggle.options.filter(d => d.default)[0].value}'`;
+							updateOnChange = "event.target.value";
+						}
+
+						spec.signals.push({
+							name: toggle.signalName,
+							update: updateDefault,
+							on: [{
+								events: {
+									source: `#select-${key}-${toggle.signalName}`,
+									type: "change"
+								},
+								update: updateOnChange
+							}]
+						})
+					}
+				}
+			}
+
+			// Store reference to wrapper element.
+
+			spec.uom.container = document.querySelector(`#graph-container-${key}`);
+
+			// Create the view.
+
+			let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+			vegaEmbed(
+				`#graph-container-${key}`,
+				spec,
+				opt = {
+					renderer: spec.uom.renderer,
+					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
+					actions: false,
+					width: width,
+					height: width / spec.uom.aspectRatio
+				}
+			).then(function(result) {
+
+				views[key] = result.view;
+
+				// Make responsive.
+
+				if (spec.uom.renderer === 'canvas') {
+					
+					spec.uom.resize = () => {
+						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+						views[key]
+							.width(width)
+							.height(width / spec.uom.aspectRatio)
+							.run();
+					};
+					window.addEventListener('resize', spec.uom.resize);
+				
+				} else {
+					
+					function removeWidthHeightAttributes() {
+						// Remove width/height attributes of Vega SVG and let viewBox handle the responsive behaviour.
+						let viewDom = spec.uom.container.firstElementChild;
+						viewDom.removeAttribute('width');
+						viewDom.removeAttribute('height');
+					}
+
+					spec.uom.resize = () => {
+
+						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+						views[key]
+							.width(width)
+							.height(width / spec.uom.aspectRatio)
+							.runAsync()
+							.then(vw => {
+								removeWidthHeightAttributes();
+							});
+						
+					};
+					window.addEventListener('resize', spec.uom.resize);
+
+					removeWidthHeightAttributes();
+					
+				}
+
+			}).catch(console.error);
+
+			return views[key];
+
+		}
+
+		// Render all graphs.
+
+		for (let key of graphs) {
+		
+			fetch('/posts/pandemic-trade-offs-ABM-v2/graph-' + key + '.json')
+				.then(res => res.json())
+				.then(spec => render(key, spec))
+				.catch(err => console.error(err));
+
+		}
+
+		// Reset select fields on page load (to avoid misleading browser-cached values).
+
+		$( document ).ready(function() {
+			$('select').each( function() {
+				$(this).val( $(this).find("option[selected]").val() );
+			});
+		});
+
+		// Render KaTeX.
+
+		
+			
+				document.addEventListener("DOMContentLoaded", function() {
+					renderMathInElement(document.body, {
+						delimiters: [
+							{left: "$$", right: "$$", display: true},
+							{left: "\\(", right: "\\)", display: false},
+							{left: "\\[", right: "\\]", display: true}
+						]
+					});
+				});
+			
+		
+
+	</script>
+
+	<script>
+
+		// Hanlde toggle close and open events
+
+		$( ".toggle-open" ).click(function(e) {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			if( toggles.length === 1 ) {
+				toggles.toggleClass("collapsed")
+			}	else {
+				var toggles = toggleBtn.siblings( "aside" )
+				toggles.toggleClass("collapsed")
+			}
+			e.stopPropagation();	
+		});
+
+		$(" aside ").click(function(e) {
+			e.stopPropagation()
+		});
+
+		$( ".toggle-close" ).click(function() {
+			var toggleBtn = $(this)
+			var toggles = toggleBtn.closest("aside")
+			toggles.toggleClass("collapsed")
+		});
+
+		// $(document).click(function() {
+		// 	$("aside").addClass("collapsed");
+		// });
+	</script>
+
+	
+
+
+			</div>
+
+			<div id="sitemap" role="navigation">
+				<h2>Home</h2>
+				<ul>
+					
+						<li>
+							<a href="/">COVID-19 Pandemic</a>
+							<div class="inner">
+								<ul>
+									
+										<li>
+											<a href="/pandemic-trade-offs">COVID-19 Pandemic Trade-offs</a>
+										</li>
+									
+								</ul>
+							</div>
+						</li>
+					
+					<li>
+						<a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions" target="_blank" rel="noopener noreferrer">About the Population Interventions Unit</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

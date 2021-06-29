@@ -84,7 +84,7 @@ Use the options to the left of (or below) the graph to explore how different sce
 
 In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day, but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage.
 
-<a href="/pandemic-trade-offs-ABM/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a>
+<a href="/pandemic-trade-offs-ABM-v2/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a>
 
 <a href="/pandemic-trade-offs-ABM/" class="img-link"><img src="/posts/pandemic-trade-offs/preview-full-ABM.jpg" width="600" /></a>
 
