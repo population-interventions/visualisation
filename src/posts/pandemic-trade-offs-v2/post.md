@@ -86,7 +86,7 @@ In each of the 100 simulations, the model also tracks which stage of restriction
 
 <a href="/pandemic-trade-offs-ABM-v2/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a>
 
-<a href="/pandemic-trade-offs-ABM/" class="img-link"><img src="/posts/pandemic-trade-offs/preview-full-ABM.jpg" width="600" /></a>
+<a href="/pandemic-trade-offs-ABM-v2/" class="img-link"><img src="/posts/pandemic-trade-offs/preview-full-ABM.jpg" width="600" /></a>
 
 If you are interested in the details of the model, these are included on a separate page.
 
