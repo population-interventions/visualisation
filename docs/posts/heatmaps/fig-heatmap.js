@@ -31,6 +31,8 @@ var data = [
 // SETUP ======================================================================== //
 // ============================================================================== //
 
+// Specify the column and row header variables.
+
 var colVars = [
 		{ var: 'str', vals: ['ME_ME_LS', 'ME_TS_LS'] }
 	],
@@ -38,6 +40,8 @@ var colVars = [
 		{ var: 'vu',  vals: [ 50, 60, 70, 80 ] },
 		{ var: 'vk',  vals: [ 0, 1 ] }
 	];
+
+// Specify the variable of interest.
 
 var heatmapVar = 'nCases';
 
