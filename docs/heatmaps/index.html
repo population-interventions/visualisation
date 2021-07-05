@@ -1,42 +1,55 @@
----
-pagination:
-  data: collections.post
-  size: 1
-  alias: post
-permalink: /{{ post.data.slug }}/
----
+ <!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+	
+	<title>
+        
+	Heatmap Demo | Population Interventions Unit
 
-{% extends 'base.njk' %}
+    </title>
+	
+	<link rel="stylesheet" href="https://dds-gen3.web.unimelb.edu.au/v8.1.6/uom.css">
+	<script src="https://dds-gen3.web.unimelb.edu.au/v8.1.6/uom.js"></script>
 
-{% block title %}
-	{{ post.data.title }} | Population Interventions Unit
-{% endblock %}
+	<script
+		src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+		crossorigin="anonymous"></script>
 
-{% block head %}
+	<!-- Styling -->
+	<link rel="stylesheet" href="/css/main.css">
 
-	{% if post.data.dependencies %}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7QD9R9ZDF"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-T7QD9R9ZDF');
+	</script>
+	
+
+	
+
+	
 		
-		{% if post.data.dependencies.katex %}
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
-			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
-			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"></script>
-		{% endif %}
+		
 
-		{% if post.data.dependencies.d3 %}
+		
 			<script src="https://d3js.org/d3.v4.min.js"></script>
 			<script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
 			<script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
 			<script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
-		{% endif %}
+		
 
-		{% if post.data.dependencies.vega %}
-			<meta charset="utf-8">
-			<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-			<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-			<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-		{% endif %}
+		
 
-	{% endif %}
+	
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
 		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
@@ -55,60 +68,86 @@ permalink: /{{ post.data.slug }}/
 		var graphs = [];
 	</script>					
 	
-	{% if post.data.hidden %}
+	
 		<meta name="robots" content="noindex">
 		<meta name="googlebot" content="noindex">
-	{% endif %}    
+	    
 
-{% endblock %}
 
-{% block breadcrumb %}
+
+</head>
+
+<body>
+
+	<div class="uomcontent">
+		<div class="page-inner">
+
+			<ol class="page-local-history" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+				<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<a href="/" title="Population Interventions Unit" itemprop="item">
+						<span itemprop="name">Population Interventions Unit</span>
+					</a>
+					<meta content="1" itemprop="position" />
+				</li>
+				
 	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-		<a href="/" title="{{ post.data.section }}" itemprop="item">
-			<span itemprop="name">{{ post.data.section }}</span>
+		<a href="/" title="Example" itemprop="item">
+			<span itemprop="name">Example</span>
 		</a>
 		<meta content="2" itemprop="position" />
 	</li>
 	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-		<a href="/{{ post.data.slug }}" title="{{ post.data.title }}" itemprop="item">
-			<span itemprop="name">{{ post.data.title }}</span>
+		<a href="/heatmaps" title="Heatmap Demo" itemprop="item">
+			<span itemprop="name">Heatmap Demo</span>
 		</a>
 		<meta content="3" itemprop="position" />
 	</li>
-{% endblock %}
 
-{% block content %}
+			</ol>
 
-	{% if post.data.draft %}
+
+			<div role="main">
+
+				<div class="headerless"></div>
+
+				
+
+	
 		<div class="flash flash--warning flash--center">
 			<p>
 				<strong>This page is a draft.</strong> All content is provisional.
 			</p>
 		</div>
-	{% endif %}
+	
 
 	<div class="jumpnav"></div>
-	{# In-page navigation - will only be activated if h2's have IDs #}
+	
 
-	{{ post | get_skip_to_links | safe }}
+	
 
-	<h1 class="aligned-title">{{ post.data.title }}</h1>
+	<h1 class="aligned-title">Heatmap Demo</h1>
 
-	{% if post.data.description %}
+	
 		<section class="lead left">
-			<p>{{ post.data.description | safe }}</p>
+			<p>This page is a demonstration of how to generate HTML table heatmaps using d3.</p>
 		</section>
-	{% endif %}
+	
 
 
-	{{ post.templateContent | markdown | safe }}
+	<div class="fig outset-4 more-margin-2" id="fig-container-heatmap">
+	<table id="fig-heatmap">
+	</table>
+</div><script type="text/javascript">
+					loadCSS("/posts/heatmaps/fig-heatmap.css");
+				</script><script src="/posts/heatmaps/fig-heatmap.js"></script>
 
 
 	<section class="endmatter">
-		{% if post.data.contributorDetails %}
+		
 			<h4>Contributors</h4>
-			<p>{{ post.data.contributorDetails | markdown | safe }}</p>
-		{% endif %}
+			<p><p>Acknowledgements for the bottom of the post go here.</p>
+</p>
+		
 
 		<h4>Contact Details</h4>
 		<p>Please direct media or other enquiries about this research to the <a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions">Population Interventions Unit</a> at the following address.</p>
@@ -365,7 +404,7 @@ permalink: /{{ post.data.slug }}/
 
 		for (let key of graphs) {
 		
-			fetch('/posts/{{ post.data.slug }}/graph-' + key + '.json')
+			fetch('/posts/heatmaps/graph-' + key + '.json')
 				.then(res => res.json())
 				.then(spec => render(key, spec))
 				.catch(err => console.error(err));
@@ -382,19 +421,9 @@ permalink: /{{ post.data.slug }}/
 
 		// Render KaTeX.
 
-		{% if post.data.dependencies %}
-			{% if post.data.dependencies.katex %}
-				document.addEventListener("DOMContentLoaded", function() {
-					renderMathInElement(document.body, {
-						delimiters: [
-							{left: "$$", right: "$$", display: true},
-							{left: "\\(", right: "\\)", display: false},
-							{left: "\\[", right: "\\]", display: true}
-						]
-					});
-				});
-			{% endif %}
-		{% endif %}
+		
+			
+		
 
 	</script>
 
@@ -429,6 +458,37 @@ permalink: /{{ post.data.slug }}/
 		// });
 	</script>
 
-	{# TODO - make more responsive: https://bl.ocks.org/donghaoren/023b2246569e8f0615017507b473e55e #}
+	
 
-{% endblock %}
+
+			</div>
+
+			<div id="sitemap" role="navigation">
+				<h2>Home</h2>
+				<ul>
+					
+						<li>
+							<a href="/">COVID-19 Pandemic</a>
+							<div class="inner">
+								<ul>
+									
+										<li>
+											<a href="/pandemic-trade-offs">COVID-19 Pandemic Trade-offs</a>
+										</li>
+									
+								</ul>
+							</div>
+						</li>
+					
+					<li>
+						<a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions" target="_blank" rel="noopener noreferrer">About the Population Interventions Unit</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>
