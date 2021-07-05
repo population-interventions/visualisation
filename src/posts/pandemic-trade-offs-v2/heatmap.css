@@ -1,0 +1,11 @@
+#heatmap-1 * {
+	font-size: 12px;
+}
+#heatmap-1 td {
+	padding: 0.7rem 0.2rem;
+	background-color: red;
+}
+
+#heatmap-1 th {
+	padding: 0 0.5rem
+}

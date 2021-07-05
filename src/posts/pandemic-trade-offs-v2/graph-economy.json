@@ -130,12 +130,14 @@
 	"legends": [
 		{
 			"direction": "vertical",
+			"orient":"bottom",
 			"fill": "colour",
 			"title": "Costs",
 			"labelLimit": 200
 		},
 		{
 			"fill": "parameters",
+			"orient":"bottom",
 			"labelLimit": 200,
 			"title": "Parameters",
 			"titleFontSize": 18,

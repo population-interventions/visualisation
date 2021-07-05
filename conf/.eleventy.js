@@ -131,6 +131,13 @@ module.exports = function(eleventyConfig) {
 
 			}
 
+			if (toggle_group.name == "None") {
+			toggles += `<div class="toggle-group">
+				<div class="group-contents">
+					${toggle_group_contents}
+				</div>
+			</div>`;	
+			} else {
 			toggles += `<div class="toggle-group">
 				<div class="group-details">
 					<div class="group-name">${toggle_group.name}</div>
@@ -139,6 +146,7 @@ module.exports = function(eleventyConfig) {
 					${toggle_group_contents}
 				</div>
 			</div>`;
+			}
 		}
 
 		let downloadLink = '';
@@ -164,8 +172,7 @@ module.exports = function(eleventyConfig) {
 				<div id="graph-settings-${name}" class="graph-settings"></div>
 				<div id="graph-container-${name}" class="graph-container"></div>
 				${toggleOpen}
-				${aside}
-				</div>
+				${aside}</div>
 			<script type="text/javascript">
 				graphs.push("${name}")
 			</script>
