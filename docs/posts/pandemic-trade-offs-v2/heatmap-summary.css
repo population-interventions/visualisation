@@ -14,7 +14,7 @@
 	display: flex;
 }
 
-#heatmapDomainSelector {
+#heatmapDomainSelector, #heatmapVarSelector {
 	padding: 0;
 	font-size: 1rem;
 	padding: 0rem 2rem 0 0.5rem;
@@ -38,14 +38,14 @@
 
 .heatmap table tr td {
 	padding: 0.1rem 0.2rem !important;
-	min-width: 25px !important;
-	max-width: 25px !important;
+	min-width: 35px !important;
+	max-width: 35px !important;
 	text-align: center !important;
 }
 
 .heatmap table tr th {
 	padding: 0 0.5rem !important;
-	min-width: 35px;
+	min-width: 45px;
 }
 
 .heatmap thead tr th {

@@ -6,7 +6,7 @@
 
 	"title": {
 		"text": "Simulated COVID-19 infection numbers",
-		"subtitle": "Median daily new infections and 90% uncertainty interval, by strategy.",
+		"subtitle": "Mean daily new infections and 90% uncertainty interval, by strategy.",
 		"frame":"group",
 		"dx": -10
 	},

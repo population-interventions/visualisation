@@ -1,28 +1,31 @@
-var infectionCells = document.querySelectorAll('#infections-heatmap td');
-var lockdownCells = document.querySelectorAll('#lockdown-heatmap td');
-
 // ------------------------------------------------------------
 // Initialise heatmaps ----------------------------------------
 // ------------------------------------------------------------
+
+var infectionCells = document.querySelectorAll('#infections-heatmap td');
+var lockdownCells = document.querySelectorAll('#lockdown-heatmap td');
+
+var variableSelector = document.getElementById("heatmapVarSelector").value;
+var domainSelector = document.getElementById("heatmapDomainSelector").value;
+
+
 for(var i = 0, max = infectionCells.length; i < max; i++) {
     var node = infectionCells[i];
 
-    node.innerHTML = node.dataset.infectYr1;
+	eval('var variableOfInterest = node.dataset.' + variableSelector + domainSelector + ';');
 
-    // get data values from table cells
-    var infectionsYr1 = node.dataset.infectYr1; 
-    var infectionsYr2 = node.dataset.infectYr2; 
+    node.innerHTML = variableOfInterest;
 
     // check for value and colour accordingly
-    if (infectionsYr1 <= 3) {
+    if (variableOfInterest <= 3) {
         node.style.backgroundColor = "#69B34C";
-        } else if (infectionsYr1 > 3 && infectionsYr1 <= 6) {
+        } else if (variableOfInterest > 3 && variableOfInterest <= 9) {
         node.style.backgroundColor = "#ACB334";
-	} else if (infectionsYr1 > 6 && infectionsYr1 <= 12) {
+	} else if (variableOfInterest > 9 && variableOfInterest <= 81) {
         node.style.backgroundColor = "#FAB733";
-	} else if (infectionsYr1 > 12 && infectionsYr1 <= 25) {
+	} else if (variableOfInterest > 81 && variableOfInterest <= 243) {
         node.style.backgroundColor = "#FF8E15";
-	} else if (infectionsYr1 > 25 && infectionsYr1 <= 100) {
+	} else if (variableOfInterest > 243 && variableOfInterest <= 729) {
         node.style.backgroundColor = "#FF4E11";
         node.style.color = "#fff";
 	} else {
@@ -63,39 +66,34 @@ for(var i = 0, max = lockdownCells.length; i < max; i++) {
 // Update heatmaps --------------------------------------------
 // ------------------------------------------------------------
 
-function updateHeatmapDomain() {
-	var domainSelector = document.getElementById("heatmapDomainSelector");
-	var domain = domainSelector.value;
+function updateHeatmap() {
+	var variableSelector = document.getElementById("heatmapVarSelector").value;
+	var domainSelector = document.getElementById("heatmapDomainSelector").value;
 
 	var infectionCells = document.querySelectorAll('#infections-heatmap td');
 	var lockdownCells = document.querySelectorAll('#lockdown-heatmap td');
 
+
 	for(var i = 0, max = infectionCells.length; i < max; i++) {
 		var node = infectionCells[i];
-		if (domain == 1) {
-				var infectVal = node.dataset.infectYr1
-		} else if (domain == 2) {
-				var infectVal = node.dataset.infectYr2
-		} else {
-				var infectVal = node.dataset.infectFull
-		}
-	
-		node.innerHTML = infectVal;
+
+		eval('var variableOfInterest = node.dataset.' + variableSelector + domainSelector + ';');
+		node.innerHTML = variableOfInterest;
 	
 		// check for value and colour accordingly
-		if (infectVal <= 3) {
+		if (variableOfInterest <= 3) {
 			node.style.backgroundColor = "#69B34C";
 			node.style.color = "#000";
-			} else if (infectVal > 3 && infectVal <= 6) {
+			} else if (variableOfInterest > 3 && variableOfInterest <= 9) {
 			node.style.backgroundColor = "#ACB334";
 			node.style.color = "#000";
-			} else if (infectVal > 6 && infectVal <= 12) {
+			} else if (variableOfInterest > 9 && variableOfInterest <= 81) {
 			node.style.backgroundColor = "#FAB733";
 			node.style.color = "#000";
-			} else if (infectVal > 12 && infectVal <= 25) {
+			} else if (variableOfInterest > 81 && variableOfInterest <= 243) {
 			node.style.backgroundColor = "#FF8E15";
 			node.style.color = "#000";
-			} else if (infectVal > 25 && infectVal <= 100) {
+			} else if (variableOfInterest > 243 && variableOfInterest <= 729) {
 			node.style.backgroundColor = "#FF4E11";
 			node.style.color = "#fff";
 			} else {
@@ -107,9 +105,9 @@ function updateHeatmapDomain() {
 	for(var i = 0, max = lockdownCells.length; i < max; i++) {
 		var node = lockdownCells[i];
 
-		if (domain == 1) {
+		if (domainSelector == "Yr1") {
 				var lockdownVal = node.dataset.lockdownYr1
-		} else if (domain == 2) {
+		} else if (domainSelector == "Yr2") {
 				var lockdownVal = node.dataset.lockdownYr2
 		} else {
 				var lockdownVal = node.dataset.lockdownFull
@@ -138,5 +136,4 @@ function updateHeatmapDomain() {
 			node.style.color = "#fff";
 			}
 		}
-
 }
