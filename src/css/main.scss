@@ -373,9 +373,11 @@ html {
 	.collapsed {
 		grid-template-columns: 0 auto !important;
 		width:0;
+		border: none;
 
 		.toggles {
 			border: none;
+			overflow:hidden;
 		}
 
 		.download-link {

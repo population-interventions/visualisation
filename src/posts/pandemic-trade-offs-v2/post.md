@@ -102,9 +102,11 @@ Below are two heatmaps showing the average infections per day, and proportion of
 - the first year (before the borders open): when an infection escaping from quarantine has a probability of 4.5% per day); or 
 - the second year (after the borders are open): when infections are still escaping from quarantine at a rate of 2.25% per day, and vaccinated infected arrivals occurring at the rate indicated for each scenario).
 
-{% import_content "heatmap", slug %}
+{% import_content "heatmap-summary", slug %}
 
 Below is an interactive heatmap, where you select the your ‘optimal scenario’ of both the maximum average infections per day you will tolerate and the maximum proportion of time in lockdown.  And (as above) select either year 1 or 2.
+
+{% import_content "heatmap-scenario", slug %}
 
 ---
 
