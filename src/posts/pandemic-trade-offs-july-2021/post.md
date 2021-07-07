@@ -23,7 +23,7 @@
 	},
 	
 	"hidden": false,
-	"draft": true,
+	"draft": false,
 	
 	"skipToLinks": [
 		{
@@ -52,7 +52,7 @@
 			"image": "preview-coming-soon.svg"
 		},
 		{
-			"href": "/pandemic-trade-offs-detail/",
+			"href": "/pandemic-trade-offs-detail-july-2021/",
 			"text": "Model Details",
 			"image": "preview-strategies.svg",
 			"external": true
