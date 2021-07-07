@@ -26,14 +26,14 @@
 	width: 100%;
 	max-width: 1200px;
 	overflow: scroll;
-	border-collapse: separate;
-	border-spacing: 0;
 	padding: 1rem 0 !important;
 }
 
 .heatmap * {
 	/* font-size: 9 !important; */
 	font-family: 'Source Sans Pro', 'Gill Sans', 'Trebuchet MS', Arial, sans-serif !important;
+	border-collapse: separate !important;
+	border-spacing: 0 !important;
 }
 
 .heatmap table tr td {
@@ -41,6 +41,25 @@
 	min-width: 35px !important;
 	max-width: 35px !important;
 	text-align: center !important;
+	position: relative !important;
+}
+
+.cell-tooltip{
+	display:none;
+	position:absolute; 
+	z-index:100;
+	border:1px solid rgb(139, 139, 139);
+	background-color:#fff;
+	padding:3px;
+	color:#000; 
+	font-size: 0.7rem;
+	width:max-content;
+	top:0; 
+	left:105%;
+}
+
+.heatmap table tr td:hover span.cell-tooltip{
+	display:block;
 }
 
 .heatmap table tr th {

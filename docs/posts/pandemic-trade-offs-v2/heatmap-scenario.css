@@ -35,7 +35,7 @@
 	all:initial;
 }
 
-#heatmapScenarioDomainSelector {
+#heatmapScenarioDisplayVarSelector {
 	padding: 0;
 	font-size: 1rem;
 	padding: 0rem 2rem 0 0.5rem;

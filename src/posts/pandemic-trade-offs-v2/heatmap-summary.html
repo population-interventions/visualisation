@@ -3,7 +3,7 @@
 		<div class="vega-bind">	
 			<label>
 				<span class="vega-bind-name">Sample subset:</span>
-				<select id="heatmapDomainSelector" onchange="updateHeatmap();" onfocus="this.selectedIndex = -1;">
+				<select id="heatmapDomainSelector" onchange="updateHeatmap();">
 					<option value="Yr1" selected="true">Before borders open</option>
 					<option value="Yr2">After borders open</option>
 					<option value="Full">Full sample</option>
@@ -13,7 +13,7 @@
 		<div class="vega-bind">
 			<label>
 				<span class="vega-bind-name">Display average:</span>
-				<select id="heatmapVarSelector" onchange="updateHeatmap();" onfocus="this.selectedIndex = -1;">
+				<select id="heatmapVarSelector" onchange="updateHeatmap();">
 					<option value="infect" selected="true">Infections / day</option>
 					<option value="deaths">Deaths / year</option>
 					<option value="hospital">Hopsitalisations / year</option>
