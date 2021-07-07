@@ -27,23 +27,28 @@
 	
 	"skipToLinks": [
 		{
-			"href": "#graph-ABM",
+			"href": "#graph-container-ABM-v2",
 			"text": "Infections",
-			"image": "preview-ABM.svg"
+			"image": "preview-ABM.png"
 		},
 		{
+			"href": "#health-lockdown-heatmap",
+			"text": "Health and lockdown heatmaps",
+			"image": "preview-health-lockdown-heatmap.png"
+		},
+			{
+			"href": "#risk-threshold-heatmap",
+			"text": "Risk threshold heatmaps",
+			"image": "preview-risk-threshold-heatmap.png"
+		},
+			{
 			"href": "#graph-PMSLT-HALY",
-			"text": "Health impacts",
+			"text": "Other health consequences",
 			"image": "preview-coming-soon.svg"
 		},
 		{
 			"href": "#graph-economy",
-			"text": "Economic impacts",
-			"image": "preview-coming-soon.svg"
-		},
-		{
-			"href": "#graph-PMSLT-prob",
-			"text": "What is optimal?",
+			"text": "Economic consequences",
 			"image": "preview-coming-soon.svg"
 		},
 		{

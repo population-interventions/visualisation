@@ -28,6 +28,11 @@
     width: 5px;
     top: 65%;
     right: 0;
+	color:#000 !important;
+}
+
+.heatmap-container > .graph-settings > .vega-bind > label > .styled-select > option {
+	color:#000 !important;
 }
 
 .heatmap-container > .graph-settings > .vega-bind > label > .styled-select:before {
