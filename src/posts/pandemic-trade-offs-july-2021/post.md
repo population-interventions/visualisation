@@ -73,8 +73,7 @@ This tool allows you to explore what happens in both the year of increasing vacc
 
 You will see 240 scenarios, for combinations of policy settings, vaccination coverage achieved over 12 months, expected vaccinated but infected arrivals per day in the second year, and the reproductive rate of the virus. For more information on these input variables, view our <a href="/pandemic-trade-offs-detail-july-2021/" target="_blank" rel="noopener noreferrer">model details</a> page.
 
-<a href="https://pursuit.unimelb.edu.au/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the explanatory article (available 8 July)</a><br /><br />
-<a href="/posts/pandemic-trade-offs/Walkthrough.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read a walk-through</a>
+<a href="https://pursuit.unimelb.edu.au/articles/what-s-the-right-covid-19-risk-to-live-with" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the explanatory article</a><br /><br />
 
 ---
 
@@ -90,9 +89,9 @@ Use the options to the left of (or below) the graph to explore how different sce
 
 In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day (Stage 1 being near-normal, up to Stage 4 with strong stay at home orders, i.e. a hard lockdown), but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage in use depending on the policy setting (elimination, tight suppression, loose suppression, and extra loose suppression).
 
-<a href="/pandemic-trade-offs-ABM-v2/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a>
+<a href="/pandemic-trade-offs-ABM-july-2021/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a>
 
-<a href="/pandemic-trade-offs-ABM-v2/" class="img-link"><img src="/posts/pandemic-trade-offs/preview-full-ABM.jpg" width="600" /></a>
+<a href="/pandemic-trade-offs-ABM-july-2021/" class="img-link"><img src="/posts/pandemic-trade-offs-july-2021/preview-full-ABM.jpg" width="600" /></a>
 
 If you are interested in the details of the model, these are included on a separate page.
 
