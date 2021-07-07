@@ -10,10 +10,10 @@
 	"title": "Model Details",
 	"description": "This page describes the details of the modelling that is presented on the <a href='/pandemic-trade-offs' target='_blank' rel='noopener noreferrer'>COVID-19 Pandemic Trade-offs</a> page.",
 	
-	"date": "2021-03-13",
-	"date_updated": "2021-03-31",
+	"date": "2021-07-04",
+	"date_updated": "2021-07-07",
 	
-	"slug": "pandemic-trade-offs-detail",
+	"slug": "pandemic-trade-offs-detail-july-2021",
 	
 	"dependencies": {
 		"katex": true,
@@ -27,7 +27,6 @@
 	"contributorDetails": "- The data visualisations and interface for this tool were developed by [Luke Thorburn](https://lukethorburn.com/cv/).\n- The modelling was led by Dr [Tim Wilson](https://findanexpert.unimelb.edu.au/profile/884197-tim-wilson), assisted by Haifeng Zhao and Sachith Seneviratne. The original agent-based model was built by Dr [Jason Thompson](https://findanexpert.unimelb.edu.au/profile/769805-jason-thompson), assisted by Profs Rod McClure, [Mark Stevenson](https://findanexpert.unimelb.edu.au/profile/653385-mark-stevenson) and [Tony Blakely](https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely).  The integrated epidemiological and economic model (proportional multistate lifetable) is a collaboration between the University of Melbourne and the Institute of Health Metrics and Evaluation (University of Washington), with key contributions from: Prof Abie Flaxman and Mr James Collins (IHME); Drs [Rob Moss](https://findanexpert.unimelb.edu.au/profile/10215-rob-moss), [Nic Geard](https://findanexpert.unimelb.edu.au/profile/432264-nic-geard), [Patrick Andersen](https://findanexpert.unimelb.edu.au/profile/721168-patrick-andersen) and [Tim Wilson](https://findanexpert.unimelb.edu.au/profile/884197-tim-wilson) (University of Melbourne), assisted by all members of the Population Interventions Unit (Drs [Driss Ait Ouakrim](https://findanexpert.unimelb.edu.au/profile/242956-driss-ait-ouakrim) and [Laxman Bablani](https://findanexpert.unimelb.edu.au/profile/686318-laxman-bablani), and Profs [Vijaya Sundararajan](https://findanexpert.unimelb.edu.au/profile/26106-vijaya-sundararajan) and [Tony Blakely](https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely)).\n- The determination of which diseases and conditions are impacted by COVID-19 restrictions, and with what magnitude, was undertaken by Dr [Driss Ait Ouakrim](https://findanexpert.unimelb.edu.au/profile/242956-driss-ait-ouakrim), Ms Ameera Katar, Mr Patrick Abraham, Dr [Natalie Carvalho](https://findanexpert.unimelb.edu.au/profile/531653-natalie-carvalho) and Prof [Nathan Grills](https://findanexpert.unimelb.edu.au/profile/356800-nathan-grills).\n - Overall leadership of the body of work was by Prof [Tony Blakely](https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely).\n- Web hosting and technical support was provided by Grace Dong and Dr Melissa Makin. \n- We acknowledge a generous anonymous philanthropic grant, through Advancement, that enabled this project."
 }
 ---
-
 We have pre-run 648 scenarios:
 
 - through an agent-based model to estimate SARS-CoV-2 infection rates;
@@ -141,6 +140,22 @@ Note that this means that a relatively poor efficacy for mechanisms a) alone (i.
 
 By extension, the seemingly optimistic reduction in total transmission of 90% is achieved by (only) a 54% reduction for each of mechanisms a), b) and c). 
 
+
+
+---
+
+<h2 id="arrivals">Vaccinated Infected Arrivals</h2>
+
+One of the parameters our model depends on is the average number of infected travellers arriving each day. The calculator below allows you to estimate this parameter as a function of more intuitive quantities: the number of travellers, and the prevalence of vaccinations and circulating virus in their countries of origin.
+
+{% import_content "fig-incursion-calc", slug %}
+
+For example, using the Institute of Health Metrics and Evaluation estimations of infections per day by country accessed 5 July 2021), assuming 50% vaccination rates in those countries, assuming all travellers are vaccinated, and PCR tested three days per arrival, and 4250 arrivals per day to Victoria (half pre-COVID amounts), then:
+
+- **0.2 vaccinated but infected arrivals per day​** equates to 4250 people a day coming from origin countries with an infection rate of 5 per 100,000 per day. This is equivalent to the rate in Thailand in early July 2021.
+- **1.0 arrivals per day​​** equates to 25 infections per 100,000 per day in the origin countries. This is equivalent to the rate in USA and India, or half the rate in the UK, in early July 2021.
+- **5 arrivals per day** equates to 125 infections per 100,000 per day in the origin countries. This is equivalent to half the rate in Mexico in early July 2021.
+- **25 arrivals per day** equates to 600 infections per 100,000 day in the origin countries. This is equivalent to the highest rates in the world in early July 2021 (e.g. central Asia, Southern Africa).
 
 
 ---

@@ -1,0 +1,147 @@
+.calc {
+	display: block;
+	width: 100%;
+	max-width: 700px;
+	margin: 0 auto 1.5rem auto;
+
+	padding: 1.5rem;
+
+	background-color: #f2f5f9;
+
+	font-size: 1.1rem;
+}
+
+.calc .name {
+	color: #012a58;
+	font-weight: 700;
+	font-size: 1.3rem;
+	line-height: 1.5rem;
+	margin-bottom: 1.5rem;
+	display: block;
+}
+
+.calc .step {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	margin-bottom: 1.5rem;
+}
+
+.calc .step .step-num {
+	grid-column: 1 / 2;
+	text-transform: uppercase;
+	color: #012a58;
+	letter-spacing: 1px;
+	padding: .05rem .7rem 0 0;
+	font-size: .9rem;
+	align-self: start;
+	font-weight: 500;
+}
+
+.calc .step .description {
+	grid-column: 2 / 3;
+	line-height: 1.3rem;
+	margin-bottom: .75rem;
+}
+
+.calc .step .description strong {
+	/*text-decoration: underline;*/
+	font-weight: 700;
+}
+
+.calc .step .details {
+	grid-column: 2 / 3;
+	margin-bottom: .75rem;
+}
+.calc .step .details p {
+	font-style: italic;
+	font-size: .95rem;
+	line-height: 1.1rem;
+	margin-bottom: .5rem;
+	padding-bottom: 0;
+	box-sizing: border-box;
+}
+
+.calc .step .toggles {
+	grid-column: 2 / 3;
+	margin-bottom: .75rem;
+	font-size: .9rem;
+}
+
+.calc .step .toggles button {
+	border: 1px solid #012a58;
+	background-color: #fff;
+}
+.calc .step .toggles button:focus {
+	outline: none;
+}
+.calc .step .toggles button.on {
+	border: 1px solid #012a58;
+	background-color: #012a58;
+	color: #fff;
+}
+.calc .step .toggles button:first-of-type {
+	margin-left: .5rem;
+	border-radius: .25rem 0 0 .25rem;
+}
+.calc .step .toggles button:last-of-type {
+	margin-right: .5rem;
+	border-radius: 0 .25rem .25rem 0;
+	border-left: 0;
+}
+
+.calc .step .input {
+	grid-column: 2 / 3;
+	margin-bottom: .75rem;
+	background-color: #cfdcec;
+	padding: .75rem .75rem .25rem .75rem;
+	border-radius: .375rem;
+}
+
+.calc input[type="number"] {
+	border: 0;
+	background-color: #fff;
+	width: 150px;
+	padding: .2rem .5rem;
+	font-family: monospace;
+	/*text-align: right;*/
+	margin-right: .5rem;
+	margin-left:  .5rem;
+	margin-bottom: .5rem;
+}
+
+.calc input[type="number"]:first-of-type {
+	margin-left: 0;
+}
+
+.calc button.compute {
+	display: block;
+	border: 0;
+	background-color: #012a58;
+	color: #fff;
+	font-weight: 700;
+	text-align: center;
+	width: 100%;
+	padding: .75rem 1.5rem;
+}
+.calc button.compute:hover {
+	text-decoration: underline;
+}
+.calc button.compute:active {
+	text-decoration: none;
+}
+.calc button.compute:focus {
+	outline: none;
+}
+
+.calc .results {
+	margin-top: 1.5rem;
+	font-size: 1.25rem;
+}
+
+.calc .results .output {
+	padding: .25rem;
+	background-color: #fff;
+	border-radius: .25rem;
+	font-weight: 700;
+	font-family: monospace;
+}
