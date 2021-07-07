@@ -13,7 +13,7 @@
 	"date": "2021-03-13",
 	"date_updated": "2021-03-31",
 	
-	"slug": "pandemic-trade-offs-detail-july-2021",
+	"slug": "pandemic-trade-offs-detail",
 	
 	"dependencies": {
 		"katex": true,
@@ -142,11 +142,6 @@ Note that this means that a relatively poor efficacy for mechanisms a) alone (i.
 By extension, the seemingly optimistic reduction in total transmission of 90% is achieved by (only) a 54% reduction for each of mechanisms a), b) and c). 
 
 
-
----
-
-<h2 id="arrivals">Vaccinated Infected Arrivals</h2>
-{% import_content "fig-incursion-calc", slug %}
 
 ---
 

@@ -152,7 +152,7 @@ One of the parameters our model depends on is the average number of infected tra
 
 For example, using the Institute of Health Metrics and Evaluation estimations of infections per day by country accessed 5 July 2021), assuming 50% vaccination rates in those countries, assuming all travellers are vaccinated, and PCR tested three days per arrival, and 4250 arrivals per day to Victoria (half pre-COVID amounts), then:
 
-- **0.2 vaccinated but infected arrivals per day​** equates to 4250 people a day coming from origin countries with an infection rate of 5 per 100,000 per day. This is equivalent to the rate in Thailand in early July 2021.
+- **0.2 vaccinated but infected arrivals per day** equates to 4250 people a day coming from origin countries with an infection rate of 5 per 100,000 per day. This is equivalent to the rate in Thailand in early July 2021.
 - **1.0 arrivals per day​​** equates to 25 infections per 100,000 per day in the origin countries. This is equivalent to the rate in USA and India, or half the rate in the UK, in early July 2021.
 - **5 arrivals per day** equates to 125 infections per 100,000 per day in the origin countries. This is equivalent to half the rate in Mexico in early July 2021.
 - **25 arrivals per day** equates to 600 infections per 100,000 day in the origin countries. This is equivalent to the highest rates in the world in early July 2021 (e.g. central Asia, Southern Africa).
