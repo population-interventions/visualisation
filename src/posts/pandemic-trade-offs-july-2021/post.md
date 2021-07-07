@@ -9,7 +9,7 @@
 
 	"title": "COVID-19 Pandemic Trade-offs: Version 2, July 2021, including border opening",
 	
-	"description": "A tool for exploring how COVID-19 policy responses (restrictions, vaccination roll-out, and border opening) impact future SARS-CoV-2 infection rates and the probability of lockdowns (health impacts (in health-adjusted life years) and economic impacts (health expenditure, GDP loss) coming soon). A co-published article at Pursuit explains the model assumptions more fully, and gives our interpretation. ",
+	"description": "",
 	
 	"date": "2021-07-04",
 	"date_updated": "2021-07-04",
@@ -73,7 +73,7 @@ This tool allows you to explore what happens in both the year of increasing vacc
 
 You will see 240 scenarios, for combinations of policy settings, vaccination coverage achieved over 12 months, expected vaccinated but infected arrivals per day in the second year, and the reproductive rate of the virus. For more information on these input variables, view our <a href="/pandemic-trade-offs-detail-july-2021/" target="_blank" rel="noopener noreferrer">model details</a> page.
 
-<a href="/posts/pandemic-trade-offs/LaunchSlides.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the explanatory article</a><br /><br />
+<a href="https://pursuit.unimelb.edu.au/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the explanatory article (available 8 July)</a><br /><br />
 <a href="/posts/pandemic-trade-offs/Walkthrough.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read a walk-through</a>
 
 ---
