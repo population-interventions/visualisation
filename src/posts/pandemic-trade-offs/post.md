@@ -7,7 +7,7 @@
 	"section": "COVID-19 Pandemic",
 	"type": "Interactive",
 	
-	"title": "COVID-19 Pandemic Trade-offs",
+	"title": "COVID-19 Pandemic Trade-offs: Version 1, March 2021",
 	"description": "A tool for exploring how COVID-19 policy responses (restrictions, vaccination roll-out, and border opening) impact future SARS-CoV-2 infection rates, health impacts (in health-adjusted life years) and economic impacts (health expenditure, GDP loss). ",
 	
 	"date": "2021-03-11",
@@ -23,6 +23,7 @@
 	
 	"hidden": false,
 	"draft": false,
+	"banner": "This is the March 2021 version of this tool.  For the July 2021 version that includes border openings, please go [**HERE**](/pandemic-trade-offs-july-2021/).",
 	
 	"skipToLinks": [
 		{

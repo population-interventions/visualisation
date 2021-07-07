@@ -87,6 +87,14 @@ permalink: /{{ post.data.slug }}/
 		</div>
 	{% endif %}
 
+	{% if post.data.banner %}
+		<div class="flash flash--warning flash--center">
+			<p>
+				{{ post.data.banner | markdown | safe }}
+			</p>
+		</div>
+	{% endif %}
+
 	<div class="jumpnav"></div>
 	{# In-page navigation - will only be activated if h2's have IDs #}
 
