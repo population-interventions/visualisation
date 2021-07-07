@@ -140,15 +140,17 @@
 	
 
 
-	<p>We use the State of Victoria as the case study, but the findings can be broadly applied to other states and territories in Australia, New Zealand and other South Eastern Asian and Oceanic countries that are using an elimination strategy – then opening the borders.  The findings can also perhaps be generalized further to countries that have not used an elimination strategy, but looking how to manage borders at varying levels of within-country immunity (be that through vaccination and / or natural infection).</p>
-<p>This tool allows you to explore how SARS-CoV-2 infection rates and probability of lockdowns vary in both the year of increasing vaccination coverage before the borders are open, and then in the year after borders are open. By “borders open”, we mean when the majority of in-bound travelers are allowed quarantine-free arrival – but there will always be a possible need for arrivals from some countries that have high infection rates, or new variants of concern, to have to go to formal managed quarantine (presumably at purpose-built facilities). Indeed, this Trade-offs tool can assist decide what the threshold might be to direct high-risk arrivals to formal quarantine.</p>
-<p>You will see XXX scenarios, for combinations of policy settings, vaccination coverage achieved over 12 months, expected vaccinated infecteds arriving per day and the reproductive rate of the virus. For more information on these input variables, view our <a href="/pandemic-trade-offs-detail/" target="_blank" rel="noopener noreferrer">model details</a> page.</p>
+	<p>This tool allows you to explore how COVID-19 policy responses (restrictions, vaccination roll-out, and border opening) impact future SARS-CoV-2 infection, hospitalization and mortality rates,  and the probability of lockdowns.  (Additional outputs on health-adjusted life years and economic impacts (health expenditure, GDP loss) for these latest analyses is coming soon).
+A co-published article at Pursuit explains the model assumptions more fully, and gives our interpretation and policy recommendations.</p>
+<p>We use the State of Victoria as the case study, but the findings can be broadly applied to other states and territories in Australia, New Zealand and other South Eastern Asian and Oceanic countries that are using an elimination strategy – then opening the borders. The findings may also be generalized further to countries that have not used an elimination strategy, but looking how to manage borders at varying levels of within-country immunity (be that through vaccination and / or natural infection).</p>
+<p>This tool allows you to explore what happens in both the year of increasing vaccination coverage before the borders are open, and then in the year after borders are open. By “borders open”, we mean when the majority of in-bound travelers are allowed quarantine-free arrival – but there will always be a need for arrivals from some countries that have high infection rates, or new variants of concern, to go to formal managed quarantine (presumably at purpose-built facilities). Indeed, this Trade-offs tool can assist decide what that threshold might be to direct high-risk arrivals to formal quarantine.</p>
+<p>You will see 240 scenarios, for combinations of policy settings, vaccination coverage achieved over 12 months, expected vaccinated but infected arrivals per day in the second year, and the reproductive rate of the virus. For more information on these input variables, view our <a href="/pandemic-trade-offs-detail-july-2021/" target="_blank" rel="noopener noreferrer">model details</a> page.</p>
 <p><a href="/posts/pandemic-trade-offs/LaunchSlides.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the explanatory article</a><br /><br />
 <a href="/posts/pandemic-trade-offs/Walkthrough.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read a walk-through</a></p>
 <hr>
 <h2>Infections</h2>
-<p>A basic measure of whether a COVID-19 policy response is successful is the extent to which it keeps the number of new infections manageable.</p>
-<p>To model this, we ran 100 simulations of how the SARS-CoV-2 virus might spread through a population of 6 million people, for each of XXX different scenarios. The graph below shows the median (or average) daily infections across the 100 simulations of each scenario, along with a 90% uncertainty interval (the 5<sup>th</sup> and 95<sup>th</sup> percentiles).</p>
+<p>A basic measure of COVID-19 policy success is the extent to which it keeps the number of new infections manageable.</p>
+<p>To model this, we ran 100 simulations of how the SARS-CoV-2 virus might spread through a population of 6 million people, for each of 240 different scenarios. The graph below shows the median (or average) daily infections across the 100 simulations of each scenario, along with a 90% uncertainty interval (the 5<sup>th</sup> and 95<sup>th</sup> percentiles).</p>
 <p>Use the options to the left of (or below) the graph to explore how different scenarios affect the spread of the virus</p>
 <div class="fig outset-3 more-margin-2">
 				<div id="graph-settings-ABM-v2" class="graph-settings"></div>
@@ -165,9 +167,9 @@
 						<option value="ME_ME_TS" selected>Elimination / Elimination / Tight</option>
 <option value="ME_TS_LS" >Elimination / Tight / Loose</option>
 <option value="ME_TS_BS" >Elimination / Tight / Barely Suppress</option>
-					</select><a href="/pandemic-trade-offs-detail/#strategies" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+					</select><a href="/pandemic-trade-offs-detail-july-2021/#strategies" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
 				<div>
-					<div class="name">Infected Arrivals per day</div>
+					<div class="name">Vaccinated Infected Arrivals per day</div>
 					<div class="description">Average number of vaccinated yet infected people arriving in Australia per day, after borders open</div>
 				</div>
 				<div><select name="VaccArrivals" id="select-ABM-v2-VaccArrivals" autocomplete=off>
@@ -175,7 +177,7 @@
 <option value="1" >1 per day</option>
 <option value="5" >5 per day</option>
 <option value="25" >25 per day</option>
-					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+					</select><a href="/pandemic-trade-offs-detail-july-2021/#arrivals" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
 				<div>
 					<div class="name">Vaccinate Children</div>
 					<div class="description">Whether children are vaccinated alongside adults</div>
@@ -183,7 +185,7 @@
 				<div><select name="VaccKids" id="select-ABM-v2-VaccKids" autocomplete=off>
 						<option value="0" >No</option>
 <option value="1" selected>Yes</option>
-					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+					</select><a href="/pandemic-trade-offs-detail-july-2021/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
 				<div>
 					<div class="name">Virus Reproduction Rate (R0)</div>
 					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
@@ -191,29 +193,31 @@
 				<div><select name="R0" id="select-ABM-v2-R0" autocomplete=off>
 						<option value="5" selected>5.0</option>
 <option value="6" >6.0</option>
-					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+					</select><a href="/pandemic-trade-offs-detail-july-2021/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
 				</div>
 			</div></div><button class="toggle-open" id="toggle-open-ABM-v2"><span>Adjust parameters</span><span class="with-arrow"></span></button><a href="/posts/pandemic-trade-offs/data-ABM-aggregated-tidy-v2.csv" class="download-link"><strong>Download data</strong> (2.0 MB)</a></aside></div>
 			<script type="text/javascript">
 				graphs.push("ABM-v2")
 			</script>
-<p>In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day, but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage.</p>
+<p>In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day (Stage 1 being near-normal, up to Stage 4 with strong stay at home orders, i.e. a hard lockdown), but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage in use depending on the policy setting (elimination, tight suppression, loose suppression, and extra loose suppression).</p>
 <p><a href="/pandemic-trade-offs-ABM-v2/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a></p>
 <p><a href="/pandemic-trade-offs-ABM-v2/" class="img-link"><img src="/posts/pandemic-trade-offs/preview-full-ABM.jpg" width="600" /></a></p>
 <p>If you are interested in the details of the model, these are included on a separate page.</p>
-<p><a href="/pandemic-trade-offs-detail/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">View modelling details</a></p>
+<p><a href="/pandemic-trade-offs-detail-july-2021/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">View modelling details</a></p>
 <p>In particular, you might be interested to know:</p>
 <ul>
 <li><a href="/pandemic-trade-offs-detail#phases">What are the phases?</a></li>
 <li><a href="/pandemic-trade-offs-detail#strategies">How do the strategies work?</a></li>
 </ul>
 <hr>
-<h2>Heatmaps</h2>
-<p>Below are two heatmaps showing the average infections per day, and proportion of time in stage 3 (soft lockdown) and stage 4 (hard lockdown) for all XXX scenarios.  Select whether you want to see these heatmaps for:</p>
+<h2>Heatmaps of infections, hospitalizations, deaths and time in lockdown</h2>
+<p>Below are two heatmaps. The first shows (depending on which option you select) the average daily infections, the yearly SARS-CoV-2 deaths and the yearly SARS-CoV-2 hospitalization (for a population the size and make-up of Victoria). The second heatmap shows  the proportion of time in stage 3 (soft lockdown) and stage 4 (hard lockdown) for all 240 scenarios.</p>
+<p>For both heatmaps, you also select whether you want to see:</p>
 <ul>
 <li>the first year (before the borders open): when an infection escaping from quarantine has a probability of 4.5% per day); or</li>
-<li>the second year (after the borders are open): when infections are still escaping from quarantine at a rate of 2.25% per day, and vaccinated infected arrivals occurring at the rate indicated for each scenario).</li>
+<li>the second year (after the borders are open): when infections are still escaping from quarantine at a rate of 2.25% per day, and vaccinated infected arrivals occurring at the rate indicated for each scenario.</li>
 </ul>
+<p>For both heatmaps, if you hover a cell you will be shown the 90% simulation interval, due to both stochastic uncertainty and input parameter uncertainty (e.g. about vaccination effectiveness).</p>
 <div class="heatmap-container fig">
 	<div class="graph-settings">
 		<div class="vega-bind">	
@@ -1533,6 +1537,11 @@
 					loadCSS("/posts/pandemic-trade-offs-v2/heatmap-summary.css");
 				</script><script src="/posts/pandemic-trade-offs-v2/heatmap-summary.js"></script>
 <p>Below is an interactive heatmap, where you select the your ‘optimal scenario’ of both the maximum average infections per day you will tolerate and the maximum proportion of time in lockdown.  And (as above) select either year 1 or 2.</p>
+<hr>
+<h2>Interactive heatmap of settings that meet your risk threshold</h2>
+<p>Below is an interactive heatmap – just for the year after borders open –where you select your ‘risk threshold’ of the maximum average infections per day, maximum deaths in a year, maximum hospitalizations in a year, and maximum percentage of time in lockdown that you are willing to tolerate.</p>
+<p>The cells colored green are beneath your threshold (on all four criteria), and the settings you would use if you were in charge of a jurisdiction.  For example, vaccination coverage might have reached 70% for adults only by the time we have committed to opening the borders, and you fear the true R0 might be 6.0.  So you see which settings on ‘vaccinated but infected arrivals’ per day keeps you in the green, and set your jurisdictions border policy to match this.  That is, you allow a number and mix of international arrivals without quarantine that keeps you in the green, and arrivals from countries with higher risk still have to go to (purpose-built) quarantine facilities.</p>
+<p>The estimated number of vaccinated but infected arrivals per day is not intuitive.  So we have built a calculator for you to enter numbers or arrivals from countries with a given infection rate, that gives you the expected vaccinated but infect arrivals.  We assume all such arrivals eligible for quarantine-free arrival must be vaccinated and PCR tested before travel.</p>
 <div class="heatmap-container fig">
 	<div class="graph-settings">
 		<div class="vega-bind">
@@ -2226,157 +2235,12 @@
 				</script><script src="/posts/pandemic-trade-offs-v2/heatmap-scenario.js"></script>
 <hr>
 <h2>Other Health Consequences</h2>
-<p>Deaths and hospitalizations from COVID-19 will be presented here soon for the above scenarios.  For deaths, the number depends on the proportion of infections arising among the unvaccinated compared to vaccinated.  As an approximation for now:</p>
-<ul>
-<li>Assume infection fatality ratio (IFR) before any vaccination of 0.5% in Australia.</li>
-<li>Assume an average vaccine effectiveness at reducing transmission risk of 70%</li>
-<li>Assume that the IFR among the vaccinated is 90% less than among the unvaccinated (i.e. 0.05%).</li>
-</ul>
-<p>Then an approximate estimate of the number of deaths in the year after the borders open (will not work in the year before borders open) is:</p>
-<p>VC × Daily infection rate</p>
-<p>That is, for a 70% vaccine coverage (of both adults and children), the number of SARS-CoV-2 deaths over the year for a daily average infection rate of 10 is XXX.</p>
-<h4>HALYs</h4>
-<p>To see the HALY losses (net allowing for direct SARS-CoV-2 impacts, and unintended impacts of lockdowns):</p>
-<ul>
-<li>please see version 1.0 of this tool, for scenarios up to when the borders open (but only with a maximal R) of 3.75, which Delta now exceeds)</li>
-<li>for this new version 2.0 tool, they will be posted here soon.</li>
-</ul>
-<div class="fig outset-3 more-margin-2">
-				<div id="graph-settings-PMSLT-HALY" class="graph-settings"></div>
-				<div id="graph-container-PMSLT-HALY" class="graph-container"></div>
-				<button class="toggle-open" id="toggle-open-PMSLT-HALY"><span>Adjust parameters</span><span class="with-arrow"></span></button>
-				<aside class="collapsed"><div class="toggle-head" id="toggle-head-PMSLT-HALY"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
-				<div class="group-details">
-					<div class="group-name">Government & Public Response</div>
-				</div>
-				<div class="group-contents">
-					<div class="toggle-box">
-				<div>
-					<div class="name">Vaccine Uptake</div>
-					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
-				</div>
-				<div><select name="VaccineUptake" id="select-PMSLT-HALY-VaccineUptake" autocomplete=off>
-						<option value="60" >60%</option>
-<option value="75" selected>75%</option>
-<option value="90" >90%</option>
-					</select><a href="/pandemic-trade-offs-detail/#uptake" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
-				<div>
-					<div class="name">Strategy Relaxation</div>
-					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
-				</div>
-				<div><select name="StrategyRelaxation" id="select-PMSLT-HALY-StrategyRelaxation" autocomplete=off>
-						<option value="0" selected>Off</option>
-<option value="1" >On</option>
-					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
-				</div>
-			</div><div class="toggle-group">
-				<div class="group-details">
-					<div class="group-name">Infectivity</div>
-				</div>
-				<div class="group-contents">
-					<div class="toggle-box">
-				<div>
-					<div class="name">Phase 1 Vaccine Efficacy</div>
-					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
-				</div>
-				<div><select name="Efficacy1" id="select-PMSLT-HALY-Efficacy1" autocomplete=off>
-						<option value="50" >50%</option>
-<option value="75" selected>75%</option>
-<option value="90" >90%</option>
-					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
-				<div>
-					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
-					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
-				</div>
-				<div><select name="Efficacy2" id="select-PMSLT-HALY-Efficacy2" autocomplete=off>
-						<option value="50" >50%</option>
-<option value="75" selected>75%</option>
-<option value="90" >90%</option>
-					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
-				<div>
-					<div class="name">Unmitigated Reproduction Rate</div>
-					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
-				</div>
-				<div><select name="R0" id="select-PMSLT-HALY-R0" autocomplete=off>
-						<option value="2.5" >2.5</option>
-<option value="3.125" selected>3.125</option>
-<option value="3.75" >3.75</option>
-					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
-				</div>
-			</div></div><button class="toggle-open" id="toggle-open-PMSLT-HALY"><span>Adjust parameters</span><span class="with-arrow"></span></button><a href="/posts/pandemic-trade-offs/data-HALY-tidy.csv" class="download-link"><strong>Download data</strong> (0.3 MB)</a></aside></div>
-			<script type="text/javascript">
-				graphs.push("PMSLT-HALY")
-			</script>
+<h3>Health adjusted life years (HALYs)</h3>
+<p>Health adjusted life years (HALYs) for the 240 scenarios are coming soon – factoring in both the direct health consequences of SARS-CoV-2 (including long-COVID) and the indirect health consequences of lockdowns.  For our previous estimates of HALYs lost by response strategy during the (as planned) vaccine rollout, go to our previous version of this tool. And see our paper in JAMA Health Forum.</p>
 <h3>Economic impacts</h3>
-<p>Below (coming soon) are the estimated health expenditure consequences of SARS-CoV-2 cases in the health system, and changes in health expenditure for the other diseases impacted by stage 3 and 4 lockdowns.  Also shown will be the GDP impacts, estimated using Treasury estimates of the GDP consequences of stages of lockdown multiplied by the percentage of time spent in each stage for each modelled scenario.</p>
-<div class="fig outset-3 more-margin-2">
-				<div id="graph-settings-economy" class="graph-settings"></div>
-				<div id="graph-container-economy" class="graph-container"></div>
-				<button class="toggle-open" id="toggle-open-economy"><span>Adjust parameters</span><span class="with-arrow"></span></button>
-				<aside class="collapsed"><div class="toggle-head" id="toggle-head-economy"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
-				<div class="group-details">
-					<div class="group-name">Government & Public Response</div>
-				</div>
-				<div class="group-contents">
-					<div class="toggle-box">
-				<div>
-					<div class="name">Vaccine Uptake</div>
-					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
-				</div>
-				<div><select name="VaccineUptake" id="select-economy-VaccineUptake" autocomplete=off>
-						<option value="60" >60%</option>
-<option value="75" selected>75%</option>
-<option value="90" >90%</option>
-					</select><a href="/pandemic-trade-offs-detail/#uptake" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
-				<div>
-					<div class="name">Strategy Relaxation</div>
-					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
-				</div>
-				<div><select name="StrategyRelaxation" id="select-economy-StrategyRelaxation" autocomplete=off>
-						<option value="0" selected>Off</option>
-<option value="1" >On</option>
-					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
-				</div>
-			</div><div class="toggle-group">
-				<div class="group-details">
-					<div class="group-name">Infectivity</div>
-				</div>
-				<div class="group-contents">
-					<div class="toggle-box">
-				<div>
-					<div class="name">Phase 1 Vaccine Efficacy</div>
-					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
-				</div>
-				<div><select name="Efficacy1" id="select-economy-Efficacy1" autocomplete=off>
-						<option value="50" >50%</option>
-<option value="75" selected>75%</option>
-<option value="90" >90%</option>
-					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
-				<div>
-					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
-					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
-				</div>
-				<div><select name="Efficacy2" id="select-economy-Efficacy2" autocomplete=off>
-						<option value="50" >50%</option>
-<option value="75" selected>75%</option>
-<option value="90" >90%</option>
-					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
-				<div>
-					<div class="name">Unmitigated Reproduction Rate</div>
-					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
-				</div>
-				<div><select name="R0" id="select-economy-R0" autocomplete=off>
-						<option value="2.5" >2.5</option>
-<option value="3.125" selected>3.125</option>
-<option value="3.75" >3.75</option>
-					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
-				</div>
-			</div></div><button class="toggle-open" id="toggle-open-economy"><span>Adjust parameters</span><span class="with-arrow"></span></button></aside></div>
-			<script type="text/javascript">
-				graphs.push("economy")
-			</script>
+<p>As with HALYs, the estimated health expenditure and GDP consequences of these 240 scenarios are coming soon.  In the meantime, see our previous estimates of cost impacts by response strategy during the (as planned) vaccine rollout at the <a href="/pandemic-trade-offs/">previous version of this tool</a>. And see our paper in <a href="https://www.medrxiv.org/content/medrxiv/early/2021/01/13/2021.01.11.21249630.full.pdf">JAMA Health Forum</a>.</p>
 <p>To learn more about this modelling, please see the Model Details page.</p>
-<p><a href="/pandemic-trade-offs-detail/" class="button-small with-arrow">View model details</a></p>
+<p><a href="/pandemic-trade-offs-detail-july-2021/" class="button-small with-arrow">View model details</a></p>
 
 
 

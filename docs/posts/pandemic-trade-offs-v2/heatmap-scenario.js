@@ -26,7 +26,7 @@ for(var i = 0, max = scenarioCells.length; i < max; i++) {
 	"<div class='tooltip-row'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
 	"<div class='tooltip-row'><span>Deaths / year: </span><span>"+ deathsVal + "</span></div>" +
 	"<div class='tooltip-row'><span>Hospitalisations / year: </span><span>"+ hospitalVal + "</span></div>" +
-	"<div class='tooltip-row'><span>Lockdown %: </span><span>"+ lockdownVal + "</span></div>" +
+	"<div class='tooltip-row'><span>Lockdown %: </span><span>"+ Math.round(lockdownVal) + "</span></div>" +
 	"</span>"
 	 
     // check for value and colour accordingly
@@ -61,11 +61,13 @@ function updateScenarioHeatmap() {
 	
 		eval('var displayVar = node.dataset.' + displayVarSelector + ';');
 		node.innerHTML = displayVar;
+	
+		// creating tooltip
 		node.innerHTML += "<span class='cell-tooltip'>" +
-		"Infections/day: "+ infectVal + "<br>" +
-		"Deaths/day: "+ deathsVal + "<br>" +
-		"Hospitalisations/day: "+ hospitalVal + "<br>" +
-		"Lockdown %: "+ hospitalVal + "<br>" +
+		"<div class='tooltip-row'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
+		"<div class='tooltip-row'><span>Deaths / year: </span><span>"+ deathsVal + "</span></div>" +
+		"<div class='tooltip-row'><span>Hospitalisations / year: </span><span>"+ hospitalVal + "</span></div>" +
+		"<div class='tooltip-row'><span>Lockdown %: </span><span>"+ Math.round(lockdownVal) + "</span></div>" +
 		"</span>"
 		
 		// check for value and colour accordingly

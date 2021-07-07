@@ -91,7 +91,7 @@
 					{
 						"title": "Strategy",
 						"description": "Short, medium, and long term strategies employed to mitigate the spread of COVID-19 <br> (< 6 mths / 6-12 mths / 12+ mths)",
-						"detailLink": "/pandemic-trade-offs-detail/#strategies",
+						"detailLink": "/pandemic-trade-offs-detail-july-2021/#strategies",
 						"type": "select",
 						"options": [
 							{ "value": "ME_ME_TS", "label": "Elimination / Elimination / Tight", "default": true },
@@ -101,9 +101,9 @@
 						"signalName": "Strategy"
 					},
 					{
-						"title": "Infected Arrivals per day",
+						"title": "Vaccinated Infected Arrivals per day",
 						"description": "Average number of vaccinated yet infected people arriving in Australia per day, after borders open",
-						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
+						"detailLink": "/pandemic-trade-offs-detail-july-2021/#arrivals",
 						"type": "select",
 						"options": [
 							{ "value": 0.2, "label": "0.2 per day", "default": true },
@@ -116,7 +116,7 @@
 					{
 						"title": "Vaccinate Children",
 						"description": "Whether children are vaccinated alongside adults",
-						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
+						"detailLink": "/pandemic-trade-offs-detail-july-2021/#effectiveness",
 						"type": "select",
 						"options": [
 							{ "value": 0, "label": "No"},
@@ -127,7 +127,7 @@
 					{
 						"title": "Virus Reproduction Rate (R0)",
 						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
-						"detailLink": "/pandemic-trade-offs-detail/#reproduction",
+						"detailLink": "/pandemic-trade-offs-detail-july-2021/#reproduction",
 						"type": "select",
 						"options": [
 							{ "value": 5, "label": "5.0", "default": true },
