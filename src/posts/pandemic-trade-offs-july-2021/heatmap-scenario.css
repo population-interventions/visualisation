@@ -48,6 +48,9 @@
 	color: #000 !important;
 }
 
+/* Better range slider styling */
+/* Commented out until I can figure out why it doens't work on firefox */
+/* 
 input[type=range].slider {
 	background-color: transparent;
 	-webkit-appearance: none;
@@ -129,4 +132,4 @@ input[type=range].slider:focus::-ms-fill-lower {
 
 input[type=range].slider:focus::-ms-fill-upper {
 	background: #dde3eb;
-}
+} */
