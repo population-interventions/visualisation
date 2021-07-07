@@ -20,6 +20,14 @@ for(var i = 0, max = scenarioCells.length; i < max; i++) {
 
 	eval('var displayVar = node.dataset.' + displayVarSelector + ';');
 	node.innerHTML = displayVar;
+
+	// creating tooltip
+	node.innerHTML += "<span class='cell-tooltip'>" +
+	"<div class='tooltip-row'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
+	"<div class='tooltip-row'><span>Deaths / year: </span><span>"+ deathsVal + "</span></div>" +
+	"<div class='tooltip-row'><span>Hospitalisations / year: </span><span>"+ hospitalVal + "</span></div>" +
+	"<div class='tooltip-row'><span>Lockdown %: </span><span>"+ lockdownVal + "</span></div>" +
+	"</span>"
 	 
     // check for value and colour accordingly
     if (Math.round(infectVal) <= maxInfections && lockdownVal <= maxLockdown && Math.round(deathsVal) <= maxDeaths && Math.round(hospitalVal) <= maxHospital) {
@@ -53,6 +61,12 @@ function updateScenarioHeatmap() {
 	
 		eval('var displayVar = node.dataset.' + displayVarSelector + ';');
 		node.innerHTML = displayVar;
+		node.innerHTML += "<span class='cell-tooltip'>" +
+		"Infections/day: "+ infectVal + "<br>" +
+		"Deaths/day: "+ deathsVal + "<br>" +
+		"Hospitalisations/day: "+ hospitalVal + "<br>" +
+		"Lockdown %: "+ hospitalVal + "<br>" +
+		"</span>"
 		
 		// check for value and colour accordingly
 		if (Math.round(infectVal) <= maxInfections && lockdownVal <= maxLockdown && Math.round(deathsVal) <= maxDeaths && Math.round(hospitalVal) <= maxHospital)  {
@@ -63,4 +77,28 @@ function updateScenarioHeatmap() {
 		}
 	}
 };
-	
+
+
+
+
+// ------------------------------------------------------------
+// Tooltip positioning ----------------------------------------
+// ------------------------------------------------------------
+document.getElementById("scenario-heatmap").addEventListener("mousemove", e => {
+	// e = Mouse move event.
+	var rect = document.getElementById("scenario-heatmap").getBoundingClientRect();
+	var x = (e.clientX - rect.left)/rect.width; //x position within the element.
+	var y = (e.clientY - rect.top)/rect.height;  //y position within the element.
+	var tooltip = e.target.getElementsByClassName("cell-tooltip");
+
+	if (x > 0.8) {
+		$('.cell-tooltip').addClass('position-right');
+	} else {
+		$('.cell-tooltip').removeClass('position-right');
+	}
+	if (y > 0.8) {
+		$('.cell-tooltip').addClass('position-top');
+	} else {
+		$('.cell-tooltip').removeClass('position-top');
+	}
+ });

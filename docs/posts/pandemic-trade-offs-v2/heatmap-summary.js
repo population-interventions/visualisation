@@ -27,10 +27,15 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
     var node = infectionCells[i];
 
 	eval('var variableOfInterest = node.dataset.' + variableSelector + domainSelector + ';');
+	eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
+	eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
 	eval('var scale =' + variableSelector + domainSelector + '_scale;');
 
     node.innerHTML = variableOfInterest;
-	node.innerHTML += "<span class='cell-tooltip'>Upper bound: 10 <br>Lower bound: 10</span>"
+	node.innerHTML += "<span class='cell-tooltip'>" +
+	"<div class='tooltip-row'><span>Upper bound: </span><span>"+ upperBound + "</span></div>" +
+	"<div class='tooltip-row'><span>Lower bound: </span><span>"+ lowerBound + "</span></div>" +
+	"</span>"
 
     // check for value and colour accordingly
     if (variableOfInterest <= scale[0]) {
@@ -53,23 +58,29 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
 for(var i = 0, max = lockdownCells.length; i < max; i++) {
     var node = lockdownCells[i];
 
-    node.innerHTML = Math.round(node.dataset.lockdownYr1*100) + "%";
 	var scale = lockdown_scale;
 
     // get data values from table cells
-    var lockdownYr1 = node.dataset.lockdownYr1; 
-    var lockdownYr2 = node.dataset.lockdownYr2; 
+    eval('var lockdownVal = node.dataset.lockdown' + domainSelector + ';');
+	eval('var upperBound = Math.round(node.dataset.lockdown' + domainSelector + 'Upper*100) + "%";');
+	eval('var lowerBound = Math.round(node.dataset.lockdown' + domainSelector + 'Lower*100) + "%";');
+
+    node.innerHTML = Math.round(lockdownVal*100) + "%";
+	node.innerHTML += "<span class='cell-tooltip'>" +
+	"<div class='tooltip-row'><span>Upper bound: </span><span>"+ upperBound + "</span></div>" +
+	"<div class='tooltip-row'><span>Lower bound: </span><span>"+ lowerBound + "</span></div>" +
+	"</span>"
 
     // check for value and colour accordingly
-    if (lockdownYr1 <= scale[0]) {
+    if (lockdownVal <= scale[0]) {
         node.style.backgroundColor = "#69B34C";
-	} else if (lockdownYr1 > scale[0] && lockdownYr1 <= scale[1]) {
+	} else if (lockdownVal > scale[0] && lockdownVal <= scale[1]) {
         node.style.backgroundColor = "#ACB334";
-	} else if (lockdownYr1 > scale[1] && lockdownYr1 <= scale[2]) {
+	} else if (lockdownVal > scale[1] && lockdownVal <= scale[2]) {
         node.style.backgroundColor = "#FAB733";
-	} else if (lockdownYr1 > scale[2] && lockdownYr1 <= scale[3]) {
+	} else if (lockdownVal > scale[2] && lockdownVal <= scale[3]) {
         node.style.backgroundColor = "#FF8E15";
-	} else if (lockdownYr1 > scale[3] && lockdownYr1 <= scale[4]) {
+	} else if (lockdownVal > scale[3] && lockdownVal <= scale[4]) {
         node.style.backgroundColor = "#FF4E11";
         node.style.color = "#fff";
 	} else {
@@ -95,7 +106,15 @@ function updateHeatmap() {
 		var node = infectionCells[i];
 
 		eval('var variableOfInterest = node.dataset.' + variableSelector + domainSelector + ';');
+		eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
+		eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
+		eval('var scale =' + variableSelector + domainSelector + '_scale;');
+	
 		node.innerHTML = variableOfInterest;
+		node.innerHTML += "<span class='cell-tooltip'>" +
+		"<div class='tooltip-row'><span>Upper bound: </span><span>"+ upperBound + "</span></div>" +
+		"<div class='tooltip-row'><span>Lower bound: </span><span>"+ lowerBound + "</span></div>" +
+		"</span>"
 	
 		// check for value and colour accordingly
 		if (variableOfInterest <= scale[0]) {
@@ -123,15 +142,16 @@ function updateHeatmap() {
 	for(var i = 0, max = lockdownCells.length; i < max; i++) {
 		var node = lockdownCells[i];
 
-		if (domainSelector == "Yr1") {
-				var lockdownVal = node.dataset.lockdownYr1
-		} else if (domainSelector == "Yr2") {
-				var lockdownVal = node.dataset.lockdownYr2
-		} else {
-				var lockdownVal = node.dataset.lockdownFull
-		}
+		// get data values from table cells
+		eval('var lockdownVal = node.dataset.lockdown' + domainSelector + ';');
+		eval('var upperBound = Math.round(node.dataset.lockdown' + domainSelector + 'Upper*100) + "%";');
+		eval('var lowerBound = Math.round(node.dataset.lockdown' + domainSelector + 'Lower*100) + "%";');
 
 		node.innerHTML = Math.round(lockdownVal*100) + "%";
+		node.innerHTML += "<span class='cell-tooltip'>" +
+		"<div class='tooltip-row'><span>Upper bound: </span><span>"+ upperBound + "</span></div>" +
+		"<div class='tooltip-row'><span>Lower bound: </span><span>"+ lowerBound + "</span></div>" +
+		"</span>"
 
 		// check for value and colour accordingly
 		if (lockdownVal <= scale[0]) {
@@ -155,3 +175,45 @@ function updateHeatmap() {
 			}
 		}
 }
+
+
+// ------------------------------------------------------------
+// Tooltip positioning ----------------------------------------
+// ------------------------------------------------------------
+document.getElementById("infections-heatmap").addEventListener("mousemove", e => {
+	// e = Mouse move event.
+	var rect = document.getElementById("infections-heatmap").getBoundingClientRect();
+	var x = (e.clientX - rect.left)/rect.width; //x position within the element.
+	var y = (e.clientY - rect.top)/rect.height;  //y position within the element.
+	var tooltip = e.target.getElementsByClassName("cell-tooltip");
+
+	if (x > 0.9) {
+		$('.cell-tooltip').addClass('position-right');
+	} else {
+		$('.cell-tooltip').removeClass('position-right');
+	}
+	if (y > 0.8) {
+		$('.cell-tooltip').addClass('position-top');
+	} else {
+		$('.cell-tooltip').removeClass('position-top');
+	}
+});
+
+document.getElementById("lockdown-heatmap").addEventListener("mousemove", e => {
+	// e = Mouse move event.
+	var rect = document.getElementById("lockdown-heatmap").getBoundingClientRect();
+	var x = (e.clientX - rect.left)/rect.width; //x position within the element.
+	var y = (e.clientY - rect.top)/rect.height;  //y position within the element.
+	var tooltip = e.target.getElementsByClassName("cell-tooltip");
+
+	if (x > 0.8) {
+		$('.cell-tooltip').addClass('position-right');
+	} else {
+		$('.cell-tooltip').removeClass('position-right');
+	}
+	if (y > 0.8) {
+		$('.cell-tooltip').addClass('position-top');
+	} else {
+		$('.cell-tooltip').removeClass('position-top');
+	}
+});
