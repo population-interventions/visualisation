@@ -137,43 +137,7 @@
 	
 
 
-	<p>We have pre-run 648 scenarios:</p>
-<ul>
-<li>through an agent-based model to estimate SARS-CoV-2 infection rates;</li>
-<li>then run each of these scenarios through an integrated epidemiological and economic model to estimate health loss (in health-adjusted life years or HALYs), health expenditure and GDP costs, with the proportion of times each scenario is optimal from either a health or partial-societal perspective. At the moment, this modelling also includes unintended health consequences of restrictions (including lockdowns) through road traffic injury, depression, anxiety, self-harm, and intimate partner violence. Coming soon, it will also include the effects of changes in physical activity.</li>
-</ul>
-<p>The 648 scenarios are for combinations of vaccine coverage, vaccine efficacy at <strong>transmission</strong> (different from usually reported vaccine efficacy at stopping serious illness), policy response for restrictions (aggressive and moderate elimination, tight and loose suppression), and whether these restrictions are relaxed as vaccination coverage increase. (Coming soon will be extra scenarios for how international borders are opened; at the moment, this is included as a parameter behind the scenes that sees the daily expected incursions of SARS-CoV-2 cases increasing from 0.008 per day in Phase 1a to 0.512 per day in Phase 3 of the vaccination rollout, each with wide uncertainty. This, therefore, approximates a relaxing of borders as vaccination coverage increases. But in the future we will provide user options for border incursions.)</p>
-<p>The modelling is specified for Victoria, Australia. But the modelling should apply to any state or Territory in Australia, or New Zealand.</p>
-<h3>Findings</h3>
-<p>The agent-based modelling presented at this site finds the following (in approximate order of importance):</p>
-<ul>
-<li>Things we do not have immediate control over:
-<ul>
-<li>The reproductive rate (R0) for the circulating virus matters enormously.  If a more infectious strain dominates (as is unfortunately likely) and gains a foothold in the community, social restrictions will be necessary in addition to vaccination to control outbreaks.</li>
-<li>Vaccine uptake and effectiveness of the vaccine at reducing transmission are—unsurprisingly—important.</li>
-</ul>
-</li>
-<li>Things we can control:
-<ul>
-<li>Pivoting to a loose suppression strategy, or relaxing the thresholds for when stage 3 or 4 lockdowns are applied, appears unwise until well into Phase 2 (vaccinating all adults) or Phase 3 (vaccinating children).</li>
-<li>Maximising vaccine coverage will assist dampening transmission.  Even if herd immunity is not achieved (e.g. if R0 of circulating variants is high, and vaccine effectiveness at reducing transmission is non-ideal), maximizing vaccine uptake will mean social restrictions can be relaxed even if not removed.</li>
-</ul>
-</li>
-</ul>
-<p>As always, we are all still learning about SARS-CoV-2 and vaccines. We have made every effort to include up to date evidence in our modelling, and we will continue to improve it as new information arises.</p>
-<h3>Track Record</h3>
-<p>The most recent modelling presented on this site has <strong>not yet been peer-reviewed</strong>, but builds on a strong platform:</p>
-<ul>
-<li>Peer-reviewed Medical Journal of Australia paper on the probability of lock down achieving elimination using the ABM (<a href="https://www.mja.com.au/journal/2020/213/8/probability-6-week-lockdown-victoria-commencing-9-july-2020-achieving">Journal</a>, <a href="https://www.mja.com.au/system/files/issues/213_08/mja250786.pdf">PDF</a>)</li>
-<li>Documentation of the ABM at Github (<a href="https://github.com/JTHooker/COVIDModel">Link</a>)</li>
-<li>Comments on the ABM at The Pursuit (<a href="https://pursuit.unimelb.edu.au/articles/modelling-victoria-s-escape-from-covid-19">Link</a>)</li>
-<li>An overview of the proportional multistate lifetable model we use to estimate health and cost impacts (<a href="https://academic.oup.com/ije/article-abstract/49/5/1624/5920732">Journal</a>, <a href="/posts/pandemic-trade-offs-detail/PMSLT.pdf">PDF</a>)</li>
-<li>An analysis of the relative health and cost impacts of various policy response strategies in Victoria, pre-vaccination (aggressive and moderate elimination, tight and loose suppression) (<a href="https://www.medrxiv.org/content/10.1101/2021.01.11.21249630v2.full-text">Preprint</a>, <a href="https://www.medrxiv.org/content/10.1101/2021.01.11.21249630v2.full.pdf">PDF</a>, Under Review)</li>
-<li>A just completed analysis of the unintended health consequences of COVID-19 restrictions including lockdowns (<a href="https://www.medrxiv.org/content/10.1101/2021.03.16.21253759v1">Preprint</a>, <a href="https://www.medrxiv.org/content/10.1101/2021.03.16.21253759v1.full.pdf">PDF</a>, Under Review)</li>
-</ul>
-<p>The remainder of this page describes some of the most important components of this modelling work.</p>
-<hr>
-<h2 id="stages">Stages</h2>
+	<h2 id="stages">Stages</h2>
 <p>A <em>stage</em> is a level of restrictions that can be imposed on society at any given time. There are five stages (1, 1b, 2, 3, 4) which correspond to the stages used in Victoria, Australia during 2020.</p>
 <p>A representative sample of the restrictions associated with each stage are given in the following table.</p>
 <table class="zebra">
@@ -273,7 +237,7 @@
 <p>The full details of the stages can be found in <a href="/posts/pandemic-trade-offs-detail/Stages.pdf">this PDF</a>.</p>
 <hr>
 <h2 id="strategies">Strategies</h2>
-<p>A <em>strategy</em> is a set of rules for determining when to move between different stages. Our model considers four strategies: aggressive elimination, moderate elimination, tight suppression and loose suppression.</p>
+<p>A <em>strategy</em> is a set of rules for determining when to move between different stages. Our model considers four strategies: aggressive elimination, moderate elimination, tight suppression, loose suppression and bare suppression.</p>
 <p>Mouse-over the following graphic to explore the rules associated with each strategy. (It works best on a desktop or laptop screen.)</p>
 <div class="fig outset-4 more-margin-2" id="fig-container-strategies">
 	<div class="graph-title">Strategies</div>
@@ -306,97 +270,9 @@
 					loadCSS("/posts/pandemic-trade-offs-detail-july-2021/fig-strategies.css");
 				</script><script src="/posts/pandemic-trade-offs-detail-july-2021/fig-strategies.js"></script>
 <p>Note that, in addition to the triggers presented on the above graphic, there is also a minimum time enforced between each easing or tightening of restrictions under each strategy. For full details, please see <a href="/posts/pandemic-trade-offs-detail/doc-strategies.pdf">this document</a>.</p>
-<h3 id="strategy-relaxation">Strategy Relaxation</h3>
-<p>As more people become vaccinated, society may decide to tolerate higher levels of SARS-CoV-2 circulating in the community. If <em>strategy relaxation</em> is turned on, the thresholds for moving to higher stages of restrictions are increased with each phase of the vaccine rollout. Specifically, in the thresholds in Phase 2a are multiplied by a factor of 2, in Phase 2b by a factor of 4, and in Phase 3 by a factor of 8.</p>
 <hr>
-<h2 id="phases">Vaccination Phases</h2>
-<p>The term <em>phases</em> refer to different time frames within the vaccine roll-out. The phases used in our model are lifted directly from the <a href="https://www.health.gov.au/resources/publications/covid-19-vaccination-australias-covid-19-vaccine-national-roll-out-strategy">Australian national roll-out strategy</a>, seen below.</p>
-<div class="fig outset-4">
-	<a href="https://www.health.gov.au/resources/publications/covid-19-vaccination-australias-covid-19-vaccine-national-roll-out-strategy"><img src="/posts/pandemic-trade-offs-detail/img-gov-vaccine-phases.jpg" /></a>
-</div>
-<p>The table below gives the numbers of Australians by age, comorbidity, Indigeneity and occupation/setting, in each Phase of the vaccination rollout. We have used this timeline in our modelling, although as of late-March 2021, the Australian roll-out is behind this schedule.</p>
-<table class="zebra">
-	<thead>
-		<tr>
-			<th>Phase</th>
-			<th>1a</th> <th>1b</th> <th>2a</th> <th>2b</th> <th>3</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Phase start day</td>
-			<td>0</td> <td>10</td> <td>91</td> <td>182</td> <td>273</td>
-		</tr>
-		<tr>
-			<td>Quarantine and border control</td>
-			<td>18746</td> <td></td> <td></td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Health, aged care, disability care</td>
-			<td>158002</td> <td></td> <td></td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Other healthcare</td>
-			<td></td> <td>249054</td> <td></td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Defence/fire/police/etc</td>
-			<td></td> <td>50882</td> <td></td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Remaining people aged 70+</td>
-			<td></td> <td>755196</td> <td></td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Aboriginal/TSI 55-69</td>
-			<td></td> <td>21424</td> <td></td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Disabled/comorbidity 18-69</td>
-			<td></td> <td>522210</td> <td></td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Other critical workers</td>
-			<td></td> <td></td> <td>117832</td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Aboriginal/TSI 18-54</td>
-			<td></td> <td></td> <td>101764</td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Remaining people aged 50-69</td>
-			<td></td> <td></td> <td>1491646</td> <td></td> <td></td>
-		</tr>
-		<tr>
-			<td>Remaining people aged 18-49</td>
-			<td></td> <td></td> <td></td> <td>1729988</td> <td></td>
-		</tr>
-		<tr>
-			<td>Remaining people aged 0-17</td>
-			<td></td> <td></td> <td></td> <td></td> <td>1478256</td>
-		</tr>
-		<tr>
-			<td>Percentage of population</td>
-			<td>2.64%</td> <td>23.88%</td> <td>25.56%</td> <td>25.84%</td> <td>22.08%</td>
-		</tr>
-		<tr>
-			<td>Expected Incursions Per Day</td>
-			<td>0.008</td> <td>0.008</td> <td>0.032</td> <td>0.128</td> <td>0.512</td>
-		</tr>
-	</tbody>
-</table>
-<hr>
-<h3 id="uptake">Vaccine Uptake</h3>
-<p>Everyone in a vaccination phase is offered a vaccine on one of the days of the phase. Each person either accepts or rejects the vaccine when offered, as determined by Vaccine Uptake parameter. This ensures a steady rate of vaccination throughout the phase, and that everyone who wants vaccination in each phase is vaccinated by the end of it.</p>
-<p>The graph below shows the expected percentage of the population who are vaccinated at each point in the vaccine rollout, for three different possible vaccine acceptance rates.</p>
-<div class="fig outset-2 more-margin-1">
-				<div id="graph-settings-uptake" class="graph-settings"></div>
-				<div id="graph-container-uptake" class="graph-container"></div>
-				<button class="toggle-open" id="toggle-open-PMSLT-prob"><span>Adjust parameters</span><span class="with-arrow"></span></button>
-				</div>
-			<script type="text/javascript">
-				graphs.push("uptake")
-			</script>
+<h2 id="effectiveness">Vaccination</h2>
+<p>Vaccination occurs at a rate over 1 year necessary to achieve the vaccine coverage option – so for 90% of the population vaccinated, including children, the rate of vaccine roll out is much quicker than for 50% coverage of adults only.  The priority order of who is vaccinated is a per Australian (and most country) recommendations: vulnerable populations and the elderly first, then cascading down age groups.  For simplicity, we assume 60+ year olds are vaccinated with Astra Zeneca, and others with Pfizer.</p>
 <h3 id="lag">Vaccine Lag time</h3>
 <p>The vaccine only takes effect three weeks after vaccination. We do not model the effect of (say) just one dose of vaccine, but assume the everyone who is vaccinated receives two doses.</p>
 <hr>
@@ -471,16 +347,24 @@
 <li>re-parametrisation of contact tracing; and</li>
 <li>the inclusion of vaccinations, as outlined above.</li>
 </ul>
-<p>We therefore re-calibrated the model (by ‘tuning’ the global transmissibility parameter that—essentially—sets how infective each person is during a contact with another person. We first set this global transmissibility parameter to a level that achieved an \(R_0\) of 2.5, 3.125 and 3.75 for the three different scenarios of baseline infectiousness of SARS-CoV-2 (i.e. the wild type variant with \(R_0\) of 2.5, increasing to 3.75 for variants of concern).  Then we ensured that for the \(R_0 = 2.5\) scenario that Stage 4 restrictions achieved the daily percentage reduction in infections observed in Victoria coming out of its second wave (with stage 4 restrictions) of 7 to 8% per day.  Next, we ensured that in the \(R_0\) of 2.5 scenario, Stage 3 achieved an effective reproductive rate of less than 1.0 and Stage 2 of greater than 1.0 – each approximately equi-distant below and above an effective reproductive rate of 1.0.</p>
+<p>We therefore re-calibrated the model by ‘tuning’ the global transmissibility parameter that—essentially—sets how infective each person is during a contact with another person. We first set this global transmissibility parameter to a level that achieved an \(R_0\) of 2.5, 3.125 and 3.75 for the three different scenarios of baseline infectiousness of SARS-CoV-2 (i.e. the wild type variant with \(R_0\) of 2.5, increasing to 3.75 for variants of concern).  Then we ensured that for the \(R_0 = 2.5\) scenario that Stage 4 restrictions achieved the daily percentage reduction in infections observed in Victoria coming out of its second wave (with stage 4 restrictions) of 7 to 8% per day.  Next, we ensured that in the \(R_0\) of 2.5 scenario, Stage 3 achieved an effective reproductive rate of less than 1.0 and Stage 2 of greater than 1.0 – each approximately equi-distant below and above an effective reproductive rate of 1.0.</p>
 <p>Below is a graph of the effective reproductive rate by Stage of restrictions, in the absence of vaccination, for the three \(R_0\) scenarios of 2.5, 3.125 and 3.75.</p>
 <div class="fig outset-2 more-margin-1">
 				<div id="graph-settings-calibration" class="graph-settings"></div>
 				<div id="graph-container-calibration" class="graph-container"></div>
-				<button class="toggle-open" id="toggle-open-PMSLT-prob"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button>
 				</div>
 			<script type="text/javascript">
 				graphs.push("calibration")
 			</script>
+<p>For Delta and new variants, we then calibrated the global transmissibility parameter to achieve Ro of 5.0 and 6.0.</p>
+<p>Contact tracing really matters.  Indeed, it is the most important adjunct to vaccination in allowing us to open the borders at a level of vaccination that is less than 90% (the approximate level of vaccination we need to achieve herd immunity without any other measures). We have put extensive effort into calibrating contact tracing in the model so that:</p>
+<ul>
+<li>For a virus of R0 of 2.5, 48.4% of unvaccinated infected people in the community do not infect anyone, yet 20.3% of infected people cause 72.1% of the next generation of infections (i.e. we include much heterogeneity across agents in their infectiousness and mobility – fitting evidence from early in the pandemic)</li>
+<li>Contact tracing at low case numbers (an average of 1 per day) finds 90% of infected contacts (both upstream and downstream) within 3 days.  At an average of 5 cases per day, this deteriorates to a 70% detection rate.</li>
+</ul>
+<p>If contact tracing is not functioning this well, then the number of infections for each scenario will be greater.</p>
+<p>Mask wearing outside the home is set at 15%, 35% and 50%  in the non-lockdown stages, 1, 1b and 2. This approximates use of masks in public transport and other high risk settings. In Stages 3 and 4 it is 60% and 85% outside the home, respectively.</p>
 <h2>Assumptions and Limitations</h2>
 <h3>Agent-based model</h3>
 <p>Simulating the impact of COVID-19 policy responses is challenging.  Our ABM has been extensively investigated by ourselves and others for errors, conceptual rigour, parameterization and such like – and therefore we believe has face validity.  It has also successfully predicted that elimination is achievable, and predicted well the exit of Victoria from its second wave, i.e. to the extent possible, it is calibrated.</p>

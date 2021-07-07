@@ -137,11 +137,11 @@ The estimated number of vaccinated but infected arrivals per day is not intuitiv
 ## Other Health Consequences
 
 ### Health adjusted life years (HALYs)
-Health adjusted life years (HALYs) for the 240 scenarios are coming soon – factoring in both the direct health consequences of SARS-CoV-2 (including long-COVID) and the indirect health consequences of lockdowns.  For our previous estimates of HALYs lost by response strategy during the (as planned) vaccine rollout, go to our previous version of this tool. And see our paper in JAMA Health Forum.
+Health adjusted life years (HALYs) for the 240 scenarios are coming soon – factoring in both the direct health consequences of SARS-CoV-2 (including long-COVID) and the indirect health consequences of lockdowns. For our previous estimates of HALYs lost by response strategy during the (as planned) vaccine rollout, go to our previous version of this tool, and see our paper in <a href="https://www.medrxiv.org/content/medrxiv/early/2021/01/13/2021.01.11.21249630.full.pdf">JAMA Health Forum</a>.
 
 ### Economic impacts
 
-As with HALYs, the estimated health expenditure and GDP consequences of these 240 scenarios are coming soon.  In the meantime, see our previous estimates of cost impacts by response strategy during the (as planned) vaccine rollout at the <a href="/pandemic-trade-offs/">previous version of this tool</a>. And see our paper in <a href="https://www.medrxiv.org/content/medrxiv/early/2021/01/13/2021.01.11.21249630.full.pdf">JAMA Health Forum</a>.
+As with HALYs, the estimated health expenditure and GDP consequences of these 240 scenarios are coming soon.  In the meantime, see our previous estimates of cost impacts by response strategy during the (as planned) vaccine rollout at the <a href="/pandemic-trade-offs/">previous version of this tool</a>, and see our paper in <a href="https://www.medrxiv.org/content/medrxiv/early/2021/01/13/2021.01.11.21249630.full.pdf">JAMA Health Forum</a>.
 
 
 
