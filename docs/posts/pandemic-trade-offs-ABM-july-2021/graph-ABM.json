@@ -131,8 +131,8 @@
 
 		{
 			"name": "DataFileName",
-			"value": "/posts/pandemic-trade-offs-ABM-v2/data-ABM/70_Yes_ME_ME_TS_4833_032.csv",
-			"update": "'/posts/pandemic-trade-offs-ABM-v2/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '.csv'"
+			"value": "/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/70_Yes_ME_ME_TS_4833_032.csv",
+			"update": "'/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '.csv'"
 		}
 	],
 

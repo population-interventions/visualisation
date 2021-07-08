@@ -47,7 +47,7 @@
 .cell-tooltip{
 	display:none;
 	position:absolute; 
-	z-index:100;
+	z-index:1000;
 	border:1px solid rgb(139, 139, 139);
 	background-color:#fff;
 	padding:3px;
@@ -64,7 +64,28 @@
 	display:block;
 }
 
-span.cell-tooltip .tooltip-row {
+.policy-tooltip{
+	display:none;
+	position:absolute;
+	z-index:9999 !important;
+	border:1px solid rgb(139, 139, 139);
+	background-color:#fff;
+	padding:3px;
+	color:#000; 
+	font-size: 0.7rem;
+	width:max-content;
+	text-align: left;
+	bottom:25%; 
+	left:100%;
+	box-shadow: 3px 3px 2px rgba(0, 0, 0, .35);
+}
+
+.heatmap table tr th:hover span.policy-tooltip{
+	display:block;
+	z-index: 1000;
+}
+
+.tooltip-row {
 	display: flex;
 	justify-content: space-between;
 }
@@ -99,20 +120,23 @@ span.cell-tooltip .tooltip-row {
 	outline: 1px solid #cde6ff !important;
 	border:none !important;
 	outline-offset: -1px !important;
-	z-index: 2 !important;
 	top: 0 !important;
 }
 
 .col-1 {
 	left: 0px;
-	width: 90px !important;
+	min-width: 90px !important;
+	vertical-align: middle !important;
+	z-index: 3 !important;
 }
 
 .col-2 {
 	left: 90px;
 	min-width: 50px !important;
+	z-index: 2 !important;
 }
 
 .col-3 {
 	left: 140px;
+	z-index: 2 !important;
 }
