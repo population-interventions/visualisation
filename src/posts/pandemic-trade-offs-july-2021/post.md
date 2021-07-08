@@ -116,8 +116,6 @@ For both heatmaps, if you hover a cell you will be shown the 90% simulation inte
 
 {% import_content "heatmap-summary", slug %}
 
-Below is an interactive heatmap, where you select the your ‘optimal scenario’ of both the maximum average infections per day you will tolerate and the maximum proportion of time in lockdown.  And (as above) select either year 1 or 2.
-
 
 ---
 

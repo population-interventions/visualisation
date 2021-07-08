@@ -178,7 +178,7 @@ function updateHeatmap() {
 
 
 // ------------------------------------------------------------
-// Tooltip positioning ----------------------------------------
+// Cell tooltip positioning -----------------------------------
 // ------------------------------------------------------------
 document.getElementById("infections-heatmap").addEventListener("mousemove", e => {
 	// e = Mouse move event.
