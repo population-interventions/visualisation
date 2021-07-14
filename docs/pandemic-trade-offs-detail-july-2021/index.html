@@ -134,7 +134,7 @@
 
 	
 		<section class="lead left">
-			<p>This page describes the details of the modelling that is presented on the <a href='/pandemic-trade-offs' target='_blank' rel='noopener noreferrer'>COVID-19 Pandemic Trade-offs</a> page.</p>
+			<p>This page describes the details of the modelling that is presented on the <a href='/pandemic-trade-offs-july-2021' target='_blank' rel='noopener noreferrer'>COVID-19 Pandemic Trade-offs</a> page.</p>
 		</section>
 	
 
@@ -240,7 +240,7 @@
 <hr>
 <h2 id="strategies">Strategies</h2>
 <p>A <em>strategy</em> is a set of rules for determining when to move between different stages. Our model considers four strategies: aggressive elimination, moderate elimination, tight suppression, loose suppression and bare suppression.</p>
-<p>Mouse-over the following graphic to explore the rules associated with each strategy. (It works best on a desktop or laptop screen.)</p>
+<p>Mouse-over the following graphic to explore the rules associated with each strategy. (It works best on a desktop or laptop screen.) You will see that the rules for moving between stages usually depend on the ‘7-day average’—this is the average number of new cases detected each day over the past week.</p>
 <div class="fig outset-4 more-margin-2" id="fig-container-strategies">
 	<div class="graph-title">Strategies</div>
 	<div class="graph-subtitle">Choose a strategy, then hover over the graph to explore the rules for when to tighten or ease restrictions.</div>
@@ -271,7 +271,11 @@
 </div><script type="text/javascript">
 					loadCSS("/posts/pandemic-trade-offs-detail-july-2021/fig-strategies.css");
 				</script><script src="/posts/pandemic-trade-offs-detail-july-2021/fig-strategies.js"></script>
-<p>Note that, in addition to the triggers presented on the above graphic, there is also a minimum time enforced between each easing or tightening of restrictions under each strategy. For full details, please see <a href="/posts/pandemic-trade-offs-detail/doc-strategies.pdf">this document</a>.</p>
+<p>Note that:</p>
+<ul>
+<li>The numbers for moving between stages shown for moderate elimination are daily average counts in a population the size of Victoria (6.6 million); all other strategy thresholds are expressed as average daily rates per million, over the last seven days.</li>
+<li>In addition to the triggers presented on the above graphic, there is also a minimum time enforced between each easing or tightening of restrictions under each strategy. For full details, please see <a href="/posts/pandemic-trade-offs-detail/doc-strategies.pdf">this document</a>.</li>
+</ul>
 <hr>
 <h2 id="effectiveness">Vaccination</h2>
 <p>Vaccination occurs at a rate over 1 year necessary to achieve the vaccine coverage option – so for 90% of the population vaccinated, including children, the rate of vaccine roll out is much quicker than for 50% coverage of adults only.  The priority order of who is vaccinated is a per Australian (and most country) recommendations: vulnerable populations and the elderly first, then cascading down age groups.  For simplicity, we assume 60+ year olds are vaccinated with Astra Zeneca, and others with Pfizer.</p>
@@ -341,7 +345,8 @@
 	</div>
 </div>
 <button class="compute" onclick="estimate()">ESTIMATE</button>
-<div class="results">Using the above assumptions, we estimate that Victoria should expect <span id="calc-infected-arrivals" class="output"></span>&nbsp;<strong>infected arrivals per day</strong>, with a 95% uncertainty interval of (<span id="calc-qL" class="output"></span>,&nbsp;<span id="calc-qU" class="output"></span>).</div>
+<div class="results">Using the above assumptions, we estimate that Victoria should expect <span id="calc-infected-arrivals" class="output"></span>&nbsp;<strong>infected arrivals per DAY</strong>, with a 95% uncertainty interval of (<span id="calc-qL" class="output"></span>,&nbsp;<span id="calc-qU" class="output"></span>).</div>
+<div class="results">This is equivalent to an expected value of <span id="calc-infected-arrivals-year" class="output"></span>&nbsp;<strong>infected arrivals per YEAR</strong>, with a 95% uncertainty interval of (<span id="calc-qL-year" class="output"></span>,&nbsp;<span id="calc-qU-year" class="output"></span>).</div>
 </div><script type="text/javascript">
 					loadCSS("/posts/pandemic-trade-offs-detail-july-2021/fig-incursion-calc.css");
 				</script><script src="/posts/pandemic-trade-offs-detail-july-2021/fig-incursion-calc.js"></script>
@@ -366,7 +371,7 @@
 <div class="fig outset-2 more-margin-1">
 				<div id="graph-settings-calibration" class="graph-settings"></div>
 				<div id="graph-container-calibration" class="graph-container"></div>
-				<button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<button class="toggle-open" id="toggle-open-PMSLT-prob"><span>Adjust parameters</span><span class="with-arrow"></span></button>
 				</div>
 			<script type="text/javascript">
 				graphs.push("calibration")

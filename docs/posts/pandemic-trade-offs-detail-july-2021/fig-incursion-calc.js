@@ -92,6 +92,10 @@ function estimate() {
 	document.querySelector("#calc-infected-arrivals").innerHTML = Math.round(math.mean(...simulations)*10000)/10000;
 	document.querySelector("#calc-qL").innerHTML = Math.round(math.quantileSeq(simulations, 0.025)*10000)/10000;
 	document.querySelector("#calc-qU").innerHTML = Math.round(math.quantileSeq(simulations, 0.975)*10000)/10000;
+
+	document.querySelector("#calc-infected-arrivals-year").innerHTML = Math.round(365*math.mean(...simulations)*10000)/10000;
+	document.querySelector("#calc-qL-year").innerHTML = Math.round(365*math.quantileSeq(simulations, 0.025)*10000)/10000;
+	document.querySelector("#calc-qU-year").innerHTML = Math.round(365*math.quantileSeq(simulations, 0.975)*10000)/10000;
 }
 
 estimate()

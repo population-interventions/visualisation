@@ -104,6 +104,7 @@ In particular, you might be interested to know:
 
 
 ---
+
 ## Heatmaps of infections, hospitalizations, deaths and time in lockdown
 Below are two heatmaps. The first shows (depending on which option you select) the average daily infections, the yearly SARS-CoV-2 deaths and the yearly SARS-CoV-2 hospitalization (for a population the size and make-up of Victoria). The second heatmap shows  the proportion of time in stage 3 (soft lockdown) and stage 4 (hard lockdown) for all 240 scenarios. 
 
