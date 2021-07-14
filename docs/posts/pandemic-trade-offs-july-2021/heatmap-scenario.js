@@ -21,6 +21,10 @@ for(var i = 0, max = scenarioCells.length; i < max; i++) {
 	eval('var displayVar = node.dataset.' + displayVarSelector + ';');
 	node.innerHTML = displayVar;
 
+	if (displayVarSelector ==  "lockdownYr2") {
+		node.innerHTML = Math.round(displayVar*100)  + "%"
+	};
+
 	// creating tooltip
 	node.innerHTML += "<span class='cell-tooltip'>" +
 	"<div class='tooltip-row'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
@@ -62,6 +66,10 @@ function updateScenarioHeatmap() {
 	
 		eval('var displayVar = node.dataset.' + displayVarSelector + ';');
 		node.innerHTML = displayVar;
+
+		if (displayVarSelector ==  "lockdownYr2") {
+			node.innerHTML = Math.round(displayVar*100)  + "%"
+		};
 	
 		// creating tooltip
 		node.innerHTML += "<span class='cell-tooltip'>" +
