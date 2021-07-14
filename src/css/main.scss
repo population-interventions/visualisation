@@ -365,6 +365,10 @@ html {
 				select {
 					width: auto;
 					font-size: 1rem;
+
+					option {
+						color: black !important;
+					}
 				}
 			}
 		}

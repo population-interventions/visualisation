@@ -8,7 +8,7 @@
 	"type": "Details",
 	
 	"title": "Model Details",
-	"description": "This page describes the details of the modelling that is presented on the <a href='/pandemic-trade-offs' target='_blank' rel='noopener noreferrer'>COVID-19 Pandemic Trade-offs</a> page.",
+	"description": "This page describes the details of the modelling that is presented on the <a href='/pandemic-trade-offs-july-2021' target='_blank' rel='noopener noreferrer'>COVID-19 Pandemic Trade-offs</a> page.",
 	
 	"date": "2021-07-04",
 	"date_updated": "2021-07-07",
@@ -44,11 +44,14 @@ The full details of the stages can be found in [this PDF](/posts/pandemic-trade-
 
 A *strategy* is a set of rules for determining when to move between different stages. Our model considers four strategies: aggressive elimination, moderate elimination, tight suppression, loose suppression and bare suppression.
 
-Mouse-over the following graphic to explore the rules associated with each strategy. (It works best on a desktop or laptop screen.)
+Mouse-over the following graphic to explore the rules associated with each strategy. (It works best on a desktop or laptop screen.) You will see that the rules for moving between stages usually depend on the '7-day average'—this is the average number of new cases detected each day over the past week.
 
 {% import_content "fig-strategies", slug %}
 
-Note that, in addition to the triggers presented on the above graphic, there is also a minimum time enforced between each easing or tightening of restrictions under each strategy. For full details, please see [this document](/posts/pandemic-trade-offs-detail/doc-strategies.pdf).
+Note that:
+
+- The numbers for moving between stages shown for moderate elimination are daily average counts in a population the size of Victoria (6.6 million); all other strategy thresholds are expressed as average daily rates per million, over the last seven days.
+- In addition to the triggers presented on the above graphic, there is also a minimum time enforced between each easing or tightening of restrictions under each strategy. For full details, please see [this document](/posts/pandemic-trade-offs-detail/doc-strategies.pdf).
 
 
 ---
