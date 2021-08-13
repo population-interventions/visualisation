@@ -76,7 +76,7 @@ function estimate() {
 
 	truncate('#calc-arrivals-pc', 2, 98);
 	truncate('#calc-arrivals-n', 0, 8000000000);
-	truncate('#calc-infections', 1, 99999);
+	truncate('#calc-infections', 0.1, 99999);
 	truncate('#calc-vaccinated', 3, 98);
 
 	let nArrivals = document.querySelector("#calc-arrivals-n").value,
