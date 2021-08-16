@@ -15,9 +15,10 @@
 		{
 			"name": "selected",
 			"values": [
-				{ "value": "50% Vaccinated" },
 				{ "value": "70% Vaccinated" },
-				{ "value": "90% Vaccinated" }
+				{ "value": "80% Vaccinated" },
+				{ "value": "90% Vaccinated" },
+				{ "value": "95% Vaccinated" }
 			],
 			"on": [
 				{"trigger": "clicked", "toggle": "clicked"}
@@ -32,6 +33,7 @@
 				{ "type": "filter", "expr": "datum.va === VaccArrivals" },
 				{ "type": "filter", "expr": "datum.vk === VaccKids" },
 				{ "type": "filter", "expr": "datum.R0 === R0" },
+				{ "type": "filter", "expr": "datum.vr === Rollout" },
 				{ "type": "extent", "field": "q95", "signal": "Extent" },
 				
 				{"type": "formula", "as": "nq95", "expr": "MaxHeight === 'depend on data' ? datum.q95 : clamp(datum.q95, 0, toNumber(MaxHeight))"},
@@ -52,17 +54,16 @@
 				{ "type": "formula", "as": "label", "expr": "toString(datum.q50) + ' (' + toString(datum.q5) + ' to ' + toString(datum.q95) + ')'" },
 				{ "type": "formula", "as": "group", "expr": "'group'" },
 				{ "type": "pivot", "groupby": ["wk"], "field": "group", "value": "lab", "op": "values" },
-				{ "type": "formula", "as": "50% Vaccinated", "expr": "datum.group[0].label" },
-				{ "type": "formula", "as": "60% Vaccinated", "expr": "datum.group[1].label" },
-				{ "type": "formula", "as": "70% Vaccinated", "expr": "datum.group[2].label" },
-				{ "type": "formula", "as": "80% Vaccinated", "expr": "datum.group[3].label" },
-				{ "type": "formula", "as": "90% Vaccinated", "expr": "datum.group[4].label" }
+				{ "type": "formula", "as": "70% Vaccinated", "expr": "datum.group[0].label" },
+				{ "type": "formula", "as": "80% Vaccinated", "expr": "datum.group[1].label" },
+				{ "type": "formula", "as": "90% Vaccinated", "expr": "datum.group[2].label" },
+				{ "type": "formula", "as": "95% Vaccinated", "expr": "datum.group[3].label" }
 			]
 		},
 		{
 			"name": "rules",
 			"values": [
-				{ "phase": "Borders open", "startDay": 365 }
+				{ "phase": "Borders open", "startDay": 210 }
 			]
 		},
 		{
@@ -131,9 +132,21 @@
 						"type": "select",
 						"options": [
 							{ "value": 5, "label": "5.0", "default": true },
-							{ "value": 6, "label": "6.0" }
+							{ "value": 6.5, "label": "6.0" },
+							{ "value": 8.0, "label": "8.0" }
 						],
 						"signalName": "R0"
+					},
+					{
+						"title": "Vaccine Rollout Strategy",
+						"description": "Rollout startegy",
+						"detailLink": "/pandemic-trade-offs-detail-july-2021/#reproduction",
+						"type": "select",
+						"options": [
+							{ "value": "INT", "label": "Target essential workers", "default": true },
+							{ "value": "AZ_25", "label": "Target essential workers + fast AZ" }
+						],
+						"signalName": "Rollout"
 					}
 				]
 			}
@@ -172,11 +185,11 @@
 			}
 		},
 		{
-			"name": "Domain", "value": [0,104],
+			"name": "Domain", "value": [0,81],
 			"bind": {
 				"input": "select",
 				"name": "Sample subset:",
-				"options": [[0,104], [0,51], [52,104]],
+				"options": [[0,81], [0,29], [30,81]],
 				"labels": ["Full sample", "Before borders open", "After borders open"],
 				"element": "#graph-settings-ABM-v2"
 			}
@@ -197,7 +210,8 @@
 				{ "events": { "source": "#select-ABM-VaccArrivals", "type": "change" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-VaccKids", "type": "change" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-Strategy", "type": "change" }, "update": "true" },
-				{ "events": { "source": "#select-ABM-R0", "type": "change" }, "update": "true" }
+				{ "events": { "source": "#select-ABM-R0", "type": "change" }, "update": "true" },
+				{ "events": { "source": "#select-ABM-Rollout", "type": "change" }, "update": "true" }
 			]
 		}
 	],
@@ -223,12 +237,12 @@
 			"name": "colour",
 			"type": "ordinal",
 			"range": {"scheme": "viridis"},
-			"domain": ["50% Vaccinated", "60% Vaccinated", "70% Vaccinated", "80% Vaccinated", "90% Vaccinated"]
+			"domain": ["70% Vaccinated", "80% Vaccinated", "90% Vaccinated", "95% Vaccinated"]
 		},
 		{
 			"name": "parameters",
 			"type": "ordinal",
-			"domain": { "signal": "['Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'Vaccinate Kids: ' + VaccKids, 'R_0: ' + R0]"},
+			"domain": { "signal": "['Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'Vaccinate Kids: ' + VaccKids, 'Vaccine Rollout: ' + Rollout, 'R_0: ' + R0]"},
 			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
 		}
 	],
@@ -376,7 +390,7 @@
 					"strokeWidth": {"value": 0},
 					"fill": {"value": "#999999"},
 					"fillOpacity": {"value": 0},
-					"tooltip": { "signal": "{ 'title': 'Week ' + datum.wk, '50% Vaccinated': datum['50% Vaccinated'], '60% Vaccinated': datum['60% Vaccinated'], '70% Vaccinated': datum['70% Vaccinated'], '80% Vaccinated': datum['80% Vaccinated'], '90% Vaccinated': datum['90% Vaccinated']}"}
+					"tooltip": { "signal": "{ 'title': 'Week ' + datum.wk, '70% Vaccinated': datum['70% Vaccinated'], '80% Vaccinated': datum['80% Vaccinated'], '90% Vaccinated': datum['90% Vaccinated'], '95% Vaccinated': datum['95% Vaccinated']}"}
 				},
 				"hover": {
 					"fillOpacity": {"value": 0.2}

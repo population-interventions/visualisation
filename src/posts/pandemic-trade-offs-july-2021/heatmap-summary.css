@@ -1,6 +1,6 @@
 .heatmap-container {
 	width: 90%;
-	max-width: 1250px;
+	max-width: 2050px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -132,12 +132,13 @@
 
 .col-2 {
 	left: 90px;
-	min-width: 50px !important;
+	min-width: 100px !important;
+	vertical-align: middle !important;
 	z-index: 3 !important;
 }
 
 .col-3 {
-	left: 140px;
+	left: 190px;
 	min-width: 90px !important;
 	z-index: 2 !important;
 }

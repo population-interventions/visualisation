@@ -35,10 +35,10 @@ for(var i = 0, max = scenarioCells.length; i < max; i++) {
 	 
     // check for value and colour accordingly
     if (Math.round(infectVal) <= maxInfections && lockdownVal <= maxLockdown && Math.round(deathsVal) <= maxDeaths && Math.round(hospitalVal) <= maxHospital) {
-        node.style.backgroundColor = "#69B34C";
-		node.style.color = "#000";
+        node.style.backgroundColor = "#41af4c";
+		node.style.color = "#fff";
 	} else {
-        node.style.backgroundColor = "#FF0D0D";
+        node.style.backgroundColor = "#e34545";
         node.style.color = "#fff";
 	}
 };
@@ -81,10 +81,10 @@ function updateScenarioHeatmap() {
 		
 		// check for value and colour accordingly
 		if (Math.round(infectVal) <= maxInfections && lockdownVal <= maxLockdown && Math.round(deathsVal) <= maxDeaths && Math.round(hospitalVal) <= maxHospital)  {
-			node.style.backgroundColor = "#69B34C";
-			node.style.color = "#000";
+			node.style.backgroundColor = "#41af4c";
+			node.style.color = "#fff";
 		} else {
-			node.style.backgroundColor = "#FF0D0D";
+			node.style.backgroundColor = "#e34545";
 			node.style.color = "#fff";
 		}
 	}

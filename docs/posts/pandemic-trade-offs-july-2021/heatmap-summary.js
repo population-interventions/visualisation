@@ -1,7 +1,7 @@
 // ------------------------------------------------------------
 // Colour scales ----------------------------------------------
 // ------------------------------------------------------------
-const infectYr1_scale = [0.2, 0.4, 0.6, 0.8, 1];
+const infectYr1_scale = [3, 15, 81, 243, 729];
 const infectYr2_scale = [3, 15, 81, 243, 729];
 const infectFull_scale = [3, 15, 81, 243, 729];
 const deathsYr1_scale = [2, 4, 6, 8, 10];
@@ -10,7 +10,90 @@ const deathsFull_scale = [12, 35, 100, 500, 2000];
 const hospitalYr1_scale = [7, 10, 15, 25, 35];
 const hospitalYr2_scale = [75, 200, 500, 2000, 6000];
 const hospitalFull_scale = [75, 200, 500, 2000, 6000];
-const lockdown_scale = [0.01, 0.02, 0.04, 0.06, 0.09]
+const lockdown_scale = [0.01, 0.02, 0.04, 0.06, 0.09];
+
+const infectYr1_min = 0;
+const infectYr1_max = 40;
+const infectYr2_min = 0;
+const infectYr2_max = 3500;
+const infectFull_min = 0;
+const infectFull_max = 2450;
+
+const deathsYr1_min = 0;
+const deathsYr1_max = 100;
+const deathsYr2_min = 0;
+const deathsYr2_max = 5000;
+const deathsFull_min = 0;
+const deathsFull_max = 3000;
+
+const hospitalYr1_min = 0;
+const hospitalYr1_max = 1000;
+const hospitalYr2_min = 0;
+const hospitalYr2_max = 60000;
+const hospitalFull_min = 0;
+const hospitalFull_max = 35000;
+
+const lockdownYr1_min = 0;
+const lockdownYr1_max = 1;
+const lockdownYr2_min = 0;
+const lockdownYr2_max = 1;
+const lockdownFull_min = 0;
+const lockdownFull_max = 1;
+
+    /* Green - Yellow - Red */
+const colours = {
+	0	:	'#41af4c'	,
+	2.5	:	'#41b146'	,
+	5	:	'#41b340'	,
+	7.5	:	'#47b540'	,
+	10	:	'#4db73f'	,
+	12.5	:	'#53b93f'	,
+	15	:	'#5abb3e'	,
+	17.5	:	'#61bd3d'	,
+	20	:	'#68bf3d'	,
+	22.5	:	'#6fc13c'	,
+	25	:	'#77c33c'	,
+	27.5	:	'#7fc43c'	,
+	30	:	'#87c53c'	,
+	32.5	:	'#8fc73c'	,
+	35	:	'#98c83c'	,
+	37.5	:	'#a0c93c'	,
+	40	:	'#a9ca3d'	,
+	42.5	:	'#b1cb3d'	,
+	45	:	'#bacd3d'	,
+	47.5	:	'#c3ce3d'	,
+	50	:	'#cccf3e'	,
+	52.5	:	'#d0cc3e'	,
+	55	:	'#d1c53e'	,
+	57.5	:	'#d2be3f'	,
+	60	:	'#d3b73f'	,
+	62.5	:	'#d5b03f'	,
+	65	:	'#d6a940'	,
+	67.5	:	'#d7a140'	,
+	70	:	'#d89a40'	,
+	72.5	:	'#d99341'	,
+	75	:	'#da8b41'	,
+	77.5	:	'#db8441'	,
+	80	:	'#dc7c42'	,
+	82.5	:	'#dd7442'	,
+	85	:	'#de6d43'	,
+	87.5	:	'#df6543'	,
+	90	:	'#e05d44'	,
+	92.5	:	'#e15544'	,
+	95	:	'#e24d45'	,
+	97.5	:	'#e34545'	,
+	100	:	'#e34545'	
+}
+
+
+function perc2color(colours,val,maxVal,minVal) {
+    var perc = ((val - minVal) / maxVal) * 100
+	var perc_rounded = 2.5 * Math.round(Math.pow(perc,1.1)/2.5)
+	if (perc_rounded > 100) {
+		perc_rounded = 100
+	}
+    return colours[perc_rounded]; 
+}
 
 // ------------------------------------------------------------
 // Initialise heatmaps ----------------------------------------
@@ -30,6 +113,8 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
 	eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
 	eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
 	eval('var scale =' + variableSelector + domainSelector + '_scale;');
+	eval('var minVal =' + variableSelector + domainSelector + '_min;');
+	eval('var maxVal =' + variableSelector + domainSelector + '_max;');
 
     node.innerHTML = variableOfInterest;
 	node.innerHTML += "<span class='cell-tooltip'>" +
@@ -38,21 +123,9 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
 	"</span>"
 
     // check for value and colour accordingly
-    if (variableOfInterest <= scale[0]) {
-        node.style.backgroundColor = "#69B34C";
-        } else if (variableOfInterest > scale[0] && variableOfInterest <= scale[1]) {
-        node.style.backgroundColor = "#ACB334";
-	} else if (variableOfInterest > scale[1] && variableOfInterest <= scale[2]) {
-        node.style.backgroundColor = "#FAB733";
-	} else if (variableOfInterest > scale[2] && variableOfInterest <= scale[3]) {
-        node.style.backgroundColor = "#FF8E15";
-	} else if (variableOfInterest > scale[3] && variableOfInterest <= scale[4]) {
-        node.style.backgroundColor = "#FF4E11";
-        node.style.color = "#fff";
-	} else {
-        node.style.backgroundColor = "#FF0D0D";
-        node.style.color = "#fff";
-	}
+	node.style.backgroundColor = perc2color(colours,variableOfInterest,maxVal,minVal);
+	node.style.color = "#fff";
+	
 }
 
 for(var i = 0, max = lockdownCells.length; i < max; i++) {
@@ -64,6 +137,8 @@ for(var i = 0, max = lockdownCells.length; i < max; i++) {
     eval('var lockdownVal = node.dataset.lockdown' + domainSelector + ';');
 	eval('var upperBound = Math.round(node.dataset.lockdown' + domainSelector + 'Upper*100) + "%";');
 	eval('var lowerBound = Math.round(node.dataset.lockdown' + domainSelector + 'Lower*100) + "%";');
+	eval('var minVal = lockdown' + domainSelector + '_min;');
+	eval('var maxVal = lockdown' + domainSelector + '_max;');
 
     node.innerHTML = Math.round(lockdownVal*100) + "%";
 	node.innerHTML += "<span class='cell-tooltip'>" +
@@ -72,21 +147,8 @@ for(var i = 0, max = lockdownCells.length; i < max; i++) {
 	"</span>"
 
     // check for value and colour accordingly
-    if (lockdownVal <= scale[0]) {
-        node.style.backgroundColor = "#69B34C";
-	} else if (lockdownVal > scale[0] && lockdownVal <= scale[1]) {
-        node.style.backgroundColor = "#ACB334";
-	} else if (lockdownVal > scale[1] && lockdownVal <= scale[2]) {
-        node.style.backgroundColor = "#FAB733";
-	} else if (lockdownVal > scale[2] && lockdownVal <= scale[3]) {
-        node.style.backgroundColor = "#FF8E15";
-	} else if (lockdownVal > scale[3] && lockdownVal <= scale[4]) {
-        node.style.backgroundColor = "#FF4E11";
-        node.style.color = "#fff";
-	} else {
-        node.style.backgroundColor = "#FF0D0D";
-        node.style.color = "#fff";
-	}
+	node.style.backgroundColor = perc2color(colours,lockdownVal,maxVal,minVal);
+	node.style.color = "#fff";
 }
 
 
@@ -109,6 +171,8 @@ function updateHeatmap() {
 		eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
 		eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
 		eval('var scale =' + variableSelector + domainSelector + '_scale;');
+		eval('var minVal =' + variableSelector + domainSelector + '_min;');
+		eval('var maxVal =' + variableSelector + domainSelector + '_max;');
 	
 		node.innerHTML = variableOfInterest;
 		node.innerHTML += "<span class='cell-tooltip'>" +
@@ -117,26 +181,9 @@ function updateHeatmap() {
 		"</span>"
 	
 		// check for value and colour accordingly
-		if (variableOfInterest <= scale[0]) {
-			node.style.backgroundColor = "#69B34C";
-			node.style.color = "#000";
-			} else if (variableOfInterest > scale[0] && variableOfInterest <= scale[1]) {
-			node.style.backgroundColor = "#ACB334";
-			node.style.color = "#000";
-			} else if (variableOfInterest > scale[1] && variableOfInterest <= scale[2]) {
-			node.style.backgroundColor = "#FAB733";
-			node.style.color = "#000";
-			} else if (variableOfInterest > scale[2] && variableOfInterest <= scale[3]) {
-			node.style.backgroundColor = "#FF8E15";
-			node.style.color = "#000";
-			} else if (variableOfInterest > scale[3] && variableOfInterest <= scale[4]) {
-			node.style.backgroundColor = "#FF4E11";
-			node.style.color = "#fff";
-			} else {
-			node.style.backgroundColor = "#FF0D0D";
-			node.style.color = "#fff";
-			}
-		}
+		node.style.backgroundColor = perc2color(colours,variableOfInterest,maxVal,minVal);
+		node.style.color = "#fff";
+	}
 
 	var scale = lockdown_scale;
 	for(var i = 0, max = lockdownCells.length; i < max; i++) {
@@ -146,6 +193,8 @@ function updateHeatmap() {
 		eval('var lockdownVal = node.dataset.lockdown' + domainSelector + ';');
 		eval('var upperBound = Math.round(node.dataset.lockdown' + domainSelector + 'Upper*100) + "%";');
 		eval('var lowerBound = Math.round(node.dataset.lockdown' + domainSelector + 'Lower*100) + "%";');
+		eval('var minVal = lockdown' + domainSelector + '_min;');
+		eval('var maxVal = lockdown' + domainSelector + '_max;');
 
 		node.innerHTML = Math.round(lockdownVal*100) + "%";
 		node.innerHTML += "<span class='cell-tooltip'>" +
@@ -154,26 +203,9 @@ function updateHeatmap() {
 		"</span>"
 
 		// check for value and colour accordingly
-		if (lockdownVal <= scale[0]) {
-			node.style.backgroundColor = "#69B34C";
-			node.style.color = "#000";
-			} else if (lockdownVal > scale[0] && lockdownVal <= scale[1]) {
-			node.style.backgroundColor = "#ACB334";
-			node.style.color = "#000";
-			} else if (lockdownVal > scale[1] && lockdownVal <= scale[2]) {
-			node.style.backgroundColor = "#FAB733";
-			node.style.color = "#000";
-			} else if (lockdownVal > scale[2] && lockdownVal <= scale[3]) {
-			node.style.backgroundColor = "#FF8E15";
-			node.style.color = "#000";
-			} else if (lockdownVal > scale[3] && lockdownVal <= scale[4]) {
-			node.style.backgroundColor = "#FF4E11";
-			node.style.color = "#fff";
-			} else {
-			node.style.backgroundColor = "#FF0D0D";
-			node.style.color = "#fff";
-			}
-		}
+		node.style.backgroundColor = perc2color(colours,lockdownVal,maxVal,minVal);
+		node.style.color = "#fff";
+	}
 }
 
 

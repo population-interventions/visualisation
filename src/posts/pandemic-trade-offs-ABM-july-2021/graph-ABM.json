@@ -21,7 +21,7 @@
 		{
 			"name": "annotations",
 			"values": [
-				{ "event": "Borders open", "startDay": 364 }
+				{ "event": "Borders open", "startDay": 210 }
 			]
 		}
 	],
@@ -36,7 +36,7 @@
 		},
 		"toggleGroups": [
 			{
-				"name": "Government & Public Response",
+				"name": "None",
 				"toggles": [
 					{
 						"title": "Vaccine Uptake",
@@ -44,18 +44,17 @@
 						"detailLink": "/pandemic-trade-offs-detail-july-2021/",
 						"type": "select",
 						"options": [
-							{ "value": 50, "label": "50%" },
-							{ "value": 60, "label": "60%"},
 							{ "value": 70, "label": "70%", "default": true },
 							{ "value": 80, "label": "80%" },
-							{ "value": 90, "label": "90%" }
+							{ "value": 90, "label": "90%" },
+							{ "value": 95, "label": "95%" }
 						],
 						"signalName": "VaccineUptake"
 					},
 					{
 						"title": "Strategy",
 						"description": "Short, medium, and long term strategies employed to mitigate the spread of COVID-19 <br> (< 6 mths / 6-12 mths / 12+ mths)",
-						"detailLink": "/pandemic-trade-offs-detail-july-2021/",
+						"detailLink": "/pandemic-trade-offs-detail-july-2021/#strategies",
 						"type": "select",
 						"options": [
 							{ "value": "ME_ME_TS", "label": "Elimination / Elimination / Tight", "default": true },
@@ -65,7 +64,7 @@
 						"signalName": "Strategy"
 					},
 					{
-						"title": "Infected Arrivals per day",
+						"title": "Vaccinated Infected Arrivals per day",
 						"description": "Average number of vaccinated yet infected people arriving in Australia per day, after borders open",
 						"detailLink": "/pandemic-trade-offs-detail-july-2021/#arrivals",
 						"type": "select",
@@ -80,7 +79,7 @@
 					{
 						"title": "Vaccinate Children",
 						"description": "Whether children are vaccinated alongside adults",
-						"detailLink": "/pandemic-trade-offs-detail-july-2021/",
+						"detailLink": "/pandemic-trade-offs-detail-july-2021/#effectiveness",
 						"type": "select",
 						"options": [
 							{ "value": "No", "label": "No"},
@@ -91,13 +90,25 @@
 					{
 						"title": "Virus Reproduction Rate (R0)",
 						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
-						"detailLink": "/pandemic-trade-offs-detail-july-2021/",
+						"detailLink": "/pandemic-trade-offs-detail-july-2021/#reproduction",
 						"type": "select",
 						"options": [
 							{ "value": 5, "label": "5.0", "default": true },
-							{ "value": 6, "label": "6.0" }
+							{ "value": 6.5, "label": "6.0" },
+							{ "value": 8.0, "label": "8.0" }
 						],
 						"signalName": "R0"
+					},
+					{
+						"title": "Vaccine Rollout Strategy",
+						"description": "Rollout startegy",
+						"detailLink": "/pandemic-trade-offs-detail-july-2021/#reproduction",
+						"type": "select",
+						"options": [
+							{ "value": "INT", "label": "Target essential workers", "default": true },
+							{ "value": "AZ_25", "label": "Target essential workers + fast AZ" }
+						],
+						"signalName": "Rollout"
 					}
 				]
 			}
@@ -132,7 +143,7 @@
 		{
 			"name": "DataFileName",
 			"value": "/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/70_Yes_ME_ME_TS_4833_032.csv",
-			"update": "'/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '.csv'"
+			"update": "'/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '_' + Rollout + '.csv'"
 		}
 	],
 
@@ -141,7 +152,7 @@
 			"name": "x",
 			"type": "linear",
 			"range": "width",
-			"domain": [0, 104]
+			"domain": [0, 82]
 		},
 		{
 			"name": "y",
