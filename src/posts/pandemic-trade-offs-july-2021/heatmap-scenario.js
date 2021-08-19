@@ -25,16 +25,21 @@ for(var i = 0, max = scenarioCells.length; i < max; i++) {
 		node.innerHTML = Math.round(displayVar*100)  + "%"
 	};
 
+	infectPass = (Math.round(infectVal) <= maxInfections ? true : false)
+	deathsPass = (Math.round(deathsVal) <= maxDeaths ? true : false)
+	hospitalPass = (Math.round(hospitalVal) <= maxHospital ? true : false)
+	lockdownPass = (lockdownVal <= maxLockdown ? true : false) 
+
 	// creating tooltip
 	node.innerHTML += "<span class='cell-tooltip'>" +
-	"<div class='tooltip-row'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
-	"<div class='tooltip-row'><span>Deaths / year: </span><span>"+ deathsVal + "</span></div>" +
-	"<div class='tooltip-row'><span>Hospitalisations / year: </span><span>"+ hospitalVal + "</span></div>" +
-	"<div class='tooltip-row'><span>Lockdown %: </span><span>"+ Math.round(lockdownVal) + "</span></div>" +
+	"<div class='tooltip-row " + (infectPass ? "scenario-success" : "scenario-failure") + "'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
+	"<div class='tooltip-row " + (deathsPass ? "scenario-success" : "scenario-failure") + "'><span>Deaths / year: </span><span>"+ deathsVal + "</span></div>" +
+	"<div class='tooltip-row " + (hospitalPass ? "scenario-success" : "scenario-failure") + "'><span>Hospitalisations / year: </span><span>"+ hospitalVal + "</span></div>" +
+	"<div class='tooltip-row " + (lockdownPass ? "scenario-success" : "scenario-failure") + "'><span>Lockdown %: </span><span>"+ Math.round(lockdownVal) + "</span></div>" +
 	"</span>"
 	 
     // check for value and colour accordingly
-    if (Math.round(infectVal) <= maxInfections && lockdownVal <= maxLockdown && Math.round(deathsVal) <= maxDeaths && Math.round(hospitalVal) <= maxHospital) {
+    if (infectPass && deathsPass && hospitalPass && lockdownPass)  {
         node.style.backgroundColor = "#41af4c";
 		node.style.color = "#fff";
 	} else {
@@ -63,6 +68,11 @@ function updateScenarioHeatmap() {
 		var lockdownVal = node.dataset.lockdownYr2 * 100
 		var deathsVal = node.dataset.deathsYr2
 		var hospitalVal = node.dataset.hospitalYr2
+
+		infectPass = (Math.round(infectVal) <= maxInfections ? true : false)
+		deathsPass = (Math.round(deathsVal) <= maxDeaths ? true : false)
+		hospitalPass = (Math.round(hospitalVal) <= maxHospital ? true : false)
+		lockdownPass = (lockdownVal <= maxLockdown ? true : false) 
 	
 		eval('var displayVar = node.dataset.' + displayVarSelector + ';');
 		node.innerHTML = displayVar;
@@ -73,14 +83,14 @@ function updateScenarioHeatmap() {
 	
 		// creating tooltip
 		node.innerHTML += "<span class='cell-tooltip'>" +
-		"<div class='tooltip-row'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
-		"<div class='tooltip-row'><span>Deaths / year: </span><span>"+ deathsVal + "</span></div>" +
-		"<div class='tooltip-row'><span>Hospitalisations / year: </span><span>"+ hospitalVal + "</span></div>" +
-		"<div class='tooltip-row'><span>Lockdown %: </span><span>"+ Math.round(lockdownVal) + "</span></div>" +
+		"<div class='tooltip-row " + (infectPass ? "scenario-success" : "scenario-failure") + "'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
+		"<div class='tooltip-row " + (deathsPass ? "scenario-success" : "scenario-failure") + "'><span>Deaths / year: </span><span>"+ deathsVal + "</span></div>" +
+		"<div class='tooltip-row " + (hospitalPass ? "scenario-success" : "scenario-failure") + "'><span>Hospitalisations / year: </span><span>"+ hospitalVal + "</span></div>" +
+		"<div class='tooltip-row " + (lockdownPass ? "scenario-success" : "scenario-failure") + "'><span>Lockdown %: </span><span>"+ Math.round(lockdownVal) + "</span></div>" +
 		"</span>"
 		
 		// check for value and colour accordingly
-		if (Math.round(infectVal) <= maxInfections && lockdownVal <= maxLockdown && Math.round(deathsVal) <= maxDeaths && Math.round(hospitalVal) <= maxHospital)  {
+		if (infectPass && deathsPass && hospitalPass && lockdownPass)  {
 			node.style.backgroundColor = "#41af4c";
 			node.style.color = "#fff";
 		} else {

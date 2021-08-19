@@ -13,32 +13,32 @@ const hospitalFull_scale = [75, 200, 500, 2000, 6000];
 const lockdown_scale = [0.01, 0.02, 0.04, 0.06, 0.09];
 
 const infectYr1_min = 0;
-const infectYr1_max = 40;
+const infectYr1_max = 25;
 const infectYr2_min = 0;
-const infectYr2_max = 3500;
+const infectYr2_max = 2400;
 const infectFull_min = 0;
-const infectFull_max = 2450;
+const infectFull_max = 1500;
 
 const deathsYr1_min = 0;
-const deathsYr1_max = 100;
+const deathsYr1_max = 70;
 const deathsYr2_min = 0;
-const deathsYr2_max = 5000;
+const deathsYr2_max = 7000;
 const deathsFull_min = 0;
-const deathsFull_max = 3000;
+const deathsFull_max = 4200;
 
 const hospitalYr1_min = 0;
 const hospitalYr1_max = 1000;
 const hospitalYr2_min = 0;
-const hospitalYr2_max = 60000;
+const hospitalYr2_max = 95000;
 const hospitalFull_min = 0;
-const hospitalFull_max = 35000;
+const hospitalFull_max = 60000;
 
 const lockdownYr1_min = 0;
-const lockdownYr1_max = 1;
+const lockdownYr1_max = 0.5;
 const lockdownYr2_min = 0;
-const lockdownYr2_max = 1;
+const lockdownYr2_max = 0.5;
 const lockdownFull_min = 0;
-const lockdownFull_max = 1;
+const lockdownFull_max = 0.5;
 
     /* Green - Yellow - Red */
 const colours = {
@@ -86,9 +86,20 @@ const colours = {
 }
 
 
-function perc2color(colours,val,maxVal,minVal) {
+function logColor(colours,val,maxVal,minVal) {
     var perc = ((val - minVal) / maxVal) * 100
-	var perc_rounded = 2.5 * Math.round(Math.pow(perc,1.1)/2.5)
+	var scaleFactor = 100/Math.log(100)
+	var perc_rounded = 5 * Math.round(Math.log(perc)*scaleFactor/5)
+	if (perc_rounded > 100) {
+		perc_rounded = 100
+	}
+
+    return colours[perc_rounded]; 
+}
+
+function linearColor(colours,val,maxVal,minVal) {
+    var perc = ((val - minVal) / maxVal) * 100
+	var perc_rounded = 5 * Math.round(perc/5)
 	if (perc_rounded > 100) {
 		perc_rounded = 100
 	}
@@ -123,7 +134,7 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
 	"</span>"
 
     // check for value and colour accordingly
-	node.style.backgroundColor = perc2color(colours,variableOfInterest,maxVal,minVal);
+	node.style.backgroundColor = logColor(colours,variableOfInterest,maxVal,minVal);
 	node.style.color = "#fff";
 	
 }
@@ -147,7 +158,7 @@ for(var i = 0, max = lockdownCells.length; i < max; i++) {
 	"</span>"
 
     // check for value and colour accordingly
-	node.style.backgroundColor = perc2color(colours,lockdownVal,maxVal,minVal);
+	node.style.backgroundColor = linearColor(colours,lockdownVal,maxVal,minVal);
 	node.style.color = "#fff";
 }
 
@@ -181,7 +192,7 @@ function updateHeatmap() {
 		"</span>"
 	
 		// check for value and colour accordingly
-		node.style.backgroundColor = perc2color(colours,variableOfInterest,maxVal,minVal);
+		node.style.backgroundColor = logColor(colours,variableOfInterest,maxVal,minVal);
 		node.style.color = "#fff";
 	}
 
@@ -203,7 +214,7 @@ function updateHeatmap() {
 		"</span>"
 
 		// check for value and colour accordingly
-		node.style.backgroundColor = perc2color(colours,lockdownVal,maxVal,minVal);
+		node.style.backgroundColor = linearColor(colours,lockdownVal,maxVal,minVal);
 		node.style.color = "#fff";
 	}
 }

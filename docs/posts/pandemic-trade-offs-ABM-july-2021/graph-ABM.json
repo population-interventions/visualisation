@@ -94,21 +94,23 @@
 						"type": "select",
 						"options": [
 							{ "value": 5, "label": "5.0", "default": true },
-							{ "value": 6.5, "label": "6.0" },
+							{ "value": 6.5, "label": "6.5" },
 							{ "value": 8.0, "label": "8.0" }
 						],
 						"signalName": "R0"
 					},
 					{
-						"title": "Vaccine Rollout Strategy",
-						"description": "Rollout startegy",
+						"title": "Contact Tracing",
+						"description": "Contact tracing effectiveness",
 						"detailLink": "/pandemic-trade-offs-detail-july-2021/#reproduction",
 						"type": "select",
 						"options": [
-							{ "value": "INT", "label": "Target essential workers", "default": true },
-							{ "value": "AZ_25", "label": "Target essential workers + fast AZ" }
+							{ "value": "ass100_90at5", "label": "ass100_90at5", "default": true },
+							{ "value": "ass100_90at5_iso", "label": "ass100_90at5_iso" },
+							{ "value": "ass200_90at5", "label": "ass100_90at5_iso" },
+							{ "value": "ass50_70at5", "label": "ass100_90at5_iso" }
 						],
-						"signalName": "Rollout"
+						"signalName": "TracePower"
 					}
 				]
 			}
@@ -143,7 +145,7 @@
 		{
 			"name": "DataFileName",
 			"value": "/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/70_Yes_ME_ME_TS_4833_032.csv",
-			"update": "'/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '_' + Rollout + '.csv'"
+			"update": "'/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '_' + TracePower + '.csv'"
 		}
 	],
 

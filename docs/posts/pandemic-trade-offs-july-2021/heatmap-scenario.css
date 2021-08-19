@@ -42,8 +42,28 @@
 
 #heatmapScenarioDisplayVarSelector {
 	padding: 0;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	padding: 0rem 2rem 0 0.5rem;
 	background-color: #fff !important;
 	color: #000 !important;
+	font-family: monospace;
+}
+
+.scenario-failure {
+	color: #e34545 !important;
+} 
+
+.scenario-success {
+	color: #000;
+}
+
+.heatmap-container input[type="number"] {
+	border: 0;
+	background-color: #fff;
+	/* width: 150px; */
+	padding: .2rem .5rem;
+	font-family: monospace;
+	text-align: center;
+	margin-right: .5rem;
+	margin-left:  .5rem;
 }

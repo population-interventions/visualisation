@@ -87,6 +87,8 @@ Use the options to the left of (or below) the graph to explore how different sce
 
 {% import_graph "ABM-v2", slug %}
 
+{% import_graph "lockdown", slug %}
+
 In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day (Stage 1 being near-normal, up to Stage 4 with strong stay at home orders, i.e. a hard lockdown), but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage in use depending on the policy setting (elimination, tight suppression, loose suppression, and extra loose suppression).
 
 <a href="/pandemic-trade-offs-ABM-july-2021/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a>

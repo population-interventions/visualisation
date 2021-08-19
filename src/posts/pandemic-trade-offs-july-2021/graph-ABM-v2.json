@@ -6,7 +6,7 @@
 
 	"title": {
 		"text": "Simulated COVID-19 infection numbers",
-		"subtitle": "Mean daily new infections and 90% uncertainty interval, by strategy.",
+		"subtitle": "Median daily new infections and 90% uncertainty interval, by strategy.",
 		"frame":"group",
 		"dx": -10
 	},
@@ -33,7 +33,7 @@
 				{ "type": "filter", "expr": "datum.va === VaccArrivals" },
 				{ "type": "filter", "expr": "datum.vk === VaccKids" },
 				{ "type": "filter", "expr": "datum.R0 === R0" },
-				{ "type": "filter", "expr": "datum.vr === Rollout" },
+				{ "type": "filter", "expr": "datum.tp === TracePower" },
 				{ "type": "extent", "field": "q95", "signal": "Extent" },
 				
 				{"type": "formula", "as": "nq95", "expr": "MaxHeight === 'depend on data' ? datum.q95 : clamp(datum.q95, 0, toNumber(MaxHeight))"},
@@ -132,21 +132,23 @@
 						"type": "select",
 						"options": [
 							{ "value": 5, "label": "5.0", "default": true },
-							{ "value": 6.5, "label": "6.0" },
+							{ "value": 6.5, "label": "6.5" },
 							{ "value": 8.0, "label": "8.0" }
 						],
 						"signalName": "R0"
 					},
 					{
-						"title": "Vaccine Rollout Strategy",
-						"description": "Rollout startegy",
+						"title": "Contact Tracing",
+						"description": "Contact tracing effectiveness",
 						"detailLink": "/pandemic-trade-offs-detail-july-2021/#reproduction",
 						"type": "select",
 						"options": [
-							{ "value": "INT", "label": "Target essential workers", "default": true },
-							{ "value": "AZ_25", "label": "Target essential workers + fast AZ" }
+							{ "value": "ass100_90at5", "label": "Medium", "default": true },
+							{ "value": "ass100_90at5_iso", "label": "Medium with ISO" },
+							{ "value": "ass200_90at5", "label": "Strong" },
+							{ "value": "ass50_70at5", "label": "Low" }
 						],
-						"signalName": "Rollout"
+						"signalName": "TracePower"
 					}
 				]
 			}
@@ -211,7 +213,7 @@
 				{ "events": { "source": "#select-ABM-VaccKids", "type": "change" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-Strategy", "type": "change" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-R0", "type": "change" }, "update": "true" },
-				{ "events": { "source": "#select-ABM-Rollout", "type": "change" }, "update": "true" }
+				{ "events": { "source": "#select-ABM-TracePower", "type": "change" }, "update": "true" }
 			]
 		}
 	],
@@ -242,7 +244,7 @@
 		{
 			"name": "parameters",
 			"type": "ordinal",
-			"domain": { "signal": "['Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'Vaccinate Kids: ' + VaccKids, 'Vaccine Rollout: ' + Rollout, 'R_0: ' + R0]"},
+			"domain": { "signal": "['Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'Vaccinate Kids: ' + VaccKids, 'Contact tracing: ' + TracePower, 'R_0: ' + R0]"},
 			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
 		}
 	],
