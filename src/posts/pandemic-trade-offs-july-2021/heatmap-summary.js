@@ -87,12 +87,16 @@ const colours = {
 
 
 function logColor(colours,val,maxVal,minVal) {
-    var perc = ((val - minVal) / maxVal) * 100
-	var scaleFactor = 100/Math.log(100)
-	var perc_rounded = 5 * Math.round(Math.log(perc)*scaleFactor/5)
+    var perc = ((val) / maxVal) * 100
+	var perc_rounded = 2.5 * Math.round(Math.log(perc)*scaleFactor/2.5)
 	if (perc_rounded > 100) {
 		perc_rounded = 100
 	}
+	if (perc_rounded < 0) {
+		perc_rounded = 0
+	}
+
+	console.log("Val: " + val + ", maxVal: " + maxVal + ", perc_rounded: " + perc_rounded + "Col: " + colours[perc_rounded])
 
     return colours[perc_rounded]; 
 }
@@ -115,6 +119,8 @@ var lockdownCells = document.querySelectorAll('#lockdown-heatmap td');
 
 var variableSelector = document.getElementById("heatmapVarSelector").value;
 var domainSelector = document.getElementById("heatmapDomainSelector").value;
+eval('var minVal =' + variableSelector + domainSelector + '_min;');
+eval('var maxVal =' + variableSelector + domainSelector + '_max;');
 
 
 for(var i = 0, max = infectionCells.length; i < max; i++) {
@@ -124,8 +130,7 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
 	eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
 	eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
 	eval('var scale =' + variableSelector + domainSelector + '_scale;');
-	eval('var minVal =' + variableSelector + domainSelector + '_min;');
-	eval('var maxVal =' + variableSelector + domainSelector + '_max;');
+
 
     node.innerHTML = variableOfInterest;
 	node.innerHTML += "<span class='cell-tooltip'>" +
@@ -139,6 +144,9 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
 	
 }
 
+eval('var minVal = lockdown' + domainSelector + '_min;');
+eval('var maxVal = lockdown' + domainSelector + '_max;');
+
 for(var i = 0, max = lockdownCells.length; i < max; i++) {
     var node = lockdownCells[i];
 
@@ -148,8 +156,7 @@ for(var i = 0, max = lockdownCells.length; i < max; i++) {
     eval('var lockdownVal = node.dataset.lockdown' + domainSelector + ';');
 	eval('var upperBound = Math.round(node.dataset.lockdown' + domainSelector + 'Upper*100) + "%";');
 	eval('var lowerBound = Math.round(node.dataset.lockdown' + domainSelector + 'Lower*100) + "%";');
-	eval('var minVal = lockdown' + domainSelector + '_min;');
-	eval('var maxVal = lockdown' + domainSelector + '_max;');
+
 
     node.innerHTML = Math.round(lockdownVal*100) + "%";
 	node.innerHTML += "<span class='cell-tooltip'>" +
@@ -173,6 +180,8 @@ function updateHeatmap() {
 
 	var infectionCells = document.querySelectorAll('#infections-heatmap td');
 	var lockdownCells = document.querySelectorAll('#lockdown-heatmap td');
+	eval('var minVal =' + variableSelector + domainSelector + '_min;');
+	eval('var maxVal =' + variableSelector + domainSelector + '_max;');
 
 	eval('var scale =' + variableSelector + domainSelector + '_scale;');
 	for(var i = 0, max = infectionCells.length; i < max; i++) {
@@ -182,8 +191,7 @@ function updateHeatmap() {
 		eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
 		eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
 		eval('var scale =' + variableSelector + domainSelector + '_scale;');
-		eval('var minVal =' + variableSelector + domainSelector + '_min;');
-		eval('var maxVal =' + variableSelector + domainSelector + '_max;');
+
 	
 		node.innerHTML = variableOfInterest;
 		node.innerHTML += "<span class='cell-tooltip'>" +
