@@ -106,7 +106,6 @@
 						"type": "select",
 						"options": [
 							{ "value": "ass100_90at5", "label": "ass100_90at5", "default": true },
-							{ "value": "ass100_90at5_iso", "label": "ass100_90at5_iso" },
 							{ "value": "ass200_90at5", "label": "ass100_90at5_iso" },
 							{ "value": "ass50_70at5", "label": "ass100_90at5_iso" }
 						],

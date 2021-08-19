@@ -62,7 +62,7 @@
 						"options": [
 							{ "value": 0.7, "label": "70%", "default": true },
 							{ "value": 0.8, "label": "80%" },
-							{ "value": 0.8, "label": "90%" },
+							{ "value": 0.9, "label": "90%" },
 							{ "value": 0.95, "label": "95%" }
 						],
 						"signalName": "VaccineUptake"
@@ -122,7 +122,6 @@
 						"type": "select",
 						"options": [
 							{ "value": "ass100_90at5", "label": "Medium", "default": true },
-							{ "value": "ass100_90at5_iso", "label": "Medium with ISO" },
 							{ "value": "ass200_90at5", "label": "Strong" },
 							{ "value": "ass50_70at5", "label": "Low" }
 						],
