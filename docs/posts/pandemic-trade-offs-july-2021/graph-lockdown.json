@@ -6,7 +6,7 @@
 
 	"title": {
 		"text": "Simulated percentage time in lockdown",
-		"subtitle": "Percentage time in lockdown, disaggregated by level of restrictions, by month.",
+		"subtitle": "Probability of lockdown, by level of restrictions.",
 		"frame":"group",
 		"dx": -10
 	},
@@ -202,7 +202,7 @@
 	  	{
 			"orient": "left", 
 			"scale": "y", 
-			"title": "Percentage time in lockdown",
+			"title": "Probability of restrictions (%)",
 			"titleX": -50,
 			"zindex": 100
 		}
