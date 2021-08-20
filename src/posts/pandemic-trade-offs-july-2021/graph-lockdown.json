@@ -5,7 +5,7 @@
 	"height": 500,
 
 	"title": {
-		"text": "Simulated percentage time in lockdown",
+		"text": "Simulated probability of lockdown",
 		"subtitle": "Probability of lockdown, by level of restrictions.",
 		"frame":"group",
 		"dx": -10
