@@ -71,8 +71,7 @@
 						"options": [
 							{ "value": 0.2, "label": "0.2 per day", "default": true },
 							{ "value": 1, "label": "1 per day" },
-							{ "value": 5, "label": "5 per day" },
-							{ "value": 25, "label": "25 per day" }
+							{ "value": 5, "label": "5 per day" }
 						],
 						"signalName": "VaccArrivals"
 					},
@@ -98,18 +97,6 @@
 							{ "value": 8.0, "label": "8.0" }
 						],
 						"signalName": "R0"
-					},
-					{
-						"title": "Contact Tracing",
-						"description": "Contact tracing effectiveness",
-						"detailLink": "/pandemic-trade-offs-detail-july-2021/#reproduction",
-						"type": "select",
-						"options": [
-							{ "value": "ass100_90at5", "label": "ass100_90at5", "default": true },
-							{ "value": "ass200_90at5", "label": "ass100_90at5_iso" },
-							{ "value": "ass50_70at5", "label": "ass100_90at5_iso" }
-						],
-						"signalName": "TracePower"
 					}
 				]
 			}
@@ -144,7 +131,7 @@
 		{
 			"name": "DataFileName",
 			"value": "/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/70_Yes_ME_ME_TS_4833_032.csv",
-			"update": "'/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '_' + TracePower + '.csv'"
+			"update": "'/posts/pandemic-trade-offs-ABM-july-2021/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '_ass100_90at5.csv'"
 		}
 	],
 
