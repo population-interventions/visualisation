@@ -33,6 +33,13 @@ const hospitalYr2_max = 95000;
 const hospitalFull_min = 0;
 const hospitalFull_max = 60000;
 
+const icuYr1_min = 0;
+const icuYr1_max = 1000;
+const icuYr2_min = 0;
+const icuYr2_max = 95000;
+const icuFull_min = 0;
+const icuFull_max = 60000;
+
 const lockdownYr1_min = 0;
 const lockdownYr1_max = 0.5;
 const lockdownYr2_min = 0;
@@ -97,7 +104,6 @@ function logColor(colours,val,maxVal,minVal) {
 		perc_rounded = 0
 	}
 
-	console.log("Val: " + val + ", maxVal: " + maxVal + ", perc_rounded: " + perc_rounded + "Col: " + colours[perc_rounded])
 
     return colours[perc_rounded]; 
 }
@@ -130,7 +136,6 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
 	eval('var variableOfInterest = node.dataset.' + variableSelector + domainSelector + ';');
 	eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
 	eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
-	eval('var scale =' + variableSelector + domainSelector + '_scale;');
 
 
     node.innerHTML = variableOfInterest;
@@ -184,14 +189,12 @@ function updateHeatmap() {
 	eval('var minVal =' + variableSelector + domainSelector + '_min;');
 	eval('var maxVal =' + variableSelector + domainSelector + '_max;');
 
-	eval('var scale =' + variableSelector + domainSelector + '_scale;');
 	for(var i = 0, max = infectionCells.length; i < max; i++) {
 		var node = infectionCells[i];
 
 		eval('var variableOfInterest = node.dataset.' + variableSelector + domainSelector + ';');
 		eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
 		eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
-		eval('var scale =' + variableSelector + domainSelector + '_scale;');
 
 	
 		node.innerHTML = variableOfInterest;

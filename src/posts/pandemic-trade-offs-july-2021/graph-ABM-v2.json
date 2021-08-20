@@ -33,7 +33,7 @@
 				{ "type": "filter", "expr": "datum.va === VaccArrivals" },
 				{ "type": "filter", "expr": "datum.vk === VaccKids" },
 				{ "type": "filter", "expr": "datum.R0 === R0" },
-				{ "type": "filter", "expr": "datum.tp === TracePower" },
+				{ "type": "filter", "expr": "datum.tp === 'ass100_90at5'" },
 				{ "type": "extent", "field": "q95", "signal": "Extent" },
 				
 				{"type": "formula", "as": "nq95", "expr": "MaxHeight === 'depend on data' ? datum.q95 : clamp(datum.q95, 0, toNumber(MaxHeight))"},
@@ -109,8 +109,7 @@
 						"options": [
 							{ "value": 0.2, "label": "0.2 per day", "default": true },
 							{ "value": 1, "label": "1 per day" },
-							{ "value": 5, "label": "5 per day" },
-							{ "value": 25, "label": "25 per day" }
+							{ "value": 5, "label": "5 per day" }
 						],
 						"signalName": "VaccArrivals"
 					},
@@ -136,19 +135,6 @@
 							{ "value": 8.0, "label": "8.0" }
 						],
 						"signalName": "R0"
-					},
-					{
-						"title": "Contact Tracing",
-						"description": "Contact tracing effectiveness",
-						"detailLink": "/pandemic-trade-offs-detail-july-2021/#reproduction",
-						"type": "select",
-						"options": [
-							{ "value": "ass100_90at5", "label": "Medium", "default": true },
-							{ "value": "ass100_90at5_iso", "label": "Medium with ISO" },
-							{ "value": "ass200_90at5", "label": "Strong" },
-							{ "value": "ass50_70at5", "label": "Low" }
-						],
-						"signalName": "TracePower"
 					}
 				]
 			}
@@ -212,8 +198,7 @@
 				{ "events": { "source": "#select-ABM-VaccArrivals", "type": "change" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-VaccKids", "type": "change" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-Strategy", "type": "change" }, "update": "true" },
-				{ "events": { "source": "#select-ABM-R0", "type": "change" }, "update": "true" },
-				{ "events": { "source": "#select-ABM-TracePower", "type": "change" }, "update": "true" }
+				{ "events": { "source": "#select-ABM-R0", "type": "change" }, "update": "true" }
 			]
 		}
 	],
@@ -244,7 +229,7 @@
 		{
 			"name": "parameters",
 			"type": "ordinal",
-			"domain": { "signal": "['Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'Vaccinate Kids: ' + VaccKids, 'Contact tracing: ' + TracePower, 'R_0: ' + R0]"},
+			"domain": { "signal": "['Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'Vaccinate Kids: ' + VaccKids, 'R_0: ' + R0]"},
 			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
 		}
 	],
