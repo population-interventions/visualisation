@@ -36,8 +36,21 @@
 				{ "type": "filter", "expr": "datum.Kids === VaccKids" },
 				{ "type": "filter", "expr": "datum.R0 === R0" },
 				{ "type": "filter", "expr": "datum.TracePower === 'ass100_90at5'" },
-				{ "type": "stack", "groupby": ["day"], "sort": {"field": "stage", "order": "descending"}, "field": "stage_prop" },
-				{"type": "timeunit", "field": "day", "units": ["month"], "step": 2}
+				{ "type": "stack", "groupby": ["day"], "sort": {"field": "stage", "order": "descending"}, "field": "stage_prop" }
+			]
+		},
+		{
+			"name": "mainByWeek",
+			"source": "main",
+			"transform": [
+				{ "type": "formula", "as": "label", "expr": "toString(datum.stage_prop) + '%'" },
+				{ "type": "formula", "as": "group", "expr": "'group'" },
+				{ "type": "pivot", "groupby": ["day"], "field": "group", "value": "lab", "op": "values" },
+				{ "type": "formula", "as": "1", "expr": "datum.group[0].label" },
+				{ "type": "formula", "as": "1b", "expr": "datum.group[1].label" },
+				{ "type": "formula", "as": "2", "expr": "datum.group[2].label" },
+				{ "type": "formula", "as": "3", "expr": "datum.group[3].label" },
+				{ "type": "formula", "as": "4", "expr": "datum.group[4].label" }
 			]
 		}
 	],
@@ -172,8 +185,21 @@
 	],
   
 	"axes": [
-	  {"orient": "bottom", "scale": "x", "labelOverlap": "parity", "zindex": 1},
-	  {"orient": "left", "scale": "y", "zindex": 1}
+	  	{
+			"orient": "bottom", 
+			"scale": "x", 
+			"values": [0,10,20,30,40,50,60,70,80],
+			"title": "Weeks since start of simulation",
+			"titleY": 50,
+			"zindex": 100
+		},
+	  	{
+			"orient": "left", 
+			"scale": "y", 
+			"title": "Percentage time in lockdown",
+			"titleX": -50,
+			"zindex": 100
+		}
 	],
 
 	"legends": [
@@ -251,7 +277,25 @@
 					"fillOpacity": {"value": 0.5}
 				}
 			}
+		},
+		{
+			"type": "rect",
+			"from": { "data": "mainByWeek" },
+			"encode": {
+				"update": {
+					"x": {"scale": "x", "signal": "datum.day"},
+					"width": {"scale": "x", "band": 1, "offset": -1},
+					"y": {"scale": "y", "value": 0},
+					"y2": {"signal": "range('y')[1]"},
+					"strokeWidth": {"value": 0},
+					"fill": {"value": "#fff"},
+					"fillOpacity": {"value": 0},
+					"tooltip": { "signal": "{ 'title': 'Week ' + datum.day, 'Stage 1': datum['1'], 'Stage 1b': datum['1b'], 'Stage 2': datum['2'], 'Stage 3': datum['3'], 'Stage 4': datum['4']}"}
+				},
+				"hover": {
+					"fillOpacity": {"value": 0.5}
+				}
+			}
 		}
-
 	]
 }
