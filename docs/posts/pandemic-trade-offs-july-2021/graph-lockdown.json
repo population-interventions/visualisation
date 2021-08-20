@@ -52,6 +52,12 @@
 				{ "type": "formula", "as": "3", "expr": "datum.group[3].label" },
 				{ "type": "formula", "as": "4", "expr": "datum.group[4].label" }
 			]
+		},
+		{
+			"name": "rules",
+			"values": [
+				{ "phase": "Borders open", "startDay": 210 }
+			]
 		}
 	],
 
@@ -294,6 +300,39 @@
 				},
 				"hover": {
 					"fillOpacity": {"value": 0.5}
+				}
+			}
+		},
+		{
+			"type": "rule",
+			"clip": true,
+			"from": { "data": "rules" },
+			"encode": {
+				"update": {
+					"x": {"scale": "x", "signal": "datum.startDay / 7"},
+					"x2": {"scale": "x", "signal": "datum.startDay / 7"},
+					"y": {"scale": "y", "value": 0},
+					"y2": {"signal": "range('y')[1]"},
+					"strokeOpacity": {"signal": "datum.startDay > 0 ? 1 : 0.1"},
+					"size": {"value": 2},
+					"color": {"value": "#529bff"}
+				}
+			}
+		},
+		{
+			"type": "text",
+			"clip": true,
+			"from": { "data": "rules" },
+			"encode": {
+				"update": {
+					"x": {"scale": "x", "signal": "datum.startDay / 7"},
+					"y": {"signal": "range('y')[1]"},
+					"text": {"signal": "'Borders Open'"},
+					"baseline": {"value": "top"},
+					"dx": {"value": 7.5},
+					"fill": {"value": "#012a58"},
+					"href": {"value": "/pandemic-trade-offs-detail#phases"},
+					"cursor": {"value": "pointer"}
 				}
 			}
 		}
