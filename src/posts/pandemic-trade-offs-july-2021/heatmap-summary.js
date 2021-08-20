@@ -34,11 +34,11 @@ const hospitalFull_min = 0;
 const hospitalFull_max = 60000;
 
 const icuYr1_min = 0;
-const icuYr1_max = 1000;
+const icuYr1_max = 45;
 const icuYr2_min = 0;
-const icuYr2_max = 95000;
+const icuYr2_max = 15000;
 const icuFull_min = 0;
-const icuFull_max = 60000;
+const icuFull_max = 9500;
 
 const lockdownYr1_min = 0;
 const lockdownYr1_max = 0.5;

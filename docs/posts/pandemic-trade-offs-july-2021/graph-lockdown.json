@@ -159,7 +159,7 @@
 			"type": "ordinal",
 			"range": {"scheme": "yelloworangered"},
 			"reverse":true,
-			"range": ["#437ab1", "#b4d8e7", "#fbe67c", "#f1b06e", "#c5322a"],
+			"range": ["#41af4c", "#75c23c", "#eed23a", "#d99141", "#e34545"],
 			"reverse":false,
 			"domain": {"data": "main", "field": "stage"}
 		},
