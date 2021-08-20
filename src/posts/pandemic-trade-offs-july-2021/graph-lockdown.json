@@ -202,7 +202,7 @@
 	  	{
 			"orient": "left", 
 			"scale": "y", 
-			"title": "Percentage time in lockdown",
+			"title": "Probability of restrictions (%)",
 			"titleX": -50,
 			"zindex": 100
 		}
