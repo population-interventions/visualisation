@@ -1,0 +1,33 @@
+<svg width="1007" height="207" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient y2="0.9" y1="0.1" x2="0.1" x1="0" id="a" class="alt-view">
+   <stop stop-color="#e8f7b0" offset="0%"/>
+   <stop stop-color="#43A2CA" offset="100%"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_7" class="rows alt-view">
+   <path id="svg_8" opacity="0.2" fill="#e8f7b0" d="m2,4l991,0l10,20l-10,20l-991,0l10,-20l-10,-20z" class="alt-view row row-1"/>
+   <path id="svg_9" opacity="0.2" fill="#bae4bc" d="m2,44l991,0l10,20l-10,20l-991,0l10,-20l-10,-20z" class="alt-view row row-1b"/>
+   <path id="svg_10" opacity="0.2" fill="#7bccc4" d="m2,84l991,0l10,20l-10,20l-991,0l10,-20l-10,-20z" class="alt-view row row-2"/>
+   <path id="svg_11" opacity="0.2" fill="#43a2ca" d="m2,124l991,0l10,20l-10,20l-991,0l10,-20l-10,-20z" class="alt-view row row-3"/>
+   <path id="svg_12" opacity="0.2" fill="#0868ac" d="m2,164l991,0l10,20l-10,20l-991,0l10,-20l-10,-20z" class="alt-view row row-4"/>
+  </g>
+  <g id="svg_13" class="boundaries alt-view">
+   <path id="svg_14" stroke-width="4" fill="transparent" stroke="#fff" d="m208.08824,4l0,200m196.27451,-200l0,200m196.2745,-200l0,200m196.27451,-200l0,200" class="alt-view"/>
+  </g>
+  <g id="svg_15" class="partial-row-left alt-view">
+   <path id="svg_16" fill="#e8f7b0" d="m2,4l286.22549,0l0,40l-286.22549,0l10,-20l-10,-20z" class="alt-view partial-row"/>
+  </g>
+  <g id="svg_17" class="partial-row-right alt-view">
+   <path id="svg_18" fill="#43A2CA" d="m324.22549,124l668.77451,0l10,20l-10,20l-668.77451,0l0,-40z" class="alt-view partial-row"/>
+  </g>
+  <g id="svg_19" class="arrow alt-view">
+   <path id="svg_20" fill="url(#a)" d="m286.22549,4q40,0 40,40l0,120q-40,0 -40,-40l0,-80l0,-40z" class="alt-view arrow"/>
+  </g>
+  <g id="svg_23" class="signpost alt-view">
+   <path id="svg_24" fill="#fff" stroke="#000" d="m266.22549,21l30,0q13,0 13,13l0,14.5l4.5,0l-7.5,7.5l-7.5,-7.5l4.5,0l0,-14.5q0,-7 -7,-7l-30,0l0,-6z" class="alt-view direction direction-1-4"/>
+  </g>
+ </g>
+</svg>
