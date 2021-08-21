@@ -6,7 +6,7 @@
 
 	"title": {
 		"text": "Simulated COVID-19 infection numbers",
-		"subtitle": "Median daily new infections and 90% uncertainty interval, by strategy.",
+		"subtitle": "Mean daily new infections and 90% uncertainty interval, by strategy.",
 		"frame":"group",
 		"dx": -10
 	},
@@ -15,10 +15,9 @@
 		{
 			"name": "selected",
 			"values": [
+				{ "value": "50% Vaccinated" },
 				{ "value": "70% Vaccinated" },
-				{ "value": "80% Vaccinated" },
-				{ "value": "90% Vaccinated" },
-				{ "value": "95% Vaccinated" }
+				{ "value": "90% Vaccinated" }
 			],
 			"on": [
 				{"trigger": "clicked", "toggle": "clicked"}
@@ -33,7 +32,6 @@
 				{ "type": "filter", "expr": "datum.va === VaccArrivals" },
 				{ "type": "filter", "expr": "datum.vk === VaccKids" },
 				{ "type": "filter", "expr": "datum.R0 === R0" },
-				{ "type": "filter", "expr": "datum.tp === 'ass100_90at5'" },
 				{ "type": "extent", "field": "q95", "signal": "Extent" },
 				
 				{"type": "formula", "as": "nq95", "expr": "MaxHeight === 'depend on data' ? datum.q95 : clamp(datum.q95, 0, toNumber(MaxHeight))"},
@@ -54,16 +52,17 @@
 				{ "type": "formula", "as": "label", "expr": "toString(datum.q50) + ' (' + toString(datum.q5) + ' to ' + toString(datum.q95) + ')'" },
 				{ "type": "formula", "as": "group", "expr": "'group'" },
 				{ "type": "pivot", "groupby": ["wk"], "field": "group", "value": "lab", "op": "values" },
-				{ "type": "formula", "as": "70% Vaccinated", "expr": "datum.group[0].label" },
-				{ "type": "formula", "as": "80% Vaccinated", "expr": "datum.group[1].label" },
-				{ "type": "formula", "as": "90% Vaccinated", "expr": "datum.group[2].label" },
-				{ "type": "formula", "as": "95% Vaccinated", "expr": "datum.group[3].label" }
+				{ "type": "formula", "as": "50% Vaccinated", "expr": "datum.group[0].label" },
+				{ "type": "formula", "as": "60% Vaccinated", "expr": "datum.group[1].label" },
+				{ "type": "formula", "as": "70% Vaccinated", "expr": "datum.group[2].label" },
+				{ "type": "formula", "as": "80% Vaccinated", "expr": "datum.group[3].label" },
+				{ "type": "formula", "as": "90% Vaccinated", "expr": "datum.group[4].label" }
 			]
 		},
 		{
 			"name": "rules",
 			"values": [
-				{ "phase": "Borders open", "startDay": 210 }
+				{ "phase": "Borders open", "startDay": 365 }
 			]
 		},
 		{
@@ -109,7 +108,8 @@
 						"options": [
 							{ "value": 0.2, "label": "0.2 per day", "default": true },
 							{ "value": 1, "label": "1 per day" },
-							{ "value": 5, "label": "5 per day" }
+							{ "value": 5, "label": "5 per day" },
+							{ "value": 25, "label": "25 per day" }
 						],
 						"signalName": "VaccArrivals"
 					},
@@ -131,8 +131,7 @@
 						"type": "select",
 						"options": [
 							{ "value": 5, "label": "5.0", "default": true },
-							{ "value": 6.5, "label": "6.5" },
-							{ "value": 8.0, "label": "8.0" }
+							{ "value": 6, "label": "6.0" }
 						],
 						"signalName": "R0"
 					}
@@ -173,11 +172,11 @@
 			}
 		},
 		{
-			"name": "Domain", "value": [0,81],
+			"name": "Domain", "value": [0,104],
 			"bind": {
 				"input": "select",
 				"name": "Sample subset:",
-				"options": [[0,81], [0,29], [30,81]],
+				"options": [[0,104], [0,51], [52,104]],
 				"labels": ["Full sample", "Before borders open", "After borders open"],
 				"element": "#graph-settings-ABM-v2"
 			}
@@ -224,7 +223,7 @@
 			"name": "colour",
 			"type": "ordinal",
 			"range": {"scheme": "viridis"},
-			"domain": ["70% Vaccinated", "80% Vaccinated", "90% Vaccinated", "95% Vaccinated"]
+			"domain": ["50% Vaccinated", "60% Vaccinated", "70% Vaccinated", "80% Vaccinated", "90% Vaccinated"]
 		},
 		{
 			"name": "parameters",
@@ -377,7 +376,7 @@
 					"strokeWidth": {"value": 0},
 					"fill": {"value": "#999999"},
 					"fillOpacity": {"value": 0},
-					"tooltip": { "signal": "{ 'title': 'Week ' + datum.wk, '70% Vaccinated': datum['70% Vaccinated'], '80% Vaccinated': datum['80% Vaccinated'], '90% Vaccinated': datum['90% Vaccinated'], '95% Vaccinated': datum['95% Vaccinated']}"}
+					"tooltip": { "signal": "{ 'title': 'Week ' + datum.wk, '50% Vaccinated': datum['50% Vaccinated'], '60% Vaccinated': datum['60% Vaccinated'], '70% Vaccinated': datum['70% Vaccinated'], '80% Vaccinated': datum['80% Vaccinated'], '90% Vaccinated': datum['90% Vaccinated']}"}
 				},
 				"hover": {
 					"fillOpacity": {"value": 0.2}

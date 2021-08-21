@@ -1,0 +1,145 @@
+.heatmap-container {
+	width: 90%;
+	max-width: 2050px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.heatmap-toggle {
+	display: flex;
+	justify-content: center;
+}
+
+.heatmap-toggle label {
+	display: flex;
+}
+
+#heatmapDomainSelector, #heatmapVarSelector {
+	padding: 0;
+	font-size: 0.9rem;
+	padding: 0rem 2rem 0 0.5rem;
+	background-color: #fff !important;
+	color: #000 !important;
+	font-family: monospace;
+}
+
+.heatmap {
+	width: 100%;
+	max-width: 1200px;
+	overflow: scroll;
+	padding: 1rem 0 !important;
+}
+
+.heatmap * {
+	/* font-size: 9 !important; */
+	font-family: 'Source Sans Pro', 'Gill Sans', 'Trebuchet MS', Arial, sans-serif !important;
+	border-collapse: separate !important;
+	border-spacing: 0 !important;
+}
+
+.heatmap table tr td {
+	padding: 0.1rem 0.2rem !important;
+	min-width: 35px !important;
+	max-width: 35px !important;
+	text-align: center !important;
+	position: relative !important;
+}
+
+.cell-tooltip{
+	display:none;
+	position:absolute; 
+	z-index:1000;
+	border:1px solid rgb(139, 139, 139);
+	background-color:#fff;
+	padding:3px;
+	color:#000; 
+	font-size: 0.7rem;
+	width:max-content;
+	text-align: left;
+	top:0; 
+	left:105%;
+	box-shadow: 3px 3px 2px rgba(0, 0, 0, .35);
+}
+
+.heatmap table tr td:hover span.cell-tooltip{
+	display:block;
+}
+
+.policy-tooltip{
+	display:none;
+	position:absolute;
+	z-index:9999 !important;
+	border:1px solid rgb(139, 139, 139);
+	background-color:#fff;
+	padding:3px;
+	color:#000; 
+	font-size: 0.7rem;
+	width:max-content;
+	text-align: left;
+	bottom:25%; 
+	left:100%;
+	box-shadow: 3px 3px 2px rgba(0, 0, 0, .35);
+}
+
+.heatmap table tr th:hover span.policy-tooltip{
+	display:block;
+	z-index: 1000;
+}
+
+.tooltip-row {
+	display: flex;
+	justify-content: space-between;
+}
+
+.tooltip-row span {
+	padding: 0 0.2em;
+}
+
+.position-right {
+	left:auto !important;
+	right: 105% !important;
+}
+
+.position-top {
+	top: auto !important; 
+	bottom: 0 !important; 
+}
+
+.heatmap table tr th {
+	padding: 0 0.5rem !important;
+	min-width: 45px;
+}
+
+.heatmap thead tr th {
+	text-align: center !important;
+}
+
+.heatmap .fixed {
+	position: -webkit-sticky !important;
+	position: sticky !important;
+	background-color: #fff !important;
+	outline: 1px solid #cde6ff !important;
+	border:none !important;
+	outline-offset: -1px !important;
+	top: 0 !important;
+}
+
+.col-1 {
+	left: 0px;
+	min-width: 90px !important;
+	vertical-align: middle !important;
+	z-index: 4 !important;
+}
+
+.col-2 {
+	left: 90px;
+	min-width: 100px !important;
+	vertical-align: middle !important;
+	z-index: 3 !important;
+}
+
+.col-3 {
+	left: 190px;
+	min-width: 90px !important;
+	z-index: 2 !important;
+}

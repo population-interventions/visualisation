@@ -13,6 +13,8 @@
 	
 	"date": "2021-07-04",
 	"date_updated": "2021-07-04",
+
+	"banner": "Version 3, updated for recent data on Delta, is being launched on Monday 23 August. Please come back then.",
 	
 	"slug": "pandemic-trade-offs-july-2021",
 	
@@ -86,8 +88,6 @@ To model this, we ran 100 simulations of how the SARS-CoV-2 virus might spread t
 Use the options to the left of (or below) the graph to explore how different scenarios affect the spread of the virus
 
 {% import_graph "ABM-v2", slug %}
-
-{% import_graph "lockdown", slug %}
 
 In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day (Stage 1 being near-normal, up to Stage 4 with strong stay at home orders, i.e. a hard lockdown), but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage in use depending on the policy setting (elimination, tight suppression, loose suppression, and extra loose suppression).
 

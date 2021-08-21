@@ -1,0 +1,69 @@
+
+.heatmap-container > .graph-settings > .vega-bind > label > .styled-select {
+	padding: 0;
+	all:initial;
+	height: fit-content;
+	width: fit-content;
+	background-color: #fff !important;
+	color: #000 !important;
+	position: relative;
+}
+
+.heatmap-container > .graph-settings > .vega-bind > label > .styled-select:after {
+	content: "";
+    border: none;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    height: 5px;
+    line-height: 9px;
+    -webkit-transform: rotate(
+		45deg
+		) translateY(0);
+			-ms-transform: rotate(45deg) translateY(0);
+			transform: rotate(
+		45deg
+		) translateY(0);
+    pointer-events: none;
+    position: absolute;
+    width: 5px;
+    top: 65%;
+    right: 0;
+	color:#000 !important;
+}
+
+.heatmap-container > .graph-settings > .vega-bind > label > .styled-select > option {
+	color:#000 !important;
+}
+
+.heatmap-container > .graph-settings > .vega-bind > label > .styled-select:before {
+	content: none;
+	all:initial;
+}
+
+#heatmapScenarioDisplayVarSelector {
+	padding: 0;
+	font-size: 0.9rem;
+	padding: 0rem 2rem 0 0.5rem;
+	background-color: #fff !important;
+	color: #000 !important;
+	font-family: monospace;
+}
+
+.scenario-failure {
+	color: #e34545 !important;
+} 
+
+.scenario-success {
+	color: #000;
+}
+
+.heatmap-container input[type="number"] {
+	border: 0;
+	background-color: #fff;
+	/* width: 150px; */
+	padding: .2rem .5rem;
+	font-family: monospace;
+	text-align: center;
+	margin-right: .5rem;
+	margin-left:  .5rem;
+}

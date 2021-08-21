@@ -1,6 +1,6 @@
 .heatmap-container {
 	width: 90%;
-	max-width: 2050px;
+	max-width: 1250px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -16,11 +16,10 @@
 
 #heatmapDomainSelector, #heatmapVarSelector {
 	padding: 0;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	padding: 0rem 2rem 0 0.5rem;
 	background-color: #fff !important;
 	color: #000 !important;
-	font-family: monospace;
 }
 
 .heatmap {
@@ -133,13 +132,12 @@
 
 .col-2 {
 	left: 90px;
-	min-width: 100px !important;
-	vertical-align: middle !important;
+	min-width: 50px !important;
 	z-index: 3 !important;
 }
 
 .col-3 {
-	left: 190px;
+	left: 140px;
 	min-width: 90px !important;
 	z-index: 2 !important;
 }
