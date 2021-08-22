@@ -40,7 +40,7 @@ for(var i = 0, max = scenarioCells.length; i < max; i++) {
 	"<div class='tooltip-key " + (icuPass ? "scenario-success" : "scenario-failure") + "'>ICU admissions / year: </div><div class='tooltip-value "+ (icuPass ? "scenario-success'>" : "scenario-failure'>") + icuVal + "</div>" +
 	"<div class='tooltip-key " + (deathsPass ? "scenario-success" : "scenario-failure") + "'>Deaths / year: </div><div class='tooltip-value "+ (deathsPass ? "scenario-success'>" : "scenario-failure'>") + deathsVal + "</div>" +
 	"<div class='tooltip-key " + (lockdownPass ? "scenario-success" : "scenario-failure") + "'>Lockdown %: </div><div class='tooltip-value "+ (lockdownPass ? "scenario-success'>" : "scenario-failure'>") + Math.round(lockdownVal) + "</div>" +
-	"</Lockdown>"
+	"</div>"
 	 
     // check for value and colour accordingly
     if (infectPass && deathsPass && hospitalPass && lockdownPass && icuPass)  {
@@ -96,7 +96,7 @@ function updateScenarioHeatmap() {
 		"<div class='tooltip-key " + (icuPass ? "scenario-success" : "scenario-failure") + "'>ICU admissions / year: </div><div class='tooltip-value "+ (icuPass ? "scenario-success'>" : "scenario-failure'>") + icuVal + "</div>" +
 		"<div class='tooltip-key " + (deathsPass ? "scenario-success" : "scenario-failure") + "'>Deaths / year: </div><div class='tooltip-value "+ (deathsPass ? "scenario-success'>" : "scenario-failure'>") + deathsVal + "</div>" +
 		"<div class='tooltip-key " + (lockdownPass ? "scenario-success" : "scenario-failure") + "'>Lockdown %: </div><div class='tooltip-value "+ (lockdownPass ? "scenario-success'>" : "scenario-failure'>") + Math.round(lockdownVal) + "</div>" +
-		"</Lockdown>"
+		"</div>"
 		
 		// check for value and colour accordingly
 		if (infectPass && deathsPass && hospitalPass && lockdownPass && icuPass)  {
