@@ -35,12 +35,12 @@ for(var i = 0, max = scenarioCells.length; i < max; i++) {
 
 	// creating tooltip
 	node.innerHTML += "<span class='cell-tooltip'>" +
-	"<div class='tooltip-row " + (infectPass ? "scenario-success" : "scenario-failure") + "'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
-	"<div class='tooltip-row " + (hospitalPass ? "scenario-success" : "scenario-failure") + "'><span>Hospitalisations / year: </span><span>"+ hospitalVal + "</span></div>" +
-	"<div class='tooltip-row " + (icuPass ? "scenario-success" : "scenario-failure") + "'><span>ICU admissions / year: </span><span>"+ hospitalVal + "</span></div>" +
-	"<div class='tooltip-row " + (deathsPass ? "scenario-success" : "scenario-failure") + "'><span>Deaths / year: </span><span>"+ deathsVal + "</span></div>" +
-	"<div class='tooltip-row " + (lockdownPass ? "scenario-success" : "scenario-failure") + "'><span>Lockdown %: </span><span>"+ Math.round(lockdownVal) + "</span></div>" +
-	"</span>"
+	"<div class='tooltip-key " + (infectPass ? "scenario-success" : "scenario-failure") + "'>Infections / day: </div><div class='tooltip-value "+ (infectPass ? "scenario-success'>" : "scenario-failure'>") + infectVal + "</div>" +
+	"<div class='tooltip-key " + (hospitalPass ? "scenario-success" : "scenario-failure") + "'>Hospitalisations / year: </div><div class='tooltip-value "+ (hospitalPass ? "scenario-success'>" : "scenario-failure'>") + hospitalVal + "</div>" +
+	"<div class='tooltip-key " + (icuPass ? "scenario-success" : "scenario-failure") + "'>ICU admissions / year: </div><div class='tooltip-value "+ (icuPass ? "scenario-success'>" : "scenario-failure'>") + icuVal + "</div>" +
+	"<div class='tooltip-key " + (deathsPass ? "scenario-success" : "scenario-failure") + "'>Deaths / year: </div><div class='tooltip-value "+ (deathsPass ? "scenario-success'>" : "scenario-failure'>") + deathsVal + "</div>" +
+	"<div class='tooltip-key " + (lockdownPass ? "scenario-success" : "scenario-failure") + "'>Lockdown %: </div><div class='tooltip-value "+ (lockdownPass ? "scenario-success'>" : "scenario-failure'>") + Math.round(lockdownVal) + "</div>" +
+	"</Lockdown>"
 	 
     // check for value and colour accordingly
     if (infectPass && deathsPass && hospitalPass && lockdownPass && icuPass)  {
@@ -91,12 +91,12 @@ function updateScenarioHeatmap() {
 	
 		// creating tooltip
 		node.innerHTML += "<span class='cell-tooltip'>" +
-		"<div class='tooltip-row " + (infectPass ? "scenario-success" : "scenario-failure") + "'><span>Infections / day: </span><span>"+ infectVal + "</span></div>" +
-		"<div class='tooltip-row " + (hospitalPass ? "scenario-success" : "scenario-failure") + "'><span>Hospitalisations / year: </span><span>"+ hospitalVal + "</span></div>" +
-		"<div class='tooltip-row " + (icuPass ? "scenario-success" : "scenario-failure") + "'><span>ICU admissions / year: </span><span>"+ hospitalVal + "</span></div>" +
-		"<div class='tooltip-row " + (deathsPass ? "scenario-success" : "scenario-failure") + "'><span>Deaths / year: </span><span>"+ deathsVal + "</span></div>" +
-		"<div class='tooltip-row " + (lockdownPass ? "scenario-success" : "scenario-failure") + "'><span>Lockdown %: </span><span>"+ Math.round(lockdownVal) + "</span></div>" +
-		"</span>"
+		"<div class='tooltip-key " + (infectPass ? "scenario-success" : "scenario-failure") + "'>Infections / day: </div><div class='tooltip-value "+ (infectPass ? "scenario-success'>" : "scenario-failure'>") + infectVal + "</div>" +
+		"<div class='tooltip-key " + (hospitalPass ? "scenario-success" : "scenario-failure") + "'>Hospitalisations / year: </div><div class='tooltip-value "+ (hospitalPass ? "scenario-success'>" : "scenario-failure'>") + hospitalVal + "</div>" +
+		"<div class='tooltip-key " + (icuPass ? "scenario-success" : "scenario-failure") + "'>ICU admissions / year: </div><div class='tooltip-value "+ (icuPass ? "scenario-success'>" : "scenario-failure'>") + icuVal + "</div>" +
+		"<div class='tooltip-key " + (deathsPass ? "scenario-success" : "scenario-failure") + "'>Deaths / year: </div><div class='tooltip-value "+ (deathsPass ? "scenario-success'>" : "scenario-failure'>") + deathsVal + "</div>" +
+		"<div class='tooltip-key " + (lockdownPass ? "scenario-success" : "scenario-failure") + "'>Lockdown %: </div><div class='tooltip-value "+ (lockdownPass ? "scenario-success'>" : "scenario-failure'>") + Math.round(lockdownVal) + "</div>" +
+		"</Lockdown>"
 		
 		// check for value and colour accordingly
 		if (infectPass && deathsPass && hospitalPass && lockdownPass && icuPass)  {

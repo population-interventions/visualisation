@@ -384,7 +384,8 @@
 				}
 			}
 		},
-		{
+		{	
+			"name": "phases",
 			"type": "text",
 			"clip": true,
 			"from": { "data": "rules" },
@@ -394,10 +395,26 @@
 					"y": {"signal": "range('y')[1]"},
 					"text": {"signal": "'Borders Open'"},
 					"baseline": {"value": "top"},
-					"dx": {"value": 7.5},
+					"dx": {"value": 5},
 					"fill": {"value": "#012a58"},
 					"href": {"value": "/pandemic-trade-offs-detail#phases"},
 					"cursor": {"value": "pointer"}
+				}
+			},
+			"zindex": 1
+		},
+		{
+			"type": "rect",
+			"from": {"data": "phases"},
+			"clip": true,
+			"encode": {
+				"update": {
+					"x": {"field": "bounds.x1", "round": true, "offset": {"value": -3}},
+					"x2": {"field": "bounds.x2", "round": true, "offset": {"value": 3}},
+					"y": {"field": "bounds.y1", "round": true, "offset": {"value": -3}},
+					"y2": {"field": "bounds.y2", "round": true, "offset": {"value": 3}},
+					"fill": {"value": "#f0f0f0"},
+					"fillOpacity": {"value": 0.8}
 				}
 			}
 		},
@@ -408,6 +425,7 @@
 			  "enter": {
 				"x": {"signal": "range('x')[1] - 3"},
 				"y": {"signal": "range('y')[1] + 3"},
+				"fill": {"value": "#012a58"},
 				"text": {"value": "Updated: 23 Aug 2021"},
 				"align": {"value": "right"},
 				"baseline": {"value": "top"}

@@ -140,9 +140,9 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
 
     node.innerHTML = variableOfInterest;
 	node.innerHTML += "<span class='cell-tooltip'>" +
-	"<div class='tooltip-row'><span>Upper bound: </span><span>"+ upperBound + "</span></div>" +
-	"<div class='tooltip-row'><span>Lower bound: </span><span>"+ lowerBound + "</span></div>" +
-	"</span>"
+	"<div class='tooltip-key'>Upper bound: </div>"+ "<div class='tooltip-value'>" + upperBound + "</div>" +
+	"<div class='tooltip-key'>Lower bound: </div>"+ "<div class='tooltip-value'>" + lowerBound + "</div>" +
+	"</Upper>"
 
     // check for value and colour accordingly
 	node.style.backgroundColor = logColor(colours,variableOfInterest,maxVal,minVal);
@@ -166,9 +166,9 @@ for(var i = 0, max = lockdownCells.length; i < max; i++) {
 
     node.innerHTML = Math.round(lockdownVal*100) + "%";
 	node.innerHTML += "<span class='cell-tooltip'>" +
-	"<div class='tooltip-row'><span>Upper bound: </span><span>"+ upperBound + "</span></div>" +
-	"<div class='tooltip-row'><span>Lower bound: </span><span>"+ lowerBound + "</span></div>" +
-	"</span>"
+	"<div class='tooltip-key'>Upper bound: </div>"+ "<div class='tooltip-value'>" + upperBound + "</div>" +
+	"<div class='tooltip-key'>Lower bound: </div>"+ "<div class='tooltip-value'>" + lowerBound + "</div>" +
+	"</Upper>"
 
     // check for value and colour accordingly
 	node.style.backgroundColor = linearColor(colours,lockdownVal,maxVal,minVal);
@@ -199,9 +199,9 @@ function updateHeatmap() {
 	
 		node.innerHTML = variableOfInterest;
 		node.innerHTML += "<span class='cell-tooltip'>" +
-		"<div class='tooltip-row'><span>Upper bound: </span><span>"+ upperBound + "</span></div>" +
-		"<div class='tooltip-row'><span>Lower bound: </span><span>"+ lowerBound + "</span></div>" +
-		"</span>"
+		"<div class='tooltip-key'>Upper bound: </div>"+ "<div class='tooltip-value'>" + upperBound + "</div>" +
+		"<div class='tooltip-key'>Lower bound: </div>"+ "<div class='tooltip-value'>" + lowerBound + "</div>" +
+		"</Upper>"
 	
 		// check for value and colour accordingly
 		node.style.backgroundColor = logColor(colours,variableOfInterest,maxVal,minVal);
@@ -221,9 +221,9 @@ function updateHeatmap() {
 
 		node.innerHTML = Math.round(lockdownVal*100) + "%";
 		node.innerHTML += "<span class='cell-tooltip'>" +
-		"<div class='tooltip-row'><span>Upper bound: </span><span>"+ upperBound + "</span></div>" +
-		"<div class='tooltip-row'><span>Lower bound: </span><span>"+ lowerBound + "</span></div>" +
-		"</span>"
+		"<div class='tooltip-key'>Upper bound: </div>"+ "<div class='tooltip-value'>" + upperBound + "</div>" +
+		"<div class='tooltip-key'>Lower bound: </div>"+ "<div class='tooltip-value'>" + lowerBound + "</div>" +
+		"</Upper>"
 
 		// check for value and colour accordingly
 		node.style.backgroundColor = linearColor(colours,lockdownVal,maxVal,minVal);
