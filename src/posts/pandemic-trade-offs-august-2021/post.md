@@ -64,7 +64,7 @@
 }
 ---
 
-This tool allows you to explore how COVID-19 policy responses (restrictions, vaccination roll-out, and border opening) impact future SARS-CoV-2 infection, hospitalization and mortality rates, and the probability of lockdowns. This Version 3 updates Version 2 in the following important ways:
+This tool allows you to explore how COVID-19 policy responses (restrictions, vaccination roll-out, and border opening) impact future SARS-CoV-2 infection, hospitalisation and mortality rates, and the probability of lockdowns. This Version 3 updates Version 2 in the following important ways:
 
 * Including options for a higher R0 (5, 6.5 and 8) given recent concerns about greater infectivity of Delta (e.g. CDC estimates range 5 to 9) 
 * Shorter duration from being infected to being infectious 
@@ -98,13 +98,20 @@ A basic measure of COVID-19 policy success is the extent to which it keeps the n
 
 To model this, we ran 100 simulations of how the SARS-CoV-2 virus might spread through a population of 6 million people, for each scenario. The graph below shows the median (or average) daily infections across the 100 simulations of each scenario, along with a 90% uncertainty interval (the 5<sup>th</sup> and 95<sup>th</sup> percentiles).
 
-Use the options to the left of (or below) the graph to explore how different scenarios affect the spread of the virus
+Use the options to the left of (or below) the graph to explore how different scenarios affect the spread of the virus.
 
 {% import_graph "ABM-v2", slug %}
 
+
+## Lockdown restrictions
+
+In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day (Stage 1 being near-normal, up to Stage 4 with strong stay at home orders, i.e. a hard lockdown). The graph below shows the percentage prevalence, by week, of each stage of restrictions across 100 simulations of the chosen scenario.
+
+Use the options to the left of (or below) the graph to explore how different scenarios affect the enforcement of lockdowns over time.
+
 {% import_graph "lockdown", slug %}
 
-In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day (Stage 1 being near-normal, up to Stage 4 with strong stay at home orders, i.e. a hard lockdown), but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage in use depending on the policy setting (elimination, tight suppression, loose suppression, and extra loose suppression).
+Click below to view all 100 simulations of each scenario, coloured by restriction stage in use depending on the policy setting (elimination, tight suppression, loose suppression, and extra loose suppression).
 
 <a href="/pandemic-trade-offs-ABM-august-2021/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a>
 
@@ -122,8 +129,8 @@ In particular, you might be interested to know:
 
 ---
 
-## Heatmaps of infections, hospitalizations, deaths and time in lockdown
-Below are two heatmaps. The first shows (depending on which option you select) the average daily infections, the yearly SARS-CoV-2 deaths and the yearly SARS-CoV-2 hospitalization (for a population the size and make-up of Victoria). The deaths are estimated using Institute of Health Metrics and Evaluation infection fatality risk ratios from pre-Delta variants, double for increased virulence of Delta. Hospitalization and ICU admission rates are estimated using rates of same by infection from the Victorian second wave, doubled (on odds scale) again for increased virulence of Delta. For an approximation of the average number of bed-night stays, multiplying hospitalisations by 10 and ICU admission by 7 will give a rough approximation.
+## Heatmaps of infections, hospitalisations, ICU admissions, deaths and time in lockdown
+Below are two heatmaps. The first shows (depending on which option you select) the average daily infections, the yearly SARS-CoV-2 deaths and the yearly SARS-CoV-2 hospitalisation (for a population the size and make-up of Victoria). The deaths are estimated using Institute of Health Metrics and Evaluation infection fatality risk ratios from pre-Delta variants, double for increased virulence of Delta. hospitalisation and ICU admission rates are estimated using rates of same by infection from the Victorian second wave, doubled (on odds scale) again for increased virulence of Delta. For an approximation of the average number of bed-night stays, multiplying hospitalisations by 10 and ICU admission by 7 will give a rough approximation.
 
 The second heatmap shows the proportion of time in stage 3 (soft lockdown) and stage 4 (hard lockdown) for all scenarios.
 
@@ -141,7 +148,7 @@ For both heatmaps, if you hover a cell you will be shown the 90% simulation inte
 
 ## Interactive heatmap of settings that meet your risk threshold
 
-Below is an interactive heatmap – just for the year after borders open – where you select your ‘risk threshold’ of the maximum average infections per day, maximum deaths in a year, maximum hospitalizations in a year, maximum ICU admissions per year, and maximum percentage of time in lockdown that you are willing to tolerate.
+Below is an interactive heatmap – just for the year after borders open – where you select your ‘risk threshold’ of the maximum average infections per day, maximum deaths in a year, maximum hospitalisations in a year, maximum ICU admissions per year, and maximum percentage of time in lockdown that you are willing to tolerate.
 
 The cells colored green are beneath your threshold (on all five criteria), and the settings you would use if you were in charge of a jurisdiction. For example, vaccination coverage might have reached 80% for adults only by the time we have committed to opening the borders, and you think the true R0 might be 6.5. So you see which settings on ‘vaccinated but infected arrivals’ per day keeps you in the green, and set your jurisdictions border policy to match this. That is, you allow a number and mix of international arrivals without quarantine that keeps you in the green, and arrivals from countries with higher risk still have to go to (purpose-built) quarantine facilities.
 
