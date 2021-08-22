@@ -88,7 +88,7 @@
 					},
 					{
 						"title": "Strategy",
-						"description": "Short, medium, and long term strategies employed to mitigate the spread of COVID-19 <br> (< 6 mths / 6-12 mths / 12+ mths)",
+						"description": "Short, medium, and long term strategies employed to mitigate the spread of COVID-19 <br> (< 4 mths / 4-8 mths / 8+ mths)",
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#strategies",
 						"type": "select",
 						"options": [
@@ -127,8 +127,8 @@
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#reproduction",
 						"type": "select",
 						"options": [
-							{ "value": 5.0, "label": "5.0", "default": true },
-							{ "value": 6.5, "label": "6.5" },
+							{ "value": 5.0, "label": "5.0" },
+							{ "value": 6.5, "label": "6.5", "default": true  },
 							{ "value": 8.0, "label": "8.0" }
 						],
 						"signalName": "R0"
