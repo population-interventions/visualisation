@@ -32,6 +32,11 @@
 			"image": "preview-ABM.png"
 		},
 		{
+			"href": "#graph-container-lockdown",
+			"text": "Lockdown",
+			"image": "preview-lockdown.png"
+		},
+		{
 			"href": "#health-lockdown-heatmap",
 			"text": "Health and lockdown heatmaps",
 			"image": "preview-health-lockdown-heatmap.png"
