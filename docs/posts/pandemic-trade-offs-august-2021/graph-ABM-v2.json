@@ -69,10 +69,9 @@
 		{
 			"name": "annotations",
 			"values": [
-				{ "x": 11, "y": 250, "x2": 18, "y2": 130, "text": ["Solid lines show the", "median number of new", "infections each day"], "align": "right", "baseline": "bottom"},
-				{ "x": 40, "y": 200, "x2": 35, "y2": 210, "text": ["Shaded bands are 90%", "uncertainty intervals"], "align": "left", "baseline": "bottom"},
-				{ "x": 47, "y": 450, "x2": 52, "y2": 450, "text": ["Click the legend entries", "to toggle which strategies", "are shown"], "align": "right", "baseline": "bottom"},
-				{ "x": 2, "y": 50, "x2": 0.5, "y2": 1, "text": ["All simulations start with", "an outbreak of 6 cases", "in the first week"], "align": "left", "baseline": "bottom"}
+				{ "x": 31, "y": 35, "x2": 40, "y2": 16, "text": ["Solid lines show the", "median number of new", "infections each day"], "align": "right", "baseline": "bottom"},
+				{ "x": 25, "y": 65, "x2": 37.5, "y2": 65, "text": ["Shaded bands are 90%", "uncertainty intervals"], "align": "right", "baseline": "bottom"},
+				{ "x": 5, "y": 20, "x2": 0.5, "y2": 0, "text": ["All simulations start with", "an outbreak of 6 cases", "in the first week"], "align": "left", "baseline": "bottom"}
 			]
 		}
 	],
@@ -432,20 +431,50 @@
 			  }
 			},
 			"zindex": 1
-		  },
-		  {
+		},
+		{
 			"name": "rectmark",
 			"type": "rect",
 			"from": {"data": "timestamp"},
 			"encode": {
-			  "enter": {
-				"x": {"field": "bounds.x1", "round": true, "offset": {"value": -3}},
-				"x2": {"field": "bounds.x2", "round": true, "offset": {"value": 3}},
-				"y": {"field": "bounds.y1", "round": true, "offset": {"value": -3}},
-				"y2": {"field": "bounds.y2", "round": true, "offset": {"value": 3}},
-				"fill": {"value": "#f0f0f0"},
-				"fillOpacity": {"value": 0.8}
-			  }
+				"enter": {
+					"x": {"field": "bounds.x1", "round": true, "offset": {"value": -3}},
+					"x2": {"field": "bounds.x2", "round": true, "offset": {"value": 3}},
+					"y": {"field": "bounds.y1", "round": true, "offset": {"value": -3}},
+					"y2": {"field": "bounds.y2", "round": true, "offset": {"value": 3}},
+					"fill": {"value": "#f0f0f0"},
+					"fillOpacity": {"value": 0.8}
+				}
+			}
+		},
+		{
+			"type": "rule",
+			"from": { "data": "annotations" },
+			"encode": {
+				"update": {
+					"x": {"scale": "x", "field": "x"},
+					"y": {"scale": "y", "field": "y"},
+					"x2": {"scale": "x", "field": "x2"},
+					"y2": {"scale": "y", "field": "y2"},
+					"strokeWidth": { "value": 0.5 },
+					"strokeWidth": {"signal": "hasChanged > 0 ? 0 : 0.5"}
+				}
+			}
+		},
+		{
+			"type": "text",
+			"from": { "data": "annotations" },
+			"encode": {
+				"update": {
+					"x": {"scale": "x", "field": "x"},
+					"y": {"scale": "y", "field": "y"},
+					"text": {"signal": "datum.text"},
+					"fillOpacity": {"value": 1},
+					"align": {"signal": "datum.align"},
+					"baseline": {"signal": "datum.baseline"},
+					"dx": {"signal": "datum.align == 'left' ? 5 : -5"},
+					"fillOpacity": {"signal": "hasChanged > 0 ? 0 : 1"}
+				}
 			}
 		}
 	]
