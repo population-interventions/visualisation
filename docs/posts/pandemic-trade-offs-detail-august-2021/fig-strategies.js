@@ -4,10 +4,10 @@
 // ============================================================================== //
 
 var strategies = {
-		"Moderate Elimination": {
-			name: "Moderate Elimination",
+		"Elimination": {
+			name: "Elimination",
 			description: "Aim for no community transmission, less quickly.",
-			examples: "New South Wales (Australia)",
+			examples: "Victoria (Australia)",
 			transitions: [
 				{ from: "1",		to: "4", 	trigger: "7-day average > 30" },
 				{ from: "1b",		to: "4", 	trigger: "7-day average > 30" },
@@ -110,7 +110,7 @@ var strategies = {
 		}
 	},
 	stages = ["TRIGGER", "1", "1b", "2", "3", "4"],
-	currentStrategy = "Moderate Elimination",
+	currentStrategy = "Elimination",
 	currentFrom = "1",
 	currentTo = "4",
 	currentX, currentY,
