@@ -23,7 +23,7 @@
 	},
 	
 	"hidden": true,
-	"draft": true,
+	"draft": false,
 	
 	"skipToLinks": [
 		{

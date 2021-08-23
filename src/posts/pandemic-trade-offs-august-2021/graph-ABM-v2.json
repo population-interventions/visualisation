@@ -194,10 +194,10 @@
 				{ "events": { "signal": "MaxHeight" }, "update": "true" },
 				{ "events": { "signal": "VerticalScale" }, "update": "true" },
 				{ "events": { "signal": "Domain" }, "update": "true" },
-				{ "events": { "source": "#select-ABM-VaccArrivals", "type": "change" }, "update": "true" },
-				{ "events": { "source": "#select-ABM-VaccKids", "type": "change" }, "update": "true" },
-				{ "events": { "source": "#select-ABM-Strategy", "type": "change" }, "update": "true" },
-				{ "events": { "source": "#select-ABM-R0", "type": "change" }, "update": "true" }
+				{ "events": { "source": "#select-ABM-v2-VaccArrivals", "type": "change" }, "update": "true" },
+				{ "events": { "source": "#select-ABM-v2-VaccKids", "type": "change" }, "update": "true" },
+				{ "events": { "source": "#select-ABM-v2-Strategy", "type": "change" }, "update": "true" },
+				{ "events": { "source": "#select-ABM-v2-R0", "type": "change" }, "update": "true" }
 			]
 		}
 	],
