@@ -112,11 +112,11 @@ Use the options to the left of (or below) the graph to explore how different sce
 
 In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day (Stage 1 being near-normal, up to Stage 4 with strong stay at home orders, i.e. a hard lockdown). The graph below shows the percentage prevalence, by week, of each stage of restrictions across 100 simulations of the chosen scenario.
 
-Use the options to the left of (or below) the graph to explore how different scenarios affect the enforcement of lockdowns over time.
+Use the options to the left of (or below) the graph to explore how different scenarios affect the enforcement of lockdown restrictions over time.
 
 {% import_graph "lockdown", slug %}
 
-Click below to view all 100 simulations of each scenario, coloured by restriction stage in use depending on the policy setting (elimination, tight suppression, loose suppression, and extra loose suppression).
+For more detail, click below to view all 100 simulations of each scenario, coloured by restriction stage in use depending on the policy setting (elimination, tight suppression, loose suppression, and extra loose suppression).
 
 <a href="/pandemic-trade-offs-ABM-august-2021/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a>
 
