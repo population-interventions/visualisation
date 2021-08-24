@@ -69,27 +69,27 @@
 }
 ---
 
-This tool allows you to explore how COVID-19 policy responses (restrictions, vaccination roll-out, and border opening) impact future SARS-CoV-2 infection, hospitalisation and mortality rates, and the probability of lockdowns. This Version 3 updates Version 2 in the following important ways:
+This tool allows you to explore how COVID-19 policy responses (restrictions, vaccination roll-out, and border opening) impact future SARS-CoV-2 infection, hospitalisation and mortality rates, and the future probability of lockdowns. This Version 3 updates Version 2 in the following important ways:
 
-* Including options for a higher R0 (5, 6.5 and 8) given recent concerns about greater infectivity of Delta (e.g. CDC estimates range 5 to 9) 
-* Shorter duration from being infected to being infectious 
+* Including options for a higher virus reproduction rate (5, 6.5 and 8) given recent concerns about greater infectivity of Delta (e.g. CDC estimates range 5 to 9) 
+* Shorter duration from initially becoming infected to being infectious 
 * Removing previously lower chance of children being infected as seen pre-Delta; we now assume, consistent with global experience, that children as just as likely to be infected as adults
 * Moving from vaccinated but infected people being 50% less likely to transmit the virus on, to a 25% reduction (range 0% to 50%) given recent evidence that the viral load in vaccinated but Delta-infected individuals is little different from unvaccinated Delta-infecteds.
 
-These changes all mean that for any policy setting (e.g. vaccination coverage, triggers to lockdown, mask wearing) the expected number of infections (and hence morbidity and mortality), and the expected time in lockdown, is – unfortunately – worse than we outputted in Version 2 of this tool.  
+These changes all mean that for any policy setting (e.g. vaccination coverage, triggers to lockdown, mask wearing) the expected number of infections (and hence morbidity and mortality), and the expected time in lockdown, is – unfortunately – worse than we estimated in Version 2 of this tool.  
 
 A co-published article at [Conversation]() gives our interpretation and policy recommendations based on this Version 3.
 
-We use the State of Victoria as the case study, but the findings can be broadly applied to other states and territories in Australia, New Zealand and other South Eastern Asian and Oceanic countries that are trying to use an elimination strategy – then open the borders. The findings may also be generalized further to countries that have not used an elimination strategy, but looking how to manage borders at varying levels of within-country immunity (be that through vaccination and / or natural infection).
+We use the State of Victoria as the case study, but the findings can be broadly applied to other states and territories in Australia, New Zealand and other South Eastern Asian and Oceanic countries that are trying to use an elimination strategy before opening their open the borders. The findings may also be generalised further to countries that have not used an elimination strategy, but are considering how best to manage borders at varying levels of within-country immunity (be that through vaccination and / or natural infection).
 
-This tool allows you to explore what happens in both the remainder of the year of increasing vaccination coverage before the borders are open, and then in the year after borders are open. By “borders open”, we mean when a substantial proportion of vaccinated in-bound travelers are allowed quarantine-free arrival – but there will always be a need for arrivals from some countries that have high infection rates, or new variants of concern, to go to formal managed quarantine (presumably at purpose-built facilities). Indeed, this Trade-offs tool can assist decide what that threshold might be to direct high-risk arrivals to formal quarantine. The model allows for incursions of the virus through both leakages out of formal quarantine (4.5% per day up to opening the borders, 2.25% probability per day after opening borders), and from vaccinated but infected quarantine arrivals ‘slipping through’ at rates of 0.2, 1, or 5 per day.
+This tool will allow the user to explore possible outcomes for the remainder of the current year, with increasing vaccination coverage, and then, in the year subsequent to border restrictions being lifted. By “borders open”, we mean when a substantial proportion of vaccinated in-bound travelers are allowed quarantine-free arrival – but there will always be a need for arrivals from some countries that have high infection rates, or new variants of concern, to go to formal managed quarantine (presumably at purpose-built facilities). Indeed, this Trade-offs tool can assist with deciding what that threshold might be, in directing high-risk arrivals to formal quarantine. The model allows for incursions of the virus through both leakages out of formal quarantine (4.5% per day up to opening the borders, 2.25% probability per day after opening borders), and from vaccinated but infected quarantine arrivals ‘slipping through’ at rates of 0.2, 1, or 5 per day.
 
-You will see 216 scenarios presented in interactive tools below, for combinations of 3 in-country policy settings for when to tighten restrictions, 4 levels of vaccination coverage achieved before border are opened, whether children (aged 5 to 16) are also vaccinated), expected vaccinated but infected arrivals after te borders open (0.2, 1 and 5 per day), and the reproductive rate of the virus (R0 of 5, 6.5 and 8). 
-We also provide links to PDFs of large for 1152 scenarios, extending the above scenarios to also include:
+You will see 216 scenarios presented in interactive tools below, for combinations of 3 in-country policy settings for when to tighten restrictions, 4 levels of vaccination coverage achieved before borders are opened, whether children (aged 5 to 16) are also vaccinated, expected vaccinated but infected arrivals after the borders open (0.2, 1 and 5 per day), and the reproductive rate of the virus (R0 of 5, 6.5 and 8). 
+We also provide links to PDFs for 1152 scenarios, extending the above scenarios to also include:
 
-* three levels of contact tracing (weak, moderate [the default above] and strong), 
-* a scenario whereby 33% of infecteds self-isolated sometime from day 1 to 7 of their infection due to becoming aware of an exposure site they has visited (a far from accurate representation – more just a sensitivity test) 
-* one more strata of vaccinated by infected arrivals of 25 per day.
+* three levels of contact tracing (weak, moderate [the default above] and strong);
+* a scenario whereby 33% of infecteds self-isolated sometime between day 1 to 7 after their infection onset, due to becoming aware of an exposure site they has visited (a far from accurate representation – more just a sensitivity test to cover a greater range of plausible outcomes); and
+* one more strata of vaccinated but infected arrivals of 25 per day.
 
 For more information on these input variables, view our <a href="/pandemic-trade-offs-detail-augustå-2021/" target="_blank" rel="noopener noreferrer">model details</a> page.
 
@@ -110,7 +110,7 @@ Use the options to the left of (or below) the graph to explore how different sce
 
 ## Lockdown restrictions
 
-In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day (Stage 1 being near-normal, up to Stage 4 with strong stay at home orders, i.e. a hard lockdown). The graph below shows the percentage prevalence, by week, of each stage of restrictions across 100 simulations of the chosen scenario.
+In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day (Stage 1 being near-normal, up to Stage 4 with strong stay at home orders, i.e. a hard lockdown). The graph below shows the percentage prevalence of each stage of restrictions, by week, across 100 simulations of the chosen scenario.
 
 Use the options to the left of (or below) the graph to explore how different scenarios affect the enforcement of lockdown restrictions over time.
 
@@ -126,25 +126,20 @@ If you are interested in the details of the model, these are included on a separ
 
 <a href="/pandemic-trade-offs-detail-august-2021/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">View modelling details</a>
 
-In particular, you might be interested to know:
-
-- [What are the phases?](/pandemic-trade-offs-detail#phases)
-- [How do the strategies work?](/pandemic-trade-offs-detail#strategies)
-
 
 ---
 
 ## Heatmaps of infections, hospitalisations, ICU admissions, deaths and time in lockdown
-Below are two heatmaps. The first shows (depending on which option you select) the average daily infections, the yearly SARS-CoV-2 deaths and the yearly SARS-CoV-2 hospitalisation (for a population the size and make-up of Victoria). The deaths are estimated using Institute of Health Metrics and Evaluation infection fatality risk ratios from pre-Delta variants, double for increased virulence of Delta. hospitalisation and ICU admission rates are estimated using rates of same by infection from the Victorian second wave, doubled (on odds scale) again for increased virulence of Delta. For an approximation of the average number of bed-night stays, multiplying hospitalisations by 10 and ICU admission by 7 will give a rough approximation.
+Below are two heatmaps. The first shows (depending on which option you select) the average number of daily infections, the yearly SARS-CoV-2 deaths and the yearly SARS-CoV-2 hospitalisation (for a population the size and make-up of Victoria). Deaths are estimated using pre-Delta variant fatality risk ratios from the Institute for Health Metrics and Evaluation infection, which are doubled for increased virulence of Delta. Hospitalisation and ICU admission rates are estimated using the respective rates observed throughout the Victorian second wave, doubled (on odds scale) again for increased virulence of Delta. 
 
-The second heatmap shows the proportion of time in stage 3 (soft lockdown) and stage 4 (hard lockdown) for all scenarios.
+The second heatmap shows the proportion of time in Stage 3 (soft lockdown) and Stage 4 (hard lockdown) for all scenarios.
 
-For both heatmaps, you also select whether you want to see:
+For both heatmaps, you can also select whether you want to see:
 
 - the period before borders open: when an infection escaping from quarantine has a probability of 4.5% per day); or
 - the period after borders open: when infections are still escaping from quarantine at a rate of 2.25% per day, and vaccinated infected arrivals occurring at the rate indicated for each scenario.
 
-For both heatmaps, if you hover a cell you will be shown the 90% simulation interval, due to both stochastic uncertainty and input parameter uncertainty (e.g. about vaccination effectiveness). 
+For both heatmaps, if you hover over a cell you will be shown the 90% simulation interval, due to both stochastic uncertainty and input parameter uncertainty (e.g. about vaccination effectiveness). 
 
 {% import_content "heatmap-summary", slug %}
 
@@ -157,7 +152,7 @@ Below is an interactive heatmap – just for the year after borders open – whe
 
 The cells colored green are beneath your threshold (on all five criteria), and the settings you would use if you were in charge of a jurisdiction. For example, vaccination coverage might have reached 80% for adults only by the time we have committed to opening the borders, and you think the true R0 might be 6.5. So you see which settings on ‘vaccinated but infected arrivals’ per day keeps you in the green, and set your jurisdictions border policy to match this. That is, you allow a number and mix of international arrivals without quarantine that keeps you in the green, and arrivals from countries with higher risk still have to go to (purpose-built) quarantine facilities.
 
-The estimated number of vaccinated but infected arrivals per day is not intuitive. So we have built a calculator for you to enter numbers or arrivals from countries with a given infection rate, that gives you the expected vaccinated but infected arrivals. We assume all such arrivals eligible for quarantine-free arrival must be vaccinated and PCR tested before travel.
+The estimated number of vaccinated but infected arrivals per day is perhaps not intuitive. In anticipation of this, we have built a <a href="/pandemic-trade-offs-detail-august-2021/">calculator</a> that allows you to estimate this parameter as a function of more intuitive quantities: the number of travellers, and the prevalence of vaccinations and circulating virus in their countries of origin. We assume all such arrivals eligible for quarantine-free arrival must be vaccinated and PCR-tested before travel.
 
 {% import_content "heatmap-scenario", slug %}
 
@@ -166,7 +161,7 @@ The estimated number of vaccinated but infected arrivals per day is not intuitiv
 ## Other Health Consequences
 
 ### Health adjusted life years (HALYs)
-Health adjusted life years (HALYs) for scenarios are coming soon – factoring in both the direct health consequences of SARS-CoV-2 (including long-COVID) and the indirect health consequences of lockdowns. For our previous estimates of HALYs lost by response strategy during the (as planned) vaccine rollout, go to our previous version of this tool, and see our paper in <a href="https://www.medrxiv.org/content/medrxiv/early/2021/01/13/2021.01.11.21249630.full.pdf">JAMA Health Forum</a>.
+Health adjusted life years (HALYs) for scenarios are coming soon – factoring in both the direct health consequences of SARS-CoV-2 (including long-COVID) and the indirect health consequences of lockdowns. For our previous estimates of HALYs lost by response strategy during the (as planned) vaccine rollout, go to our <a href="/pandemic-trade-offs/">previous version of this tool</a>, and see our paper in <a href="https://www.medrxiv.org/content/medrxiv/early/2021/01/13/2021.01.11.21249630.full.pdf">JAMA Health Forum</a>.
 
 ### Economic impacts
 

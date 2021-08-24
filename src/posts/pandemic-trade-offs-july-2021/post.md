@@ -14,7 +14,7 @@
 	"date": "2021-07-04",
 	"date_updated": "2021-07-04",
 
-	"banner": "Version 3, updated for recent data on Delta, is being launched on Tuesday 24 August. Please come back then.",
+	"banner": "Version 3, updated for recent data on Delta, is being launched on Friday 26 August. Please come back then.",
 	
 	"slug": "pandemic-trade-offs-july-2021",
 	
