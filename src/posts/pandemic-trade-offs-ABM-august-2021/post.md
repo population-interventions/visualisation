@@ -8,7 +8,7 @@
 	"type": "Interactive",
 	
 	"title": "Full Simulation",
-	"description": "This page contains a more detailed version of the Infections plot that is included on the <a href='/pandemic-trade-offs' target='_blank' rel='noopener noreferrer'>COVID-19 Pandemic Trade-offs</a> page.",
+	"description": "This page contains a more detailed version of the Infections plot that is included on the <a href='/pandemic-trade-offs-august-2021' target='_blank' rel='noopener noreferrer'>COVID-19 Pandemic Trade-offs</a> page.",
 	
 	"date": "2021-07-07",
 	"date_updated": "2021-07-07",
@@ -34,4 +34,4 @@ In the following graph, each line on the plot corresponds to one run of the mode
 
 To learn more about this modelling, please see the Model Details page.
 
-<a href="/pandemic-trade-offs-detail/" class="button-small with-arrow">View model details</a>
+<a href="/pandemic-trade-offs-detail-august-2021/" class="button-small with-arrow">View model details</a>

@@ -6,8 +6,8 @@
 var strategies = {
 		"Elimination": {
 			name: "Elimination",
-			description: "Aim for no community transmission, less quickly.",
-			examples: "Victoria (Australia)",
+			description: "Aim for no community transmission.",
+			examples: "Victoria (Australia), New Zealand",
 			transitions: [
 				{ from: "1",		to: "4", 	trigger: "7-day average > 30" },
 				{ from: "1b",		to: "4", 	trigger: "7-day average > 30" },
