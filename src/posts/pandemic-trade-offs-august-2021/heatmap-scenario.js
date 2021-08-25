@@ -21,7 +21,7 @@ for(var i = 0, max = scenarioCells.length; i < max; i++) {
 	var icuVal = node.dataset.icuYr2
 
 	eval('var displayVar = node.dataset.' + displayVarSelector + ';');
-	node.innerHTML = displayVar;
+	node.innerHTML = Number(displayVar).toLocaleString();
 
 	if (displayVarSelector ==  "lockdownYr2") {
 		node.innerHTML = Math.round(displayVar*100)  + "%"

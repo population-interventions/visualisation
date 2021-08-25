@@ -13,32 +13,32 @@ const hospitalFull_scale = [75, 200, 500, 2000, 6000];
 const lockdown_scale = [0.01, 0.02, 0.04, 0.06, 0.09];
 
 const infectYr1_min = 0;
-const infectYr1_max = 25;
+const infectYr1_max = 32;
 const infectYr2_min = 0;
-const infectYr2_max = 2400;
+const infectYr2_max = 4400;
 const infectFull_min = 0;
-const infectFull_max = 1500;
+const infectFull_max = 2800;
 
 const deathsYr1_min = 0;
-const deathsYr1_max = 70;
+const deathsYr1_max = 140;
 const deathsYr2_min = 0;
-const deathsYr2_max = 7000;
+const deathsYr2_max = 20000;
 const deathsFull_min = 0;
-const deathsFull_max = 4200;
+const deathsFull_max = 13000;
 
 const hospitalYr1_min = 0;
-const hospitalYr1_max = 1000;
+const hospitalYr1_max = 1700;
 const hospitalYr2_min = 0;
-const hospitalYr2_max = 95000;
+const hospitalYr2_max = 230000;
 const hospitalFull_min = 0;
-const hospitalFull_max = 60000;
+const hospitalFull_max = 150000;
 
 const icuYr1_min = 0;
-const icuYr1_max = 45;
+const icuYr1_max = 300;
 const icuYr2_min = 0;
-const icuYr2_max = 15000;
+const icuYr2_max = 41000;
 const icuFull_min = 0;
-const icuFull_max = 9500;
+const icuFull_max = 26000;
 
 const lockdownYr1_min = 0;
 const lockdownYr1_max = 0.5;
@@ -138,7 +138,7 @@ for(var i = 0, max = infectionCells.length; i < max; i++) {
 	eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
 
 
-    node.innerHTML = variableOfInterest;
+    node.innerHTML = Number(variableOfInterest).toLocaleString();
 	node.innerHTML += "<span class='cell-tooltip'>" +
 	"<div class='tooltip-key'>Upper bound: </div>"+ "<div class='tooltip-value'>" + upperBound + "</div>" +
 	"<div class='tooltip-key'>Lower bound: </div>"+ "<div class='tooltip-value'>" + lowerBound + "</div>" +
@@ -197,7 +197,7 @@ function updateHeatmap() {
 		eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
 
 	
-		node.innerHTML = variableOfInterest;
+		node.innerHTML = Number(variableOfInterest).toLocaleString();
 		node.innerHTML += "<span class='cell-tooltip'>" +
 		"<div class='tooltip-key'>Upper bound: </div>"+ "<div class='tooltip-value'>" + upperBound + "</div>" +
 		"<div class='tooltip-key'>Lower bound: </div>"+ "<div class='tooltip-value'>" + lowerBound + "</div>" +

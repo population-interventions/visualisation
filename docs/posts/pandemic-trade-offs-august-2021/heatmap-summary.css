@@ -145,13 +145,13 @@
 
 .col-2 {
 	left: 90px;
-	min-width: 50px !important;
+	min-width: 65px !important;
 	vertical-align: middle !important;
 	z-index: 3 !important;
 }
 
 .col-3 {
-	left: 140px;
+	left: 155px;
 	min-width: 90px !important;
 	z-index: 2 !important;
 }
