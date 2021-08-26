@@ -85,11 +85,6 @@ We use the State of Victoria as the case study, but the findings can be broadly 
 This tool will allow the user to explore possible outcomes for the remainder of the current year, with increasing vaccination coverage, and then, in the year subsequent to border restrictions being lifted. By “borders open”, we mean when a substantial proportion of vaccinated in-bound travelers are allowed quarantine-free arrival – but there will always be a need for arrivals from some countries that have high infection rates, or new variants of concern, to go to formal managed quarantine (presumably at purpose-built facilities). Indeed, this Trade-offs tool can assist with deciding what that threshold might be, in directing high-risk arrivals to formal quarantine. The model allows for incursions of the virus through both leakages out of formal quarantine (4.5% per day up to opening the borders, 2.25% probability per day after opening borders), and from vaccinated but infected quarantine arrivals ‘slipping through’ at rates of 0.2, 1, or 5 per day.
 
 You will see 216 scenarios presented in interactive tools below, for combinations of 3 in-country policy settings for when to tighten restrictions, 4 levels of vaccination coverage achieved before borders are opened, whether children (aged 5 to 16) are also vaccinated, expected vaccinated but infected arrivals after the borders open (0.2, 1 and 5 per day), and the reproductive rate of the virus (R0 of 5, 6.5 and 8). 
-We also provide links to PDFs for 1152 scenarios, extending the above scenarios to also include:
-
-* three levels of contact tracing (weak, moderate [the default above] and strong);
-* a scenario whereby 33% of infecteds self-isolated sometime between day 1 to 7 after their infection onset, due to becoming aware of an exposure site they has visited (a far from accurate representation – more just a sensitivity test to cover a greater range of plausible outcomes); and
-* one more strata of vaccinated but infected arrivals of 25 per day.
 
 For more information on these input variables, view our <a href="/pandemic-trade-offs-detail-augustå-2021/" target="_blank" rel="noopener noreferrer">model details</a> page.
 
