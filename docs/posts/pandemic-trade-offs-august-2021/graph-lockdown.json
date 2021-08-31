@@ -34,6 +34,7 @@
 				{ "type": "filter", "expr": "datum.VacUptake === VaccineUptake" },
 				{ "type": "filter", "expr": "datum.IncurRate === VaccArrivals" },
 				{ "type": "filter", "expr": "datum.Kids === VaccKids" },
+				{ "type": "filter", "expr": "datum.MinStage === MinStage" },
 				{ "type": "filter", "expr": "datum.R0 === R0" },
 				{ "type": "filter", "expr": "datum.TracePower === 'ass100_90at5'" },
 				{ "type": "stack", "groupby": ["day"], "sort": {"field": "stage", "order": "descending"}, "field": "stage_prop" }
@@ -122,6 +123,17 @@
 						"signalName": "VaccKids"
 					},
 					{
+						"title": "Minimum stage",
+						"description": "The least restrictive stage of restrictions allowed in simulations",
+						"detailLink": "/pandemic-trade-offs-detail-august-2021/#effectiveness",
+						"type": "select",
+						"options": [
+							{ "value": "1a", "label": "1a"},
+							{ "value": "2", "label": "2", "default": true }
+						],
+						"signalName": "MinStage"
+					},
+					{
 						"title": "Virus Reproduction Rate (R0)",
 						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#reproduction",
@@ -180,12 +192,12 @@
 			"reverse":true,
 			"range": ["#41af4c", "#75c23c", "#eed23a", "#d99141", "#e34545"],
 			"reverse":false,
-			"domain": {"data": "main", "field": "stage"}
+			"domain": ["1", "1b", "2", "3", "4"]
 		},
 		{
 			"name": "parameters",
 			"type": "ordinal",
-			"domain": { "signal": "['Vaccine_uptake: ' + VaccineUptake, 'Strategy: ' + Strategy, 'Infected_arrivals: ' + VaccArrivals, 'Vaccinate_kids: ' + VaccKids, 'R_0: ' + R0]"},
+			"domain": { "signal": "['Vaccine_uptake: ' + VaccineUptake, 'Strategy: ' + Strategy, 'Infected_arrivals: ' + VaccArrivals, 'Vaccinate_kids: ' + VaccKids, 'Minimum Stage: ' + MinStage, 'R_0: ' + R0]"},
 			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
 		}
 	],

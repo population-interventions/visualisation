@@ -34,6 +34,7 @@
 				{ "type": "filter", "expr": "datum.vk === VaccKids" },
 				{ "type": "filter", "expr": "datum.R0 === R0" },
 				{ "type": "filter", "expr": "datum.tp === 'ass100_90at5'" },
+				{ "type": "filter", "expr": "datum.ms === MinStage" },
 				{ "type": "extent", "field": "q95", "signal": "Extent" },
 				
 				{"type": "formula", "as": "nq95", "expr": "MaxHeight === 'depend on data' ? datum.q95 : clamp(datum.q95, 0, toNumber(MaxHeight))"},
@@ -124,6 +125,17 @@
 						"signalName": "VaccKids"
 					},
 					{
+						"title": "Minimum stage",
+						"description": "The least restrictive stage of restrictions allowed in simulations",
+						"detailLink": "/pandemic-trade-offs-detail-august-2021/#effectiveness",
+						"type": "select",
+						"options": [
+							{ "value": "1a", "label": "1a"},
+							{ "value": "2", "label": "2", "default": true }
+						],
+						"signalName": "MinStage"
+					},
+					{
 						"title": "Virus Reproduction Rate (R0)",
 						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#reproduction",
@@ -196,6 +208,7 @@
 				{ "events": { "signal": "Domain" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-v2-VaccArrivals", "type": "change" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-v2-VaccKids", "type": "change" }, "update": "true" },
+				{ "events": { "source": "#select-ABM-v2-MinStage", "type": "change" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-v2-Strategy", "type": "change" }, "update": "true" },
 				{ "events": { "source": "#select-ABM-v2-R0", "type": "change" }, "update": "true" }
 			]
@@ -228,7 +241,7 @@
 		{
 			"name": "parameters",
 			"type": "ordinal",
-			"domain": { "signal": "['Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'Vaccinate Kids: ' + VaccKids, 'R_0: ' + R0]"},
+			"domain": { "signal": "['Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'Vaccinate Kids: ' + VaccKids, 'Minimum Stage: ' + MinStage, 'R_0: ' + R0]"},
 			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
 		}
 	],
@@ -450,6 +463,7 @@
 		{
 			"type": "rule",
 			"from": { "data": "annotations" },
+			"clip": true,
 			"encode": {
 				"update": {
 					"x": {"scale": "x", "field": "x"},
@@ -464,6 +478,7 @@
 		{
 			"type": "text",
 			"from": { "data": "annotations" },
+			"clip": true,
 			"encode": {
 				"update": {
 					"x": {"scale": "x", "field": "x"},

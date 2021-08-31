@@ -14,7 +14,7 @@
 	"date": "2021-07-04",
 	"date_updated": "2021-07-04",
 
-	"banner": "Version 3, updated for recent data on Delta, is being launched on Friday 26 August. Please come back then.",
+	"banner": "Note: this tool is currently being updated to to reflect new research on the virulence of the Delta strain of COVID-19. Please check back later.",
 	
 	"slug": "pandemic-trade-offs-july-2021",
 	
