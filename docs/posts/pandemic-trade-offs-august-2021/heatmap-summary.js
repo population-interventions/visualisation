@@ -126,6 +126,8 @@ var lockdownCells = document.querySelectorAll('#lockdown-heatmap td');
 
 var variableSelector = document.getElementById("heatmapVarSelector").value;
 var domainSelector = document.getElementById("heatmapDomainSelector").value;
+var minStageSelector = document.getElementById("heatmapMinStageSelector").value;
+
 eval('var minVal =' + variableSelector + domainSelector + '_min;');
 eval('var maxVal =' + variableSelector + domainSelector + '_max;');
 
@@ -133,11 +135,11 @@ eval('var maxVal =' + variableSelector + domainSelector + '_max;');
 for(var i = 0, max = infectionCells.length; i < max; i++) {
     var node = infectionCells[i];
 
-	eval('var variableOfInterest = node.dataset.' + variableSelector + domainSelector + ';');
-	eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
-	eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
+	eval('var variableOfInterest = node.dataset.' + variableSelector + minStageSelector + domainSelector + ';');
+	eval('var upperBound = node.dataset.' + variableSelector + minStageSelector + domainSelector + 'Upper;');
+	eval('var lowerBound = node.dataset.' + variableSelector + minStageSelector + domainSelector + 'Lower;');
 
-
+	console.log(node.dataset)
     node.innerHTML = Number(variableOfInterest).toLocaleString();
 	node.innerHTML += "<span class='cell-tooltip'>" +
 	"<div class='tooltip-key'>Upper bound: </div>"+ "<div class='tooltip-value'>" + upperBound + "</div>" +
@@ -159,9 +161,9 @@ for(var i = 0, max = lockdownCells.length; i < max; i++) {
 	var scale = lockdown_scale;
 
     // get data values from table cells
-    eval('var lockdownVal = node.dataset.lockdown' + domainSelector + ';');
-	eval('var upperBound = Math.round(node.dataset.lockdown' + domainSelector + 'Upper*100) + "%";');
-	eval('var lowerBound = Math.round(node.dataset.lockdown' + domainSelector + 'Lower*100) + "%";');
+    eval('var lockdownVal = node.dataset.lockdown' + minStageSelector + domainSelector + ';');
+	eval('var upperBound = Math.round(node.dataset.lockdown' + minStageSelector + domainSelector + 'Upper*100) + "%";');
+	eval('var lowerBound = Math.round(node.dataset.lockdown' + minStageSelector + domainSelector + 'Lower*100) + "%";');
 
 
     node.innerHTML = Math.round(lockdownVal*100) + "%";
@@ -183,6 +185,7 @@ for(var i = 0, max = lockdownCells.length; i < max; i++) {
 function updateHeatmap() {
 	var variableSelector = document.getElementById("heatmapVarSelector").value;
 	var domainSelector = document.getElementById("heatmapDomainSelector").value;
+	var minStageSelector = document.getElementById("heatmapMinStageSelector").value;
 
 	var infectionCells = document.querySelectorAll('#infections-heatmap td');
 	var lockdownCells = document.querySelectorAll('#lockdown-heatmap td');
@@ -192,9 +195,9 @@ function updateHeatmap() {
 	for(var i = 0, max = infectionCells.length; i < max; i++) {
 		var node = infectionCells[i];
 
-		eval('var variableOfInterest = node.dataset.' + variableSelector + domainSelector + ';');
-		eval('var upperBound = node.dataset.' + variableSelector + domainSelector + 'Upper;');
-		eval('var lowerBound = node.dataset.' + variableSelector + domainSelector + 'Lower;');
+		eval('var variableOfInterest = node.dataset.' + variableSelector + minStageSelector  + domainSelector + ';');
+		eval('var upperBound = node.dataset.' + variableSelector + minStageSelector  + domainSelector + 'Upper;');
+		eval('var lowerBound = node.dataset.' + variableSelector + minStageSelector  + domainSelector + 'Lower;');
 
 	
 		node.innerHTML = Number(variableOfInterest).toLocaleString();
@@ -213,9 +216,9 @@ function updateHeatmap() {
 		var node = lockdownCells[i];
 
 		// get data values from table cells
-		eval('var lockdownVal = node.dataset.lockdown' + domainSelector + ';');
-		eval('var upperBound = Math.round(node.dataset.lockdown' + domainSelector + 'Upper*100) + "%";');
-		eval('var lowerBound = Math.round(node.dataset.lockdown' + domainSelector + 'Lower*100) + "%";');
+		eval('var lockdownVal = node.dataset.lockdown' + minStageSelector + domainSelector + ';');
+		eval('var upperBound = Math.round(node.dataset.lockdown' + minStageSelector  + domainSelector + 'Upper*100) + "%";');
+		eval('var lowerBound = Math.round(node.dataset.lockdown' + minStageSelector  + domainSelector + 'Lower*100) + "%";');
 		eval('var minVal = lockdown' + domainSelector + '_min;');
 		eval('var maxVal = lockdown' + domainSelector + '_max;');
 

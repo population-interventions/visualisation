@@ -5,6 +5,7 @@ var maxDeaths = document.getElementById("death-slider").value;
 var maxHospital = document.getElementById("hospitalisation-slider").value;
 var maxICU = document.getElementById("icu-slider").value;
 var displayVarSelector = document.getElementById("heatmapScenarioDisplayVarSelector").value;
+var minStageSelector = document.getElementById("heatmapScenarioMinStageSelector").value;
 
 
 // ------------------------------------------------------------
@@ -14,13 +15,13 @@ for(var i = 0, max = scenarioCells.length; i < max; i++) {
     var node = scenarioCells[i];
 
     // get data values from table cells
-	var infectVal = node.dataset.infectYr2
-	var lockdownVal = node.dataset.lockdownYr2 * 100
-	var deathsVal = node.dataset.deathsYr2
-	var hospitalVal = node.dataset.hospitalYr2
-	var icuVal = node.dataset.icuYr2
+	eval('var infectVal = node.dataset.infect' + minStageSelector + 'Yr2;');
+	eval('var lockdownVal = node.dataset.lockdown' + minStageSelector + 'Yr2 * 100;');
+	eval('var deathsVal = node.dataset.deaths' + minStageSelector + 'Yr2;');
+	eval('var hospitalVal = node.dataset.hospital' + minStageSelector + 'Yr2;');
+	eval('var icuVal = node.dataset.icu' + minStageSelector + 'Yr2;');
 
-	eval('var displayVar = node.dataset.' + displayVarSelector + ';');
+	eval('var displayVar = node.dataset.' + displayVarSelector + minStageSelector + 'Yr2;');
 	node.innerHTML = Number(displayVar).toLocaleString();
 
 	if (displayVarSelector ==  "lockdownYr2") {
@@ -64,16 +65,18 @@ function updateScenarioHeatmap() {
 	var maxHospital = document.getElementById("hospitalisation-slider").value;
 	var maxICU = document.getElementById("icu-slider").value;
 	var displayVarSelector = document.getElementById("heatmapScenarioDisplayVarSelector").value;
+	var minStageSelector = document.getElementById("heatmapScenarioMinStageSelector").value;
 	
 	for(var i = 0, max = scenarioCells.length; i < max; i++) {
 		var node = scenarioCells[i];
 
 		// get data values from table cells
-		var infectVal = node.dataset.infectYr2
-		var lockdownVal = node.dataset.lockdownYr2 * 100
-		var deathsVal = node.dataset.deathsYr2
-		var hospitalVal = node.dataset.hospitalYr2
-		var icuVal = node.dataset.icuYr2
+		eval('var infectVal = node.dataset.infect' + minStageSelector + 'Yr2;');
+		eval('var lockdownVal = node.dataset.lockdown' + minStageSelector + 'Yr2 * 100;');
+		eval('var deathsVal = node.dataset.deaths' + minStageSelector + 'Yr2;');
+		eval('var hospitalVal = node.dataset.hospital' + minStageSelector + 'Yr2;');
+		eval('var icuVal = node.dataset.icu' + minStageSelector + 'Yr2;');
+	
 
 		infectPass = (Math.round(infectVal) <= maxInfections ? true : false)
 		deathsPass = (Math.round(deathsVal) <= maxDeaths ? true : false)
@@ -82,7 +85,7 @@ function updateScenarioHeatmap() {
 		lockdownPass = (lockdownVal <= maxLockdown ? true : false) 
 
 	
-		eval('var displayVar = node.dataset.' + displayVarSelector + ';');
+		eval('var displayVar = node.dataset.' + displayVarSelector + minStageSelector + 'Yr2;');
 		node.innerHTML = displayVar;
 
 		if (displayVarSelector ==  "lockdownYr2") {

@@ -70,8 +70,8 @@
 		{
 			"name": "annotations",
 			"values": [
-				{ "x": 29, "y": 59, "x2": 38, "y2": 32, "text": ["Solid lines show the", "median number of new", "infections each day"], "align": "right", "baseline": "bottom"},
-				{ "x": 25, "y": 105, "x2": 38, "y2": 105, "text": ["Shaded bands are 90%", "uncertainty intervals"], "align": "right", "baseline": "bottom"},
+				{ "x": 35, "y": 40, "x2": 44, "y2": 21, "text": ["Solid lines show the", "median number of new", "infections each day"], "align": "right", "baseline": "bottom"},
+				{ "x": 25, "y": 73, "x2": 39, "y2": 73, "text": ["Shaded bands are 90%", "uncertainty intervals"], "align": "right", "baseline": "bottom"},
 				{ "x": 5, "y": 40, "x2": 0.5, "y2": 0, "text": ["All simulations start", "with a 2.25% probability", "of a new infection arising", "each day"], "align": "left", "baseline": "bottom"}
 			]
 		}

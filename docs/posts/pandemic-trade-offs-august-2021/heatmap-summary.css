@@ -5,19 +5,30 @@
 	margin-right: auto;
 }
 
-.heatmap-toggle {
+
+@media screen and (max-width: 700px) {
+	.heatmap-container .vega-bind {
+		width: 100%;
+	}
+}
+
+
+
+.heatmap-toggle-container {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 .heatmap-toggle label {
 	display: flex;
 }
 
-#heatmapDomainSelector, #heatmapVarSelector {
+#heatmapDomainSelector, #heatmapVarSelector, #heatmapMinStageSelector {
 	padding: 0;
 	font-size: 0.9rem;
 	padding: 0rem 2rem 0 0.5rem;
+	width: max-content;
+	max-width: 130px;
 	background-color: #fff !important;
 	color: #000 !important;
 	font-family: monospace;
