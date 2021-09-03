@@ -87,6 +87,17 @@
 						"signalName": "VaccKids"
 					},
 					{
+						"title": "Minimum stage",
+						"description": "The least restrictive stage of restrictions allowed in simulations",
+						"detailLink": "/pandemic-trade-offs-detail-august-2021/#effectiveness",
+						"type": "select",
+						"options": [
+							{ "value": "1a", "label": "1a"},
+							{ "value": "2", "label": "2", "default": true }
+						],
+						"signalName": "MinStage"
+					},
+					{
 						"title": "Virus Reproduction Rate (R0)",
 						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#reproduction",
@@ -131,7 +142,7 @@
 		{
 			"name": "DataFileName",
 			"value": "/posts/pandemic-trade-offs-ABM-august-2021/data-ABM/70_Yes_ME_ME_TS_4833_032.csv",
-			"update": "'/posts/pandemic-trade-offs-ABM-august-2021/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '_ass100_90at5.csv'"
+			"update": "'/posts/pandemic-trade-offs-ABM-august-2021/data-ABM/' + VaccineUptake + '_' + VaccKids + '_' + Strategy + '_' + replace(toString(R0), '.', '') + '_' + replace(toString(VaccArrivals), '.', '') + '_ass100_90at5_' + replace(toString(MinStage), '.', '') + '.csv'"
 		}
 	],
 
@@ -155,13 +166,13 @@
 			"type": "ordinal",
 			"domain": ["1", "1b", "2", "3", "4"],
 			"range": { "scheme": "turbo" },
-			"range": ["#2c7bb6", "#abd9e9", "#ffe669", "#fdae61", "#d7191c"]
+			"range": ["#41af4c", "#75c23c", "#eed23a", "#d99141", "#e34545"]
 		},
 		{
 			"name": "parameters",
 			"type": "ordinal",
 			"domain": ["Input 1", "Input 2", "Input 3"],
-			"domain": { "signal": "['Vaccine Uptake: ' + VaccineUptake, 'Vaccinate Kids: ' + VaccKids, 'Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'R_0: ' + R0]"},
+			"domain": { "signal": "['Vaccine Uptake: ' + VaccineUptake, 'Vaccinate Kids: ' + VaccKids, 'Strategy: ' + Strategy, 'Infected Arrivals: ' + VaccArrivals, 'Minimum Stage: ' + MinStage,'R_0: ' + R0]"},
 			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
 		}
 	],

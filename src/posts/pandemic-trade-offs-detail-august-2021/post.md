@@ -135,27 +135,13 @@ For example, using the Institute of Health Metrics and Evaluation (IHME) estimat
 
 <h2 id="reproduction">Reproduction Rate Calibration</h2>
 
-For the ABM used in this tool, we have updated it from the ABM used in our [previous modelling](https://www.mja.com.au/journal/2020/213/8/probability-6-week-lockdown-victoria-commencing-9-july-2020-achieving) (e.g. for the Victorian RoadMap).  Key updates include:
-
-- altering the two dimensional distance the agents move in (to improve scaling of the model);
-- improving how the super spreader function works;
-- re-parametrisation of contact tracing; and
-- the inclusion of vaccinations, as outlined above.
-
-We therefore re-calibrated the model by 'tuning' the global transmissibility parameter that&mdash;essentially&mdash;sets how infective each person is during a contact with another person. We first set this global transmissibility parameter to a level that achieved an \\(R_0\\) of 2.5, 3.125 and 3.75 for the three different scenarios of baseline infectiousness of SARS-CoV-2 (i.e. the wild type variant with \\(R_0\\) of 2.5, increasing to 3.75 for variants of concern).  Then we ensured that for the \\(R_0 = 2.5\\) scenario that Stage 4 restrictions achieved the daily percentage reduction in infections observed in Victoria coming out of its second wave (with Stage 4 restrictions) of 7 to 8% per day.  Next, we ensured that in the \\(R_0\\) of 2.5 scenario, Stage 3 achieved an effective reproductive rate of less than 1.0 and Stage 2 of greater than 1.0 – each approximately equi-distant below and above an effective reproductive rate of 1.0.
-
-Below is a graph of the effective reproductive rate by stage of restrictions, in the absence of vaccination, for the three \\(R_0\\) scenarios of 2.5, 3.125 and 3.75.
+The \\(R_0\\)  of the ABM is primarily calibrated by tuning the base chance of a susceptible agent becoming infected per interaction with an infected agent. This parameter, called 'global transmissibility', is then multiplied by factors to reflect the particular circumstances of each interaction, such as the vaccination status of both agents, whether they are wearing masks, the infected agent’s incubation period, and heterogeneity for susceptibility and transmissibility . To measure the \\(R_0\\)  we create a scenario with no vaccination, no lockdowns, and no other public health responses. We then seed this scenario with one case and record the number of secondary infections. This scenario is repeated several thousand times to generate an average \\(R_0\\) .
+ 
+Additional parameters had previously been used to calibrate previous iterations of the model, primarily to calibrate the \\(R_{\text{eff}}\\)  of various stages of lockdown at \\(R_0\\)  2.5 These parameters include travel radius, population density, the the rate of super sprading behaviour, and the density of congregation locations. These additional parameters reflect characteristics of the region that SARS-CoV-2 is spreading in, rather than the virulence of the variant itself, so we have not modified them for this iteration of modelling. By leaving these parameters unchanged we are able to use the calibration carried out for earlier modelling. In March we were looking at \\(R_0\\)  2.5 so we calibrated the \\(R_{\text{eff}}\\)  of the various stages of lockdown to match the \\(R_{\text{eff}}\\)  observed during the Victorian second wave in August 2020. For stage 4 we calibrated to a 7-8% reduction of cases per day. Stages 2 and 3 were calibrated to straddle \\(R_{\text{eff}}\\)  1.0.
 
 {% import_graph "calibration", slug %}
 
-For Delta and new variants, we then calibrated the global transmissibility parameter to achieve \\(R_0\\) of 5.0 and 6.0.
-
-Contact tracing really matters.  Indeed, it is the most important adjunct to vaccination in allowing us to open the borders at a level of vaccination that is less than 90% (the approximate level of vaccination we need to achieve herd immunity without any other measures). We have put extensive effort into calibrating contact tracing in the model so that:
-
-* For a virus of \\(R_0\\) of 2.5, 48.4% of unvaccinated infected people in the community do not infect anyone, yet 20.3% of infected people cause 72.1% of the next generation of infections (i.e. we include much heterogeneity across agents in their infectiousness and mobility – fitting evidence from early in the pandemic)
-* Contact tracing at low case numbers (an average of 1 per day) finds 90% of infected contacts (both upstream and downstream) within 3 days.  At an average of 5 cases per day, this deteriorates to a 70% detection rate.
-
-If contact tracing is not functioning this well, then the number of infections for each scenario will be greater.
+The pattern of transmission in real world outbreaks is highly skewed. Essentially, many people cause no secondary infections, while a small proportion of people tend to be responsible for the majority of the next generation of cases. To reflect, the model contains variation among agents for parameters such as infectivity, travel radius, and frequency of super spreading behaviour. In the model with R0 2.5, under our no intervention, no vaccine, scenario, 48% of infected people in the community do not infect anyone, and 20% of infected people cause 71% of the next generation of infections. These values will shift with the higher R0s of the current model, however the underlying variation in behaviour is still present.
 
 The percentage of population wearing masks outside their home is set at 15%, 35% and 50% in the non-lockdown stages, 1, 1b and 2, respectively. This approximates use of masks in public transport and other high risk settings. In Stages 3 and 4, the percentage of population wearing masks outside their home is 60% and 85%, respectively.
 
