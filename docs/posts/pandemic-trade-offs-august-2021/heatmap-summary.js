@@ -13,32 +13,32 @@ const hospitalFull_scale = [75, 200, 500, 2000, 6000];
 const lockdown_scale = [0.01, 0.02, 0.04, 0.06, 0.09];
 
 const infectYr1_min = 0;
-const infectYr1_max = 210;
+const infectYr1_max = 40;
 const infectYr2_min = 0;
-const infectYr2_max = 4700;
+const infectYr2_max = 3600;
 const infectFull_min = 0;
-const infectFull_max = 3000;
+const infectFull_max = 2300;
 
 const deathsYr1_min = 0;
-const deathsYr1_max = 820;
+const deathsYr1_max = 110;
 const deathsYr2_min = 0;
-const deathsYr2_max = 18000;
+const deathsYr2_max = 12000;
 const deathsFull_min = 0;
-const deathsFull_max = 11000;
+const deathsFull_max = 7400;
 
 const hospitalYr1_min = 0;
-const hospitalYr1_max = 10000;
+const hospitalYr1_max = 520;
 const hospitalYr2_min = 0;
-const hospitalYr2_max = 200000;
+const hospitalYr2_max = 47000;
 const hospitalFull_min = 0;
-const hospitalFull_max = 130000;
+const hospitalFull_max = 30000;
 
 const icuYr1_min = 0;
-const icuYr1_max = 2100;
+const icuYr1_max = 110;
 const icuYr2_min = 0;
-const icuYr2_max = 40000;
+const icuYr2_max = 10000;
 const icuFull_min = 0;
-const icuFull_max = 25000;
+const icuFull_max = 6500;
 
 const lockdownYr1_min = 0;
 const lockdownYr1_max = 0.5;
