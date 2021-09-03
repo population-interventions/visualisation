@@ -128,8 +128,8 @@
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#effectiveness",
 						"type": "select",
 						"options": [
-							{ "value": "1a", "label": "1a"},
-							{ "value": "2", "label": "2", "default": true }
+							{ "value": "1a", "label": "1a", "default": true },
+							{ "value": "2", "label": "2"}
 						],
 						"signalName": "MinStage"
 					},

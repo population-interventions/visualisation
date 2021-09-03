@@ -70,9 +70,9 @@
 		{
 			"name": "annotations",
 			"values": [
-				{ "x": 35, "y": 20, "x2": 45, "y2": 8, "text": ["Solid lines show the", "median number of new", "infections each day"], "align": "right", "baseline": "bottom"},
-				{ "x": 25, "y": 37.5, "x2": 38, "y2": 37.5, "text": ["Shaded bands are 90%", "uncertainty intervals"], "align": "right", "baseline": "bottom"},
-				{ "x": 5, "y": 15, "x2": 0.5, "y2": 0, "text": ["All simulations start", "with a 2.25% probability", "of a new infection arising", "each day"], "align": "left", "baseline": "bottom"}
+				{ "x": 25, "y": 80, "x2": 38.6, "y2": 50, "text": ["Solid lines show the", "median number of new", "infections each day"], "align": "right", "baseline": "bottom"},
+				{ "x": 25, "y": 150, "x2": 36.6, "y2": 150, "text": ["Shaded bands are 90%", "uncertainty intervals"], "align": "right", "baseline": "bottom"},
+				{ "x": 5, "y": 50, "x2": 0.5, "y2": 0, "text": ["All simulations start", "with a 2.25% probability", "of a new infection arising", "each day"], "align": "left", "baseline": "bottom"}
 			]
 		}
 	],
@@ -130,8 +130,8 @@
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#effectiveness",
 						"type": "select",
 						"options": [
-							{ "value": "1a", "label": "1a"},
-							{ "value": "2", "label": "2", "default": true }
+							{ "value": "1a", "label": "1a", "default": true },
+							{ "value": "2", "label": "2"}
 						],
 						"signalName": "MinStage"
 					},
