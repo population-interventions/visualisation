@@ -70,8 +70,8 @@
 		{
 			"name": "annotations",
 			"values": [
-				{ "x": 25, "y": 80, "x2": 38.6, "y2": 50, "text": ["Solid lines show the", "median number of new", "infections each day"], "align": "right", "baseline": "bottom"},
-				{ "x": 25, "y": 150, "x2": 36.6, "y2": 150, "text": ["Shaded bands are 90%", "uncertainty intervals"], "align": "right", "baseline": "bottom"},
+				{ "x": 25, "y": 80, "x2": 40, "y2": 49.5, "text": ["Solid lines show the", "median number of new", "infections each day"], "align": "right", "baseline": "bottom"},
+				{ "x": 25, "y": 150, "x2": 36, "y2": 150, "text": ["Shaded bands are 90%", "uncertainty intervals"], "align": "right", "baseline": "bottom"},
 				{ "x": 5, "y": 50, "x2": 0.5, "y2": 0, "text": ["All simulations start", "with a 2.25% probability", "of a new infection arising", "each day"], "align": "left", "baseline": "bottom"}
 			]
 		}
@@ -119,8 +119,8 @@
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#effectiveness",
 						"type": "select",
 						"options": [
-							{ "value": 0, "label": "No"},
-							{ "value": 1, "label": "Yes", "default": true }
+							{ "value": "No", "label": "No"},
+							{ "value": "Yes", "label": "Yes", "default": true }
 						],
 						"signalName": "VaccKids"
 					},
