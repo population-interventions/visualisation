@@ -14,7 +14,7 @@
 	"date": "2021-07-04",
 	"date_updated": "2021-07-04",
 
-	"banner": "Note: this tool is currently being updated to to reflect new research on the virulence of the Delta strain of COVID-19. Please check back later.",
+	"banner": "This is the July 2021 version of this tool.  For the September 2021 version that includes updated data on the virulence of the Delta strain of COVID-19, please go [**HERE**](/pandemic-trade-offs-september-2021/).",
 	
 	"slug": "pandemic-trade-offs-july-2021",
 	
@@ -24,7 +24,7 @@
 		"vega": true
 	},
 	
-	"hidden": false,
+	"hidden": true,
 	"draft": false,
 	
 	"skipToLinks": [

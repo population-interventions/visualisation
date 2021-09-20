@@ -23,7 +23,7 @@
 	
 	"hidden": false,
 	"draft": false,
-	"banner": "This is the March 2021 version of this tool.  For the July 2021 version that includes border openings, please go [**HERE**](/pandemic-trade-offs-july-2021/).",
+	"banner": "This is the March 2021 version of this tool.  For the September 2021 version that includes border openings, please go [**HERE**](/pandemic-trade-offs-september-2021/).",
 	
 	"skipToLinks": [
 		{

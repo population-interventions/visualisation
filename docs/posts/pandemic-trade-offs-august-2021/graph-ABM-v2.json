@@ -114,24 +114,24 @@
 						"signalName": "VaccArrivals"
 					},
 					{
-						"title": "Vaccinate Children",
-						"description": "Whether children are vaccinated alongside adults",
+						"title": "Vaccinate Eligibility",
+						"description": "Whether to vaccinate adults only (18+ year olds), or to vaccinate adults and children (5+ year olds)",
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#effectiveness",
 						"type": "select",
 						"options": [
-							{ "value": "No", "label": "No"},
-							{ "value": "Yes", "label": "Yes", "default": true }
+							{ "value": "No", "label": "Adults only"},
+							{ "value": "Yes", "label": "Adults and children", "default": true }
 						],
 						"signalName": "VaccKids"
 					},
 					{
-						"title": "Minimum stage",
-						"description": "The least restrictive stage of restrictions allowed in simulations",
+						"title": "Acceptable range of restriction levels",
+						"description": "Whether the suppression policy can use the full range of restriction levels, or has Stage 2 as a minimum level of 'light restrictions'",
 						"detailLink": "/pandemic-trade-offs-detail-august-2021/#effectiveness",
 						"type": "select",
 						"options": [
-							{ "value": "1a", "label": "1a", "default": true },
-							{ "value": "2", "label": "2"}
+							{ "value": "1a", "label": "Allow all restriction levels", "default": true },
+							{ "value": "2", "label": "Keep a minimum level of light restrictions (Stage 2)"}
 						],
 						"signalName": "MinStage"
 					},
