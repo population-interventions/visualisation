@@ -79,7 +79,8 @@ This tool allows you to explore how COVID-19 policy responses (restrictions, vac
 
 These changes all mean that for any policy setting (e.g. vaccination coverage, triggers to lockdown, mask wearing) the expected number of infections (and hence morbidity and mortality), and the expected time in lockdown, is – unfortunately – worse than we estimated in Version 2 of this tool.  
 
-A co-published [modelling report]() gives our interpretation and policy recommendations based on this Version 3.
+A co-published <a href="/posts/pandemic-trade-offs-september-2021/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" target="_blank" rel="noopener noreferrer">modelling report (PDF 9.0 MB)</a> gives our interpretation and policy recommendations based on this Version 3.
+
 
 We use the State of Victoria as the case study, but the findings can be broadly applied to other states and territories in Australia, New Zealand and other South Eastern Asian and Oceanic countries that are trying to use an elimination strategy before opening their open the borders. The findings may also be generalised further to countries that have not used an elimination strategy, but are considering how best to manage borders at varying levels of within-country immunity (be that through vaccination and / or natural infection).
 
@@ -89,7 +90,7 @@ You will see 216 scenarios presented in interactive tools below, for combination
 
 For more information on these input variables, view our <a href="/pandemic-trade-offs-detail-septemberå-2021/" target="_blank" rel="noopener noreferrer">model details</a> page.
 
-<a href="https://pursuit.unimelb.edu.au/articles/what-s-the-right-covid-19-risk-to-live-with" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the explanatory article</a><br /><br />
+<a href="/posts/pandemic-trade-offs-september-2021/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the full report</a><br /><br />
 
 ---
 
