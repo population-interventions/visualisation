@@ -68,6 +68,7 @@
 
 }
 ---
+A report summarising Version 3 COVID-19 Pandemic Tradeoffs modelling, '[2022 will be better](/posts/pandemic-trade-offs-september-2021/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf)', accompanies this website.
 
 This tool allows you to explore how COVID-19 policy responses (restrictions, vaccination roll-out, and border opening) impact future SARS-CoV-2 infection, hospitalisation and mortality rates, and the future probability of lockdowns. This Version 3 updates Version 2 in the following important ways:
 
@@ -88,7 +89,7 @@ This tool will allow the user to explore possible outcomes for the remainder of 
 
 You will see 216 scenarios presented in interactive tools below, for combinations of 3 in-country policy settings for when to tighten restrictions, 4 levels of vaccination coverage achieved before borders are opened, whether children (aged 5 to 17) are also vaccinated, expected vaccinated but infected arrivals after the borders open (0.2, 1 and 5 per day), and the reproductive rate of the virus (R0 of 5, 6.5 and 8). 
 
-For more information on these input variables, view our <a href="/pandemic-trade-offs-detail-septemberå-2021/" target="_blank" rel="noopener noreferrer">model details</a> page.
+For more information on these input variables, view our <a href="/pandemic-trade-offs-detail-september-2021/" target="_blank" rel="noopener noreferrer">model details</a> page.
 
 <a href="/posts/pandemic-trade-offs-september-2021/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the full report</a><br /><br />
 
