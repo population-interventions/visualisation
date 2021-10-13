@@ -31,13 +31,13 @@
 }
 ---
 
-This 'COVID-19 Pandemic Trade-Offs' modelling report <a href="/posts/pandemic-trade-offs-september-2021/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" target="_blank" rel="noopener noreferrer">(PDF 9.0 MB)</a> throws light on what next year might look like once we open up to the world.
+This 'COVID-19 Pandemic Trade-Offs' modelling report <a href="/posts/2022-will-be-better-report/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" target="_blank" rel="noopener noreferrer">(PDF 9.0 MB)</a> throws light on what next year might look like once we open up to the world.
 
 This report covers 432 possible scenarios, each modelled 100 times in an agent-based model to capture as many futures as possible. All results are publicly available at an <a href="/pandemic-trade-offs-september-2021/" target="_blank" rel="noopener noreferrer">interactive webtool</a>.
 
-<a href="/posts/pandemic-trade-offs-september-2021/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the full report</a><br /><br />
+<a href="/posts/2022-will-be-better-report/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the full report</a><br /><br />
 
-{% import_image_link "Front-cover.png", "/posts/pandemic-trade-offs-september-2021/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf", slug %}
+{% import_image_link "Front-cover.png", "/posts/2022-will-be-better-report/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf", slug %}
 
 We model 432 scenarios for combinations of:
 
