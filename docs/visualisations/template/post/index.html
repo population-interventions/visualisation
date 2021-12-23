@@ -1,0 +1,49 @@
+
+This is a template post.
+
+All the text-based content of the post is written in Markdown, like this. Any of the usual features of markdown can be used, including [links](), **bold text**, _italicised text_ and lists:
+
+-   List Item 1
+-   List Item 2
+-   List Item 3
+
+If you want to include a graph specified using Vega, you should save the graph specification in the same folder as this `post.md` file. The name of the graph specification should be `graph-id.json`, where `id` is replaced with a short, readable identifier for that graph. You can then import the graph using the following 'shortcode', wherever you want the graph to appear in the post.
+
+<div class="fig outset-3 more-margin-1">
+				<div id="graph-settings-example" class="graph-settings"></div>
+				<div id="graph-container-example" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-example"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Graph Options</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Colour Scheme</div>
+					<div class="description">The colour scheme used by the stacked bars.</div>
+				</div>
+				<div><select name="ColourScheme" id="select-example-ColourScheme" autocomplete=off>
+						<option value="greys" selected>greys</option>
+<option value="viridis" >viridis</option>
+<option value="inferno" >inferno</option>
+					</select></div></div><div class="toggle-box">
+				<div>
+					<div class="name"># Categories</div>
+					<div class="description">The number of categories plotted.</div>
+				</div>
+				<div><select name="nCategories" id="select-example-nCategories" autocomplete=off>
+						<option value="0" >0</option>
+<option value="1" >1</option>
+<option value="2" >2</option>
+<option value="3" >3</option>
+<option value="4" selected>4</option>
+					</select></div></div>
+				</div>
+			</div></div><button class="toggle-open" id="toggle-open-example"><span>Adjust parameters</span><span class="with-arrow"></span></button></aside></div>
+			<script type="text/javascript">
+				graphs.push("example")
+			</script>
+		
+
+In the above example, the id of our graph is `example`, so we include "example" in quotes within the shortcode. Other than that, you shouldn't need to change anything with the shortcode.

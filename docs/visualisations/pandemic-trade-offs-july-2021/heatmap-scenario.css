@@ -1,0 +1,49 @@
+
+.heatmap-container > .graph-settings > .vega-bind > label > .styled-select {
+	padding: 0;
+	all:initial;
+	height: fit-content;
+	width: fit-content;
+	background-color: #fff !important;
+	color: #000 !important;
+	position: relative;
+}
+
+.heatmap-container > .graph-settings > .vega-bind > label > .styled-select:after {
+	content: "";
+    border: none;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    height: 5px;
+    line-height: 9px;
+    -webkit-transform: rotate(
+		45deg
+		) translateY(0);
+			-ms-transform: rotate(45deg) translateY(0);
+			transform: rotate(
+		45deg
+		) translateY(0);
+    pointer-events: none;
+    position: absolute;
+    width: 5px;
+    top: 65%;
+    right: 0;
+	color:#000 !important;
+}
+
+.heatmap-container > .graph-settings > .vega-bind > label > .styled-select > option {
+	color:#000 !important;
+}
+
+.heatmap-container > .graph-settings > .vega-bind > label > .styled-select:before {
+	content: none;
+	all:initial;
+}
+
+#heatmapScenarioDisplayVarSelector {
+	padding: 0;
+	font-size: 1rem;
+	padding: 0rem 2rem 0 0.5rem;
+	background-color: #fff !important;
+	color: #000 !important;
+}

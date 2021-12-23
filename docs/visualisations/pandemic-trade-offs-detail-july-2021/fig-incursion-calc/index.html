@@ -1,0 +1,40 @@
+<script src="https://cdn.jsdelivr.net/npm/mathjs@7.6.0/dist/math.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/jstat@1.9.4/dist/jstat.min.js" type="text/javascript"></script>
+<div class="calc">
+<span class="name">Calculator for estimating the expected number of infected arrivals in Victoria per day</span>
+<div class="step">
+	<div class="step-num">Step 1</div>
+	<div class="description">Choose <strong>how many travellers arrive in Victoria each year</strong>.</div>
+	<div class="toggles">As a <button id="calc-toggle-pc" class="on" onclick="calcToggle('pc')">percentage of pre-COVID levels</button><button id="calc-toggle-n" onclick="calcToggle('n')">number</button></div>
+	<div id="calc-arrivals-input-pc" class="input">
+		<input id="calc-arrivals-pc" type="number" value="50" oninput="balance('pc')" max="98" min="2"></input> % of pre-COVID levels
+	</div>
+	<div id="calc-arrivals-input-n" class="input hide">
+		<input id="calc-arrivals-n" type="number" value="15500000" oninput="balance('n')" max="8000000000" min="0"></input> travellers
+	</div>
+	<div class="details">
+		<p>If you entered a proportion of pre-COVID travel, we assume there is a standard deviation of 10% around the estimate.</p>
+	</div>
+</div>
+<div class="step">
+	<div class="step-num">Step 2</div>
+	<div class="description">Choose the <strong>average daily infection rate</strong> per 100,000 people among the population (across countries) from which travellers originate.</div>
+	<div class="input"><input id="calc-infections" type="number" value="6.27" max="99999" min="1"></input> infections per 100,000 people</div>
+	<div class="details">
+		<p>Note that this is the number of actual infections per day, not the number of detected cases per day, which will underestimate the true number of infections because not all infections are detected. We recommend using the <a href="https://covid19.healthdata.org/global?view=mask-use&tab=trend" target='_blank' rel='noopener noreferrer'>IHME website</a> as a reference.</p>
+		<p>We fix the uncertainty at 25% standard deviation, which roughly agrees with the uncertainty reported by the IHME.</p>
+	</div>
+</div>
+<div class="step">
+	<div class="step-num">Step 3</div>
+	<div class="description">Choose the <strong>average COVID-19 vaccination rate across the travellers' countries of origin</strong>.</div>
+	<div class="input"><input id="calc-vaccinated" type="number" value="50" max="98" min="3"></input> %</div>
+	<div class="details">
+		<p>See the <a href="https://ourworldindata.org/covid-vaccinations" target='_blank' rel='noopener noreferrer'>Our World in Data vaccination tracker</a> as a reference.</p>
+		<p>We fix uncertainty at 10% standard deviation.</p>
+	</div>
+</div>
+<button class="compute" onclick="estimate()">ESTIMATE</button>
+<div class="results">Using the above assumptions, we estimate that Victoria should expect <span id="calc-infected-arrivals" class="output"></span>&nbsp;<strong>infected arrivals per DAY</strong>, with a 95% uncertainty interval of (<span id="calc-qL" class="output"></span>,&nbsp;<span id="calc-qU" class="output"></span>).</div>
+<div class="results">This is equivalent to an expected value of <span id="calc-infected-arrivals-year" class="output"></span>&nbsp;<strong>infected arrivals per YEAR</strong>, with a 95% uncertainty interval of (<span id="calc-qL-year" class="output"></span>,&nbsp;<span id="calc-qU-year" class="output"></span>).</div>
+</div>

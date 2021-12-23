@@ -1,0 +1,74 @@
+{% extends 'base.njk' %} {% block title %} {{ post.data.title }} | Population
+Interventions Unit {% endblock %} {% block head %}
+<script type="text/javascript">
+    function loadCSS(path) {
+        let file = document.createElement("link");
+        file.setAttribute("rel", "stylesheet");
+        file.setAttribute("type", "text/css");
+        file.setAttribute("href", path);
+        document.head.appendChild(file);
+    }
+
+    var graphs = [];
+</script>
+
+{% if post.data.hidden %}
+<meta name="robots" content="noindex" />
+<meta name="googlebot" content="noindex" />
+{% endif %} {% endblock %} {% block breadcrumb %}
+<li
+    class="root"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://schema.org/ListItem"
+>
+    <a href="/#research" title="Research" itemprop="item">
+        <span itemprop="name">Research</span>
+    </a>
+    <meta content="2" itemprop="position" />
+</li>
+<li
+    class="root"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://schema.org/ListItem"
+>
+    <a href="/{{ url }}" title="{{ title }}" itemprop="item">
+        <span itemprop="name">{{ title }}</span>
+    </a>
+    <meta content="3" itemprop="position" />
+</li>
+
+{% endblock %} {% block content %}
+
+<div class="jumpnav"></div>
+
+<h1 class="aligned-title">{{ title }}</h1>
+
+<section class="lead left">
+    <p>{{ preview | safe }}</p>
+</section>
+
+<h2 id="project-details">Project Details</h2>
+{{ content | markdown | safe }}
+
+<section class="endmatter">
+    <h2 id="researchers">Researchers</h2>
+    <ul>
+        {% for researcher in researchers %}
+        <li>
+            {{ researcher }}
+        </li>
+        {% endfor %}
+    </ul>
+    <h2 id="collaborators">Collaborators</h2>
+    <ul>
+        {% for collaborator in collaborators %}
+        <li>
+            {{ collaborator }}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}

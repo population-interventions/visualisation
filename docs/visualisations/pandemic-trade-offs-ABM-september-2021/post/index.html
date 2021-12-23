@@ -1,0 +1,73 @@
+
+In the following graph, each line on the plot corresponds to one run of the model&mdash;one possible path that infection numbers could take under the selected scenario and policy response. The lines are coloured by the Stage of restrictions that are in place at any given time.
+
+<div class="fig outset-4 more-margin-2">
+				<div id="graph-settings-ABM" class="graph-settings"></div>
+				<div id="graph-container-ABM" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-ABM"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Vaccine Uptake</div>
+					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
+				</div>
+				<div><select name="VaccineUptake" id="select-ABM-VaccineUptake" autocomplete=off>
+						<option value="70" selected>70%</option>
+<option value="80" >80%</option>
+<option value="90" >90%</option>
+<option value="95" >95%</option>
+					</select><a href="/pandemic-trade-offs-detail-september-2021/" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Strategy</div>
+					<div class="description">Short, medium, and long term strategies employed to mitigate the spread of COVID-19 <br> (< 4 mths / 4-8 mths / 8+ mths)</div>
+				</div>
+				<div><select name="Strategy" id="select-ABM-Strategy" autocomplete=off>
+						<option value="ME_ME_TS" selected>Elimination / Elimination / Tight</option>
+<option value="ME_TS_LS" >Elimination / Tight / Loose</option>
+<option value="ME_TS_BS" >Elimination / Tight / Barely Suppress</option>
+					</select><a href="/pandemic-trade-offs-detail-september-2021/#strategies" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Vaccinated Infected Arrivals per day</div>
+					<div class="description">Average number of vaccinated yet infected people arriving in Australia per day, after borders open</div>
+				</div>
+				<div><select name="VaccArrivals" id="select-ABM-VaccArrivals" autocomplete=off>
+						<option value="0.2" selected>0.2 per day</option>
+<option value="1" >1 per day</option>
+<option value="5" >5 per day</option>
+					</select><a href="/pandemic-trade-offs-detail-september-2021/#arrivals" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Vaccinate Eligibility</div>
+					<div class="description">Whether to vaccinate adults only (18+ year olds), or to vaccinate adults and children (5+ year olds)</div>
+				</div>
+				<div><select name="VaccKids" id="select-ABM-VaccKids" autocomplete=off>
+						<option value="No" >Adults only</option>
+<option value="Yes" selected>Adults and children</option>
+					</select><a href="/pandemic-trade-offs-detail-september-2021/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Acceptable range of restriction levels</div>
+					<div class="description">Whether the suppression policy can use the full range of restriction levels, or has Stage 2 as a minimum level of 'light restrictions'</div>
+				</div>
+				<div><select name="MinStage" id="select-ABM-MinStage" autocomplete=off>
+						<option value="1a" selected>Allow all restriction levels</option>
+<option value="2" >Keep a minimum level of light restrictions (Stage 2)</option>
+					</select><a href="/pandemic-trade-offs-detail-september-2021/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Virus Reproduction Rate (R0)</div>
+					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
+				</div>
+				<div><select name="R0" id="select-ABM-R0" autocomplete=off>
+						<option value="5" >5.0</option>
+<option value="6.5" selected>6.5</option>
+<option value="8" >8.0</option>
+					</select><a href="/pandemic-trade-offs-detail-september-2021/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div></div><button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button><a href="/posts/pandemic-trade-offs-ABM-september-2021/data-ABM-full-tidy.zip" class="download-link"><strong>Download data</strong> (12.8 MB)</a></aside></div>
+			<script type="text/javascript">
+				graphs.push("ABM")
+			</script>
+		
+
+To learn more about this modelling, please see the Model Details page.
+
+<a href="/pandemic-trade-offs-detail-september-2021/" class="button-small with-arrow">View model details</a>

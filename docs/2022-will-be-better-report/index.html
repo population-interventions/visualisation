@@ -8,8 +8,7 @@
 	
 	<title>
         
-	2022 will be better: COVID-19 Pandemic Tradeoffs modelling report | Population Interventions Unit
-
+2022 will be better: COVID-19 Pandemic Tradeoffs modelling report | Population Interventions Unit 
     </title>
 	
 	<link rel="stylesheet" href="https://dds-gen3.web.unimelb.edu.au/v8.1.6/uom.css">
@@ -34,52 +33,55 @@
 	</script>
 	
 
-	
+	  
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"
+    integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw"
+    crossorigin="anonymous"
+/>
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js"
+    integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH"
+    crossorigin="anonymous"
+></script>
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+    crossorigin="anonymous"
+></script>
+ 
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
+ 
+<meta charset="utf-8" />
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+ 
+<script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"
+></script>
 
-	
-		
-		
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
-			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
-			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"></script>
-		
+<script type="text/javascript">
+    function loadCSS(path) {
+        let file = document.createElement("link");
+        file.setAttribute("rel", "stylesheet");
+        file.setAttribute("type", "text/css");
+        file.setAttribute("href", path);
+        document.head.appendChild(file);
+    }
 
-		
-			<script src="https://d3js.org/d3.v4.min.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
-			<script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
-			<script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
-		
+    var graphs = [];
+</script>
 
-		
-			<meta charset="utf-8">
-			<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-			<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-			<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-		
-
-	
-	<script
-		src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-		crossorigin="anonymous">
-	</script>
-	
-	<script type="text/javascript">
-		function loadCSS(path) { 
-			let file = document.createElement("link");
-			file.setAttribute("rel", "stylesheet");
-			file.setAttribute("type", "text/css");
-			file.setAttribute("href", path);
-			document.head.appendChild(file);
-		}
-
-		var graphs = [];
-	</script>					
-	
-	    
-
-
+ 
 
 </head>
 
@@ -96,18 +98,32 @@
 					<meta content="1" itemprop="position" />
 				</li>
 				
-	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-		<a href="/" title="COVID-19 Pandemic" itemprop="item">
-			<span itemprop="name">COVID-19 Pandemic</span>
-		</a>
-		<meta content="2" itemprop="position" />
-	</li>
-	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-		<a href="/2022-will-be-better-report" title="2022 will be better: COVID-19 Pandemic Tradeoffs modelling report" itemprop="item">
-			<span itemprop="name">2022 will be better: COVID-19 Pandemic Tradeoffs modelling report</span>
-		</a>
-		<meta content="3" itemprop="position" />
-	</li>
+<li
+    class="root"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://schema.org/ListItem"
+>
+    <a href="/" title="COVID-19 Pandemic" itemprop="item">
+        <span itemprop="name">COVID-19 Pandemic</span>
+    </a>
+    <meta content="2" itemprop="position" />
+</li>
+<li
+    class="root"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://schema.org/ListItem"
+>
+    <a
+        href="/2022-will-be-better-report"
+        title="2022 will be better: COVID-19 Pandemic Tradeoffs modelling report"
+        itemprop="item"
+    >
+        <span itemprop="name">2022 will be better: COVID-19 Pandemic Tradeoffs modelling report</span>
+    </a>
+    <meta content="3" itemprop="position" />
+</li>
 
 			</ol>
 
@@ -116,23 +132,18 @@
 
 				<div class="headerless"></div>
 
-				
+				  
 
-	
-
-	
-
-	<div class="jumpnav"></div>
-	
-
-	
-
-	<h1 class="aligned-title">2022 will be better: COVID-19 Pandemic Tradeoffs modelling report</h1>
-
-	
+<div class="jumpnav"></div>
 
 
-	<p>This ‘COVID-19 Pandemic Trade-Offs’ modelling report <a href="/posts/2022-will-be-better-report/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" target="_blank" rel="noopener noreferrer">(PDF 9.0 MB)</a> throws light on what next year might look like once we open up to the world.</p>
+
+
+<h1 class="aligned-title">2022 will be better: COVID-19 Pandemic Tradeoffs modelling report</h1>
+
+
+
+<p>This ‘COVID-19 Pandemic Trade-Offs’ modelling report <a href="/posts/2022-will-be-better-report/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" target="_blank" rel="noopener noreferrer">(PDF 9.0 MB)</a> throws light on what next year might look like once we open up to the world.</p>
 <p>This report covers 432 possible scenarios, each modelled 100 times in an agent-based model to capture as many futures as possible. All results are publicly available at an <a href="/pandemic-trade-offs-september-2021/" target="_blank" rel="noopener noreferrer">interactive webtool</a>.</p>
 <p><a href="/posts/2022-will-be-better-report/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read the full report</a><br /><br /></p>
 <p><a class="image-link" href="/posts/2022-will-be-better-report/2022-will-be-better_COVID-19-Tradeoffs-modelling-21-SEP.pdf" target="_blank"><img src="/posts/2022-will-be-better-report/Front-cover.png" /></a></p>
@@ -156,11 +167,10 @@
 <p>That all said, there is a pathway to and through 2022 that will be better than what we experienced in 2020 and 2021.</p>
 
 
-
-	<section class="endmatter">
-		
-			<h4>Contributors</h4>
-			<p><ul>
+<section class="endmatter">
+    
+    <h4>Contributors</h4>
+    <p><ul>
 <li>The data visualisations and interface for this tool were developed by <a href="https://lukethorburn.com/cv/">Luke Thorburn</a> and <a href="https://twitter.com/hrs_andrabi">Hassan Andrabi</a>.</li>
 <li>The modelling was led by Dr <a href="https://findanexpert.unimelb.edu.au/profile/884197-tim-wilson">Tim Wilson</a>, assisted by Haifeng Zhao and Sachith Seneviratne. The original agent-based model was built by Dr <a href="https://findanexpert.unimelb.edu.au/profile/769805-jason-thompson">Jason Thompson</a>, assisted by Profs Rod McClure, <a href="https://findanexpert.unimelb.edu.au/profile/653385-mark-stevenson">Mark Stevenson</a> and <a href="https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely">Tony Blakely</a>.  The integrated epidemiological and economic model (proportional multistate lifetable) is a collaboration between the University of Melbourne and the Institute of Health Metrics and Evaluation (University of Washington), with key contributions from: Prof Abie Flaxman and Mr James Collins (IHME); Drs <a href="https://findanexpert.unimelb.edu.au/profile/10215-rob-moss">Rob Moss</a>, <a href="https://findanexpert.unimelb.edu.au/profile/432264-nic-geard">Nic Geard</a>, <a href="https://findanexpert.unimelb.edu.au/profile/721168-patrick-andersen">Patrick Andersen</a> and <a href="https://findanexpert.unimelb.edu.au/profile/884197-tim-wilson">Tim Wilson</a> (University of Melbourne), assisted by all members of the Population Interventions Unit (Drs <a href="https://findanexpert.unimelb.edu.au/profile/242956-driss-ait-ouakrim">Driss Ait Ouakrim</a> and <a href="https://findanexpert.unimelb.edu.au/profile/686318-laxman-bablani">Laxman Bablani</a>, and Profs <a href="https://findanexpert.unimelb.edu.au/profile/26106-vijaya-sundararajan">Vijaya Sundararajan</a> and <a href="https://findanexpert.unimelb.edu.au/profile/773939-tony-blakely">Tony Blakely</a>).</li>
 <li>The determination of which diseases and conditions are impacted by COVID-19 restrictions, and with what magnitude, was undertaken by Dr <a href="https://findanexpert.unimelb.edu.au/profile/242956-driss-ait-ouakrim">Driss Ait Ouakrim</a>, Ms Ameera Katar, Mr Patrick Abraham, Dr <a href="https://findanexpert.unimelb.edu.au/profile/531653-natalie-carvalho">Natalie Carvalho</a> and Prof <a href="https://findanexpert.unimelb.edu.au/profile/356800-nathan-grills">Nathan Grills</a>.</li>
@@ -169,330 +179,337 @@
 <li>We acknowledge a generous anonymous philanthropic grant, through Advancement, that enabled this project.</li>
 </ul>
 </p>
-		
+    
 
-		<h4>Contact Details</h4>
-		<p>Please direct media or other enquiries about this research to the <a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions">Population Interventions Unit</a> at the following address.</p>
-		<dl class="PI-contact">
-			<dt>Email</dt>
-			<dd><a href="mailto:population-interventions@unimelb.edu.au">population-interventions@unimelb.edu.au</a></dd>
-		</dl>
-	</section>
+    <h4>Contact Details</h4>
+    <p>
+        Please direct media or other enquiries about this research to the
+        <a
+            href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions"
+            >Population Interventions Unit</a
+        >
+        at the following address.
+    </p>
+    <dl class="PI-contact">
+        <dt>Email</dt>
+        <dd>
+            <a href="mailto:population-interventions@unimelb.edu.au"
+                >population-interventions@unimelb.edu.au</a
+            >
+        </dd>
+    </dl>
+</section>
 
-	<script type="text/javascript">
+<script type="text/javascript">
 
-		var views = {};
+    var views = {};
 
-		function render(key, spec) {
-			
-			// Add default graph config.
+    function render(key, spec) {
 
-			let defaultConfig = {
-				axis: {
-					labelFont: "Source Sans Pro, sans-serif",
-					titleFont: "Source Sans Pro, sans-serif",
-					titleFontSize: 20,
-					titleColor: "#012a58",
-					titleFontWeight: 400
-				},
-				legend: {
-					labelFont: "Source Sans Pro, sans-serif",
-					titleFont: "Source Sans Pro, sans-serif",
-					labelFontSize: 18,
-					labelColor: "#000000",
-					titlePadding: 15,
-					titleFontSize: 20,
-					titleColor: "#012a58",
-					symbolSize: 360,
-					labelSeparation: 10,
-					labelOffset: 10,
-					offset: 20,
-					titleFontWeight: 400,
-					layout: {
-						margin: 60
-					}
-				},
-				title: {
-					font: "Source Sans Pro, sans-serif",
-					subtitleFont: "Source Sans Pro, sans-serif",
-					anchor: "start",
-					color: "#012a58",
-					fontSize: 28,
-					fontWeight: 700,
-					subtitleColor: "#000000",
-					subtitleFontSize: "20",
-					subtitleFontWeight: "400",
-					subtitlePadding: 10,
-					offset: 20,
-					dx: 70
-				}
-			};
-			if (spec.hasOwnProperty('config')) {
-				spec.config.axis = { ...defaultConfig.axis, ...spec.config.axis };
-				spec.config.legend = { ...defaultConfig.legend, ...spec.config.legend };
-				spec.config.title = { ...defaultConfig.title, ...spec.config.title };
-			} else {
-				spec.config = defaultConfig;
-			}
+    	// Add default graph config.
 
-			// Create uom property if doesn't already exist.
+    	let defaultConfig = {
+    		axis: {
+    			labelFont: "Source Sans Pro, sans-serif",
+    			titleFont: "Source Sans Pro, sans-serif",
+    			titleFontSize: 20,
+    			titleColor: "#012a58",
+    			titleFontWeight: 400
+    		},
+    		legend: {
+    			labelFont: "Source Sans Pro, sans-serif",
+    			titleFont: "Source Sans Pro, sans-serif",
+    			labelFontSize: 18,
+    			labelColor: "#000000",
+    			titlePadding: 15,
+    			titleFontSize: 20,
+    			titleColor: "#012a58",
+    			symbolSize: 360,
+    			labelSeparation: 10,
+    			labelOffset: 10,
+    			offset: 20,
+    			titleFontWeight: 400,
+    			layout: {
+    				margin: 60
+    			}
+    		},
+    		title: {
+    			font: "Source Sans Pro, sans-serif",
+    			subtitleFont: "Source Sans Pro, sans-serif",
+    			anchor: "start",
+    			color: "#012a58",
+    			fontSize: 28,
+    			fontWeight: 700,
+    			subtitleColor: "#000000",
+    			subtitleFontSize: "20",
+    			subtitleFontWeight: "400",
+    			subtitlePadding: 10,
+    			offset: 20,
+    			dx: 70
+    		}
+    	};
+    	if (spec.hasOwnProperty('config')) {
+    		spec.config.axis = { ...defaultConfig.axis, ...spec.config.axis };
+    		spec.config.legend = { ...defaultConfig.legend, ...spec.config.legend };
+    		spec.config.title = { ...defaultConfig.title, ...spec.config.title };
+    	} else {
+    		spec.config = defaultConfig;
+    	}
 
-			if (!spec.hasOwnProperty('uom')) {
-				spec.uom = {};
-			}
+    	// Create uom property if doesn't already exist.
 
-			// Make background white (if none already specified).
+    	if (!spec.hasOwnProperty('uom')) {
+    		spec.uom = {};
+    	}
 
-			if (!spec.hasOwnProperty('background')) {
-				spec.background = "#ffffff";
-			}
+    	// Make background white (if none already specified).
 
-			// Blank out if 'coming soon'.
+    	if (!spec.hasOwnProperty('background')) {
+    		spec.background = "#ffffff";
+    	}
 
-			if (spec.uom.hasOwnProperty('comingSoon') & spec.uom['comingSoon']) {
-				spec.data.push({
-					name: "shades",
-					values: [ { "label": "Coming Soon" } ]
-				})
+    	// Blank out if 'coming soon'.
 
-				spec.marks = [
-					{
-						type: "rect",
-						from: { data: "shades" },
-						encode: {
-							update: {
-								x: { signal: "range('x')[0]" },
-								x2: { signal: "range('x')[1]" },
-								y: { signal: "range('y')[0]" },
-								y2: { signal: "range('y')[1]" },
-								strokeWidth: { value: 0 },
-								fill: { value: '#f2f5f9' }
-							}
-						}
+    	if (spec.uom.hasOwnProperty('comingSoon') & spec.uom['comingSoon']) {
+    		spec.data.push({
+    			name: "shades",
+    			values: [ { "label": "Coming Soon" } ]
+    		})
 
-					},
-					{
-						type: "text",
-						from: { data: "shades" },
-						encode: {
-							update: {
-								x: { signal: "(range('x')[0] + range('x')[1]) / 2" },
-								y: { signal: "(range('y')[0] + range('y')[1]) / 2" },
-								text: { signal: "datum.label" },
-								baseline: { value: "middle" },
-								align: { value: "center" },
-								fill: { value: "#012a58" },
-								fontSize: { value: 20 },
-								fontWeight: { value: 'bold' }
-								
-							}
-						}
-					}
-				]
-			}
+    		spec.marks = [
+    			{
+    				type: "rect",
+    				from: { data: "shades" },
+    				encode: {
+    					update: {
+    						x: { signal: "range('x')[0]" },
+    						x2: { signal: "range('x')[1]" },
+    						y: { signal: "range('y')[0]" },
+    						y2: { signal: "range('y')[1]" },
+    						strokeWidth: { value: 0 },
+    						fill: { value: '#f2f5f9' }
+    					}
+    				}
 
-			// Specify renderer if not already specified.
+    			},
+    			{
+    				type: "text",
+    				from: { data: "shades" },
+    				encode: {
+    					update: {
+    						x: { signal: "(range('x')[0] + range('x')[1]) / 2" },
+    						y: { signal: "(range('y')[0] + range('y')[1]) / 2" },
+    						text: { signal: "datum.label" },
+    						baseline: { value: "middle" },
+    						align: { value: "center" },
+    						fill: { value: "#012a58" },
+    						fontSize: { value: 20 },
+    						fontWeight: { value: 'bold' }
 
-			if (!spec.uom.hasOwnProperty('renderer')) {
-				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
-			}
+    					}
+    				}
+    			}
+    		]
+    	}
 
-			// Set correct autosize mode.
+    	// Specify renderer if not already specified.
 
-			if (!spec.hasOwnProperty("autosize")) {
-				spec.autosize = "fit";
-			}
+    	if (!spec.uom.hasOwnProperty('renderer')) {
+    		spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
+    	}
 
-			// Define desired aspect ratio.
+    	// Set correct autosize mode.
 
-			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
-				spec.uom.aspectRatio = spec.width / spec.height;
-			} else {
-				spec.uom.aspectRatio = 1.5;
-			}
-			delete spec.width;
-			delete spec.height;
+    	if (!spec.hasOwnProperty("autosize")) {
+    		spec.autosize = "fit";
+    	}
 
-			// Define threshold width between two types of graph scaling.
-				// Above this width, the graph is re-rendered to fit the space available.
-				// (eg. text will stay its specified size)
-				// Below this width, the graph is simply scaled down to fit the space available.
-				// (eg. text will be smaller than the specified size)
-			if (!spec.uom.hasOwnProperty('minWidth')) {
-				spec.uom.minWidth = 800;
-			}
+    	// Define desired aspect ratio.
 
-			// Generate signals for specified toggles.
+    	if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
+    		spec.uom.aspectRatio = spec.width / spec.height;
+    	} else {
+    		spec.uom.aspectRatio = 1.5;
+    	}
+    	delete spec.width;
+    	delete spec.height;
 
-			if (!spec.hasOwnProperty('signals')) {
-				spec.signals = [];
-			}
-			if (spec.uom.hasOwnProperty('toggleGroups')) {
-				for (let toggleGroup of spec.uom['toggleGroups']) {
-					for (let toggle of toggleGroup.toggles) {
+    	// Define threshold width between two types of graph scaling.
+    		// Above this width, the graph is re-rendered to fit the space available.
+    		// (eg. text will stay its specified size)
+    		// Below this width, the graph is simply scaled down to fit the space available.
+    		// (eg. text will be smaller than the specified size)
+    	if (!spec.uom.hasOwnProperty('minWidth')) {
+    		spec.uom.minWidth = 800;
+    	}
 
-						let updateDefault, updateOnChange;
-						if (typeof(toggle.options[0].value) === "number") {
-							updateDefault = `${toggle.options.filter(d => d.default)[0].value}`;
-							updateOnChange = "toNumber(event.target.value)";
-						} else {
-							updateDefault = `'${toggle.options.filter(d => d.default)[0].value}'`;
-							updateOnChange = "event.target.value";
-						}
+    	// Generate signals for specified toggles.
 
-						spec.signals.push({
-							name: toggle.signalName,
-							update: updateDefault,
-							on: [{
-								events: {
-									source: `#select-${key}-${toggle.signalName}`,
-									type: "change"
-								},
-								update: updateOnChange
-							}]
-						})
-					}
-				}
-			}
+    	if (!spec.hasOwnProperty('signals')) {
+    		spec.signals = [];
+    	}
+    	if (spec.uom.hasOwnProperty('toggleGroups')) {
+    		for (let toggleGroup of spec.uom['toggleGroups']) {
+    			for (let toggle of toggleGroup.toggles) {
 
-			// Store reference to wrapper element.
+    				let updateDefault, updateOnChange;
+    				if (typeof(toggle.options[0].value) === "number") {
+    					updateDefault = `${toggle.options.filter(d => d.default)[0].value}`;
+    					updateOnChange = "toNumber(event.target.value)";
+    				} else {
+    					updateDefault = `'${toggle.options.filter(d => d.default)[0].value}'`;
+    					updateOnChange = "event.target.value";
+    				}
 
-			spec.uom.container = document.querySelector(`#graph-container-${key}`);
+    				spec.signals.push({
+    					name: toggle.signalName,
+    					update: updateDefault,
+    					on: [{
+    						events: {
+    							source: `#select-${key}-${toggle.signalName}`,
+    							type: "change"
+    						},
+    						update: updateOnChange
+    					}]
+    				})
+    			}
+    		}
+    	}
 
-			// Create the view.
+    	// Store reference to wrapper element.
 
-			let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-			vegaEmbed(
-				`#graph-container-${key}`,
-				spec,
-				opt = {
-					renderer: spec.uom.renderer,
-					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
-					actions: false,
-					width: width,
-					height: width / spec.uom.aspectRatio
-				}
-			).then(function(result) {
+    	spec.uom.container = document.querySelector(`#graph-container-${key}`);
 
-				views[key] = result.view;
+    	// Create the view.
 
-				// Make responsive.
+    	let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+    	vegaEmbed(
+    		`#graph-container-${key}`,
+    		spec,
+    		opt = {
+    			renderer: spec.uom.renderer,
+    			// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
+    			actions: false,
+    			width: width,
+    			height: width / spec.uom.aspectRatio
+    		}
+    	).then(function(result) {
 
-				if (spec.uom.renderer === 'canvas') {
-					
-					spec.uom.resize = () => {
-						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-						views[key]
-							.width(width)
-							.height(width / spec.uom.aspectRatio)
-							.run();
-					};
-					window.addEventListener('resize', spec.uom.resize);
-				
-				} else {
-					
-					function removeWidthHeightAttributes() {
-						// Remove width/height attributes of Vega SVG and let viewBox handle the responsive behaviour.
-						let viewDom = spec.uom.container.firstElementChild;
-						viewDom.removeAttribute('width');
-						viewDom.removeAttribute('height');
-					}
+    		views[key] = result.view;
 
-					spec.uom.resize = () => {
+    		// Make responsive.
 
-						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-						views[key]
-							.width(width)
-							.height(width / spec.uom.aspectRatio)
-							.runAsync()
-							.then(vw => {
-								removeWidthHeightAttributes();
-							});
-						
-					};
-					window.addEventListener('resize', spec.uom.resize);
+    		if (spec.uom.renderer === 'canvas') {
 
-					removeWidthHeightAttributes();
-					
-				}
+    			spec.uom.resize = () => {
+    				let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+    				views[key]
+    					.width(width)
+    					.height(width / spec.uom.aspectRatio)
+    					.run();
+    			};
+    			window.addEventListener('resize', spec.uom.resize);
 
-			}).catch(console.error);
+    		} else {
 
-			return views[key];
+    			function removeWidthHeightAttributes() {
+    				// Remove width/height attributes of Vega SVG and let viewBox handle the responsive behaviour.
+    				let viewDom = spec.uom.container.firstElementChild;
+    				viewDom.removeAttribute('width');
+    				viewDom.removeAttribute('height');
+    			}
 
-		}
+    			spec.uom.resize = () => {
 
-		// Render all graphs.
+    				let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+    				views[key]
+    					.width(width)
+    					.height(width / spec.uom.aspectRatio)
+    					.runAsync()
+    					.then(vw => {
+    						removeWidthHeightAttributes();
+    					});
 
-		for (let key of graphs) {
-		
-			fetch('/posts/2022-will-be-better-report/graph-' + key + '.json')
-				.then(res => res.json())
-				.then(spec => render(key, spec))
-				.catch(err => console.error(err));
+    			};
+    			window.addEventListener('resize', spec.uom.resize);
 
-		}
+    			removeWidthHeightAttributes();
 
-		// Reset select fields on page load (to avoid misleading browser-cached values).
+    		}
 
-		$( document ).ready(function() {
-			$('select').each( function() {
-				$(this).val( $(this).find("option[selected]").val() );
-			});
-		});
+    	}).catch(console.error);
 
-		// Render KaTeX.
+    	return views[key];
 
-		
-			
-				document.addEventListener("DOMContentLoaded", function() {
-					renderMathInElement(document.body, {
-						delimiters: [
-							{left: "$$", right: "$$", display: true},
-							{left: "\\(", right: "\\)", display: false},
-							{left: "\\[", right: "\\]", display: true}
-						]
-					});
-				});
-			
-		
+    }
 
-	</script>
+    // Render all graphs.
 
-	<script>
+    for (let key of graphs) {
 
-		// Hanlde toggle close and open events
+    	fetch('/posts/2022-will-be-better-report/graph-' + key + '.json')
+    		.then(res => res.json())
+    		.then(spec => render(key, spec))
+    		.catch(err => console.error(err));
 
-		$( ".toggle-open" ).click(function(e) {
-			var toggleBtn = $(this)
-			var toggles = toggleBtn.closest("aside")
-			if( toggles.length === 1 ) {
-				toggles.toggleClass("collapsed")
-			}	else {
-				var toggles = toggleBtn.siblings( "aside" )
-				toggles.toggleClass("collapsed")
-			}
-			e.stopPropagation();	
-		});
+    }
 
-		$(" aside ").click(function(e) {
-			e.stopPropagation()
-		});
+    // Reset select fields on page load (to avoid misleading browser-cached values).
 
-		$( ".toggle-close" ).click(function() {
-			var toggleBtn = $(this)
-			var toggles = toggleBtn.closest("aside")
-			toggles.toggleClass("collapsed")
-		});
+    $( document ).ready(function() {
+    	$('select').each( function() {
+    		$(this).val( $(this).find("option[selected]").val() );
+    	});
+    });
 
-		// $(document).click(function() {
-		// 	$("aside").addClass("collapsed");
-		// });
-	</script>
+    // Render KaTeX.
 
-	
+    
+    	
+    		document.addEventListener("DOMContentLoaded", function() {
+    			renderMathInElement(document.body, {
+    				delimiters: [
+    					{left: "$$", right: "$$", display: true},
+    					{left: "\\(", right: "\\)", display: false},
+    					{left: "\\[", right: "\\]", display: true}
+    				]
+    			});
+    		});
+    	
+    
+</script>
 
+<script>
+    // Hanlde toggle close and open events
 
+    $(".toggle-open").click(function (e) {
+        var toggleBtn = $(this);
+        var toggles = toggleBtn.closest("aside");
+        if (toggles.length === 1) {
+            toggles.toggleClass("collapsed");
+        } else {
+            var toggles = toggleBtn.siblings("aside");
+            toggles.toggleClass("collapsed");
+        }
+        e.stopPropagation();
+    });
+
+    $(" aside ").click(function (e) {
+        e.stopPropagation();
+    });
+
+    $(".toggle-close").click(function () {
+        var toggleBtn = $(this);
+        var toggles = toggleBtn.closest("aside");
+        toggles.toggleClass("collapsed");
+    });
+
+    // $(document).click(function() {
+    // 	$("aside").addClass("collapsed");
+    // });
+</script>
+
+ 
 			</div>
 
 			<div id="sitemap" role="navigation">

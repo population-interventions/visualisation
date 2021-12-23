@@ -1,0 +1,369 @@
+
+This tool allows you to explore how SARS-CoV-2 infection rates, health impacts (in health-adjusted life years) and economic impacts (health expenditure and GDP loss) vary by
+
+-   which <a href="/pandemic-trade-offs-detail#strategies" target="_blank">strategy</a> society pursues (aggressive elimination, moderate elimination, tight suppression or loose suppression), and
+-   whether that strategy is held steady over time, or <a href="/pandemic-trade-offs-detail#strategy-relaxation" target="_blank">relaxed</a> as vaccination coverage increases.
+
+In addition to these strategy choices, you can also set values for what you think might be the vaccine uptake, the efficacy of the vaccines at reducing transmission, and the unmitigated reproduction rate of the virus strains in circulation.
+
+<div class="youtube"><iframe width='500' height='294' src="https://www.youtube.com/embed/RHoRjxIH_io?&theme=dark&autohide=2&modestbranding=1&rel=0"frameborder="0"></iframe></div>
+
+<a href="/posts/pandemic-trade-offs/LaunchSlides.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">View the slides from the launch presentation</a><br /><br />
+<a href="/posts/pandemic-trade-offs/Walkthrough.pdf" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Read a walk-through</a>
+
+---
+
+## Infections
+
+A basic measure of whether a COVID-19 policy response is successful is the extent to which it keeps the number of new infections manageable.
+
+To model this, we ran 100 simulations of how the SARS-CoV-2 virus might spread through a population of 6 million people, for each of 648 different scenarios. The graph below shows the median daily infections across the 100 simulations of each scenario, along with a 90% uncertainty interval (the 5<sup>th</sup> and 95<sup>th</sup> percentiles).
+
+Use the options to the left of (or below) the graph to explore how different scenarios affect the spread of the virus.
+
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-ABM" class="graph-settings"></div>
+				<div id="graph-container-ABM" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-ABM"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Government & Public Response</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Vaccine Uptake</div>
+					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
+				</div>
+				<div><select name="VaccineUptake" id="select-ABM-VaccineUptake" autocomplete=off>
+						<option value="60" >60%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#uptake" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Strategy Relaxation</div>
+					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
+				</div>
+				<div><select name="StrategyRelaxation" id="select-ABM-StrategyRelaxation" autocomplete=off>
+						<option value="0" selected>Off</option>
+<option value="1" >On</option>
+					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Infectivity</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Phase 1 Vaccine Efficacy</div>
+					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
+				</div>
+				<div><select name="Efficacy1" id="select-ABM-Efficacy1" autocomplete=off>
+						<option value="50" >50%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
+					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
+				</div>
+				<div><select name="Efficacy2" id="select-ABM-Efficacy2" autocomplete=off>
+						<option value="50" >50%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Unmitigated Reproduction Rate</div>
+					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
+				</div>
+				<div><select name="R0" id="select-ABM-R0" autocomplete=off>
+						<option value="2.5" >2.5</option>
+<option value="3.125" selected>3.125</option>
+<option value="3.75" >3.75</option>
+					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div></div><button class="toggle-open" id="toggle-open-ABM"><span>Adjust parameters</span><span class="with-arrow"></span></button><a href="/posts/pandemic-trade-offs/data-ABM-aggregated-tidy.csv" class="download-link"><strong>Download data</strong> (1.8 MB)</a></aside></div>
+			<script type="text/javascript">
+				graphs.push("ABM")
+			</script>
+		
+
+In each of the 100 simulations, the model also tracks which stage of restrictions is in place each day, but this is not visible on the above graph. Click below to view all 100 simulations of each scenario, coloured by restriction stage.
+
+<a href="/pandemic-trade-offs-ABM/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">Explore all 100 simulations</a>
+
+<a href="/pandemic-trade-offs-ABM/" class="img-link"><img src="/posts/pandemic-trade-offs/preview-full-ABM.jpg" width="600" /></a>
+
+If you are interested in the details of the model, these are included on a separate page.
+
+<a href="/pandemic-trade-offs-detail/" class="button-small with-arrow" target="_blank" rel="noopener noreferrer">View modelling details</a>
+
+In particular, you might be interested to know:
+
+-   [What are the phases?](/pandemic-trade-offs-detail#phases)
+-   [How do the strategies work?](/pandemic-trade-offs-detail#strategies)
+
+---
+
+## Unintended consequences
+
+Imposing restrictions on society can help limit the spread of SARS-CoV-2, but it also causes unintended health and economic consequences.
+
+### Health impacts
+
+Research [suggests](https://www.medrxiv.org/content/10.1101/2021.03.16.21253759v1) that 'lockdowns' (i.e. Stage 3 and 4 restrictions) increase anxiety, depression, self-harm, and intimate partner violence, but also decrease road traffic injuries. In order to compare these health outcomes on a common scale, we use health-adjusted life years, or HALYs.
+
+#### HALYs
+
+Health adjusted life years (HALYS) are life years remaining to be lived, in a given time period or over each person’s remaining lifetime, weighted by [1 minus morbidity]. The morbidity is that due to COVID-19, other diseases included in the model, and the background expected morbidity for each sex and age group.
+
+The HALY changes (compared with 'No COVID-19' scenario) are output for:
+
+-   Both the direct SARS-CoV-2 impacts (mostly premature mortality, but also morbidity among those people not dying of SARS-CoV-2), AND estimated HALYs due to changes in diseases resulting indirectly from COVID-19 policy responses (i.e. time in stages 3 and 4 or lockdown), including: road traffic injury; self-harm; anxiety; and depression.
+-   Coming soon, we will also include changes in the risk factor 'intimate partner violence' that leads to further changes in depression, and also changes in inter-personal violence harm.
+-   In future modelling, we aim to also include the long-run health impacts of reduced physical activity. Impacts of Stage 3 and 4 restrictions (lockdowns) on delayed cancer screening and presentation for other non-communicable diseases (e.g. cardiovascular disease) was beyond our scope.
+-   Only changes that occur during the year simulated, with the exception of deaths for which lost future HALYs are also counted.
+
+Below are the expected health impacts of each strategy according to our model.
+
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" id="svg-definitions-PMSLT-HALY">
+	<defs>
+		<pattern id="HALY-pattern-black" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+			<line x1="0" y="0" x2="0" y2="6" stroke="#000000" stroke-width="10" />
+		</pattern>
+		<pattern id="HALY-pattern-Anxiety" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+			<line x1="0" y="0" x2="0" y2="6" stroke="#e65f4a" stroke-width="10" />
+		</pattern>
+		<pattern id="HALY-pattern-Depression" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+			<line x1="0" y="0" x2="0" y2="6" stroke="#fdbc71" stroke-width="10" />
+		</pattern>
+		<pattern id="HALY-pattern-Self-Harm" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+			<line x1="0" y="0" x2="0" y2="6" stroke="#fbf8b0" stroke-width="10" />
+		</pattern>
+		<pattern id="HALY-pattern-COVID-19" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+			<line x1="0" y="0" x2="0" y2="6" stroke="#bbe4a2" stroke-width="10" />
+		</pattern>
+		<pattern id="HALY-pattern-Road-Traffic-Injury" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+			<line x1="0" y="0" x2="0" y2="6" stroke="#5cabad" stroke-width="10" />
+		</pattern>
+	</defs>
+</svg>
+
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-PMSLT-HALY" class="graph-settings"></div>
+				<div id="graph-container-PMSLT-HALY" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-PMSLT-HALY"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-PMSLT-HALY"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Government & Public Response</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Vaccine Uptake</div>
+					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
+				</div>
+				<div><select name="VaccineUptake" id="select-PMSLT-HALY-VaccineUptake" autocomplete=off>
+						<option value="60" >60%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#uptake" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Strategy Relaxation</div>
+					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
+				</div>
+				<div><select name="StrategyRelaxation" id="select-PMSLT-HALY-StrategyRelaxation" autocomplete=off>
+						<option value="0" selected>Off</option>
+<option value="1" >On</option>
+					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Infectivity</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Phase 1 Vaccine Efficacy</div>
+					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
+				</div>
+				<div><select name="Efficacy1" id="select-PMSLT-HALY-Efficacy1" autocomplete=off>
+						<option value="50" >50%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
+					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
+				</div>
+				<div><select name="Efficacy2" id="select-PMSLT-HALY-Efficacy2" autocomplete=off>
+						<option value="50" >50%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Unmitigated Reproduction Rate</div>
+					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
+				</div>
+				<div><select name="R0" id="select-PMSLT-HALY-R0" autocomplete=off>
+						<option value="2.5" >2.5</option>
+<option value="3.125" selected>3.125</option>
+<option value="3.75" >3.75</option>
+					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div></div><button class="toggle-open" id="toggle-open-PMSLT-HALY"><span>Adjust parameters</span><span class="with-arrow"></span></button><a href="/posts/pandemic-trade-offs/data-HALY-tidy.csv" class="download-link"><strong>Download data</strong> (0.3 MB)</a></aside></div>
+			<script type="text/javascript">
+				graphs.push("PMSLT-HALY")
+			</script>
+		
+
+### Economic impacts
+
+Below (coming soon) are the estimated health expenditure consequences of SARS-CoV-2 cases in the health system, and changes in health expenditure for the other diseases impacted by stage 3 and 4 lockdowns. Also shown will be the GDP impacts, estimated using Treasury estimates of the GDP consequences of stages of lockdown multiplied by the percentage of time spent in each stage for each modelled scenario.
+
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-economy" class="graph-settings"></div>
+				<div id="graph-container-economy" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-economy"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-economy"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Government & Public Response</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Vaccine Uptake</div>
+					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
+				</div>
+				<div><select name="VaccineUptake" id="select-economy-VaccineUptake" autocomplete=off>
+						<option value="60" >60%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#uptake" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Strategy Relaxation</div>
+					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
+				</div>
+				<div><select name="StrategyRelaxation" id="select-economy-StrategyRelaxation" autocomplete=off>
+						<option value="0" selected>Off</option>
+<option value="1" >On</option>
+					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Infectivity</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Phase 1 Vaccine Efficacy</div>
+					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
+				</div>
+				<div><select name="Efficacy1" id="select-economy-Efficacy1" autocomplete=off>
+						<option value="50" >50%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
+					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
+				</div>
+				<div><select name="Efficacy2" id="select-economy-Efficacy2" autocomplete=off>
+						<option value="50" >50%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Unmitigated Reproduction Rate</div>
+					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
+				</div>
+				<div><select name="R0" id="select-economy-R0" autocomplete=off>
+						<option value="2.5" >2.5</option>
+<option value="3.125" selected>3.125</option>
+<option value="3.75" >3.75</option>
+					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div></div><button class="toggle-open" id="toggle-open-economy"><span>Adjust parameters</span><span class="with-arrow"></span></button></aside></div>
+			<script type="text/javascript">
+				graphs.push("economy")
+			</script>
+		
+
+## Which policy is optimal?
+
+Below (coming soon) will be an analysis of which of the four policy responses (aggressive elimination, moderate elimination, tight or loose suppression) is optimal using a cost effectiveness approach called 'net monetary benefit'. This approach is from either a health-system only perspective&mdash;which assumes healthcare expenditure is the only relevant financial cost&mdash;or a partial societal perspective, which includes GDP losses. The graph will show the probability that each policy response is 'optimal' (i.e. has the highest net monetary benefit – or with COVID-19 the least net monetary loss) for varying 'willingness to pay' for a HALY.
+
+From a health system perspective, if we were deciding whether a new drug was cost-effective, our threshold is as a rule of thumb about $60,000 per HALY (i.e. roughly a country’s GDP per capita per HALY). From a partial societal perspective, there are not really such rules of thumb – although often revealed willingness to pay per HALY is higher (hence we include up to $500,000 on the x-axis). For this type of analysis, the standard (that we follow) is a lifetime perspective (i.e. all changes in HALYs and health expenditure (and additionally GDP for the partial societal perspective) for the remainder of the population’s lifespan), each discounted at 3% per year.
+
+<div class="fig outset-3 more-margin-2">
+				<div id="graph-settings-PMSLT-prob" class="graph-settings"></div>
+				<div id="graph-container-PMSLT-prob" class="graph-container"></div>
+				<button class="toggle-open" id="toggle-open-PMSLT-prob"><span>Adjust parameters</span><span class="with-arrow"></span></button>
+				<aside class="collapsed"><div class="toggle-head" id="toggle-head-PMSLT-prob"><span>Adjust parameters</span><span class="small toggle-close" data-icon="close"></span></div><div class="toggles"><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Government & Public Response</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Vaccine Uptake</div>
+					<div class="description">Percentage of people who accept vaccination when they are offered it.</div>
+				</div>
+				<div><select name="VaccineUptake" id="select-PMSLT-prob-VaccineUptake" autocomplete=off>
+						<option value="60" >60%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#uptake" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Strategy Relaxation</div>
+					<div class="description">Whether to relax stage triggers as vaccination progresses.</div>
+				</div>
+				<div><select name="StrategyRelaxation" id="select-PMSLT-prob-StrategyRelaxation" autocomplete=off>
+						<option value="0" selected>Off</option>
+<option value="1" >On</option>
+					</select><a href="/pandemic-trade-offs-detail/#strategy-relaxation" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div><div class="toggle-group">
+				<div class="group-details">
+					<div class="group-name">Infectivity</div>
+				</div>
+				<div class="group-contents">
+					<div class="toggle-box">
+				<div>
+					<div class="name">Phase 1 Vaccine Efficacy</div>
+					<div class="description">Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.</div>
+				</div>
+				<div><select name="Efficacy1" id="select-PMSLT-prob-Efficacy1" autocomplete=off>
+						<option value="50" >50%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Phase 2 & 3 Vaccine Efficacy</div>
+					<div class="description">Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.</div>
+				</div>
+				<div><select name="Efficacy2" id="select-PMSLT-prob-Efficacy2" autocomplete=off>
+						<option value="50" >50%</option>
+<option value="75" selected>75%</option>
+<option value="90" >90%</option>
+					</select><a href="/pandemic-trade-offs-detail/#effectiveness" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div><div class="toggle-box">
+				<div>
+					<div class="name">Unmitigated Reproduction Rate</div>
+					<div class="description">Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.</div>
+				</div>
+				<div><select name="R0" id="select-PMSLT-prob-R0" autocomplete=off>
+						<option value="2.5" >2.5</option>
+<option value="3.125" selected>3.125</option>
+<option value="3.75" >3.75</option>
+					</select><a href="/pandemic-trade-offs-detail/#reproduction" class="detail-link" target="_blank" rel="noopener noreferrer"><span data-icon="info-outline" class="smaller"></span> <span>Details</span></a></div></div>
+				</div>
+			</div></div><button class="toggle-open" id="toggle-open-PMSLT-prob"><span>Adjust parameters</span><span class="with-arrow"></span></button></aside></div>
+			<script type="text/javascript">
+				graphs.push("PMSLT-prob")
+			</script>
+		
+
+To learn more about this modelling, please see the Model Details page.
+
+<a href="/pandemic-trade-offs-detail/" class="button-small with-arrow">View model details</a>

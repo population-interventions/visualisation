@@ -1,0 +1,213 @@
+{
+	"$schema": "https://vega.github.io/schema/vega/v5.json",
+	"padding": 0,
+	"width": 600,
+	"height": 400,
+	"autosize": "fit",
+
+	"title": {
+		"text": "Which strategy is optimal?",
+		"subtitle": "Probability that each strategy is optimal, by willingness to pay."
+	},
+	"description": "Probability that each strategy is optimal.",
+
+	"data": [
+		{
+			"name": "main",
+			"format": {"type": "csv", "parse": "auto"},
+			"url": "/posts/pandemic-trade-offs/dummy_PMSLT2_data.csv",
+			"transform": [
+				{ "type": "filter", "expr": "datum.vUptake === VaccineUptake" },
+				{ "type": "filter", "expr": "datum.v1trans === Efficacy1" },
+				{ "type": "filter", "expr": "datum.v2trans === Efficacy2" },
+				{ "type": "filter", "expr": "datum.relax === StrategyRelaxation" },
+				{ "type": "filter", "expr": "datum.R0 === R0" }
+			]
+		}
+	],
+
+	"uom": {
+		"comingSoon": true,
+		"minWidth": 900,
+		"figPosition": "outset-3",
+		"increaseMargin": 2,
+		
+		"toggleGroups": [
+			{
+				"name": "Government & Public Response",
+				"toggles": [
+					{
+						"title": "Vaccine Uptake",
+						"description": "Percentage of people who accept vaccination when they are offered it.",
+						"detailLink": "/pandemic-trade-offs-detail/#uptake",
+						"type": "select",
+						"options": [
+							{ "value": 60, "label": "60%" },
+							{ "value": 75, "label": "75%", "default": true },
+							{ "value": 90, "label": "90%" }
+						],
+						"signalName": "VaccineUptake"
+					},
+					{
+						"title": "Strategy Relaxation",
+						"description": "Whether to relax stage triggers as vaccination progresses.",
+						"detailLink": "/pandemic-trade-offs-detail/#strategy-relaxation",
+						"type": "select",
+						"options": [
+							{ "value": 0, "label": "Off", "default": true },
+							{ "value": 1, "label": "On" }
+						],
+						"signalName": "StrategyRelaxation"
+					}
+				]
+			},
+			{
+				"name": "Infectivity",
+				"toggles": [
+					{
+						"title": "Phase 1 Vaccine Efficacy",
+						"description": "Percentage by which the vaccine administered in phase 1 would reduce transmission in a fully vaccinated population.",
+						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
+						"type": "select",
+						"options": [
+							{ "value": 50, "label": "50%" },
+							{ "value": 75, "label": "75%", "default": true },
+							{ "value": 90, "label": "90%" }
+						],
+						"signalName": "Efficacy1"
+					},
+					{
+						"title": "Phase 2 & 3 Vaccine Efficacy",
+						"description": "Percentage by which the vaccine administered in phases 2 and beyond would reduce transmission in a fully vaccinated population.",
+						"detailLink": "/pandemic-trade-offs-detail/#effectiveness",
+						"type": "select",
+						"options": [
+							{ "value": 50, "label": "50%" },
+							{ "value": 75, "label": "75%", "default": true },
+							{ "value": 90, "label": "90%" }
+						],
+						"signalName": "Efficacy2"
+					},
+					{
+						"title": "Unmitigated Reproduction Rate",
+						"description": "Average number of people each infected person infects with no interventions, such as masks, physical distancing, case isolation, and vaccination.",
+						"detailLink": "/pandemic-trade-offs-detail/#reproduction",
+						"type": "select",
+						"options": [
+							{ "value": 2.5 },
+							{ "value": 3.125, "default": true },
+							{ "value": 3.75 }
+						],
+						"signalName": "R0"
+					}
+				]
+			}
+		]
+	},
+
+	"scales": [
+		{
+			"name": "x",
+			"type": "linear",
+			"range": "width",
+			"domain": [0, 25000]
+		},
+		{
+			"name": "y",
+			"type": "linear",
+			"range": "height",
+			"domain": [0, 1]
+		},
+		{
+			"name": "colour",
+			"type": "ordinal",
+			"range": {"scheme": "viridis"},
+			"domain": {"data": "main", "field": "strategy"}
+		},
+		{
+			"name": "parameters",
+			"type": "ordinal",
+			"domain": ["Input 1", "Input 2", "Input 3"],
+			"domain": { "signal": "['Vaccine Uptake: ' + VaccineUptake, 'Strategy Relaxation: ' + StrategyRelaxation, 'Vaccine Efficacy (1): ' + Efficacy1, 'Vaccine Efficacy (2): ' + Efficacy2, 'R_0: ' + R0]"},
+			"range": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
+		}
+	],
+
+	"legends": [
+		{
+			"direction": "vertical",
+			"fill": "colour",
+			"title": "Strategies",
+			"labelLimit": 200
+		},
+		{
+			"fill": "parameters",
+			"labelLimit": 200,
+			"title": "Parameters",
+			"titleFontSize": 18,
+			"titlePadding": 10,
+			"symbolSize": 0,
+			"rowPadding": 3,
+			"padding": 15,
+			"fillColor": "#f2f5f9",
+			"cornerRadius": 5,
+			"encode": {
+				"labels": {
+					"enter": {
+						"dx": {"value": -24},
+						"fontSize": {"value": 14},
+						"font": {"value": "monospace"}
+					}
+				}
+			}
+		}
+	],
+
+	"axes": [
+		{
+			"orient": "bottom",
+			"scale": "x",
+			"title": "Willingness to pay per HALY (AUD)",
+			"titleY": 50,
+			"zindex": 100
+		},
+		{
+			"orient": "left",
+			"scale": "y",
+			"title": "Probability that strategy is optimal",
+			"titleX": -50,
+			"zindex": 100
+		}
+	],
+
+	"marks": [
+		{
+			"type": "group",
+			"from": {
+				"facet": {
+					"name": "series",
+					"data": "main",
+					"groupby": ["strategy"]
+				}
+			},
+			"marks": [
+				{
+					"type": "line",
+					"from": {"data": "series"},
+					"zindex": 1,
+					"encode": {
+						"enter": {
+							"x": {"scale": "x", "field": "HALYprice"},
+							"y": {"scale": "y", "field": "p"},
+							"stroke": {"scale": "colour", "field": "strategy"},
+							"strokeWidth": {"value": 2}
+						},
+						"update": {
+							"y": {"scale": "y", "field": "p"}
+						}
+					}
+				}
+			]
+		}
+	]
+}

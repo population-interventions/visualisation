@@ -1,0 +1,85 @@
+{% extends 'base.njk' %} {% block title %} {{ post.data.title }} | Population
+Interventions Unit {% endblock %} {% block head %}
+<script type="text/javascript">
+    function loadCSS(path) {
+        let file = document.createElement("link");
+        file.setAttribute("rel", "stylesheet");
+        file.setAttribute("type", "text/css");
+        file.setAttribute("href", path);
+        document.head.appendChild(file);
+    }
+
+    var graphs = [];
+</script>
+
+{% if post.data.hidden %}
+<meta name="robots" content="noindex" />
+<meta name="googlebot" content="noindex" />
+{% endif %} {% endblock %} {% block breadcrumb %}
+<li
+    class="root"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://schema.org/ListItem"
+>
+    <a href="/#study" title="Study" itemprop="item">
+        <span itemprop="name">Study</span>
+    </a>
+    <meta content="2" itemprop="position" />
+</li>
+<li
+    class="root"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://schema.org/ListItem"
+>
+    <a href="/{{ url }}" title="{{ title }}" itemprop="item">
+        <span itemprop="name">{{ title }}</span>
+    </a>
+    <meta content="3" itemprop="position" />
+</li>
+
+{% endblock %} {% block content %}
+
+<div class="jumpnav"></div>
+
+<h1 class="aligned-title">{{ title }}</h1>
+
+<section class="lead left">
+    <p>{{ preview | safe }}</p>
+</section>
+
+<h2 id="project-details">Project Details</h2>
+{{ content | markdown | safe }}
+
+<section class="endmatter">
+    <h2 id="eoi">Expressions of Interest</h2>
+    <p>
+        To express interest in any of the above projects, please contact
+        <a href="mailto:population.interventions@unimelb.edu.au"
+            >population.interventions@unimelb.edu.au</a
+        >.
+    </p>
+    <p>The following should be supplied with your query:</p>
+    <ul type="disc">
+        <li>Academic CV&nbsp;including relevant skills and experience</li>
+        <li>Academic transcripts of your undergraduate/postgraduate studies</li>
+        <li>Confirmation of current location (are you in Australia?)</li>
+        <li>
+            A statement of interest in the research topic, including aspects of
+            the project and research questions that interest you
+        </li>
+        <li>
+            Proposed project preferences and context (e.g. masters project,
+            PhD*, full-time, part-time, intended start date, etc)
+        </li>
+        <li>Citizenship/visa details for Higher Degree Research applicants.</li>
+    </ul>
+    <p>
+        To undertake a PhD, you will need to meet the University of Melbourne
+        criteria for entry (and scholarship if seeking funding support). There
+        may be opportunities for a stipend top up, for certain projects.
+    </p>
+</section>
+
+{% endblock %}

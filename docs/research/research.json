@@ -1,0 +1,4 @@
+{
+    "layout": "research.njk",
+    "templateEngineOverride": "njk"
+}

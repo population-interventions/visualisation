@@ -1,0 +1,50 @@
+<section class="lead">
+    <p>
+        There are a range of additional research questions, topics and
+        short-term projects suitable for students that could be hosted in
+        Population Interventions Unit. Below is a list of the current projects
+        PI is working on.
+    </p>
+</section>
+<ul class="pathfinder-3">
+    {% for item in collections.study %}
+    <li>
+        <a href="{{ item.data.url }}"
+            ><strong
+                ><span>{{ item.data.title }}</span></strong
+            >
+            <p>
+                {{ item.data.preview }}
+            </p>
+            <span class="button-small brand">Learn more</span></a
+        >
+    </li>
+    {% endfor %}
+</ul>
+<section class="alt">
+    <div class="half">
+        <section>
+            <figure class="figure figure--max">
+                <div class="embed figure__content">
+                    <iframe
+                        allowfullscreen=""
+                        frameborder="0"
+                        height="315"
+                        src="//www.youtube.com/embed/ngG3raoqSxY"
+                        title="video player"
+                        width="560"
+                    ></iframe>
+                </div>
+            </figure>
+        </section>
+        <section>
+            <h1>Create your own Melbourne</h1>
+            <p>
+                The Melbourne experience is more than just lectures and study
+                sessions. As a University of Melbourne student, you can get
+                involved in the many campus activities on offer, enjoy amazing
+                new experiences and make lifelong friends along the way.
+            </p>
+        </section>
+    </div>
+</section>

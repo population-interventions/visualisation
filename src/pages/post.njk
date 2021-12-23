@@ -1,442 +1,452 @@
 ---
 pagination:
-  data: collections.post
-  size: 1
-  alias: post
+    data: collections.post
+    size: 1
+    alias: post
 permalink: /{{ post.data.slug }}/
 ---
 
-{% extends 'base.njk' %}
-
-{% block title %}
-	{{ post.data.title }} | Population Interventions Unit
-{% endblock %}
-
-{% block head %}
-
-	{% if post.data.dependencies %}
-		
-		{% if post.data.dependencies.katex %}
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
-			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
-			<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"></script>
-		{% endif %}
-
-		{% if post.data.dependencies.d3 %}
-			<script src="https://d3js.org/d3.v4.min.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
-			<script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
-			<script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
-		{% endif %}
-
-		{% if post.data.dependencies.vega %}
-			<meta charset="utf-8">
-			<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-			<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-			<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-		{% endif %}
-
-	{% endif %}
-	<script
-		src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-		crossorigin="anonymous">
-	</script>
-	
-	<script type="text/javascript">
-		function loadCSS(path) { 
-			let file = document.createElement("link");
-			file.setAttribute("rel", "stylesheet");
-			file.setAttribute("type", "text/css");
-			file.setAttribute("href", path);
-			document.head.appendChild(file);
-		}
-
-		var graphs = [];
-	</script>					
-	
-	{% if post.data.hidden %}
-		<meta name="robots" content="noindex">
-		<meta name="googlebot" content="noindex">
-	{% endif %}    
-
-{% endblock %}
-
-{% block breadcrumb %}
-	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-		<a href="/" title="{{ post.data.section }}" itemprop="item">
-			<span itemprop="name">{{ post.data.section }}</span>
-		</a>
-		<meta content="2" itemprop="position" />
-	</li>
-	<li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-		<a href="/{{ post.data.slug }}" title="{{ post.data.title }}" itemprop="item">
-			<span itemprop="name">{{ post.data.title }}</span>
-		</a>
-		<meta content="3" itemprop="position" />
-	</li>
-{% endblock %}
-
-{% block content %}
-
-	{% if post.data.draft %}
-		<div class="flash flash--warning flash--center">
-			<p>
-				<strong>This page is a draft.</strong> All content is provisional.
-			</p>
-		</div>
-	{% endif %}
-
-	{% if post.data.banner %}
-		<div class="flash flash--warning flash--center">
-			<p>
-				{{ post.data.banner | markdown | safe }}
-			</p>
-		</div>
-	{% endif %}
-
-	<div class="jumpnav"></div>
-	{# In-page navigation - will only be activated if h2's have IDs #}
-
-	{{ post | get_skip_to_links | safe }}
-
-	<h1 class="aligned-title">{{ post.data.title }}</h1>
-
-	{% if post.data.description %}
-		<section class="lead left">
-			<p>{{ post.data.description | safe }}</p>
-		</section>
-	{% endif %}
-
-
-	{{ post.templateContent | markdown | safe }}
-
-
-	<section class="endmatter">
-		{% if post.data.contributorDetails %}
-			<h4>Contributors</h4>
-			<p>{{ post.data.contributorDetails | markdown | safe }}</p>
-		{% endif %}
-
-		<h4>Contact Details</h4>
-		<p>Please direct media or other enquiries about this research to the <a href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions">Population Interventions Unit</a> at the following address.</p>
-		<dl class="PI-contact">
-			<dt>Email</dt>
-			<dd><a href="mailto:population-interventions@unimelb.edu.au">population-interventions@unimelb.edu.au</a></dd>
-		</dl>
-	</section>
-
-	<script type="text/javascript">
-
-		var views = {};
-
-		function render(key, spec) {
-			
-			// Add default graph config.
-
-			let defaultConfig = {
-				axis: {
-					labelFont: "Source Sans Pro, sans-serif",
-					titleFont: "Source Sans Pro, sans-serif",
-					titleFontSize: 20,
-					titleColor: "#012a58",
-					titleFontWeight: 400
-				},
-				legend: {
-					labelFont: "Source Sans Pro, sans-serif",
-					titleFont: "Source Sans Pro, sans-serif",
-					labelFontSize: 18,
-					labelColor: "#000000",
-					titlePadding: 15,
-					titleFontSize: 20,
-					titleColor: "#012a58",
-					symbolSize: 360,
-					labelSeparation: 10,
-					labelOffset: 10,
-					offset: 20,
-					titleFontWeight: 400,
-					layout: {
-						margin: 60
-					}
-				},
-				title: {
-					font: "Source Sans Pro, sans-serif",
-					subtitleFont: "Source Sans Pro, sans-serif",
-					anchor: "start",
-					color: "#012a58",
-					fontSize: 28,
-					fontWeight: 700,
-					subtitleColor: "#000000",
-					subtitleFontSize: "20",
-					subtitleFontWeight: "400",
-					subtitlePadding: 10,
-					offset: 20,
-					dx: 70
-				}
-			};
-			if (spec.hasOwnProperty('config')) {
-				spec.config.axis = { ...defaultConfig.axis, ...spec.config.axis };
-				spec.config.legend = { ...defaultConfig.legend, ...spec.config.legend };
-				spec.config.title = { ...defaultConfig.title, ...spec.config.title };
-			} else {
-				spec.config = defaultConfig;
-			}
-
-			// Create uom property if doesn't already exist.
-
-			if (!spec.hasOwnProperty('uom')) {
-				spec.uom = {};
-			}
-
-			// Make background white (if none already specified).
-
-			if (!spec.hasOwnProperty('background')) {
-				spec.background = "#ffffff";
-			}
-
-			// Blank out if 'coming soon'.
-
-			if (spec.uom.hasOwnProperty('comingSoon') & spec.uom['comingSoon']) {
-				spec.data.push({
-					name: "shades",
-					values: [ { "label": "Coming Soon" } ]
-				})
-
-				spec.marks = [
-					{
-						type: "rect",
-						from: { data: "shades" },
-						encode: {
-							update: {
-								x: { signal: "range('x')[0]" },
-								x2: { signal: "range('x')[1]" },
-								y: { signal: "range('y')[0]" },
-								y2: { signal: "range('y')[1]" },
-								strokeWidth: { value: 0 },
-								fill: { value: '#f2f5f9' }
-							}
-						}
-
-					},
-					{
-						type: "text",
-						from: { data: "shades" },
-						encode: {
-							update: {
-								x: { signal: "(range('x')[0] + range('x')[1]) / 2" },
-								y: { signal: "(range('y')[0] + range('y')[1]) / 2" },
-								text: { signal: "datum.label" },
-								baseline: { value: "middle" },
-								align: { value: "center" },
-								fill: { value: "#012a58" },
-								fontSize: { value: 20 },
-								fontWeight: { value: 'bold' }
-								
-							}
-						}
-					}
-				]
-			}
-
-			// Specify renderer if not already specified.
-
-			if (!spec.uom.hasOwnProperty('renderer')) {
-				spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
-			}
-
-			// Set correct autosize mode.
-
-			if (!spec.hasOwnProperty("autosize")) {
-				spec.autosize = "fit";
-			}
-
-			// Define desired aspect ratio.
-
-			if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
-				spec.uom.aspectRatio = spec.width / spec.height;
-			} else {
-				spec.uom.aspectRatio = 1.5;
-			}
-			delete spec.width;
-			delete spec.height;
-
-			// Define threshold width between two types of graph scaling.
-				// Above this width, the graph is re-rendered to fit the space available.
-				// (eg. text will stay its specified size)
-				// Below this width, the graph is simply scaled down to fit the space available.
-				// (eg. text will be smaller than the specified size)
-			if (!spec.uom.hasOwnProperty('minWidth')) {
-				spec.uom.minWidth = 800;
-			}
-
-			// Generate signals for specified toggles.
-
-			if (!spec.hasOwnProperty('signals')) {
-				spec.signals = [];
-			}
-			if (spec.uom.hasOwnProperty('toggleGroups')) {
-				for (let toggleGroup of spec.uom['toggleGroups']) {
-					for (let toggle of toggleGroup.toggles) {
-
-						let updateDefault, updateOnChange;
-						if (typeof(toggle.options[0].value) === "number") {
-							updateDefault = `${toggle.options.filter(d => d.default)[0].value}`;
-							updateOnChange = "toNumber(event.target.value)";
-						} else {
-							updateDefault = `'${toggle.options.filter(d => d.default)[0].value}'`;
-							updateOnChange = "event.target.value";
-						}
-
-						spec.signals.push({
-							name: toggle.signalName,
-							update: updateDefault,
-							on: [{
-								events: {
-									source: `#select-${key}-${toggle.signalName}`,
-									type: "change"
-								},
-								update: updateOnChange
-							}]
-						})
-					}
-				}
-			}
-
-			// Store reference to wrapper element.
-
-			spec.uom.container = document.querySelector(`#graph-container-${key}`);
-
-			// Create the view.
-
-			let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-			vegaEmbed(
-				`#graph-container-${key}`,
-				spec,
-				opt = {
-					renderer: spec.uom.renderer,
-					// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
-					actions: false,
-					width: width,
-					height: width / spec.uom.aspectRatio
-				}
-			).then(function(result) {
-
-				views[key] = result.view;
-
-				// Make responsive.
-
-				if (spec.uom.renderer === 'canvas') {
-					
-					spec.uom.resize = () => {
-						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-						views[key]
-							.width(width)
-							.height(width / spec.uom.aspectRatio)
-							.run();
-					};
-					window.addEventListener('resize', spec.uom.resize);
-				
-				} else {
-					
-					function removeWidthHeightAttributes() {
-						// Remove width/height attributes of Vega SVG and let viewBox handle the responsive behaviour.
-						let viewDom = spec.uom.container.firstElementChild;
-						viewDom.removeAttribute('width');
-						viewDom.removeAttribute('height');
-					}
-
-					spec.uom.resize = () => {
-
-						let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
-						views[key]
-							.width(width)
-							.height(width / spec.uom.aspectRatio)
-							.runAsync()
-							.then(vw => {
-								removeWidthHeightAttributes();
-							});
-						
-					};
-					window.addEventListener('resize', spec.uom.resize);
-
-					removeWidthHeightAttributes();
-					
-				}
-
-			}).catch(console.error);
-
-			return views[key];
-
-		}
-
-		// Render all graphs.
-
-		for (let key of graphs) {
-		
-			fetch('/posts/{{ post.data.slug }}/graph-' + key + '.json')
-				.then(res => res.json())
-				.then(spec => render(key, spec))
-				.catch(err => console.error(err));
-
-		}
-
-		// Reset select fields on page load (to avoid misleading browser-cached values).
-
-		$( document ).ready(function() {
-			$('select').each( function() {
-				$(this).val( $(this).find("option[selected]").val() );
-			});
-		});
-
-		// Render KaTeX.
-
-		{% if post.data.dependencies %}
-			{% if post.data.dependencies.katex %}
-				document.addEventListener("DOMContentLoaded", function() {
-					renderMathInElement(document.body, {
-						delimiters: [
-							{left: "$$", right: "$$", display: true},
-							{left: "\\(", right: "\\)", display: false},
-							{left: "\\[", right: "\\]", display: true}
-						]
-					});
-				});
-			{% endif %}
-		{% endif %}
-
-	</script>
-
-	<script>
-
-		// Hanlde toggle close and open events
-
-		$( ".toggle-open" ).click(function(e) {
-			var toggleBtn = $(this)
-			var toggles = toggleBtn.closest("aside")
-			if( toggles.length === 1 ) {
-				toggles.toggleClass("collapsed")
-			}	else {
-				var toggles = toggleBtn.siblings( "aside" )
-				toggles.toggleClass("collapsed")
-			}
-			e.stopPropagation();	
-		});
-
-		$(" aside ").click(function(e) {
-			e.stopPropagation()
-		});
-
-		$( ".toggle-close" ).click(function() {
-			var toggleBtn = $(this)
-			var toggles = toggleBtn.closest("aside")
-			toggles.toggleClass("collapsed")
-		});
-
-		// $(document).click(function() {
-		// 	$("aside").addClass("collapsed");
-		// });
-	</script>
-
-	{# TODO - make more responsive: https://bl.ocks.org/donghaoren/023b2246569e8f0615017507b473e55e #}
-
-{% endblock %}
+{% extends 'base.njk' %} {% block title %}
+{{ post.data.title }} | Population Interventions Unit {% endblock %} {% block
+head %} {% if post.data.dependencies %} {% if post.data.dependencies.katex %}
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"
+    integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw"
+    crossorigin="anonymous"
+/>
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js"
+    integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH"
+    crossorigin="anonymous"
+></script>
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+    crossorigin="anonymous"
+></script>
+{% endif %} {% if post.data.dependencies.d3 %}
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
+{% endif %} {% if post.data.dependencies.vega %}
+<meta charset="utf-8" />
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+{% endif %} {% endif %}
+<script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"
+></script>
+
+<script type="text/javascript">
+    function loadCSS(path) {
+        let file = document.createElement("link");
+        file.setAttribute("rel", "stylesheet");
+        file.setAttribute("type", "text/css");
+        file.setAttribute("href", path);
+        document.head.appendChild(file);
+    }
+
+    var graphs = [];
+</script>
+
+{% if post.data.hidden %}
+<meta name="robots" content="noindex" />
+<meta name="googlebot" content="noindex" />
+{% endif %} {% endblock %} {% block breadcrumb %}
+<li
+    class="root"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://schema.org/ListItem"
+>
+    <a href="/" title="{{ post.data.section }}" itemprop="item">
+        <span itemprop="name">{{ post.data.section }}</span>
+    </a>
+    <meta content="2" itemprop="position" />
+</li>
+<li
+    class="root"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://schema.org/ListItem"
+>
+    <a
+        href="/{{ post.data.slug }}"
+        title="{{ post.data.title }}"
+        itemprop="item"
+    >
+        <span itemprop="name">{{ post.data.title }}</span>
+    </a>
+    <meta content="3" itemprop="position" />
+</li>
+{% endblock %} {% block content %} {% if post.data.draft %}
+<div class="flash flash--warning flash--center">
+    <p><strong>This page is a draft.</strong> All content is provisional.</p>
+</div>
+{% endif %} {% if post.data.banner %}
+<div class="flash flash--warning flash--center">
+    <p>
+        {{ post.data.banner | markdown | safe }}
+    </p>
+</div>
+{% endif %}
+
+<div class="jumpnav"></div>
+{# In-page navigation - will only be activated if h2's have IDs #}
+
+{{ post | get_skip_to_links | safe }}
+
+<h1 class="aligned-title">{{ post.data.title }}</h1>
+
+{% if post.data.description %}
+<section class="lead left">
+    <p>{{ post.data.description | safe }}</p>
+</section>
+{% endif %}
+
+{{ post.templateContent | markdown | safe }}
+
+<section class="endmatter">
+    {% if post.data.contributorDetails %}
+    <h4>Contributors</h4>
+    <p>{{ post.data.contributorDetails | markdown | safe }}</p>
+    {% endif %}
+
+    <h4>Contact Details</h4>
+    <p>
+        Please direct media or other enquiries about this research to the
+        <a
+            href="https://mspgh.unimelb.edu.au/research-groups/centre-for-epidemiology-and-biostatistics-research/population-interventions"
+            >Population Interventions Unit</a
+        >
+        at the following address.
+    </p>
+    <dl class="PI-contact">
+        <dt>Email</dt>
+        <dd>
+            <a href="mailto:population-interventions@unimelb.edu.au"
+                >population-interventions@unimelb.edu.au</a
+            >
+        </dd>
+    </dl>
+</section>
+
+<script type="text/javascript">
+
+    var views = {};
+
+    function render(key, spec) {
+
+    	// Add default graph config.
+
+    	let defaultConfig = {
+    		axis: {
+    			labelFont: "Source Sans Pro, sans-serif",
+    			titleFont: "Source Sans Pro, sans-serif",
+    			titleFontSize: 20,
+    			titleColor: "#012a58",
+    			titleFontWeight: 400
+    		},
+    		legend: {
+    			labelFont: "Source Sans Pro, sans-serif",
+    			titleFont: "Source Sans Pro, sans-serif",
+    			labelFontSize: 18,
+    			labelColor: "#000000",
+    			titlePadding: 15,
+    			titleFontSize: 20,
+    			titleColor: "#012a58",
+    			symbolSize: 360,
+    			labelSeparation: 10,
+    			labelOffset: 10,
+    			offset: 20,
+    			titleFontWeight: 400,
+    			layout: {
+    				margin: 60
+    			}
+    		},
+    		title: {
+    			font: "Source Sans Pro, sans-serif",
+    			subtitleFont: "Source Sans Pro, sans-serif",
+    			anchor: "start",
+    			color: "#012a58",
+    			fontSize: 28,
+    			fontWeight: 700,
+    			subtitleColor: "#000000",
+    			subtitleFontSize: "20",
+    			subtitleFontWeight: "400",
+    			subtitlePadding: 10,
+    			offset: 20,
+    			dx: 70
+    		}
+    	};
+    	if (spec.hasOwnProperty('config')) {
+    		spec.config.axis = { ...defaultConfig.axis, ...spec.config.axis };
+    		spec.config.legend = { ...defaultConfig.legend, ...spec.config.legend };
+    		spec.config.title = { ...defaultConfig.title, ...spec.config.title };
+    	} else {
+    		spec.config = defaultConfig;
+    	}
+
+    	// Create uom property if doesn't already exist.
+
+    	if (!spec.hasOwnProperty('uom')) {
+    		spec.uom = {};
+    	}
+
+    	// Make background white (if none already specified).
+
+    	if (!spec.hasOwnProperty('background')) {
+    		spec.background = "#ffffff";
+    	}
+
+    	// Blank out if 'coming soon'.
+
+    	if (spec.uom.hasOwnProperty('comingSoon') & spec.uom['comingSoon']) {
+    		spec.data.push({
+    			name: "shades",
+    			values: [ { "label": "Coming Soon" } ]
+    		})
+
+    		spec.marks = [
+    			{
+    				type: "rect",
+    				from: { data: "shades" },
+    				encode: {
+    					update: {
+    						x: { signal: "range('x')[0]" },
+    						x2: { signal: "range('x')[1]" },
+    						y: { signal: "range('y')[0]" },
+    						y2: { signal: "range('y')[1]" },
+    						strokeWidth: { value: 0 },
+    						fill: { value: '#f2f5f9' }
+    					}
+    				}
+
+    			},
+    			{
+    				type: "text",
+    				from: { data: "shades" },
+    				encode: {
+    					update: {
+    						x: { signal: "(range('x')[0] + range('x')[1]) / 2" },
+    						y: { signal: "(range('y')[0] + range('y')[1]) / 2" },
+    						text: { signal: "datum.label" },
+    						baseline: { value: "middle" },
+    						align: { value: "center" },
+    						fill: { value: "#012a58" },
+    						fontSize: { value: 20 },
+    						fontWeight: { value: 'bold' }
+
+    					}
+    				}
+    			}
+    		]
+    	}
+
+    	// Specify renderer if not already specified.
+
+    	if (!spec.uom.hasOwnProperty('renderer')) {
+    		spec.uom.renderer = 'svg'; // Either 'svg' or 'canvas'.
+    	}
+
+    	// Set correct autosize mode.
+
+    	if (!spec.hasOwnProperty("autosize")) {
+    		spec.autosize = "fit";
+    	}
+
+    	// Define desired aspect ratio.
+
+    	if (spec.hasOwnProperty('width') & spec.hasOwnProperty('height')) {
+    		spec.uom.aspectRatio = spec.width / spec.height;
+    	} else {
+    		spec.uom.aspectRatio = 1.5;
+    	}
+    	delete spec.width;
+    	delete spec.height;
+
+    	// Define threshold width between two types of graph scaling.
+    		// Above this width, the graph is re-rendered to fit the space available.
+    		// (eg. text will stay its specified size)
+    		// Below this width, the graph is simply scaled down to fit the space available.
+    		// (eg. text will be smaller than the specified size)
+    	if (!spec.uom.hasOwnProperty('minWidth')) {
+    		spec.uom.minWidth = 800;
+    	}
+
+    	// Generate signals for specified toggles.
+
+    	if (!spec.hasOwnProperty('signals')) {
+    		spec.signals = [];
+    	}
+    	if (spec.uom.hasOwnProperty('toggleGroups')) {
+    		for (let toggleGroup of spec.uom['toggleGroups']) {
+    			for (let toggle of toggleGroup.toggles) {
+
+    				let updateDefault, updateOnChange;
+    				if (typeof(toggle.options[0].value) === "number") {
+    					updateDefault = `${toggle.options.filter(d => d.default)[0].value}`;
+    					updateOnChange = "toNumber(event.target.value)";
+    				} else {
+    					updateDefault = `'${toggle.options.filter(d => d.default)[0].value}'`;
+    					updateOnChange = "event.target.value";
+    				}
+
+    				spec.signals.push({
+    					name: toggle.signalName,
+    					update: updateDefault,
+    					on: [{
+    						events: {
+    							source: `#select-${key}-${toggle.signalName}`,
+    							type: "change"
+    						},
+    						update: updateOnChange
+    					}]
+    				})
+    			}
+    		}
+    	}
+
+    	// Store reference to wrapper element.
+
+    	spec.uom.container = document.querySelector(`#graph-container-${key}`);
+
+    	// Create the view.
+
+    	let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+    	vegaEmbed(
+    		`#graph-container-${key}`,
+    		spec,
+    		opt = {
+    			renderer: spec.uom.renderer,
+    			// actions: key == 'PMSLT-HALY' ? false : {export: true, source: false, editor: false},
+    			actions: false,
+    			width: width,
+    			height: width / spec.uom.aspectRatio
+    		}
+    	).then(function(result) {
+
+    		views[key] = result.view;
+
+    		// Make responsive.
+
+    		if (spec.uom.renderer === 'canvas') {
+
+    			spec.uom.resize = () => {
+    				let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+    				views[key]
+    					.width(width)
+    					.height(width / spec.uom.aspectRatio)
+    					.run();
+    			};
+    			window.addEventListener('resize', spec.uom.resize);
+
+    		} else {
+
+    			function removeWidthHeightAttributes() {
+    				// Remove width/height attributes of Vega SVG and let viewBox handle the responsive behaviour.
+    				let viewDom = spec.uom.container.firstElementChild;
+    				viewDom.removeAttribute('width');
+    				viewDom.removeAttribute('height');
+    			}
+
+    			spec.uom.resize = () => {
+
+    				let width = Math.max(spec.uom.container.offsetWidth, spec.uom.minWidth);
+    				views[key]
+    					.width(width)
+    					.height(width / spec.uom.aspectRatio)
+    					.runAsync()
+    					.then(vw => {
+    						removeWidthHeightAttributes();
+    					});
+
+    			};
+    			window.addEventListener('resize', spec.uom.resize);
+
+    			removeWidthHeightAttributes();
+
+    		}
+
+    	}).catch(console.error);
+
+    	return views[key];
+
+    }
+
+    // Render all graphs.
+
+    for (let key of graphs) {
+
+    	fetch('/posts/{{ post.data.slug }}/graph-' + key + '.json')
+    		.then(res => res.json())
+    		.then(spec => render(key, spec))
+    		.catch(err => console.error(err));
+
+    }
+
+    // Reset select fields on page load (to avoid misleading browser-cached values).
+
+    $( document ).ready(function() {
+    	$('select').each( function() {
+    		$(this).val( $(this).find("option[selected]").val() );
+    	});
+    });
+
+    // Render KaTeX.
+
+    {% if post.data.dependencies %}
+    	{% if post.data.dependencies.katex %}
+    		document.addEventListener("DOMContentLoaded", function() {
+    			renderMathInElement(document.body, {
+    				delimiters: [
+    					{left: "$$", right: "$$", display: true},
+    					{left: "\\(", right: "\\)", display: false},
+    					{left: "\\[", right: "\\]", display: true}
+    				]
+    			});
+    		});
+    	{% endif %}
+    {% endif %}
+</script>
+
+<script>
+    // Hanlde toggle close and open events
+
+    $(".toggle-open").click(function (e) {
+        var toggleBtn = $(this);
+        var toggles = toggleBtn.closest("aside");
+        if (toggles.length === 1) {
+            toggles.toggleClass("collapsed");
+        } else {
+            var toggles = toggleBtn.siblings("aside");
+            toggles.toggleClass("collapsed");
+        }
+        e.stopPropagation();
+    });
+
+    $(" aside ").click(function (e) {
+        e.stopPropagation();
+    });
+
+    $(".toggle-close").click(function () {
+        var toggleBtn = $(this);
+        var toggles = toggleBtn.closest("aside");
+        toggles.toggleClass("collapsed");
+    });
+
+    // $(document).click(function() {
+    // 	$("aside").addClass("collapsed");
+    // });
+</script>
+
+{# TODO - make more responsive:
+https://bl.ocks.org/donghaoren/023b2246569e8f0615017507b473e55e #} {% endblock
+%}
