@@ -19,11 +19,11 @@ exports.content = [
         section: "COVID-19 Pandemic",
         type: "Interactive",
 
-        title: "CoVStrain: COVID-19 sequencing prevalences around the world",
-        date: "2022-03-21",
-        date_updated: "2022-03-21",
+        title: "COVID-19 Pandemic Trade-offs: Version 4, August 2022",
+        date: "2022-08-22",
+        date_updated: "2022-08-22",
 
-        url: "https://covstrain.com",
+        url: "https://populationinterventions.science.unimelb.edu.au/pandemic-trade-offs-august-2022/",
 
         hidden: false,
     },
