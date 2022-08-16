@@ -66,17 +66,6 @@ head %} {% if post.data.dependencies %} {% if post.data.dependencies.katex %}
     itemscope=""
     itemtype="http://schema.org/ListItem"
 >
-    <a href="/" title="{{ post.data.section }}" itemprop="item">
-        <span itemprop="name">{{ post.data.section }}</span>
-    </a>
-    <meta content="2" itemprop="position" />
-</li>
-<li
-    class="root"
-    itemprop="itemListElement"
-    itemscope=""
-    itemtype="http://schema.org/ListItem"
->
     <a
         href="/{{ post.data.slug }}"
         title="{{ post.data.title }}"
