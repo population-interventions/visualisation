@@ -1,2 +1,3 @@
 populationinterventions/
 conf/node_modules/*
+*.html
