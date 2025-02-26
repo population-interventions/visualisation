@@ -1,33 +1,34 @@
 {% extends 'base.njk' %} {% block content %}
 <div class="floating"></div>
 <div role="main">
-    <header
-        class="banner"
-        style="background-image: url(https://mspgh.unimelb.edu.au/__data/assets/image/0006/4278174/varieties/banner.jpg);" class=" image "
-    >
-        <div class="mid-align">
-            <h1>Population Interventions Unit</h1>
-        </div>
-    </header>
-    <div class="tabbed-nav" data-tabbed="" id="nav">
-        <div class="full-width">
-            <nav role="tablist">
-                <!-- <a href="#welcome" role="tab" data-current>Welcome</a> -->
-                <!-- <a href="#research" role="tab">Research</a> -->
-                <!-- <a href="#study" role="tab">Study</a> -->
-                <a href="#visualisations" role="tab">Visualisations</a>
-            </nav>
-        </div>
-        <div class="tab" id="study" role="tabpanel">
-            {% include 'study.njk' %}
-        </div>
-        <div class="tab" id="research" role="tabpanel">
-            {% include 'research.njk' %}
-        </div>
-        <div class="tab" id="visualisations" role="tabpanel">
-            {% include 'visualisations.njk' %}
-        </div>
+  <!-- <header
+    class="banner"
+    style="
+      background-image: url(https://mspgh.unimelb.edu.au/__data/assets/image/0006/4278174/varieties/banner.jpg);
+    "
+    class="image"
+  >
+    <div class="mid-align">
+      <h1>SHINE</h1>
     </div>
+  </header> -->
+  <div class="tabbed-nav" data-tabbed="" id="nav">
+    <div class="full-width">
+      <nav role="tablist">
+        <!-- <a href="#welcome" role="tab" data-current>Welcome</a> -->
+        <!-- <a href="#research" role="tab">Research</a> -->
+        <!-- <a href="#study" role="tab">Study</a> -->
+        <a href="#visualisations" role="tab">Visualisations</a>
+      </nav>
+    </div>
+    <div class="tab" id="study" role="tabpanel">{% include 'study.njk' %}</div>
+    <div class="tab" id="research" role="tabpanel">
+      {% include 'research.njk' %}
+    </div>
+    <div class="tab" id="visualisations" role="tabpanel">
+      {% include 'visualisations.njk' %}
+    </div>
+  </div>
 </div>
 
 {% endblock %}
